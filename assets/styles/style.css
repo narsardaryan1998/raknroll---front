@@ -10,10 +10,48 @@
   font-style: normal;
   font-display: auto;
   unicode-range: U+000-5FF;
-  src: local("Bartender"), url("../fonts/Bartender-BoldSansLetterpress.ttf") format("truetype");
+  src: local("Bartender"), url("../fonts/Bartender-BoldSerifLetterpress.ttf") format("truetype");
 }
 
-.font-bartender{
+@font-face {
+  font-family: "OfontRu";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("OfontRu"), url("../fonts/ofont.ru_Gagalin.ttf") format("truetype");
+}
+
+.font-bartender {
   font-family: "Bartender", sans-serif;
-  font-size: 150px;
+}
+
+.font-ofontru {
+  font-family: "OfontRu", sans-serif;
+}
+
+.header_nav_delivery_part .v-text-field .v-select__selection--comma {
+  font-size: 14px !important;
+}
+
+.header_nav_delivery_part .v-text-field i {
+  font-size: 16px !important;
+}
+
+.list-style-none {
+  list-style: none !important;
+}
+
+.red-color {
+  color: #8E2E21 !important;
+}
+
+.v-application .theme--dark .red.darken-4 {
+  background-color: #8E2E21 !important;
+  border-color: #8E2E21 !important;
+}
+
+.v-application .theme--dark .red--text.text--darken-4 {
+  color: #8E2E21 !important;
+  caret-color: #8E2E21 !important;
 }

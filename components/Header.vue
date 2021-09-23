@@ -1,7 +1,7 @@
 <template>
   <div>
     <header id="header" class="d-flex">
-      <div class="container pl-0">
+      <div class="container px-0 mx-0">
         <div class="header_row">
           <div class="header_logo">
             <NuxtLink to="/" class="header_logo_link">
@@ -17,33 +17,82 @@
             </NuxtLink>
           </div>
           <div class="header_nav">
-            <div  class="header_nav_delivery_part row">
-              <div class="col-md-4">
+            <div class="header_nav_delivery_part row">
+              <div class="col-4">
                 <v-select
                   :items="['UK', 'RU', 'EN']"
                   menu-props="auto"
-                  color="red"
                   value="UK"
-                  label="UK"
-                  class="all_selects"
+                  color="red darken-4"
+                  class="pt-0 mt-0 without-border-select"
                   hide-details
+                  item-color="red darken-4"
                   prepend-icon="mdi-flag"
-                  item-color="red"
                   single-line>
                 </v-select>
               </div>
-              <div class="col-md-7 offset-1">
+              <div class="col-6 offset-1">
                 <v-select
                   :items="['099969998', '093091885', '041030006']"
                   menu-props="auto"
-                  color="red"
-                  item-color="red"
-                  label="099969998"
-                  class="w-50"
+                  color="red darken-4"
+                  value="099969998"
+                  item-color="red darken-4"
+                  class="pt-0 mt-0 without-border-select"
                   hide-details
                   prepend-icon="mdi-phone"
                   single-line>
                 </v-select>
+              </div>
+            </div>
+            <div class="header_nav_links d-flex align-center justify-space-between pt-5">
+              <div class="header_nav_navigation">
+                <nav class="d-block">
+                  <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
+                    <li class="current">
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/" data-hover="Главная">Главная</NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/products" data-hover="Продукты">Продукты
+                      </NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/about-us" data-hover="О Нас">О Нас
+                      </NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/bonuses" data-hover="Бонусы">Бонусы
+                      </NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/delivery" data-hover="Доставка и Оплата">
+                        Доставка и Оплата
+                      </NuxtLink>
+                    </li>
+                    <li>
+                      <NuxtLink class="header_nav_navigation_menu_link" to="/contact-us" data-hover="Контакт">Контакт
+                      </NuxtLink>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="header_nav_user_section">
+                <v-btn
+                  class="ma-2"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <img src="~/assets/icons/icons8-paid-64.png" alt="Shopping Cart"/>
+                </v-btn>
+                <v-btn
+                  class="ma-2"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <img src="~/assets/icons/icons8-account-64.png" alt="Account"/>
+                </v-btn>
               </div>
             </div>
           </div>
@@ -54,39 +103,133 @@
 </template>
 
 <script>
-  export default {
-    name: "Header"
-  }
+
+export default {
+  name: "Header",
+}
 </script>
 
 <style scoped>
-  #header {
-    position: fixed;
-    width: 100%;
-    z-index: 999999999999;
-  }
+#header {
+  position: fixed;
+  width: 100%;
+  z-index: 999999999999;
+}
 
-  .header_row {
-    display: flex;
-  }
+.header_row {
+  display: flex;
+}
 
-  .header_logo {
-    min-width: 15%;
-  }
+.header_logo {
+  min-width: 15%;
+}
 
-  .header_logo_link {
-    width: 100%;
-    position: relative;
-    display: block;
-    align-self: flex-end;
-    height: auto;
-  }
+.header_logo_link {
+  width: 65%;
+  position: relative;
+  display: block;
+  align-self: flex-end;
+  height: auto;
+}
 
-  .header_nav {
-    min-width: 85%;
-  }
+.header_nav {
+  min-width: 85%;
+}
 
-  .header_nav_delivery_part {
-    width: 30%;
-  }
+.header_nav_delivery_part {
+  width: 25%;
+}
+
+.header_nav_navigation {
+  min-width: 70%;
+}
+
+.header_nav_user_section {
+  min-width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header_nav_navigation_menu_link {
+  font-family: "OfontRu", sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  color: #feffff;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(.6, 0, .41, 1);
+  transition-duration: .3s;
+  text-decoration: none;
+}
+
+.header_nav_user_section img {
+  width: 25px;
+}
+
+/*Menu link hover effects*/
+.snip1143 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.snip1143 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.snip1143 li {
+  display: inline-block;
+  list-style: outside none none;
+  overflow: hidden;
+}
+
+.snip1143 a {
+  padding: 0.3em 0;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+
+.snip1143 a:before,
+.snip1143 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.snip1143 a:before {
+  top: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #8E2E21;
+}
+
+.snip1143 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: white;
+  white-space: nowrap;
+}
+
+.snip1143 li:hover a,
+.snip1143 .current a {
+  transform: translateY(-100%);
+}
+
+.snip1143 a:after {
+  color: #8E2E21 !important;
+}
+
+.without-border-select >>> .v-input__slot::before{
+  border-style: none !important;
+}
 </style>
