@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.v-application {
+  background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;
+}
+
+@font-face {
+  font-family: "Bartender";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Bartender"), url("../fonts/Bartender-BoldSansLetterpress.ttf") format("truetype");
+}
+
+.font-bartender{
+  font-family: "Bartender", sans-serif;
+  font-size: 150px;
+}

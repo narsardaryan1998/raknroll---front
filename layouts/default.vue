@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+<!--    <Intro></Intro>-->
     <Header></Header>
     <v-main>
       <nuxt/>
@@ -9,12 +10,13 @@
 
 <script>
   import Header from '~/components/Header'
-
+  import Intro from '~/components/Intro'
   export default {
     data() {
       return {
         components: {
-          Header
+          Header,
+          Intro,
         }
       }
     }
