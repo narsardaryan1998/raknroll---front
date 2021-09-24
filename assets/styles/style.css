@@ -31,27 +31,18 @@
 }
 
 .header_nav_delivery_part .v-text-field .v-select__selection--comma {
-  font-size: 14px !important;
+  font-family: 'Caveat', cursive;
+  font-size: 0.98vw !important;
 }
 
 .header_nav_delivery_part .v-text-field i {
-  font-size: 16px !important;
+  font-size: 0.98vw !important;
 }
 
 .list-style-none {
   list-style: none !important;
 }
 
-.red-color {
-  color: #8E2E21 !important;
-}
-
-.v-application .theme--dark .red.darken-4 {
-  background-color: #8E2E21 !important;
-  border-color: #8E2E21 !important;
-}
-
-.v-application .theme--dark .red--text.text--darken-4 {
-  color: #8E2E21 !important;
-  caret-color: #8E2E21 !important;
+.v-application .container {
+  max-width: 100%;
 }
