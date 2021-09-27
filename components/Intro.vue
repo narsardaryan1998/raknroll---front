@@ -68,10 +68,6 @@
         </kinesis-element>
       </div>
       <div class="intro1_subheader">
-        <kinesis-element
-          tag="div"
-          :strength="98"
-          type="translate">
           <span>
              <span data-aos="zoom-in"
                    data-aos-once="true"
@@ -139,8 +135,8 @@
                    data-aos-duration="1000"
                    data-aos-delay="2100">о,</span>
           </span>
-          <br>
-          <span>
+        <br>
+        <span>
              <span data-aos="zoom-in"
                    data-aos-once="true"
                    data-aos-duration="1000"
@@ -170,23 +166,18 @@
                    data-aos-duration="1000"
                    data-aos-delay="3000">Д.</span>
           </span>
-        </kinesis-element>
       </div>
       <div class="intro1_information1">
-        <kinesis-element
-          tag="div"
-          :strength="50"
-          type="translate">
-          <div class="d-flex justify-end">
-            <div class="intro1_information_icon pt-2">
-              <div data-aos="fade-left"
-                   data-aos-duration="1000"
-                   data-aos-delay="1400"
-                   data-aos-once="true">
-                <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
-              </div>
+        <div class="d-flex justify-end">
+          <div class="intro1_information_icon pt-2">
+            <div data-aos="fade-left"
+                 data-aos-duration="1000"
+                 data-aos-delay="1400"
+                 data-aos-once="true">
+              <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
             </div>
-            <div class="ml-2">
+          </div>
+          <div class="ml-2">
               <span>
                 <div data-aos="fade-left"
                      data-aos-duration="1000"
@@ -201,25 +192,20 @@
                     <span>Харьковское шоссе 17 А</span>
                   </div>
               </span>
-            </div>
           </div>
-        </kinesis-element>
+        </div>
       </div>
       <div class="intro1_information2">
-        <kinesis-element
-          tag="div"
-          :strength="80"
-          type="translate">
-          <div class="d-flex justify-end">
-            <div class="intro1_information_icon pt-2">
-              <div data-aos="fade-left"
-                   data-aos-duration="1000"
-                   data-aos-delay="1800"
-                   data-aos-once="true">
-                <img src="~/assets/icons/icons8-clock-64.png" alt="Location"/>
-              </div>
+        <div class="d-flex justify-end">
+          <div class="intro1_information_icon pt-2">
+            <div data-aos="fade-left"
+                 data-aos-duration="1000"
+                 data-aos-delay="1800"
+                 data-aos-once="true">
+              <img src="~/assets/icons/icons8-clock-64.png" alt="Location"/>
             </div>
-            <div class="ml-2">
+          </div>
+          <div class="ml-2">
               <span>
                 <div data-aos="fade-left"
                      data-aos-duration="1000"
@@ -234,25 +220,8 @@
                     <span class="red--text text--darken-4">Заказы:</span> <span>10:00-21:30</span>
                   </div>
               </span>
-            </div>
           </div>
-        </kinesis-element>
-      </div>
-      <div class="ice1"
-           data-aos="fade"
-           data-aos-duration="1000"
-           data-aos-once="true">
-        <kinesis-element
-          tag="div"
-          :strength="136"
-          type="translate">
-          <v-img
-            :src="require('~/assets/ice1.png')"
-            :lazy-src="require('~/assets/ice1.png')"
-            alt="Ice"
-            contain>
-          </v-img>
-        </kinesis-element>
+        </div>
       </div>
       <div class="krevetka1"
            data-aos="fade"
@@ -293,13 +262,6 @@ export default {
 </script>
 
 <style scoped>
-.c-home_hero-primary_image_container {
-  position: absolute;
-  right: 0;
-  top: -42px;
-  width: 43.5625vw;
-}
-
 .c-home_hero-primary_image_container img {
   width: 100%;
 }
@@ -353,21 +315,16 @@ export default {
 }
 
 .snail1 {
-  transform: rotate(280deg)!important;
+  transform: rotate(280deg) !important;
   padding-top: 10vw;
   margin-left: 25.25vw;
   width: 6vw;
 }
-.ice1 {
-  transform: rotate(5deg)!important;
-  margin-left: 15vw;
-  margin-top: -5.5vw;
-  width: 9vw;
-}
+
 .krevetka1 {
-  transform: rotate(275deg)!important;
+  transform: rotate(275deg) !important;
   margin-left: 48vw;
-  margin-top: -13.5vw;
+  margin-top: -12.5vw;
   width: 25vw;
 }
 </style>

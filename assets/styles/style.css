@@ -46,3 +46,36 @@
 .v-application .container {
   max-width: 100%;
 }
+
+.swiper-slider_product {
+  background: transparent !important;
+}
+
+.swiper-slider_product .v-image__image {
+  background-size: contain !important;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  --swiper-theme-color: #385779;
+}
+
+.swiper-pagination-bullet {
+  background: #a0a0a0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #B71C1C !important;
+}
+
+.opacity-is-50 {
+  opacity: 0.5;
+  transition: .5s;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
