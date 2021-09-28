@@ -79,3 +79,8 @@
 .cursor-grab {
   cursor: grab;
 }
+
+.container-padding {
+  padding-left: 7vw !important;
+  padding-right: 7vw !important;
+}

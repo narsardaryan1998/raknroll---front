@@ -1,8 +1,8 @@
 <template>
   <div class="recommended-section mt-5 pt-5">
-<!--    <div class="recommended-section_header">-->
-<!--      <span class="recommended-section_header-text red&#45;&#45;text text&#45;&#45;darken-4">Хит Товары</span>-->
-<!--    </div>-->
+    <!--    <div class="recommended-section_header">-->
+    <!--      <span class="recommended-section_header-text red&#45;&#45;text text&#45;&#45;darken-4">Хит Товары</span>-->
+    <!--    </div>-->
     <div v-swiper="swiperOption"
          data-aos="fade-up"
          data-aos-duration="1000"
@@ -486,8 +486,11 @@ export default {
   transition: .5s;
 }
 
-.recommended-section_header {
+.recommended-section {
   font-family: 'Caveat', cursive;
+}
+
+.recommended-section_header {
   letter-spacing: -0.01em;
   font-size: 4vw;
   margin-left: 15vw;
