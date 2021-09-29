@@ -24,7 +24,7 @@
     <div class="row mt-0"
          data-aos="fade-right"
          data-aos-once="true"
-         data-aos-delay="1500"
+         data-aos-delay="1000"
          data-aos-duration="1000">
       <div class="col-md-3 col-sm-6 pt-0">
         <span class="counter-section_text">Даз в неделю поставки продуктов</span>

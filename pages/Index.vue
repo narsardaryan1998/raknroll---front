@@ -15,6 +15,7 @@ import Recommended from '~/components/Recommended'
 import CounterSection from '~/components/CounterSection'
 
 export default {
+  name: "Home",
   components: {
     Intro,
     // BeerSection,

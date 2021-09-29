@@ -22,7 +22,10 @@ export default {
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
+      },
     ]
   },
 
@@ -34,7 +37,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-awesome-swiper', mode: 'client' },
+    {src: '~/plugins/vue-awesome-swiper', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -69,5 +72,22 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push(
+        {
+          name: 'Index',
+          path: '/',
+          component: resolve(__dirname, 'pages/Index.vue')
+        },
+        {
+          name: 'Home',
+          path: '/home',
+          component: resolve(__dirname, 'pages/Index.vue')
+        },
+      )
+    }
+  }
 }

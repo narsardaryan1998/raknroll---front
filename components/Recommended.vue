@@ -17,8 +17,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy-src="https://api.shashlikyan.ua/uploads/46/231433-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231433-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
+                     lazy-src="https://api.shashlikyan.ua/uploads/46/232361-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232361-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
                      alt="Snail">
               </v-img>
             </v-hover>
@@ -71,8 +71,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy-src="https://api.shashlikyan.ua/uploads/46/231273-bcb7d3de-ec35-4b24-bb20-741b8c7d2480.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231273-bcb7d3de-ec35-4b24-bb20-741b8c7d2480.png">
+                     lazy-src="https://api.shashlikyan.ua/uploads/46/232345-56dd01a9-180b-468a-b6b6-2829c7f9ec51.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232345-56dd01a9-180b-468a-b6b6-2829c7f9ec51.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilico</v-card-title>
@@ -124,8 +124,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy="https://api.shashlikyan.ua/uploads/46/231439-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231439-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png">
+                     lazy="https://api.shashlikyan.ua/uploads/46/232367-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232367-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilico</v-card-title>
@@ -177,8 +177,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     src="https://api.shashlikyan.ua/uploads/46/231591-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png"
-                     lazy="https://api.shashlikyan.ua/uploads/46/231591-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png">
+                     src="https://api.shashlikyan.ua/uploads/46/232519-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png"
+                     lazy="https://api.shashlikyan.ua/uploads/46/232519-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilico</v-card-title>
@@ -229,8 +229,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy-src="https://api.shashlikyan.ua/uploads/46/231433-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231433-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
+                     lazy-src="https://api.shashlikyan.ua/uploads/46/232361-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232361-d4f21b22-d344-4e7c-a48c-39a16c549c30.png"
                      alt="Snail">
               </v-img>
             </v-hover>
@@ -283,8 +283,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy-src="https://api.shashlikyan.ua/uploads/46/231273-bcb7d3de-ec35-4b24-bb20-741b8c7d2480.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231273-bcb7d3de-ec35-4b24-bb20-741b8c7d2480.png">
+                     lazy-src="https://api.shashlikyan.ua/uploads/46/232345-56dd01a9-180b-468a-b6b6-2829c7f9ec51.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232345-56dd01a9-180b-468a-b6b6-2829c7f9ec51.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilico</v-card-title>
@@ -336,8 +336,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     lazy="https://api.shashlikyan.ua/uploads/46/231439-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png"
-                     src="https://api.shashlikyan.ua/uploads/46/231439-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png">
+                     lazy="https://api.shashlikyan.ua/uploads/46/232367-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png"
+                     src="https://api.shashlikyan.ua/uploads/46/232367-9a51fe01-d50e-422d-8e96-a89c3c722cb5.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -389,8 +389,8 @@
               v-slot="{ hover }">
               <v-img class="swiper-slider_product_image cursor-pointer"
                      :class="{ 'opacity-is-50': hover }"
-                     src="https://api.shashlikyan.ua/uploads/46/231591-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png"
-                     lazy="https://api.shashlikyan.ua/uploads/46/231591-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png">
+                     src="https://api.shashlikyan.ua/uploads/46/232519-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png"
+                     lazy="https://api.shashlikyan.ua/uploads/46/232519-f7985552-0b4b-49e4-a7fe-c6f50d8f3480.png">
               </v-img>
             </v-hover>
             <v-card-title>Cafe Badilico</v-card-title>

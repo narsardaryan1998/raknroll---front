@@ -322,9 +322,9 @@ export default {
 }
 
 .krevetka1 {
-  transform: rotate(275deg) !important;
-  margin-left: 48vw;
-  margin-top: -12.5vw;
+  transform: rotate(5deg) !important;
+  margin-left: 11vw;
+  margin-top: -6vw;
   width: 25vw;
 }
 </style>

@@ -56,7 +56,27 @@
                 small
                 fab
                 color="white">
-                <img src="~/assets/icons/icons8-paid-64.png" alt="Shopping Cart"/>
+                <v-badge
+                  bordered
+                  color="red darken-4"
+                  content="3"
+                  overlap>
+                  <img src="~/assets/icons/icons8-heart-health-64.png" alt="Favorites"/>
+                </v-badge>
+              </v-btn>
+              <v-btn
+                class="ma-2 header_nav_user_part_button"
+                outlined
+                small
+                fab
+                color="white">
+                <v-badge
+                  bordered
+                  color="red darken-4"
+                  content="5"
+                  overlap>
+                  <img src="~/assets/icons/icons8-paid-64.png" alt="Shopping Cart"/>
+                </v-badge>
               </v-btn>
               <v-btn
                 class="ma-2 header_nav_user_part_button"
@@ -68,7 +88,7 @@
               </v-btn>
             </div>
           </div>
-          <div class="header_nav_links d-flex align-center justify-space-between pt-5">
+          <div class="header_nav_links d-flex align-center justify-space-between pt-4">
             <div class="header_nav_navigation">
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
@@ -243,7 +263,8 @@ export default {
 }
 
 .header_nav_user_part_button {
-  width: 1.850vw;
-  height: 1.850vw;
+  border: none;
+  width: 1.950vw;
+  height: 1.950vw;
 }
 </style>
