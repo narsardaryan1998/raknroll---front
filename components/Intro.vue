@@ -68,104 +68,18 @@
         </kinesis-element>
       </div>
       <div class="intro1_subheader">
-          <span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2300">С</span>
-            <span data-aos="zoom-in"
-                  data-aos-once="true"
-                  data-aos-duration="1000"
-                  data-aos-delay="1900">в</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="3000">е</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="1500">ж</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2100">и</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2300">е </span>
-            <span data-aos="zoom-in"
-                  data-aos-once="true"
-                  data-aos-duration="1000"
-                  data-aos-delay="1900"
-                  class="red--text text--darken-4">р</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="3000"
-                   class="red--text text--darken-4">а</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="1500"
-                   class="red--text text--darken-4">к</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2100"
-                   class="red--text text--darken-4">и</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2300"
-                   class="red--text text--darken-4">, </span>
-            <span data-aos="zoom-in"
-                  data-aos-once="true"
-                  data-aos-duration="1000"
-                  data-aos-delay="1900">п</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="3000">и</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="1500">в</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2100">о,</span>
-          </span>
-        <br>
-        <span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2300">р</span>
-            <span data-aos="zoom-in"
-                  data-aos-once="true"
-                  data-aos-duration="1000"
-                  data-aos-delay="1900">ы</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="3000">б</span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="1500">а </span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="2100">и  </span>
-            <span data-aos="zoom-in"
-                  data-aos-once="true"
-                  data-aos-duration="1000"
-                  data-aos-delay="1900">т. </span>
-             <span data-aos="zoom-in"
-                   data-aos-once="true"
-                   data-aos-duration="1000"
-                   data-aos-delay="3000">Д.</span>
-          </span>
+        <div data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-delay="800"
+             data-aos-once="true"
+             v-html="$t('introSubheader.first')">
+        </div>
+        <div data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-delay="1100"
+             data-aos-once="true">
+          {{ $t('introSubheader.second') }}
+        </div>
       </div>
       <div class="intro1_information1">
         <div class="d-flex justify-end">
@@ -183,13 +97,13 @@
                      data-aos-duration="1000"
                      data-aos-delay="1400"
                      data-aos-once="true">
-                <span class="red--text text--darken-4">Украина, Киев,</span>
+                <span class="red--text text--darken-4">{{ $t('informationPart1.first') }}</span>
               </div>
                   <div data-aos="fade-left"
                        data-aos-duration="1000"
                        data-aos-delay="1600"
                        data-aos-once="true">
-                    <span>Харьковское шоссе 17 А</span>
+                    <span>{{ $t('informationPart1.second') }}</span>
                   </div>
               </span>
           </div>
@@ -202,7 +116,7 @@
                  data-aos-duration="1000"
                  data-aos-delay="1800"
                  data-aos-once="true">
-              <img src="~/assets/icons/icons8-clock-64.png" alt="Location"/>
+              <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
             </div>
           </div>
           <div class="ml-2">
@@ -211,13 +125,13 @@
                      data-aos-duration="1000"
                      data-aos-delay="1800"
                      data-aos-once="true">
-                <span class="red--text text--darken-4">Пн-Вс:</span> <span>10:00-22:00</span>
+                <span class="red--text text--darken-4">{{ $t('informationPart12.first') }}</span> <span>10:00-22:00</span>
               </div>
                   <div data-aos="fade-left"
                        data-aos-duration="1000"
                        data-aos-delay="2000"
                        data-aos-once="true">
-                    <span class="red--text text--darken-4">Заказы:</span> <span>10:00-21:30</span>
+                    <span class="red--text text--darken-4">{{ $t('informationPart12.second') }}</span> <span>10:00-21:30</span>
                   </div>
               </span>
           </div>
@@ -269,7 +183,7 @@ export default {
 .intro1_subheader {
   font-family: 'Caveat', cursive;
   margin-left: 53.875vw;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.2em;
   font-size: 2.875vw;
   margin-top: -2vw;
   color: white;
@@ -296,7 +210,7 @@ export default {
   font-family: 'Caveat', cursive;
   letter-spacing: -0.01em;
   font-size: 1.475vw;
-  margin-right: 16vw;
+  margin-right: 15vw;
 }
 
 .intro1_information_icon img {

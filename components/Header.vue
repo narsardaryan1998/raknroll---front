@@ -7,7 +7,7 @@
     <div class="container pl-0 mx-0 pr-5">
       <div class="header_row">
         <div class="header_logo">
-          <NuxtLink to="/" class="header_logo_link">
+          <NuxtLink :to='localePath("/")' class="header_logo_link">
             <v-hover v-slot="{ hover }">
               <v-img
                 position="left"
@@ -24,9 +24,12 @@
             <div class="header_nav_delivery_part d-flex align-center justify-space-between">
               <div class="header_nav_delivery_part_language">
                 <v-select
-                  :items="['UK', 'RU', 'EN']"
+                  @change="changeLanguage"
+                  :items="$i18n.locales"
+                  item-value="code"
+                  item-text="name"
                   menu-props="auto"
-                  value="UK"
+                  v-model="$i18n.locale"
                   color="red darken-4"
                   class="pt-0 mt-0 without-border-select"
                   hide-details
@@ -61,7 +64,7 @@
                   color="red darken-4"
                   content="3"
                   overlap>
-                  <img src="~/assets/icons/icons8-heart-health-64.png" alt="Favorites"/>
+                  <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
                 </v-badge>
               </v-btn>
               <v-btn
@@ -75,7 +78,7 @@
                   color="red darken-4"
                   content="5"
                   overlap>
-                  <img src="~/assets/icons/icons8-paid-64.png" alt="Shopping Cart"/>
+                  <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
                 </v-badge>
               </v-btn>
               <v-btn
@@ -84,7 +87,7 @@
                 small
                 fab
                 color="white">
-                <img src="~/assets/icons/icons8-account-64.png" alt="Account"/>
+                <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
               </v-btn>
             </div>
           </div>
@@ -93,27 +96,33 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li class="current">
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/" data-hover="Главная">Главная</NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/products" data-hover="Продукты">Продукты
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/")'
+                              :data-hover="$t('menuLinks.home')">{{ $t('menuLinks.home') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/about-us" data-hover="О Нас">О Нас
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/products")'
+                              :data-hover="$t('menuLinks.products')">{{ $t('menuLinks.products') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/bonuses" data-hover="Бонусы">Бонусы
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/about_us")'
+                              :data-hover="$t('menuLinks.about_us')">{{ $t('menuLinks.about_us') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/delivery" data-hover="Доставка и Оплата">
-                      Доставка и Оплата
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/bonuses")'
+                              :data-hover="$t('menuLinks.bonuses')">{{ $t('menuLinks.bonuses') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" to="/contact-us" data-hover="Контакт">Контакт
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/delivery")'
+                              :data-hover="$t('menuLinks.delivery')">{{ $t('menuLinks.delivery') }}
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/contact_us")'
+                              :data-hover="$t('menuLinks.contact_us')">{{ $t('menuLinks.contact_us') }}
                     </NuxtLink>
                   </li>
                 </ul>
@@ -136,6 +145,13 @@ export default {
   name: "Header",
   mounted() {
     AOS.init({})
+  },
+  methods: {
+    changeLanguage() {
+      let routeName = $nuxt.$route.name;
+      let pushTo = routeName.slice(0, -2) + this.$i18n.locale;
+      this.$router.push({name: pushTo});
+    }
   }
 }
 </script>

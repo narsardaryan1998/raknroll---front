@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import i18n from './config/i18n'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -44,9 +45,32 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    [
+      'nuxt-i18n',
+      {
+        strategy: 'prefix_except_default',
+        defaultLocale: 'uk',
+        locales: [
+          {
+            code: 'uk',
+            name: 'UK'
+          },
+          {
+            code: 'en',
+            name: 'EN'
+          },
+          {
+            code: 'ru',
+            name: 'RU'
+          },
+        ],
+        vueI18n: i18n
+      }
+    ]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -76,18 +100,7 @@ export default {
 
   router: {
     extendRoutes(routes, resolve) {
-      routes.push(
-        {
-          name: 'Index',
-          path: '/',
-          component: resolve(__dirname, 'pages/Index.vue')
-        },
-        {
-          name: 'Home',
-          path: '/home',
-          component: resolve(__dirname, 'pages/Index.vue')
-        },
-      )
+      routes.push()
     }
   }
 }

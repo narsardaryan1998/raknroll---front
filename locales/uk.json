@@ -1,0 +1,27 @@
+{
+  "userButtons": {
+    "favorites" : "Вибране",
+    "cart" : "Візок",
+    "account" : "Профіль"
+  },
+  "menuLinks": {
+    "home": "Головна",
+    "products": "Вироби",
+    "about_us": "Про нас",
+    "bonuses": "Бонуси",
+    "delivery": "Доставка і оплата",
+    "contact_us": "Контакт"
+  },
+  "introSubheader": {
+    "first" : "Свіжі <span class='red--text text--darken-4'>раки,</span> пиво, ",
+    "second" : "риба і так далі,"
+  },
+  "informationPart1": {
+    "first" : "Україна, Київ,",
+    "second" : "Харківське шосе 17 А"
+  },
+  "informationPart12": {
+    "first" : "Пн-Нд:",
+    "second" : "Замовлення"
+  }
+}

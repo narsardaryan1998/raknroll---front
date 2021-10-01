@@ -1,0 +1,27 @@
+{
+  "userButtons": {
+    "favorites" : "Favorites",
+    "cart" : "Корзина",
+    "account" : "Профиль"
+  },
+  "menuLinks": {
+    "home": "Home",
+    "products": "Products",
+    "about_us": "About Us",
+    "bonuses": "Bonuses",
+    "delivery": "Delivery and Payment",
+    "contact_us": "Contact"
+  },
+  "introSubheader": {
+    "first" : "Fresh <span class='red--text text--darken-4'>crayfish,</span> beer, ",
+    "second" : "fish and so on"
+  },
+  "informationPart1": {
+    "first" : "Ukraine, Kyiv,",
+    "second" : "Kharkiv highway 17 A"
+  },
+  "informationPart12": {
+    "first" : "Mon-Sun:",
+    "second" : "Order:"
+  }
+}
