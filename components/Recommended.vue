@@ -50,11 +50,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -103,11 +103,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -156,11 +156,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -209,11 +209,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -262,11 +262,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -312,14 +312,14 @@
             </v-card-text>
             <v-card-actions class="px-0">
               <v-bottom-navigation
-                class=" swiper-slider_product"
+                class="swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -368,11 +368,11 @@
                 class="swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -422,11 +422,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>Recents</span>
+                  <span>{{ $t('userButtons.cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>Favorites</span>
+                  <span>{{ $t('userButtons.favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
@@ -480,7 +480,7 @@ export default {
 </script>
 
 <style scoped>
-.swiper-slider_product_image cursor-pointer {
+.swiper-slider_product_image {
   width: 100%;
   height: 190px;
   transition: .5s;

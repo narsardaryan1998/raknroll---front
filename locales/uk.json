@@ -23,5 +23,12 @@
   "informationPart12": {
     "first" : "Пн-Нд:",
     "second" : "Замовлення"
-  }
+  },
+  "bestseller": "Хіт продажу",
+  "allOfCatalog": "Весь каталог",
+  "searchProduct": "Пошук товару",
+  "allBrands": "Всі марки",
+  "price": "Ціна",
+  "recommended": "Рекомендується",
+  "discounted": "Знижка"
 }

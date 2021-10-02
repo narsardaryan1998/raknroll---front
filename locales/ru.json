@@ -1,7 +1,7 @@
 {
   "userButtons": {
     "favorites" : "Избранное",
-    "cart" : "Візок",
+    "cart" : "Корзина",
     "account" : "Профіль"
   },
   "menuLinks": {
@@ -23,5 +23,12 @@
   "informationPart12": {
     "first" : "Пн-Вс:",
     "second" : "Заказы"
-  }
+  },
+  "bestseller": "Хит Продаж",
+  "allOfCatalog": "Весь каталог",
+  "searchProduct": "Искать продукт",
+  "allBrands": "Все марки",
+  "price": "Цена",
+  "recommended": "Рекомендуемые",
+  "discounted": "Со скидкой"
 }

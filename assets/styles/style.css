@@ -55,6 +55,14 @@
   background-size: contain !important;
 }
 
+.products_show_product {
+  background: transparent !important;
+}
+
+.products_show_product .v-image__image {
+  background-size: contain !important;
+}
+
 .swiper-button-prev, .swiper-button-next {
   --swiper-theme-color: #385779;
 }
@@ -81,6 +89,11 @@
 }
 
 .container-padding {
-  padding-left: 7vw !important;
-  padding-right: 7vw !important;
+  padding-left: 4.2vw !important;
+  padding-right: 4.2vw !important;
+}
+
+.products_filter .v-text-field .v-select__selection--comma {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3vw!important;
 }

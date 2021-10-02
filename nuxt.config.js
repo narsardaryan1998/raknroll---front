@@ -54,6 +54,7 @@ export default {
       {
         strategy: 'prefix_except_default',
         defaultLocale: 'uk',
+        vueI18nLoader: false,
         locales: [
           {
             code: 'uk',

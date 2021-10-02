@@ -1,7 +1,7 @@
 {
   "userButtons": {
     "favorites" : "Favorites",
-    "cart" : "Корзина",
+    "cart" : "Cart",
     "account" : "Профиль"
   },
   "menuLinks": {
@@ -23,5 +23,12 @@
   "informationPart12": {
     "first" : "Mon-Sun:",
     "second" : "Order:"
-  }
+  },
+  "bestseller": "Bestseller",
+  "allOfCatalog": "All Of catalog",
+  "searchProduct": "Search product",
+  "allBrands": "All brands",
+  "price": "Price",
+  "recommended": "Recommended",
+  "discounted": "Discounted"
 }
