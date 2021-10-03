@@ -20,7 +20,7 @@
         ></v-text-field>
       </div>
     </div>
-    <div class="products_and_filter d-flex mt-5 filter-div-margin justify-space-between">
+    <div class="products_and_filter d-flex mt-5 margin-bottom-from-header justify-space-between">
       <div class="products_show">
         <div class="row">
           <div class="col-md-2 col-sm-6">
@@ -675,7 +675,7 @@
             single-line>
           </v-select>
         </div>
-        <div class="filter-div-margin">
+        <div class="margin-bottom-from-header">
           <v-select
             :items="['Heiniken', 'Kilika', 'Gyumri']"
             menu-props="auto"
@@ -688,7 +688,7 @@
             single-line>
           </v-select>
         </div>
-        <div class="filter-div-margin">
+        <div class="margin-bottom-from-header">
           <div class="row">
             <div class="col-12">
               <span>{{ $t('price') }}</span>
@@ -731,7 +731,7 @@
             </div>
           </div>
         </div>
-        <div class="filter-div-margin">
+        <div class="margin-bottom-from-header">
           <v-switch
             v-model="filter.is_recommended"
             :label="$t('recommended')"
@@ -810,10 +810,6 @@ export default {
 
 .products_show {
   width: 80%;
-}
-
-.filter-div-margin {
-  margin-top: 3vw !important;
 }
 
 .products_show_product_image {

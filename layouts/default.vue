@@ -1,8 +1,7 @@
 <template>
   <v-app dark>
-    <Loading v-if="loading"></Loading>
     <Header></Header>
-    <v-main v-if="!loading">
+    <v-main>
       <nuxt/>
     </v-main>
   </v-app>
@@ -10,17 +9,10 @@
 
 <script>
 import Header from '~/components/Header'
-import Loading from '~/components/Loading'
 
 export default {
-  data() {
-    return {
-      loading: false,
-    }
-  },
   components: {
     Header,
-    Loading,
   },
 }
 </script>

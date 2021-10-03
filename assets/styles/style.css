@@ -95,5 +95,14 @@
 
 .products_filter .v-text-field .v-select__selection--comma {
   font-family: 'Caveat', cursive;
-  font-size: 1.3vw!important;
+  font-size: 1.3vw !important;
+}
+
+::selection {
+  background: #B71C1C;
+  color: #fff;
+}
+
+.margin-bottom-from-header {
+  margin-top: 3vw !important;
 }

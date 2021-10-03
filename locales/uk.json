@@ -30,5 +30,15 @@
   "allBrands": "Всі марки",
   "price": "Ціна",
   "recommended": "Рекомендується",
-  "discounted": "Знижка"
+  "discounted": "Знижка",
+  "contactUs": "Зв'язатися з нами",
+  "telephones": "Телефоны",
+  "workingHours": "Робочі години",
+  "messengers": "Мессенджеры",
+  "emailAddress": "eMail Адреса",
+  "ourAddress": "Наш Адреса",
+  "name": "ім'я",
+  "subject": "Тема",
+  "message": "Повідомлення",
+  "weOnMap": "Ми на карті"
 }

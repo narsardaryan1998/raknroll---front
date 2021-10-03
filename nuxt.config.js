@@ -2,6 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
 
 export default {
+  // loading: '@/components/LoadingBar.vue',
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 

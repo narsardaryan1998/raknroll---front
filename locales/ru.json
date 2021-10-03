@@ -30,5 +30,15 @@
   "allBrands": "Все марки",
   "price": "Цена",
   "recommended": "Рекомендуемые",
-  "discounted": "Со скидкой"
+  "discounted": "Со скидкой",
+  "contactUs": "Связаться с Нами",
+  "telephones": "Телефоны",
+  "workingHours": "Рабочие часы",
+  "messengers": "Мессенджеры",
+  "emailAddress": "eMail Адрес",
+  "ourAddress": "Наш Адрес",
+  "name": "Имя",
+  "subject": "Тема",
+  "message": "Сообщение",
+  "weOnMap": "Мы на карте"
 }
