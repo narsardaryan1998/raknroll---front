@@ -88,6 +88,10 @@
   cursor: grab;
 }
 
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
 .container-padding {
   padding-left: 4.2vw !important;
   padding-right: 4.2vw !important;
@@ -105,4 +109,8 @@
 
 .margin-bottom-from-header {
   margin-top: 3vw !important;
+}
+
+.white-opacity-07 {
+  color: rgba(255, 255, 255, 0.7) !important;
 }

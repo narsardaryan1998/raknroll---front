@@ -2,7 +2,7 @@
   "userButtons": {
     "favorites" : "Favorites",
     "cart" : "Cart",
-    "account" : "Профиль"
+    "account" : "Account"
   },
   "menuLinks": {
     "home": "Home",
@@ -30,6 +30,7 @@
   "allBrands": "All brands",
   "price": "Price",
   "recommended": "Recommended",
+  "discounted": "Discounted",
   "contactUs": "Contact Us",
   "telephones": "Telephones",
   "workingHours": "Working Hours",
@@ -39,5 +40,6 @@
   "name": "Name",
   "subject": "Subject",
   "message": "Message",
-  "weOnMap": "We are on the map"
+  "weOnMap": "We are on the map",
+  "sendMessage": "Send a message"
 }

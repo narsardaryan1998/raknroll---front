@@ -130,7 +130,7 @@
               <hr>
             </div>
             <div>
-              <span>Отправить сообщение</span>
+              <span>{{ $t('sendMessage') }}</span>
             </div>
             <div class="ml-3">
               <hr>
@@ -147,7 +147,7 @@
                   color="red darken-4"
                   v-model="form.name"
                   :counter="50"
-                  label="Имя"
+                  :label="$t('name')"
                   hide-details
                   required>
                 </v-text-field>
@@ -170,7 +170,7 @@
                   color="red darken-4"
                   v-model="form.subject"
                   :counter="50"
-                  label="Subject"
+                  :label="$t('subject')"
                   hide-details
                   required>
                 </v-text-field>
@@ -180,7 +180,7 @@
               <div class="col-12">
                 <v-textarea
                   color="red darken-4"
-                  label="Message"
+                  :label="$t('message')"
                   hide-details
                   v-model="form.message"
                 ></v-textarea>
@@ -214,7 +214,7 @@
           <hr>
         </div>
         <div>
-          <span>Мы на карте</span>
+          <span>{{ $t('weOnMap') }}</span>
         </div>
         <div class="ml-3">
           <hr>

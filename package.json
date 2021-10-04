@@ -22,6 +22,7 @@
     "vue-js-counter": "^1.0.3",
     "vue-kinesis": "^1.2.3",
     "vue-property-decorator": "^9.1.2",
+    "vue-zoom-on-hover": "^1.0.6",
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
