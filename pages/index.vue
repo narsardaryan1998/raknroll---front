@@ -2,7 +2,7 @@
   <div>
     <Intro></Intro>
 <!--    <BeerSection></BeerSection>-->
-<!--    <Recommended></Recommended>-->
+    <Recommended></Recommended>
     <CounterSection></CounterSection>
     <div style="height: 1500px;"></div>
   </div>

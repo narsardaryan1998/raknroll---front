@@ -52,50 +52,12 @@
                 </v-select>
               </div>
             </div>
-            <div class="header_nav_user_part d-flex justify-end">
-              <v-btn
-                class="ma-2 header_nav_user_part_button"
-                outlined
-                small
-                fab
-                color="white">
-                <v-badge
-                  bordered
-                  color="red darken-4"
-                  content="3"
-                  overlap>
-                  <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
-                </v-badge>
-              </v-btn>
-              <v-btn
-                class="ma-2 header_nav_user_part_button"
-                outlined
-                small
-                fab
-                color="white">
-                <v-badge
-                  bordered
-                  color="red darken-4"
-                  content="5"
-                  overlap>
-                  <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
-                </v-badge>
-              </v-btn>
-              <v-btn
-                class="ma-2 header_nav_user_part_button"
-                outlined
-                small
-                fab
-                color="white">
-                <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
-              </v-btn>
-            </div>
           </div>
           <div class="header_nav_links d-flex align-center justify-space-between pt-4">
             <div class="header_nav_navigation">
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
-                  <li class="current">
+                  <li>
                     <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/")'
                               :data-hover="$t('menuLinks.home')">{{ $t('menuLinks.home') }}
                     </NuxtLink>
@@ -129,7 +91,44 @@
               </nav>
             </div>
             <div class="header_nav_user_section">
-
+              <div class="header_nav_user_part d-flex justify-end">
+                <v-btn
+                  class="ma-2 header_nav_user_part_button"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <v-badge
+                    bordered
+                    color="red darken-4"
+                    content="3"
+                    overlap>
+                    <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
+                  </v-badge>
+                </v-btn>
+                <v-btn
+                  class="ma-2 header_nav_user_part_button"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <v-badge
+                    bordered
+                    color="red darken-4"
+                    content="5"
+                    overlap>
+                    <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
+                  </v-badge>
+                </v-btn>
+                <v-btn
+                  class="ma-2 header_nav_user_part_button"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
+                </v-btn>
+              </div>
             </div>
           </div>
         </div>
@@ -205,82 +204,22 @@ export default {
   line-height: 1;
   color: #feffff;
   text-transform: uppercase;
-  transition-timing-function: cubic-bezier(.6, 0, .41, 1);
-  transition-duration: .3s;
+  transition: .5s;
   text-decoration: none;
 }
 
-/*Menu link hover effects*/
-.snip1143 {
-  font-family: 'Raleway', Arial, sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.snip1143 * {
-  box-sizing: border-box;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-
-.snip1143 li {
-  display: inline-block;
-  list-style: outside none none;
-  overflow: hidden;
-}
-
-.snip1143 a {
-  padding: 0.3em 0;
-  position: relative;
-  display: inline-block;
-  letter-spacing: 1px;
-  margin: 0;
-  text-decoration: none;
-}
-
-.snip1143 a:before,
-.snip1143 a:after {
-  position: absolute;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-
-.snip1143 a:before {
-  top: 100%;
-  display: block;
-  height: 3px;
-  width: 100%;
-  content: "";
-  background-color: #B71C1C;
-}
-
-.snip1143 a:after {
-  padding: 0.3em 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  content: attr(data-hover);
-  color: white;
-  white-space: nowrap;
-}
-
-.snip1143 li:hover a,
-.snip1143 .current a {
-  transform: translateY(-100%);
-}
-
-.snip1143 a:after {
+.header_nav_navigation_menu_link:hover {
   color: #B71C1C !important;
-}
-
-.without-border-select >>> .v-input__slot::before {
-  border-style: none !important;
+  transition: .5s;
 }
 
 .header_nav_user_part_button {
   border: none;
   width: 1.950vw;
   height: 1.950vw;
+}
+
+.nuxt-link-exact-active {
+  color: #B71C1C !important;
 }
 </style>

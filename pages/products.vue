@@ -33,8 +33,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7002-2+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7002-2+.png')">
+                       :src="require('~/assets/images/products/sush9421-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -86,8 +86,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7063-16+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7063-16+.png')">
+                       :src="require('~/assets/images/products/sushi3224-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi3224-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -139,8 +139,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7072-18+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7072-18+.png')">
+                       :src="require('~/assets/images/products/sushi7628-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7628-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -192,8 +192,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7060-15+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7060-15+.png')">
+                       :src="require('~/assets/images/products/sushi7855-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7855-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -245,8 +245,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7063-16+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7063-16+.png')">
+                       :src="require('~/assets/images/products/sushi3224-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi3224-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -298,8 +298,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7002-2+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7002-2+.png')">
+                       :src="require('~/assets/images/products/sush9421-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -351,8 +351,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7060-15+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7060-15+.png')">
+                       :src="require('~/assets/images/products/sushi7855-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7855-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -404,8 +404,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7072-18+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7072-18+.png')">
+                       :src="require('~/assets/images/products/sushi7628-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7628-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -457,8 +457,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7002-2+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7002-2+.png')">
+                       :src="require('~/assets/images/products/sush9421-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -510,8 +510,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7063-16+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7063-16+.png')">
+                       :src="require('~/assets/images/products/sushi3224-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi3224-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -563,8 +563,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7072-18+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7072-18+.png')">
+                       :src="require('~/assets/images/products/sushi7628-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7628-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
@@ -616,8 +616,8 @@
                 v-slot="{ hover }">
                 <v-img class="products_show_product_image"
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/LUK_7060-15+.png')"
-                       :lazy-src="require('~/assets/images/products/LUK_7060-15+.png')">
+                       :src="require('~/assets/images/products/sushi7855-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sushi7855-swiper.png')">
                 </v-img>
               </v-hover>
               <v-card-title>Cafe Badilasdasico</v-card-title>
