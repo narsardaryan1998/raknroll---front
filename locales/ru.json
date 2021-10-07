@@ -41,5 +41,11 @@
   "subject": "Тема",
   "message": "Сообщение",
   "weOnMap": "Мы на карте",
-  "sendMessage": "Отправить сообщение"
+  "sendMessage": "Отправить сообщение",
+  "reviews": "отзывы",
+  "pc": "шт",
+  "description": "Описание",
+  "addToCart": "Добавить в корзину",
+  "linkToBrand": "Вся продукция бренда {brandName}",
+  "tastierTogether": "Вместе вкуснее"
 }

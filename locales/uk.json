@@ -41,5 +41,11 @@
   "subject": "Тема",
   "message": "Повідомлення",
   "weOnMap": "Ми на карті",
-  "sendMessage": "Надіслати повідомлення"
+  "sendMessage": "Надіслати повідомлення",
+  "reviews": "відгуки",
+  "pc": "шт",
+  "description": "Опис",
+  "addToCart": "Додати в кошик",
+  "linkToBrand": "Вся продукція бренду {brandName}",
+  "tastierTogether": "Разом смачніше"
 }

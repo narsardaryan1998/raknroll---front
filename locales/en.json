@@ -41,5 +41,11 @@
   "subject": "Subject",
   "message": "Message",
   "weOnMap": "We are on the map",
-  "sendMessage": "Send a message"
+  "sendMessage": "Send a message",
+  "reviews": "reviews",
+  "pc": "pc",
+  "description": "Description",
+  "addToCart": "Add to cart",
+  "linkToBrand": "All {brandName} brand products",
+  "tastierTogether": "Tastier together"
 }

@@ -4,7 +4,7 @@
       <div class="col-md-5 col-sm-12">
         <client-only>
           <zoom-on-hover :scale="1.1" class="cursor-zoom-in product-show_product_image"
-                       :img-normal="require('~/assets/images/products/sush9421-show.png')"></zoom-on-hover>
+                         :img-normal="require('~/assets/images/products/sush9421-show.png')"></zoom-on-hover>
         </client-only>
       </div>
       <div class="col-md-6 col-sm-12">
@@ -28,20 +28,20 @@
                 </v-rating>
               </div>
               <div class="ml-3">
-                <span>4.5 | <span class="white-opacity-07">(62 Reviews)</span></span>
+                <span>4.5 | <span class="white-opacity-07">(62 {{ $t('reviews') }})</span></span>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 product-show_product_price">
-            <span>{{ $t('price') }}: 360 ₴ / <span class="white-opacity-07">(1 штука)</span></span>
+            <span>{{ $t('price') }}: 360 ₴ / <span class="white-opacity-07">(1 {{ $t('pc') }})</span></span>
             <hr>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 product-show_product_description">
-            <span>Описание:</span>
+            <span>{{ $t('description') }}:</span>
             <p class="white-opacity-07">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem
               exercitationem id odit possimus. Explicabo id necessitatibus nisi quasi? Aut dolor et illo itaque laborum
               libero minima necessitatibus qui vero?</p>
@@ -53,7 +53,7 @@
             <div class="d-flex">
               <div class="product-show_product_add-to-cart">
                 <a href="#" class="cta">
-                  <span>Добавить в корзину</span>
+                  <span>{{ $t('addToCart') }}</span>
                   <v-icon
                     dark
                     right>
@@ -63,7 +63,7 @@
               </div>
               <div class="product-show_product_link-to-brand">
                 <a href="#" class="cta">
-                  <span>Вся продукция бренда Heiniken</span>
+                  <span>{{ $t('linkToBrand', {brandName: 'Coca-Cola'} ) }}</span>
                   <svg width="13px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
@@ -83,7 +83,7 @@
               <hr>
             </div>
             <div class="py-5">
-              <span>Вместе вкуснее</span>
+              <span>{{ $t('tastierTogether') }}</span>
             </div>
           </div>
         </div>
@@ -498,7 +498,8 @@
                       </v-row>
                       <div class="my-4 subtitle-1">
                       </div>
-                      <div>Small plates, sdsfgdfgs dfgdsf dsgds egs gdsg dsfg segdfs gser gfdsg serg dsgalads & sandwiches - an
+                      <div>Small plates, sdsfgdfgs dfgdsf dsgds egs gdsg dsfg segdfs gser gfdsg serg dsgalads &
+                        sandwiches - an
                         intimate setting with 12 indoor seats plus patio
                         seating.
                       </div>
@@ -532,89 +533,89 @@
   </div>
 </template>
 <script>
-import {directive} from "vue-awesome-swiper";
+  import {directive} from "vue-awesome-swiper";
 
-export default {
-  name: "ProductDetail",
-  directives: {
-    swiper: directive
-  },
-  data() {
-    return {
-      rating: 4.8,
-      swiperOption: {
-        loop: false,
-        slidesPerView: 7,
-        spaceBetween: 30,
-        autoplay: {
-          delay: 5000
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          type: "bullets"
+  export default {
+    name: "ProductDetail",
+    directives: {
+      swiper: directive
+    },
+    data() {
+      return {
+        rating: 4.8,
+        swiperOption: {
+          loop: false,
+          slidesPerView: 7,
+          spaceBetween: 30,
+          autoplay: {
+            delay: 5000
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            type: "bullets"
+          }
         }
       }
     }
   }
-}
 </script>
 
 <style>
-#product-show {
-  font-family: 'Caveat', cursive !important;
-  margin-top: 9vw;
-}
+  #product-show {
+    font-family: 'Caveat', cursive !important;
+    margin-top: 9vw;
+  }
 
-.product-show_product_image {
-  width: 100% !important;
-}
+  .product-show_product_image {
+    width: 100% !important;
+  }
 
-.product-show_product_name {
-  font-size: 2.2vw;
-}
+  .product-show_product_name {
+    font-size: 2.2vw;
+  }
 
-.product-show_product_price {
-  font-size: 1.5vw;
-}
+  .product-show_product_price {
+    font-size: 1.5vw;
+  }
 
-hr {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-}
+  hr {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+  }
 
-.product-show_product_price .white-opacity-07 {
-  font-size: 1.1vw;;
-}
+  .product-show_product_price .white-opacity-07 {
+    font-size: 1.1vw;;
+  }
 
-.product-show_product_description {
-  font-size: 1.6vw;
-}
+  .product-show_product_description {
+    font-size: 1.6vw;
+  }
 
-.product-show_product_description .white-opacity-07 {
-  font-size: 1.1vw;
-}
+  .product-show_product_description .white-opacity-07 {
+    font-size: 1.1vw;
+  }
 
-.product-show_tastier-together {
-  margin-top: 4vw !important;
-}
+  .product-show_tastier-together {
+    margin-top: 4vw !important;
+  }
 
-.product-show_tastier-together_header {
-  font-size: 2.7vw;
-}
+  .product-show_tastier-together_header {
+    font-size: 2.7vw;
+  }
 
-.product-show_tastier-together hr:first-child {
-  width: 65%;
-}
+  .product-show_tastier-together hr:first-child {
+    width: 65%;
+  }
 
-.swiper-slider_product_image {
-  width: 100%;
-  height: 190px;
-  transition: .5s;
-}
+  .swiper-slider_product_image {
+    width: 100%;
+    height: 190px;
+    transition: .5s;
+  }
 </style>
