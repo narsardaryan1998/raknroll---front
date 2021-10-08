@@ -47,5 +47,6 @@
   "description": "Описание",
   "addToCart": "Добавить в корзину",
   "linkToBrand": "Вся продукция бренда {brandName}",
-  "tastierTogether": "Вместе вкуснее"
+  "tastierTogether": "Вместе вкуснее",
+  "phone": "Телефон"
 }

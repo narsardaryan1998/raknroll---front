@@ -100,16 +100,64 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12">
-
+        <div class="row products align-center">
+          <div class="col-md-2">
+            <v-hover
+              v-slot="{ hover }">
+              <v-img class="cart_product_image cursor-pointer"
+                     contain
+                     :class="{ 'opacity-is-50': hover }"
+                     :src="require('~/assets/images/products/sush9421-swiper.png')"
+                     :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
+              </v-img>
+            </v-hover>
+          </div>
+          <div class="col-md-5 cart_product_texts">
+            <span class="cart_product_texts_header">Каліфорнія з вугром</span>
+            <br>
+            <span class="cart_product_texts_description white-opacity-07">Lorem ipsum dolor sit amet, consectetur adipisicing elit  tetur adipisicing elit.</span>
+          </div>
+          <div class="col-md-3">
+            <div class="d-flex">
+              <div>
+                <v-btn
+                  class="rounded-0"
+                  outlined
+                  small
+                  color="white">
+                  -
+                </v-btn>
+              </div>
+              <div>
+                <v-btn
+                  class="rounded-0"
+                  outlined
+                  small
+                  color="white">
+                  -
+                </v-btn>
+              </div>
+              <div>
+                <v-btn
+                  class="rounded-0"
+                  outlined
+                  small
+                  color="white">
+                  +
+                </v-btn>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "Cart"
-}
+  export default {
+    name: "Cart"
+  }
 </script>
 
 <style scoped>
@@ -117,6 +165,7 @@ export default {
     font-family: 'Caveat', cursive !important;
     margin-top: 9vw;
   }
+
   .cart_top_section_header_hr {
     width: 8vw;
     border: 0.075vw solid #ffffff;
@@ -134,4 +183,13 @@ export default {
     width: 40%;
   }
 
+  .cart_product_image {
+    width: 100%;
+    height: 190px;
+    transition: .5s;
+  }
+
+  .cart_product_texts_header{
+    font-size: 1.7vw;
+  }
 </style>

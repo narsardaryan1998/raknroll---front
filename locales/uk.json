@@ -47,5 +47,6 @@
   "description": "Опис",
   "addToCart": "Додати в кошик",
   "linkToBrand": "Вся продукція бренду {brandName}",
-  "tastierTogether": "Разом смачніше"
+  "tastierTogether": "Разом смачніше",
+  "phone": "Телефон"
 }

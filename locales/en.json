@@ -47,5 +47,6 @@
   "description": "Description",
   "addToCart": "Add to cart",
   "linkToBrand": "All {brandName} brand products",
-  "tastierTogether": "Tastier together"
+  "tastierTogether": "Tastier together",
+  "phone": "Телефон"
 }
