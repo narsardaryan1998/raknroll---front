@@ -1,9 +1,7 @@
 <template>
   <header id="header" class="d-flex"
           data-aos="fade-down"
-          data-aos-duration="1000"
-          data-aos-delay="1000"
-          data-aos-once="true">
+          data-aos-duration="1000">
     <div class="container pl-0 mx-0 pr-5">
       <div class="header_row">
         <div class="header_logo">
@@ -106,20 +104,22 @@
                     <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
                   </v-badge>
                 </v-btn>
-                <v-btn
-                  class="ma-2 header_nav_user_part_button"
-                  outlined
-                  small
-                  fab
-                  color="white">
-                  <v-badge
-                    bordered
-                    color="red darken-4"
-                    content="5"
-                    overlap>
-                    <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
-                  </v-badge>
-                </v-btn>
+                <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/cart")'>
+                  <v-btn
+                    class="ma-2 header_nav_user_part_button"
+                    outlined
+                    small
+                    fab
+                    color="white">
+                    <v-badge
+                      bordered
+                      color="red darken-4"
+                      content="5"
+                      overlap>
+                      <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
+                    </v-badge>
+                  </v-btn>
+                </NuxtLink>
                 <v-btn
                   class="ma-2 header_nav_user_part_button"
                   outlined
@@ -160,6 +160,7 @@ export default {
   position: fixed;
   width: 100%;
   z-index: 999999999999;
+  transition: 1s !important;
 }
 
 .header_row {
