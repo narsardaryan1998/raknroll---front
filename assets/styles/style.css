@@ -132,6 +132,15 @@
   opacity: 0.7 !important;
 }
 
+.cart_product_counter_row_quantity .v-text-field input {
+  font-size: 1vw;
+  text-align: center;
+  padding-top: 0!important;
+}
+
+.cart_product_counter_row_quantity .v-input {
+  padding-top: 0!important;
+}
 /*Custom Button*/
 .cta {
   position: relative;

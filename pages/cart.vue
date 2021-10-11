@@ -100,54 +100,62 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12">
-        <div class="row products align-center">
-          <div class="col-md-2">
-            <v-hover
-              v-slot="{ hover }">
-              <v-img class="cart_product_image cursor-pointer"
-                     contain
-                     :class="{ 'opacity-is-50': hover }"
-                     :src="require('~/assets/images/products/sush9421-swiper.png')"
-                     :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
-              </v-img>
-            </v-hover>
-          </div>
-          <div class="col-md-5 cart_product_texts">
-            <span class="cart_product_texts_header">Каліфорнія з вугром</span>
-            <br>
-            <span class="cart_product_texts_description white-opacity-07">Lorem ipsum dolor sit amet, consectetur adipisicing elit  tetur adipisicing elit.</span>
-          </div>
-          <div class="col-md-3">
-            <div class="d-flex">
-              <div>
-                <v-btn
-                  class="rounded-0"
-                  outlined
-                  small
-                  color="white">
-                  -
-                </v-btn>
-              </div>
-              <div>
-                <v-btn
-                  class="rounded-0"
-                  outlined
-                  small
-                  color="white">
-                  -
-                </v-btn>
-              </div>
-              <div>
-                <v-btn
-                  class="rounded-0"
-                  outlined
-                  small
-                  color="white">
-                  +
-                </v-btn>
+        <div v-for="item in items">
+          <div class="row cart_products align-center">
+            <div class="col-md-2">
+              <v-hover
+                v-slot="{ hover }">
+                <v-img class="cart_product_image cursor-pointer"
+                       contain
+                       :class="{ 'opacity-is-50': hover }"
+                       :src="require('~/assets/images/products/sush9421-swiper.png')"
+                       :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
+                </v-img>
+              </v-hover>
+            </div>
+            <div class="col-md-6 cart_product_texts">
+              <span class="cart_product_texts_header">Каліфорнія з вугром</span>
+              <br>
+              <span class="cart_product_texts_description white-opacity-07">Lorem ipsum dolor sit amet, consectetur adipisicing elit  tetur adipisicing elit.</span>
+            </div>
+            <div class="col-md-3 cart_product_counter">
+              <div class="row cart_product_counter_row">
+                <div class="col-md-3 cart_product_counter_row_minus pr-0">
+                  <v-btn
+                    icon
+                    color="white">
+                    <v-icon>mdi-minus</v-icon>
+                  </v-btn>
+                </div>
+                <div class="col-md-6 cart_product_counter_row_quantity">
+                  <v-text-field
+                    name="Quantity"
+                    value="1"
+                    color="red darken-4"
+                    :counter="50"
+                    hide-details
+                    required>
+                  </v-text-field>
+                </div>
+                <div class="col-md-3 pl-0 cart_product_counter_row_plus">
+                  <v-btn
+                    icon
+                    color="white">
+                    <v-icon>mdi-plus</v-icon>
+                  </v-btn>
+                </div>
               </div>
             </div>
+            <div class="col-md-1 cart_product_remove">
+              <v-btn
+                class="float-right"
+                icon
+                color="white">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </div>
           </div>
+          <v-divider class="cart_products_hr" inset></v-divider>
         </div>
       </div>
     </div>
@@ -156,7 +164,12 @@
 
 <script>
   export default {
-    name: "Cart"
+    name: "Cart",
+    data(){
+      return {
+        items: [1,2,3,4,5]
+      }
+    }
   }
 </script>
 
@@ -189,7 +202,21 @@
     transition: .5s;
   }
 
-  .cart_product_texts_header{
+  .cart_product_texts_header {
     font-size: 1.7vw;
+  }
+
+  .cart_product_remove {
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
+
+  .cart_products {
+    position: relative;
+  }
+
+  .cart_products_hr{
+    margin: 0 8% 0 10%;
   }
 </style>

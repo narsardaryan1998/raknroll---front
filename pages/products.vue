@@ -1,5 +1,6 @@
 <template>
   <div id="products" class="container container-padding">
+    {{ data }}
     <div class="products_top_section d-flex justify-space-between align-center">
       <div class="products_top_section_header d-flex align-center">
         <div>
@@ -764,57 +765,73 @@
 </template>
 
 <script>
-export default {
-  name: "Products",
-  data() {
-    return {
-      category_name: '',
-      filter: {
-        category_id: '',
-        search: '',
-        brand_id: '',
-        is_recommended: false,
-        best_seller: false,
-        is_discounted: false,
-        price: [0, 68754278]
+  import {mapActions, mapGetters} from "vuex";
+
+  export default {
+    data() {
+      return {
+        category_name: '',
+        filter: {
+          category_id: '',
+          search: '',
+          brand_id: '',
+          is_recommended: false,
+          best_seller: false,
+          is_discounted: false,
+          price: [0, 68754278]
+        }
       }
-    }
+    },
+    async fetch() {
+      await this.getData(this.filter);
+    },
+    computed: {
+      ...mapGetters({
+        data: 'products/data',
+        homeData: "home/homeData"
+      })
+    },
+
+    methods: {
+      ...mapActions({
+        getData: 'products/getData',
+      }),
+    },
   }
-}
 </script>
 
 <style scoped>
-#products {
-  font-family: 'Caveat', cursive;
-  margin-top: 9vw;
-}
+  #products {
+    font-family: 'Caveat', cursive;
+    margin-top: 9vw;
+  }
 
-.products_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
-}
+  .products_top_section_header_hr {
+    width: 8vw;
+    border: 0.075vw solid #ffffff;
+    background-color: #ffffff;
+  }
 
-.products_top_section_header {
-  font-size: 3.5vw;
-  width: 40%;
-}
+  .products_top_section_header {
+    font-size: 3.5vw;
+    width: 40%;
+  }
 
-.products_top_section_search {
-  width: 45%;
-}
+  .products_top_section_search {
+    width: 45%;
+  }
 
-.products_filter {
-  width: 15%;
-}
+  .products_filter {
+    width: 15%;
+  }
 
-.products_show {
-  width: 80%;
-}
+  .products_show {
+    width: 80%;
+  }
 
-.products_show_product_image {
-  width: 100%;
-  height: 190px;
-  transition: .5s;
-}
+  .products_show_product_image {
+    width: 100%;
+    height: 190px;
+    transition: .5s;
+  }
 </style>
