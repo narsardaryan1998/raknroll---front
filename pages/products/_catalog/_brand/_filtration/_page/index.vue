@@ -1,8 +1,6 @@
 <template>
   <div id="products" class="container container-padding">
     <div class="products_top_section d-flex justify-space-between align-center">
-      {{ this.$route.params }}
-      {{ this.filter.category_slug }}
       <div class="products_top_section_header d-flex align-center">
         <div>
           <hr class="products_top_section_header_hr">
@@ -17,9 +15,11 @@
           hide-details
           v-model="filter.search"
           color="red darken-4"
+          @keyup.enter="(e) => {e.target.blur()}"
+          @blur="filtration"
           :label="$t('searchProduct')"
-          prepend-icon="mdi-shopping-search"
-        ></v-text-field>
+          prepend-icon="mdi-shopping-search">
+        </v-text-field>
       </div>
     </div>
     <div class="products_and_filter d-flex mt-5 margin-bottom-from-header justify-space-between">
@@ -53,7 +53,7 @@
                     size="14">
                   </v-rating>
                   <div class="grey--text ml-4">
-                    4.5 (413) | {{ item.price }} $
+                    4.5 (413) | {{ item.final_price }} $
                   </div>
                 </v-row>
                 <div class="my-4 subtitle-1">
@@ -85,7 +85,7 @@
             v-model="filter.page"
             :length="$store.getters['products/data'].paginateCount"
             :total-visible="7"
-            @input="changePagination($event)">
+            @input="filtration($event, true)">
           </v-pagination>
         </div>
       </div>
@@ -95,6 +95,7 @@
             :items="$store.getters['products/data'].categories"
             menu-props="auto"
             v-model="filter.category_slug"
+            @change="filtration"
             color="red darken-4"
             :placeholder="$t('allOfCatalog')"
             class="pt-0 mt-0"
@@ -109,6 +110,7 @@
           <v-select
             :items="$store.getters['products/data'].brands"
             menu-props="auto"
+            @change="filtration"
             v-model="filter.brand_slug"
             color="red darken-4"
             :placeholder="$t('allBrands')"
@@ -129,36 +131,40 @@
           <div class="row">
             <div class="col px-4 pt-0">
               <v-range-slider
-                @change="sss"
-                v-model="filter.price"
+                @change="filtration"
+                v-model="filter.final_price"
                 :min="0"
                 color="red darken-4"
-                :max="68754278"
+                :max="23000"
                 hide-details
                 class="align-center">
                 <template v-slot:prepend>
                   <v-text-field
-                    :value="filter.price[0]"
+                    @keyup.enter="(e) => {e.target.blur()}"
+                    @blur="filtration"
+                    :value="filter.final_price[0]"
                     class="mt-0 pt-0"
                     hide-details
                     single-line
                     color="red darken-4"
                     type="number"
                     style="width: 60px"
-                    @change="$set(filter.price, 0, $event)"
-                  ></v-text-field>
+                    @change="$set(filter.final_price, 0, $event)">
+                  </v-text-field>
                 </template>
                 <template v-slot:append>
                   <v-text-field
-                    :value="filter.price[1]"
+                    @keyup.enter="(e) => {e.target.blur()}"
+                    @blur="filtration"
+                    :value="filter.final_price[1]"
                     class="mt-0 pt-0"
                     hide-details
                     single-line
                     color="red darken-4"
                     type="number"
                     style="width: 60px"
-                    @change="$set(filter.price, 1, $event)"
-                  ></v-text-field>
+                    @change="$set(filter.final_price, 1, $event)">
+                  </v-text-field>
                 </template>
               </v-range-slider>
             </div>
@@ -166,30 +172,30 @@
         </div>
         <div class="margin-bottom-from-header">
           <v-switch
-            v-model="filter.is_recommended"
+            @change="filtration"
+            v-model="filter.recommended"
             :label="$t('recommended')"
             color="red darken-4"
-            value="red darken-4"
-            hide-details
-          ></v-switch>
+            hide-details>
+          </v-switch>
         </div>
         <div class="mt-5">
           <v-switch
-            v-model="filter.is_discounted"
+            @change="filtration"
+            v-model="filter.discounted"
             :label="$t('discounted')"
             color="red darken-4"
-            value="red darken-4"
-            hide-details
-          ></v-switch>
+            hide-details>
+          </v-switch>
         </div>
         <div class="mt-5">
           <v-switch
-            v-model="filter.best_seller"
+            @change="filtration"
+            v-model="filter.bestseller"
             :label="$t('bestseller')"
             color="red darken-4"
-            value="red darken-4"
-            hide-details
-          ></v-switch>
+            hide-details>
+          </v-switch>
         </div>
       </div>
     </div>
@@ -197,78 +203,114 @@
 </template>
 
 <script>
-export default {
-  validate({params}) {
-    return !!(params.catalog && params.brand);
-  },
-  data() {
-    return {
-      category_name: '',
-      data: [],
-      filter: {
-        language: this.$i18n.locale,
-        category_slug: this.$route.params.catalog,
-        brand_slug: this.$route.params.brand,
-        page: 1,
-        displayQuantity: 12,
-        search: '',
-        is_recommended: false,
-        best_seller: false,
-        is_discounted: false,
-        price: [0, 68754278]
+  export default {
+    validate({params}) {
+      if (!params.page.includes("page-")) {
+        return false;
+      }
+      let checkPageNumber = /^\d+$/.test(params.page.replace('page-', ''));
+      if (!checkPageNumber) {
+        return false;
+      }
+      return !!(params.catalog && params.brand);
+    },
+    data() {
+      return {
+        category_name: '',
+        data: [],
+        filter: {
+          language: this.$i18n.locale,
+          category_slug: this.$route.params.catalog,
+          brand_slug: this.$route.params.brand,
+          page: 1,
+          display_quantity: 12,
+          search: '',
+          recommended: false,
+          bestseller: false,
+          discounted: false,
+          final_price: [0, 23000]
+        }
+      }
+    },
+    async fetch() {
+      if (this.$route.params.filtration) {
+        this.$set(this.$route.params, 'filtration', JSON.parse(this.$route.params.filtration));
+        for (const [key, value] of Object.entries(this.$route.params.filtration)) {
+          this.$set(this.filter, key, value);
+        }
+      }
+      this.$set(this.filter, 'page', parseInt(this.$route.params.page.replace('page-', '')));
+      this.$set(this.filter, 'category_slug', this.$route.params.catalog);
+      this.$set(this.filter, 'brand_slug', this.$route.params.brand);
+      await this.$store.dispatch('products/getData', this.filter);
+      if (this.$store.getters['products/data'].paginateCount < this.filter.page) {
+        this.$set(this.filter, 'page', this.$store.getters['products/data'].paginateCount);
+      }
+    },
+    methods: {
+      filtration(e, isPaginate = false) {
+        if (!isPaginate) {
+          console.log('acsd');
+          this.filter.page = 1;
+        }
+        let pathName = $nuxt.$route.name;
+        let params = {
+          catalog: this.filter.category_slug,
+          brand: this.filter.brand_slug,
+          page: 'page-' + this.filter.page
+        };
+        for (const [key, value] of Object.entries(this.filter)) {
+          if (key !== 'brand_slug' && key !== 'category_slug' && key !== 'page' && key !== 'language') {
+            if (value) {
+              if (!params.filtration) {
+                this.$set(params, 'filtration', {[key]: value});
+              } else {
+                this.$set(params.filtration, key, value);
+              }
+            }
+          }
+        }
+        if (params.filtration) {
+          params.filtration = JSON.stringify(params.filtration);
+        }
+        this.$router.push({name: pathName, params})
       }
     }
-  },
-  async fetch() {
-    this.filter.category_slug = this.$route.params.catalog;
-    this.filter.brand_slug = this.$route.params.brand;
-
-    await this.$store.dispatch('products/getData', this.filter);
-  },
-  methods: {
-    changePagination() {
-      // this.$store.dispatch('products/getData', this.filter)
-      this.$fetch();
-    },
-    sss() {
-      console.log('adasd');
-    }
   }
-}
 </script>
 
 <style scoped>
-#products {
-  font-family: 'Caveat', cursive;
-  margin-top: 9vw;
-}
+  #products {
+    font-family: 'Caveat', cursive;
+    margin-top: 9vw;
+  }
 
-.products_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
-}
+  .products_top_section_header_hr {
+    width: 8vw;
+    border: 0.075vw solid #ffffff;
+    background-color: #ffffff;
+  }
 
-.products_top_section_header {
-  font-size: 3.5vw;
-  width: 40%;
-}
+  .products_top_section_header {
+    font-size: 3.5vw;
+    width: 40%;
+  }
 
-.products_top_section_search {
-  width: 45%;
-}
+  .products_top_section_search {
+    width: 45%;
+  }
 
-.products_filter {
-  width: 15%;
-}
+  .products_filter {
+    width: 15%;
+  }
 
-.products_show {
-  width: 80%;
-}
+  .products_show {
+    width: 80%;
+  }
 
-.products_show_product_image {
-  width: 100%;
-  height: 190px;
-  transition: .5s;
-}
+  .products_show_product_image {
+    width: 100%;
+    height: 190px;
+    transition: .5s;
+  }
 </style>
