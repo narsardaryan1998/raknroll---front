@@ -56,33 +56,32 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/")'
-                              :data-hover="$t('menuLinks.home')">{{ $t('menuLinks.home') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/")'>{{ $t('menuLinks.home') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/products/all-catalog/all-brands/9")'
-                              :data-hover="$t('menuLinks.products')">{{ $t('menuLinks.products') }}
+                    <NuxtLink class="header_nav_navigation_menu_link"
+                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.products') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/about_us")'
-                              :data-hover="$t('menuLinks.about_us')">{{ $t('menuLinks.about_us') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/about_us")'>
+                      {{ $t('menuLinks.about_us') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/bonuses")'
-                              :data-hover="$t('menuLinks.bonuses')">{{ $t('menuLinks.bonuses') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/bonuses")'>
+                      {{ $t('menuLinks.bonuses') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/delivery")'
-                              :data-hover="$t('menuLinks.delivery')">{{ $t('menuLinks.delivery') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/delivery")'>
+                      {{ $t('menuLinks.delivery') }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/contact_us")'
-                              :data-hover="$t('menuLinks.contact_us')">{{ $t('menuLinks.contact_us') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/contact_us")'>
+                      {{ $t('menuLinks.contact_us') }}
                     </NuxtLink>
                   </li>
                 </ul>
@@ -147,9 +146,16 @@ export default {
   },
   methods: {
     changeLanguage() {
-      let routeName = $nuxt.$route.name;
-      let pushTo = routeName.slice(0, -2) + this.$i18n.locale;
-      this.$router.push({name: pushTo});
+      let routePath = $nuxt.$route.path;
+      let pushTo = '';
+      if (routePath.includes("ru/")) {
+        pushTo = routePath.replace("ru/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
+      } else if (routePath.includes("en/")) {
+        pushTo = routePath.replace("en/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
+      } else {
+        pushTo = this.$i18n.locale !== "uk" ? "/" + this.$i18n.locale + routePath : routePath;
+      }
+      this.$router.push({path: pushTo});
     }
   }
 }

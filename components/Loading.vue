@@ -134,8 +134,6 @@
   import anime from 'animejs';
 
   export default {
-    name: "Loading",
-
     mounted() {
       this.startLoading();
     },

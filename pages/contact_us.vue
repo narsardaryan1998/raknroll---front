@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-us_contacts row margin-bottom-from-header">
+      <div class="contact-us_contacts row margin-top-from-header">
         <div class="col-md-6 col-sm-12 contact-us_contacts_data">
           <div class="row">
             <div class="col-6">
@@ -208,7 +208,7 @@
         </div>
       </div>
     </div>
-    <div class="map-section margin-bottom-from-header">
+    <div class="map-section margin-top-from-header">
       <div class="contact-us_contacts_data_subheader d-flex align-center justify-center">
         <div class="mr-3">
           <hr>

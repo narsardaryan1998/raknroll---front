@@ -75,14 +75,11 @@ export default {
   },
   mounted() {
     AOS.init({})
-    if (window.pageYOffset > 0) {
-      document.getElementById('header').classList.add("menu-background-after-scroll");
-    }
     window.addEventListener('scroll', this.onScroll)
   },
   methods: {
     onScroll() {
-      if(document.getElementById('header')){
+      if (document.getElementById('header')) {
         if (window.pageYOffset > 0) {
           document.getElementById('header').classList.add("menu-background-after-scroll");
         } else {

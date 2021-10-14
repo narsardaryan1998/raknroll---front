@@ -57,11 +57,27 @@
 
 .menu-background-after-scroll {
   background-color: rgba(14, 14, 14, 0.8);
-  transition: .5s!important;
+  transition: .5s !important;
 }
 
 .swiper-slider_product {
   background: transparent !important;
+}
+
+.v-pagination button {
+  border-radius: 0 !important;
+}
+
+.display-quantity-select {
+  max-width: 4vw;
+}
+
+.page-container-padding-bottom{
+  padding-bottom: 3vw!important;
+}
+
+.margin-bottom-from-header {
+  margin-bottom: 4.5vw;
 }
 
 .swiper-slider_product .v-image__image {
@@ -120,7 +136,7 @@
   color: #fff;
 }
 
-.margin-bottom-from-header {
+.margin-top-from-header {
   margin-top: 3vw !important;
 }
 
@@ -135,12 +151,13 @@
 .cart_product_counter_row_quantity .v-text-field input {
   font-size: 1vw;
   text-align: center;
-  padding-top: 0!important;
+  padding-top: 0 !important;
 }
 
 .cart_product_counter_row_quantity .v-input {
-  padding-top: 0!important;
+  padding-top: 0 !important;
 }
+
 /*Custom Button*/
 .cta {
   position: relative;

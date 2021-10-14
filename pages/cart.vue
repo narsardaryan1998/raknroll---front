@@ -1,6 +1,6 @@
 <template>
   <div id="cart" class="container container-padding">
-    <div class="cart_top_section d-flex justify-space-between align-center">
+    <div class="cart_top_section d-flex justify-space-between align-center margin-bottom-from-header">
       <div class="cart_top_section_header d-flex align-center">
         <div>
           <hr class="cart_top_section_header_hr">

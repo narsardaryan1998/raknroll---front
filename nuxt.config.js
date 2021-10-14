@@ -85,7 +85,6 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
       themes: {
@@ -104,6 +103,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  loading: {
+    color: '#B71C1C',
+    height: '4px',
+    throttle: 0
+  }
   //
   // router: {
   //   extendRoutes(routes, resolve) {
