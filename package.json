@@ -28,6 +28,7 @@
     "vuex": "latest"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.12.1"
+    "@nuxtjs/vuetify": "^1.12.1",
+    "vue-router": "^3.5.2"
   }
 }

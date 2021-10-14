@@ -1,6 +1,8 @@
 <template>
   <div id="products" class="container container-padding">
     <div class="products_top_section d-flex justify-space-between align-center">
+      {{ this.$route.params }}
+      {{ this.filter.category_slug }}
       <div class="products_top_section_header d-flex align-center">
         <div>
           <hr class="products_top_section_header_hr">
@@ -23,7 +25,7 @@
     <div class="products_and_filter d-flex mt-5 margin-bottom-from-header justify-space-between">
       <div class="products_show">
         <div class="row">
-          <div class="col-md-2 col-sm-6"  v-for="item in $store.getters['products/data'].data" :key="item.slug">
+          <div class="col-md-2 col-sm-6" v-for="item in $store.getters['products/data'].products" :key="item.slug">
             <v-card
               elevation="0"
               dark
@@ -76,30 +78,44 @@
             </v-card>
           </div>
         </div>
+        <div class="row products_show_pagination">
+          <v-pagination
+            color="black"
+            v-if="$store.getters['products/data'].paginateCount > 1"
+            v-model="filter.page"
+            :length="$store.getters['products/data'].paginateCount"
+            :total-visible="7"
+            @input="changePagination($event)">
+          </v-pagination>
+        </div>
       </div>
       <div class="products_filter d-flex flex-column">
         <div>
           <v-select
-            :items="['Piva', 'Rak', 'Arax', 'Dzuk']"
+            :items="$store.getters['products/data'].categories"
             menu-props="auto"
-            v-model="filter.category_id"
+            v-model="filter.category_slug"
             color="red darken-4"
             :placeholder="$t('allOfCatalog')"
             class="pt-0 mt-0"
             hide-details
+            item-text="name"
+            item-value="slug"
             item-color="red darken-4"
             single-line>
           </v-select>
         </div>
         <div class="margin-bottom-from-header">
           <v-select
-            :items="['Heiniken', 'Kilika', 'Gyumri']"
+            :items="$store.getters['products/data'].brands"
             menu-props="auto"
-            v-model="filter.brand_id"
+            v-model="filter.brand_slug"
             color="red darken-4"
             :placeholder="$t('allBrands')"
             class="pt-0 mt-0"
             hide-details
+            item-text="name"
+            item-value="slug"
             item-color="red darken-4"
             single-line>
           </v-select>
@@ -113,6 +129,7 @@
           <div class="row">
             <div class="col px-4 pt-0">
               <v-range-slider
+                @change="sss"
                 v-model="filter.price"
                 :min="0"
                 color="red darken-4"
@@ -180,62 +197,78 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        category_name: '',
-        data: [],
-        filter: {
-          language: this.$i18n.locale,
-          category_id: '',
-          search: '',
-          brand_id: '',
-          is_recommended: false,
-          best_seller: false,
-          is_discounted: false,
-          price: [0, 68754278]
-        }
+export default {
+  validate({params}) {
+    return !!(params.catalog && params.brand);
+  },
+  data() {
+    return {
+      category_name: '',
+      data: [],
+      filter: {
+        language: this.$i18n.locale,
+        category_slug: this.$route.params.catalog,
+        brand_slug: this.$route.params.brand,
+        page: 1,
+        displayQuantity: 12,
+        search: '',
+        is_recommended: false,
+        best_seller: false,
+        is_discounted: false,
+        price: [0, 68754278]
       }
+    }
+  },
+  async fetch() {
+    this.filter.category_slug = this.$route.params.catalog;
+    this.filter.brand_slug = this.$route.params.brand;
+
+    await this.$store.dispatch('products/getData', this.filter);
+  },
+  methods: {
+    changePagination() {
+      // this.$store.dispatch('products/getData', this.filter)
+      this.$fetch();
     },
-    async fetch() {
-      console.log('hgh');
-      await this.$store.dispatch('products/getData', this.filter);
+    sss() {
+      console.log('adasd');
     }
   }
+}
 </script>
 
 <style scoped>
-  #products {
-    font-family: 'Caveat', cursive;
-    margin-top: 9vw;
-  }
+#products {
+  font-family: 'Caveat', cursive;
+  margin-top: 9vw;
+}
 
-  .products_top_section_header_hr {
-    width: 8vw;
-    border: 0.075vw solid #ffffff;
-    background-color: #ffffff;
-  }
+.products_top_section_header_hr {
+  width: 8vw;
+  border: 0.075vw solid #ffffff;
+  background-color: #ffffff;
+}
 
-  .products_top_section_header {
-    font-size: 3.5vw;
-    width: 40%;
-  }
+.products_top_section_header {
+  font-size: 3.5vw;
+  width: 40%;
+}
 
-  .products_top_section_search {
-    width: 45%;
-  }
+.products_top_section_search {
+  width: 45%;
+}
 
-  .products_filter {
-    width: 15%;
-  }
+.products_filter {
+  width: 15%;
+}
 
-  .products_show {
-    width: 80%;
-  }
+.products_show {
+  width: 80%;
+}
 
-  .products_show_product_image {
-    width: 100%;
-    height: 190px;
-    transition: .5s;
-  }
+.products_show_product_image {
+  width: 100%;
+  height: 190px;
+  transition: .5s;
+}
 </style>

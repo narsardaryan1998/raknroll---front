@@ -61,7 +61,7 @@
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/products")'
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/products/all-catalog/all-brands/9")'
                               :data-hover="$t('menuLinks.products')">{{ $t('menuLinks.products') }}
                     </NuxtLink>
                   </li>

@@ -104,10 +104,30 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  //
+  // router: {
+  //   extendRoutes(routes, resolve) {
+  //     routes.push(
+  //       {
+  //         path: '/products/:slug',
+  //         name: 'products',
+  //         component: resolve(__dirname, 'pages/products.vue')
+  //       }
+  //     )
+  //   }
+  // }
 
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push()
-    }
-  }
+  // router: {
+  //   extendRoutes(routes, resolve) {
+  //     routes.push({
+  //       path: '/products/:slug/:page',
+  //       components: {
+  //         default: resolve(__dirname, 'pages/products')
+  //       },
+  //       chunkNames: {
+  //         modal: 'components/products'
+  //       }
+  //     })
+  //   }
+  // }
 }
