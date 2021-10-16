@@ -181,9 +181,9 @@ export default {
 }
 
 .intro1_subheader {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', cursive !important;
   margin-left: 53.875vw;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   font-size: 2.875vw;
   margin-top: -2vw;
   color: white;
@@ -200,14 +200,14 @@ export default {
 }
 
 .intro1_information1 {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', cursive !important;
   letter-spacing: -0.01em;
   font-size: 1.475vw;
   margin-right: 15vw;
 }
 
 .intro1_information2 {
-  font-family: 'Caveat', cursive;
+  font-family: 'Caveat', cursive !important;
   letter-spacing: -0.01em;
   font-size: 1.475vw;
   margin-right: 15vw;

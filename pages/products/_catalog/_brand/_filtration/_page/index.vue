@@ -45,7 +45,7 @@
             <v-card
               elevation="0"
               dark
-              class="mx-auto my-12 mt-0 products_show_product cursor-pointer"
+              class="mx-auto my-12 mt-0 products_show_product text-center"
               max-width="374">
               <v-hover
                 v-slot="{ hover }">
@@ -57,11 +57,11 @@
                   </v-img>
                 </NuxtLink>
               </v-hover>
-              <v-card-title>{{ item.name }}</v-card-title>
+              <v-card-title class="justify-center">{{ item.name }}</v-card-title>
               <v-card-text>
                 <v-row
-                  align="center"
-                  class="mx-0">
+                  class="mx-0 justify-center"
+                  align="center">
                   <v-rating
                     :value="parseFloat(item.rating)"
                     color="red darken-4"
@@ -70,8 +70,7 @@
                     readonly
                     size="14">
                   </v-rating>
-                  <div class="grey--text ml-4">
-                    {{ item.rating }} ({{ item.reviews_count }}) | {{ item.final_price }} ₴
+                  <div class="grey--text ml-2 font-brigada">({{ item.reviews_count }}) | {{ item.final_price }} ₴
                   </div>
                 </v-row>
                 <div class="my-4 subtitle-1">
@@ -265,122 +264,125 @@
 </template>
 
 <script>
-  export default {
-    validate({params}) {
-      if (!params.page.includes("page-")) {
-        return false;
+export default {
+  validate({params}) {
+    if (!params.page.includes("page-")) {
+      return false;
+    }
+    let checkPageNumber = /^\d+$/.test(params.page.replace('page-', ''));
+    if (!checkPageNumber) {
+      return false;
+    }
+    return !!(params.catalog && params.brand);
+  },
+  data() {
+    return {
+      category_name: '',
+      data: [],
+      displayQuantityArray: [8, 12, 18, 24, 30],
+      filter: {
+        language: this.$i18n.locale,
+        category_slug: this.$route.params.catalog,
+        brand_slug: this.$route.params.brand,
+        page: 1,
+        display_quantity: 12,
+        search: '',
+        recommended: false,
+        bestseller: false,
+        discounted: false,
+        final_price: [0, 23000]
       }
-      let checkPageNumber = /^\d+$/.test(params.page.replace('page-', ''));
-      if (!checkPageNumber) {
-        return false;
+    }
+  },
+  async fetch() {
+    if (this.$route.params.filtration) {
+      this.$set(this.$route.params, 'filtration', JSON.parse(this.$route.params.filtration));
+      for (const [key, value] of Object.entries(this.$route.params.filtration)) {
+        this.$set(this.filter, key, value);
       }
-      return !!(params.catalog && params.brand);
-    },
-    data() {
-      return {
-        category_name: '',
-        data: [],
-        displayQuantityArray: [8, 12, 18, 24, 30],
-        filter: {
-          language: this.$i18n.locale,
-          category_slug: this.$route.params.catalog,
-          brand_slug: this.$route.params.brand,
-          page: 1,
-          display_quantity: 12,
-          search: '',
-          recommended: false,
-          bestseller: false,
-          discounted: false,
-          final_price: [0, 23000]
-        }
+    }
+    this.$set(this.filter, 'page', parseInt(this.$route.params.page.replace('page-', '')));
+    this.$set(this.filter, 'category_slug', this.$route.params.catalog);
+    this.$set(this.filter, 'brand_slug', this.$route.params.brand);
+    await this.$store.dispatch('products/getData', this.filter);
+    if (this.$store.getters['products/data'].paginateCount < this.filter.page) {
+      this.$set(this.filter, 'page', this.$store.getters['products/data'].paginateCount);
+    }
+    let category = this.$store.getters['products/data'].categories.find(category => category.slug === this.filter.category_slug);
+    this.category_name = category ? category.name : '';
+  },
+  methods: {
+    filtration(e, isPaginate = false) {
+      if (!isPaginate) {
+        this.filter.page = 1;
       }
-    },
-    async fetch() {
-      if (this.$route.params.filtration) {
-        this.$set(this.$route.params, 'filtration', JSON.parse(this.$route.params.filtration));
-        for (const [key, value] of Object.entries(this.$route.params.filtration)) {
-          this.$set(this.filter, key, value);
-        }
-      }
-      this.$set(this.filter, 'page', parseInt(this.$route.params.page.replace('page-', '')));
-      this.$set(this.filter, 'category_slug', this.$route.params.catalog);
-      this.$set(this.filter, 'brand_slug', this.$route.params.brand);
-      await this.$store.dispatch('products/getData', this.filter);
-      // await this.$store.dispatch('cart/getData');
-      if (this.$store.getters['products/data'].paginateCount < this.filter.page) {
-        this.$set(this.filter, 'page', this.$store.getters['products/data'].paginateCount);
-      }
-      let category = this.$store.getters['products/data'].categories.find(category => category.slug === this.filter.category_slug);
-      this.category_name = category ? category.name : '';
-    },
-    methods: {
-      filtration(e, isPaginate = false) {
-        if (!isPaginate) {
-          this.filter.page = 1;
-        }
-        let pathName = $nuxt.$route.name;
-        let params = {
-          catalog: this.filter.category_slug,
-          brand: this.filter.brand_slug,
-          page: 'page-' + this.filter.page
-        };
-        for (const [key, value] of Object.entries(this.filter)) {
-          if (key !== 'brand_slug' && key !== 'category_slug' && key !== 'page' && key !== 'language') {
-            if (value) {
-              if (!params.filtration) {
-                this.$set(params, 'filtration', {[key]: value});
-              } else {
-                this.$set(params.filtration, key, value);
-              }
+      let pathName = $nuxt.$route.name;
+      let params = {
+        catalog: this.filter.category_slug,
+        brand: this.filter.brand_slug,
+        page: 'page-' + this.filter.page
+      };
+      for (const [key, value] of Object.entries(this.filter)) {
+        if (key !== 'brand_slug' && key !== 'category_slug' && key !== 'page' && key !== 'language') {
+          if (value) {
+            if (!params.filtration) {
+              this.$set(params, 'filtration', {[key]: value});
+            } else {
+              this.$set(params.filtration, key, value);
             }
           }
         }
-        if (params.filtration) {
-          params.filtration = JSON.stringify(params.filtration);
-        }
-        this.$router.push({name: pathName, params})
-      },
-      addToCart(productId) {
-        this.$store.dispatch('cart/store', {
-          productId
-        });
       }
+      if (params.filtration) {
+        params.filtration = JSON.stringify(params.filtration);
+      }
+      this.$router.push({name: pathName, params})
+    },
+    addToCart(productId) {
+      this.$store.dispatch('cart/store', {
+        productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.dispatch('cart/getCount');
+        }
+      });
     }
   }
+}
 </script>
 
 <style scoped>
-  #products {
-    font-family: 'Caveat', cursive;
-    margin-top: 9vw;
-  }
+#products {
 
-  .products_top_section_header_hr {
-    width: 8vw;
-    border: 0.075vw solid #ffffff;
-    background-color: #ffffff;
-  }
+  margin-top: 9vw;
+}
 
-  .products_top_section_header {
-    font-size: 3.5vw;
-    width: 40%;
-  }
+.products_top_section_header_hr {
+  width: 8vw;
+  border: 0.075vw solid #ffffff;
+  background-color: #ffffff;
+}
 
-  .products_top_section_search {
-    width: 45%;
-  }
+.products_top_section_header {
+  font-size: 3.5vw;
+  width: 55%;
+}
 
-  .products_filter {
-    width: 15%;
-  }
+.products_top_section_search {
+  width: 45%;
+}
 
-  .products_show {
-    width: 80%;
-  }
+.products_filter {
+  width: 15%;
+}
 
-  .products_show_product_image {
-    width: 100%;
-    height: 190px;
-    transition: .5s;
-  }
+.products_show {
+  width: 80%;
+}
+
+.products_show_product_image {
+  width: 100%;
+  height: 190px;
+  transition: .5s;
+}
 </style>

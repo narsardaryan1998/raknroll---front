@@ -99,29 +99,31 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div v-for="item in items">
-          <div class="row cart_products align-center">
+      <div class="col-md-6 col-sm-12"
+           v-if="this.$store.getters['cart/data'].cartItems && this.$store.getters['cart/data'].cartItems.items.length">
+        <div v-for="(item, index) in this.$store.getters['cart/data'].cartItems.items" :key="index">
+          <div class="row cart_products align-center" v-if="item.product">
             <div class="col-md-2">
               <v-hover
                 v-slot="{ hover }">
                 <v-img class="cart_product_image cursor-pointer"
                        contain
                        :class="{ 'opacity-is-50': hover }"
-                       :src="require('~/assets/images/products/sush9421-swiper.png')"
-                       :lazy-src="require('~/assets/images/products/sush9421-swiper.png')">
+                       :src="'http://raknroll.ua/' + item.product.image"
+                       :lazy-src="'http://raknroll.ua/' + item.product.image">
                 </v-img>
               </v-hover>
             </div>
-            <div class="col-md-6 cart_product_texts">
-              <span class="cart_product_texts_header">Каліфорнія з вугром</span>
+            <div class="col-md-5 cart_product_texts">
+              <span class="cart_product_texts_header">{{ item.product.name }}</span>
               <br>
-              <span class="cart_product_texts_description white-opacity-07">Lorem ipsum dolor sit amet, consectetur adipisicing elit  tetur adipisicing elit.</span>
+              <span class="cart_product_texts_description white-opacity-07">{{ item.product.short_description }}</span>
             </div>
-            <div class="col-md-3 cart_product_counter">
+            <div class="col-md-2 cart_product_counter">
               <div class="row cart_product_counter_row">
-                <div class="col-md-3 cart_product_counter_row_minus pr-0">
+                <div class="col-md-3 cart_product_counter_row_minus d-flex justify-start">
                   <v-btn
+                    @click="updateQuantity(item.id, index, -1)"
                     icon
                     color="white">
                     <v-icon>mdi-minus</v-icon>
@@ -129,16 +131,18 @@
                 </div>
                 <div class="col-md-6 cart_product_counter_row_quantity">
                   <v-text-field
+                    class="font-brigada"
                     name="Quantity"
-                    value="1"
+                    :value="item.qty"
                     color="red darken-4"
                     :counter="50"
                     hide-details
                     required>
                   </v-text-field>
                 </div>
-                <div class="col-md-3 pl-0 cart_product_counter_row_plus">
+                <div class="col-md-3 cart_product_counter_row_plus d-flex justify-end">
                   <v-btn
+                    @click="updateQuantity(item.id, index, 1)"
                     icon
                     color="white">
                     <v-icon>mdi-plus</v-icon>
@@ -146,8 +150,14 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-2 cart_product_price">
+              <span class="cart_product_texts_description white-opacity-07">{{
+                  $t('price')
+                }}: {{ item.product.final_price * item.qty }} ₴</span>
+            </div>
             <div class="col-md-1 cart_product_remove">
               <v-btn
+                @click="deleteItem(item.id, index)"
                 class="float-right"
                 icon
                 color="white">
@@ -163,60 +173,90 @@
 </template>
 
 <script>
-  export default {
-    name: "Cart",
-    data(){
-      return {
-        items: [1,2,3,4,5]
-      }
+export default {
+  name: "Cart",
+  async fetch() {
+    await this.$store.dispatch('cart/getData', {
+      language: this.language,
+    });
+  },
+  data() {
+    return {
+      items: [1, 2, 3, 4, 5],
+      language: this.$i18n.locale,
     }
+  },
+  methods: {
+    updateQuantity(itemId, index, value) {
+      let currentQty = this.$store.getters['cart/data'].cartItems.items[index].qty;
+      if ((currentQty + value) > 0) {
+        this.$store.commit('cart/updateItemQty', {
+          index,
+          value
+        })
+        this.$store.dispatch('cart/update', {
+          itemId,
+          qty: this.$store.getters['cart/data'].cartItems.items[index].qty
+        });
+      }
+    },
+    deleteItem(itemId, index) {
+      this.$store.commit('cart/deleteItem', index)
+      this.$store.dispatch('cart/delete', {
+        itemId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.dispatch('cart/getCount');
+        }
+      });
+    },
   }
+}
 </script>
 
 <style scoped>
-  #cart {
-    font-family: 'Caveat', cursive !important;
-    margin-top: 9vw;
-  }
+#cart {
+  margin-top: 9vw;
+}
 
-  .cart_top_section_header_hr {
-    width: 8vw;
-    border: 0.075vw solid #ffffff;
-    background-color: #ffffff;
-  }
+.cart_top_section_header_hr {
+  width: 8vw;
+  border: 0.075vw solid #ffffff;
+  background-color: #ffffff;
+}
 
-  .cart_contacts_data_subheader hr {
-    width: 4vw;
-    border: 0.04vw solid rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.7);
-  }
+.cart_contacts_data_subheader hr {
+  width: 4vw;
+  border: 0.04vw solid rgba(205, 205, 205, 0.7) !important;
+  background-color: rgba(205, 205, 205, 0.7);
+}
 
-  .cart_top_section_header {
-    font-size: 3.5vw;
-    width: 40%;
-  }
+.cart_top_section_header {
+  font-size: 3.5vw;
+  width: 100%;
+}
 
-  .cart_product_image {
-    width: 100%;
-    height: 190px;
-    transition: .5s;
-  }
+.cart_product_image {
+  width: 100%;
+  height: 190px;
+  transition: .5s;
+}
 
-  .cart_product_texts_header {
-    font-size: 1.7vw;
-  }
+.cart_product_texts_header {
+  font-size: 1.7vw;
+}
 
-  .cart_product_remove {
-    position: absolute;
-    top: 5px;
-    right: 0;
-  }
+.cart_product_remove {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
 
-  .cart_products {
-    position: relative;
-  }
+.cart_products {
+  position: relative;
+}
 
-  .cart_products_hr{
-    margin: 0 8% 0 10%;
-  }
+.cart_products_hr {
+  margin: 0 8% 0 10%;
+}
 </style>

@@ -97,6 +97,7 @@
                   color="white">
                   <v-badge
                     bordered
+                    class="font-brigada"
                     color="red darken-4"
                     content="3"
                     overlap>
@@ -112,8 +113,9 @@
                     color="white">
                     <v-badge
                       bordered
+                      class="font-brigada"
                       color="red darken-4"
-                      content="5"
+                      :content="this.$store.getters['cart/count'].count ? this.$store.getters['cart/count'].count : '0'"
                       overlap>
                       <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
                     </v-badge>
@@ -141,6 +143,9 @@ import AOS from 'aos'
 
 export default {
   name: "Header",
+  created() {
+    this.$store.dispatch('cart/getCount');this.$store.dispatch('cart/getCount');
+  },
   mounted() {
     AOS.init({})
   },
@@ -148,10 +153,14 @@ export default {
     changeLanguage() {
       let routePath = $nuxt.$route.path;
       let pushTo = '';
-      if (routePath.includes("ru/")) {
+      if (routePath.includes("/ru/")) {
         pushTo = routePath.replace("ru/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
-      } else if (routePath.includes("en/")) {
+      } else if (routePath.includes("/ru")) {
+        pushTo = routePath.replace("/ru", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
+      } else if (routePath.includes("/en/")) {
         pushTo = routePath.replace("en/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
+      } else if (routePath.includes("/ru")) {
+        pushTo = routePath.replace("/ru", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
       } else {
         pushTo = this.$i18n.locale !== "uk" ? "/" + this.$i18n.locale + routePath : routePath;
       }
@@ -206,8 +215,8 @@ export default {
 }
 
 .header_nav_navigation_menu_link {
-  font-family: 'Caveat', cursive;
-  font-size: 1.055vw;
+
+  font-size: 1vw;
   line-height: 1;
   color: #feffff;
   text-transform: uppercase;

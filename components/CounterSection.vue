@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 .counter-section {
-  font-family: 'Caveat', cursive;
+
   background: url("~/assets/caounter-section-background.png") repeat-x;
 }
 

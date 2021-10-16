@@ -29,7 +29,7 @@
                 </v-rating>
               </div>
               <div class="ml-3">
-                <span>{{ this.$store.getters['product/data'].product.rating }}| <span
+                <span>{{ this.$store.getters['product/data'].product.rating }} / <span
                   class="white-opacity-07">({{ this.$store.getters['product/data'].product.reviews_count }} {{
                     $t('reviews')
                   }})</span></span>
@@ -39,15 +39,15 @@
         </div>
         <div class="row">
           <div class="col-md-12 product-show_product_price">
-            <span>{{ $t('price') }}: {{ this.$store.getters['product/data'].product.final_price }} ₴ / <span
-              class="white-opacity-07">(1 {{ $t('pc') }})</span></span>
+            <span>{{ $t('price') }}:
+              <span class="white-opacity-07">{{ this.$store.getters['product/data'].product.final_price }} ₴ / (1 {{$t('pc') }})</span></span>
             <hr>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 product-show_product_description">
             <span>{{ $t('description') }}:</span>
-            <p class="white-opacity-07">{{ this.$store.getters['product/data'].product.description }}</p>
+            <p class="white-opacity-07 mt-3">{{ this.$store.getters['product/data'].product.description }}</p>
             <hr>
           </div>
         </div>
@@ -65,8 +65,12 @@
                 </a>
               </div>
               <div class="product-show_product_link-to-brand" v-if="this.$store.getters['product/data'].product.brand">
-                <NuxtLink :to='localePath("/products/all-catalog/" + this.$store.getters["product/data"].product.brand.slug) + "/page-1"' class="cta">
-                  <span>{{ $t('linkToBrand', {brandName: this.$store.getters["product/data"].product.brand.name}) }}</span>
+                <NuxtLink
+                  :to='localePath("/products/all-catalog/" + this.$store.getters["product/data"].product.brand.slug) + "/page-1"'
+                  class="cta">
+                  <span>{{
+                      $t('linkToBrand', {brandName: this.$store.getters["product/data"].product.brand.name})
+                    }}</span>
                   <svg width="13px" height="10px" viewBox="0 0 13 10">
                     <path d="M1,5 L11,5"></path>
                     <polyline points="8 1 12 5 8 9"></polyline>
@@ -125,7 +129,7 @@
                           size="14">
                         </v-rating>
                         <div class="grey--text ml-4">
-                          4.5 (413) | 360 $
+                          4.5 (413) | 360 ₴
                         </div>
                       </v-row>
                       <div class="my-4 subtitle-1">
@@ -579,7 +583,6 @@ export default {
 
 <style>
 #product-show {
-  font-family: 'Caveat', cursive !important;
   margin-top: 9vw;
 }
 
@@ -592,7 +595,7 @@ export default {
 }
 
 .product-show_product_price {
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 }
 
 hr {
@@ -602,7 +605,7 @@ hr {
 }
 
 .product-show_product_price .white-opacity-07 {
-  font-size: 1.1vw;;
+  font-size: 1vw;;
 }
 
 .product-show_product_description {
@@ -610,7 +613,7 @@ hr {
 }
 
 .product-show_product_description .white-opacity-07 {
-  font-size: 1.1vw;
+  font-size: 1vw;
 }
 
 .product-show_tastier-together {

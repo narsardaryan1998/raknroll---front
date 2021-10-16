@@ -487,7 +487,7 @@ export default {
 }
 
 .recommended-section {
-  font-family: 'Caveat', cursive;
+
 }
 
 .recommended-section_header {

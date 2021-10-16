@@ -24,6 +24,8 @@ export default {
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Brygada+1918&display=swap'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
