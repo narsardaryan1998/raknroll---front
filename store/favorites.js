@@ -1,26 +1,21 @@
 export const actions = {
   getData({commit}, params) {
-    return this.$axios.get('/api/cart', {params}).then(response => {
+    return this.$axios.get('/api/favorites', {params}).then(response => {
       commit('updateData', response.data);
     })
   },
   getCount({commit}) {
-    return this.$axios.get('/api/cart/count').then(response => {
+    return this.$axios.get('/api/favorites/count').then(response => {
       commit('updateCount', response.data);
     })
   },
   store({commit}, params) {
-    return this.$axios.post('/api/cart/store', params).then(response => {
-      return response;
-    })
-  },
-  update({commit}, params) {
-    return this.$axios.post('/api/cart/update', params).then(response => {
+    return this.$axios.post('/api/favorites/store', params).then(response => {
       return response;
     })
   },
   delete({commit}, params) {
-    return this.$axios.post('/api/cart/delete', params).then(response => {
+    return this.$axios.post('/api/favorites/delete', params).then(response => {
       return response;
     })
   },
@@ -33,11 +28,8 @@ export const mutations = {
   updateCount(state, count) {
     state.count = count;
   },
-  updateCartProductQty(state, data) {
-    state.data.cartProducts.cart_products[data.index].qty += data.value;
-  },
-  deleteCartProduct(state, index) {
-    state.data.cartProducts.cart_products.splice(index, 1);
+  deleteFavoriteProduct(state, index) {
+    state.data.favoriteProducts.favorite_products.splice(index, 1);
   },
   changeCount(state, value) {
     state.count.count += value;

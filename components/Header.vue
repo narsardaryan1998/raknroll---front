@@ -93,17 +93,88 @@
                   class="ma-2 header_nav_user_part_button"
                   outlined
                   small
+                  @click="openFavorites"
                   fab
                   color="white">
                   <v-badge
                     bordered
                     class="font-brigada"
                     color="red darken-4"
-                    content="3"
+                    :content="this.$store.getters['favorites/count'].count ? this.$store.getters['favorites/count'].count : '0'"
                     overlap>
                     <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
                   </v-badge>
                 </v-btn>
+                <div class="favorites-modal modal">
+                  <vue-modaltor :close-scroll="false" :visible="openFavoritesModal" @hide="openFavoritesModal=false">
+                    <template #header>
+                      <div class="d-flex justify-end">
+                        <v-btn
+                          @click="closeFavorites"
+                          class="float-right"
+                          icon
+                          color="white">
+                          <v-icon
+                            color="black">mdi-close
+                          </v-icon>
+                        </v-btn>
+                      </div>
+                    </template>
+                    <template #body>
+                      <div class="modaltor__content p-5"
+                           v-if="$store.getters['favorites/data'].favoriteProducts && $store.getters['favorites/data'].favoriteProducts.favorite_products.length">
+                        <div
+                          v-for="(favoriteProduct, index) in $store.getters['favorites/data'].favoriteProducts.favorite_products"
+                          :key="index">
+                          <div class="row favorite_products align-center" v-if="favoriteProduct.product">
+                            <div class="col-md-2">
+                              <v-img class="favorite_product_image cursor-pointer"
+                                     contain
+                                     :src="'http://raknroll.ua/' + favoriteProduct.product.image"
+                                     :lazy-src="'http://raknroll.ua/' + favoriteProduct.product.image">
+                              </v-img>
+                            </div>
+                            <div class="col-md-6 favorite_product_texts">
+                              <span class="favorite_product_texts_header">{{ favoriteProduct.product.name }}</span>
+                              <br>
+                              <span class="favorite_product_texts_description">{{
+                                  favoriteProduct.product.short_description
+                                }}</span>
+                            </div>
+                            <div class="col-md-2 favorite_product_price">
+                              <span class="favorite_product_texts_description_price">{{
+                                  $t('price')
+                                }}: {{ favoriteProduct.product.final_price }} ₴</span>
+                              <br>
+                              <v-rating
+                                :value="parseFloat(favoriteProduct.product.rating)"
+                                color="red darken-4"
+                                dense
+                                half-increments
+                                readonly
+                                size="14">
+                              </v-rating>
+                            </div>
+                            <div class="col-md-2 favorite_product_actions">
+                              <v-btn
+                                icon>
+                                <v-icon color="grey darken-3">mdi-cart-off
+                                </v-icon>
+                              </v-btn>
+                              <v-btn
+                                @click="deleteFromFavorites(favoriteProduct.id, index)"
+                                icon>
+                                <v-icon color="grey darken-3">mdi-heart-off
+                                </v-icon>
+                              </v-btn>
+                            </div>
+                          </div>
+                          <v-divider class="favorite_products_hr" inset></v-divider>
+                        </div>
+                      </div>
+                    </template>
+                  </vue-modaltor>
+                </div>
                 <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/cart")'>
                   <v-btn
                     class="ma-2 header_nav_user_part_button"
@@ -143,8 +214,18 @@ import AOS from 'aos'
 
 export default {
   name: "Header",
+  data() {
+    return {
+      openFavoritesModal: false,
+      language: this.$i18n.locale,
+    }
+  },
   created() {
-    this.$store.dispatch('cart/getCount');this.$store.dispatch('cart/getCount');
+    this.$store.dispatch('cart/getCount');
+    this.$store.dispatch('favorites/getCount');
+    this.$store.dispatch('favorites/getData', {
+      language: this.language,
+    });
   },
   mounted() {
     AOS.init({})
@@ -165,7 +246,23 @@ export default {
         pushTo = this.$i18n.locale !== "uk" ? "/" + this.$i18n.locale + routePath : routePath;
       }
       this.$router.push({path: pushTo});
-    }
+    },
+    openFavorites() {
+      document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+      this.openFavoritesModal = true;
+    },
+    closeFavorites() {
+      document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+      this.openFavoritesModal = false;
+    },
+    deleteFromFavorites(favoriteProductId, index) {
+      this.$store.commit('favorites/deleteFavoriteProduct', index)
+      this.$store.commit('products/deleteFavoriteProduct', index)
+      this.$store.commit('favorites/changeCount', -1);
+      this.$store.dispatch('favorites/delete', {
+        favoriteProductId
+      });
+    },
   }
 }
 </script>
@@ -237,5 +334,34 @@ export default {
 
 .nuxt-link-exact-active {
   color: #B71C1C !important;
+}
+
+.favorite_product_image {
+  width: 100%;
+  height: 190px;
+  transition: .5s;
+}
+
+.favorite_product_texts_header {
+  font-size: 1.7vw;
+}
+
+.favorite_products {
+  position: relative;
+}
+
+.favorite_products_hr {
+  margin: 0 8% 0 10%;
+  border: 0.04vw solid rgba(86, 86, 86, 0.7);
+  background-color: rgba(86, 86, 86, 0.7);
+}
+
+.favorite_product_texts_description {
+  color: #565656;
+}
+
+.favorite_product_texts_description_price {
+  color: #565656;
+  font-size: 1.1vw;
 }
 </style>

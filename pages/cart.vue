@@ -100,8 +100,8 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12"
-           v-if="this.$store.getters['cart/data'].cartItems && this.$store.getters['cart/data'].cartItems.items.length">
-        <div v-for="(item, index) in this.$store.getters['cart/data'].cartItems.items" :key="index">
+           v-if="this.$store.getters['cart/data'].cartProducts && this.$store.getters['cart/data'].cartProducts.cart_products.length">
+        <div v-for="(item, index) in this.$store.getters['cart/data'].cartProducts.cart_products" :key="index">
           <div class="row cart_products align-center" v-if="item.product">
             <div class="col-md-2">
               <v-hover
@@ -157,7 +157,7 @@
             </div>
             <div class="col-md-1 cart_product_remove">
               <v-btn
-                @click="deleteItem(item.id, index)"
+                @click="deleteCartProduct(item.id, index)"
                 class="float-right"
                 icon
                 color="white">
@@ -182,32 +182,28 @@ export default {
   },
   data() {
     return {
-      items: [1, 2, 3, 4, 5],
       language: this.$i18n.locale,
     }
   },
   methods: {
-    updateQuantity(itemId, index, value) {
-      let currentQty = this.$store.getters['cart/data'].cartItems.items[index].qty;
+    updateQuantity(cartProductId, index, value) {
+      let currentQty = this.$store.getters['cart/data'].cartProducts.cart_products[index].qty;
       if ((currentQty + value) > 0) {
-        this.$store.commit('cart/updateItemQty', {
+        this.$store.commit('cart/updateCartProductQty', {
           index,
           value
         })
         this.$store.dispatch('cart/update', {
-          itemId,
-          qty: this.$store.getters['cart/data'].cartItems.items[index].qty
+          cartProductId,
+          qty: this.$store.getters['cart/data'].cartProducts.cart_products[index].qty
         });
       }
     },
-    deleteItem(itemId, index) {
-      this.$store.commit('cart/deleteItem', index)
+    deleteCartProduct(cartProductId, index) {
+      this.$store.commit('cart/deleteCartProduct', index)
+      this.$store.commit('cart/changeCount', -1)
       this.$store.dispatch('cart/delete', {
-        itemId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('cart/getCount');
-        }
+        cartProductId
       });
     },
   }
@@ -223,12 +219,6 @@ export default {
   width: 8vw;
   border: 0.075vw solid #ffffff;
   background-color: #ffffff;
-}
-
-.cart_contacts_data_subheader hr {
-  width: 4vw;
-  border: 0.04vw solid rgba(205, 205, 205, 0.7) !important;
-  background-color: rgba(205, 205, 205, 0.7);
 }
 
 .cart_top_section_header {

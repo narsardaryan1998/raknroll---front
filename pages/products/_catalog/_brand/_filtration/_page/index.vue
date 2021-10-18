@@ -2,26 +2,15 @@
   <div id="products" class="container container-padding page-container-padding-bottom">
     <div class="products_top_section d-flex justify-space-between align-center margin-bottom-from-header">
       <div class="products_top_section_header d-flex align-center">
-        <div
-          data-aos="fade-right"
-          data-aos-once="true"
-          data-aos-delay="0"
-          data-aos-duration="1000">
+        <div>
           <hr class="products_top_section_header_hr">
         </div>
-        <div class="ml-4"
-             data-aos="fade-right"
-             data-aos-once="true"
-             data-aos-delay="0"
-             data-aos-duration="1000">
+        <div class="ml-4">
           <span v-if="!category_name"> {{ $t('allOfCatalog') }}</span>
           <span v-else> {{ category_name }}</span>
         </div>
       </div>
-      <div class="products_top_section_search"
-           data-aos="fade-left"
-           data-aos-delay="0"
-           data-aos-duration="1000">
+      <div class="products_top_section_search">
         <v-text-field
           hide-details
           v-model="filter.search"
@@ -34,62 +23,79 @@
       </div>
     </div>
     <div class="products_and_filter d-flex justify-space-between">
-      <div class="products_show"
-           data-aos="fade"
-           data-aos-once="true"
-           data-aos-delay="1500"
-           data-aos-duration="1000">
+      <div class="products_show">
         <div class="row">
           <div :class="filter.display_quantity > 8 ? 'col-md-2 col-sm-6 py-0' : 'col-md-3 col-sm-6 py-0'"
-               v-for="(item, index) in $store.getters['products/data'].products" :key="index">
+               v-for="(product, index) in $store.getters['products/data'].products" :key="index">
             <v-card
               elevation="0"
               dark
-              class="mx-auto my-12 mt-0 products_show_product text-center"
+              class="mx-auto my-12 mt-0 products_show_product"
               max-width="374">
               <v-hover
                 v-slot="{ hover }">
-                <NuxtLink :to='localePath("/product/show/" + item.slug)'>
+                <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                   <v-img class="products_show_product_image"
                          :class="{ 'opacity-is-50': hover }"
-                         :src="'http://raknroll.ua/' + item.image"
-                         :lazy-src="'http://raknroll.ua/' + item.image">
+                         :src="'http://raknroll.ua/' + product.image"
+                         :lazy-src="'http://raknroll.ua/' + product.image">
                   </v-img>
                 </NuxtLink>
               </v-hover>
-              <v-card-title class="justify-center">{{ item.name }}</v-card-title>
-              <v-card-text>
+              <v-card-title>{{ product.name }}</v-card-title>
+              <v-card-text class="p-0">
                 <v-row
-                  class="mx-0 justify-center"
+                  class="mx-0"
                   align="center">
                   <v-rating
-                    :value="parseFloat(item.rating)"
+                    :value="parseFloat(product.rating)"
                     color="red darken-4"
                     dense
                     half-increments
                     readonly
                     size="14">
                   </v-rating>
-                  <div class="grey--text ml-2 font-brigada">({{ item.reviews_count }}) | {{ item.final_price }} ₴
+                  <div class="grey--text ml-2 font-brigada">| {{ product.final_price }} ₴
                   </div>
                 </v-row>
                 <div class="my-4 subtitle-1">
                 </div>
-                <div>{{ item.short_description }}
+                <div>{{ product.short_description }}
                 </div>
               </v-card-text>
-              <v-card-actions class="px-0">
+              <v-card-actions class="p-0">
                 <v-bottom-navigation
                   class="products_show_product"
                   grow>
-                  <v-btn class="px-0 mw-100"
-                         @click="addToCart(item.id)">
+                  <v-btn class="p-0 mw-100"
+                         :loading="cartLoading && index === cartLoadingIndex"
+                         v-if="!product.cart_product"
+                         @click="addToCart(product.id, index)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon>mdi-cart</v-icon>
                   </v-btn>
-                  <v-btn class="px-0 mw-100">
+                  <v-btn class="p-0 mw-100"
+                         v-else
+                         @click="deleteFromCart(product.cart_product.id, index)">
+                    <span>{{ $t('userButtons.cart') }}</span>
+                    <v-icon
+                      color="red darken-4">mdi-cart-off
+                    </v-icon>
+                  </v-btn>
+                  <v-btn class="p-0 mw-100"
+                         :loading="favoriteLoading && index === favoriteLoadingIndex"
+                         v-if="!product.favorite_product"
+                         @click="addToFavorites(product.id, index)">
                     <span>{{ $t('userButtons.favorites') }}</span>
                     <v-icon>mdi-heart</v-icon>
+                  </v-btn>
+                  <v-btn class="p-0 mw-100"
+                         v-else
+                         @click="deleteFromFavorites(product.favorite_product.id, index)">
+                    <span>{{ $t('userButtons.cart') }}</span>
+                    <v-icon
+                      color="red darken-4">mdi-heart-off
+                    </v-icon>
                   </v-btn>
                 </v-bottom-navigation>
               </v-card-actions>
@@ -110,10 +116,7 @@
         </div>
       </div>
       <div class="products_filter d-flex flex-column">
-        <div data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="500"
-             data-aos-duration="1000">
+        <div>
           <v-select
             :items="$store.getters['products/data'].categories"
             menu-props="auto"
@@ -129,11 +132,7 @@
             single-line>
           </v-select>
         </div>
-        <div class="margin-top-from-header"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="700"
-             data-aos-duration="1000">
+        <div class="margin-top-from-header">
           <v-select
             :items="$store.getters['products/data'].brands"
             menu-props="auto"
@@ -149,11 +148,7 @@
             single-line>
           </v-select>
         </div>
-        <div class="margin-top-from-header"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="900"
-             data-aos-duration="1000">
+        <div class="margin-top-from-header">
           <div class="row">
             <div class="col-12">
               <span>{{ $t('price') }}</span>
@@ -201,11 +196,7 @@
             </div>
           </div>
         </div>
-        <div class="margin-top-from-header display-quantity-select"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="1000"
-             data-aos-duration="1000">
+        <div class="margin-top-from-header display-quantity-select">
           <v-select
             v-if="$store.getters['products/data'].paginateCount > 1"
             :items="displayQuantityArray"
@@ -219,11 +210,7 @@
             single-line>
           </v-select>
         </div>
-        <div class="mt-5"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="1100"
-             data-aos-duration="1000">
+        <div class="mt-5">
           <v-switch
             @change="filtration"
             v-model="filter.recommended"
@@ -232,11 +219,7 @@
             hide-details>
           </v-switch>
         </div>
-        <div class="mt-5"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="1250"
-             data-aos-duration="1000">
+        <div class="mt-5">
           <v-switch
             @change="filtration"
             v-model="filter.discounted"
@@ -245,11 +228,7 @@
             hide-details>
           </v-switch>
         </div>
-        <div class="mt-5"
-             data-aos="fade-left"
-             data-aos-once="true"
-             data-aos-delay="1400"
-             data-aos-duration="1000">
+        <div class="mt-5">
           <v-switch
             @change="filtration"
             v-model="filter.bestseller"
@@ -277,6 +256,11 @@ export default {
   },
   data() {
     return {
+      cartLoadingIndex: -1,
+      cartLoading: false,
+      favoriteLoadingIndex: -1,
+      language: this.$i18n.locale,
+      favoriteLoading: false,
       category_name: '',
       data: [],
       displayQuantityArray: [8, 12, 18, 24, 30],
@@ -338,15 +322,72 @@ export default {
       }
       this.$router.push({name: pathName, params})
     },
-    addToCart(productId) {
+    addToCart(productId, index) {
+      this.cartLoading = true;
+      this.cartLoadingIndex = index;
       this.$store.dispatch('cart/store', {
         productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.commit('products/addProductToCart', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            index
+          })
+          this.cartLoading = false;
+          this.cartLoadingIndex = -1;
+          this.$store.commit('cart/changeCount', 1);
+        }
+      });
+    },
+    deleteFromCart(cartProductId, index) {
+      this.$store.commit('products/deleteCartProduct', index)
+      this.$store.commit('cart/changeCount', -1)
+      this.$store.dispatch('cart/delete', {
+        cartProductId
       }).then(response => {
         if (response.data.success) {
           this.$store.dispatch('cart/getCount');
         }
       });
-    }
+    },
+    addToFavorites(productId, index) {
+      this.favoriteLoading = true;
+      this.favoriteLoadingIndex = index;
+      this.$store.dispatch('favorites/store', {
+        productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.commit('products/addProductToFavorites', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            index
+          })
+          this.favoriteLoading = false;
+          this.favoriteLoadingIndex = -1;
+          this.$store.commit('favorites/changeCount', 1);
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
+      });
+    },
+    deleteFromFavorites(favoriteProductId, index) {
+      this.$store.commit('products/deleteFavoriteProduct', index)
+      this.$store.commit('favorites/deleteFavoriteProduct', index)
+      this.$store.commit('favorites/changeCount', -1);
+      this.$store.dispatch('favorites/delete', {
+        favoriteProductId
+      }).then(response => {
+        if(response.data.success){
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
+      });
+    },
   }
 }
 </script>
