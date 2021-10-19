@@ -156,13 +156,22 @@
                               </v-rating>
                             </div>
                             <div class="col-md-2 favorite_product_actions">
-                              <v-btn
-                                icon>
-                                <v-icon color="grey darken-3">mdi-cart-off
+                              <v-btn v-if="!favoriteProduct.cart_product"
+                                     @click="addToCart(favoriteProduct.product.id, index)"
+                                     icon>
+                                <v-icon
+                                  color="grey darken-3">mdi-cart
+                                </v-icon>
+                              </v-btn>
+                              <v-btn v-else
+                                     @click="deleteFromCart(favoriteProduct.cart_product.id, index, favoriteProduct.product.id)"
+                                     icon>
+                                <v-icon
+                                  color="grey darken-3">mdi-cart-off
                                 </v-icon>
                               </v-btn>
                               <v-btn
-                                @click="deleteFromFavorites(favoriteProduct.id, index)"
+                                @click="deleteFromFavorites(favoriteProduct.id, index, favoriteProduct.product.id)"
                                 icon>
                                 <v-icon color="grey darken-3">mdi-heart-off
                                 </v-icon>
@@ -255,13 +264,42 @@ export default {
       document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
       this.openFavoritesModal = false;
     },
-    deleteFromFavorites(favoriteProductId, index) {
+    deleteFromFavorites(favoriteProductId, index, productId) {
       this.$store.commit('favorites/deleteFavoriteProduct', index)
-      this.$store.commit('products/deleteFavoriteProduct', index)
+      this.$store.commit('products/deleteFavoriteProduct', productId)
       this.$store.commit('favorites/changeCount', -1);
       this.$store.dispatch('favorites/delete', {
         favoriteProductId
       });
+    },
+    addToCart(productId, index) {
+      this.$store.dispatch('cart/store', {
+        productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.commit('favorites/addProductToCart', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            index
+          });
+          this.$store.commit('products/addProductToCart', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            productId
+          });
+          this.$store.commit('cart/changeCount', 1);
+        }
+      });
+    },
+    deleteFromCart(cartProductId, index, productId) {
+      this.$store.commit('products/deleteCartProduct', productId)
+      this.$store.commit('favorites/deleteCartProduct', index)
+      this.$store.commit('cart/changeCount', -1)
+      this.$store.dispatch('cart/delete', {
+        cartProductId
+      })
     },
   }
 }

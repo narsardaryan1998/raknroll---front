@@ -10,8 +10,20 @@
   .header_nav {
     min-width: 78% !important;
   }
+
+  .products_show .col-md-2 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 992px) {
+  .products_show .col-md-2 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+@media screen and (max-width: 576px) {
 
 }

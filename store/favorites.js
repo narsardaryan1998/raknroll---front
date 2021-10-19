@@ -34,6 +34,12 @@ export const mutations = {
   changeCount(state, value) {
     state.count.count += value;
   },
+  addProductToCart(state, data) {
+    state.data.favoriteProducts.favorite_products[data.index].cart_product = data.cart_product;
+  },
+  deleteCartProduct(state, index) {
+    state.data.favoriteProducts.favorite_products[index].cart_product = null;
+  },
 };
 
 export const state = () => ({

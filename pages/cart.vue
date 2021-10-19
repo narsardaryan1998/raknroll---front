@@ -204,6 +204,12 @@ export default {
       this.$store.commit('cart/changeCount', -1)
       this.$store.dispatch('cart/delete', {
         cartProductId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
       });
     },
   }

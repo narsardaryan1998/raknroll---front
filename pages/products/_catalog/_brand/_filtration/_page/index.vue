@@ -6,7 +6,7 @@
           <hr class="products_top_section_header_hr">
         </div>
         <div class="ml-4">
-          <span v-if="!category_name"> {{ $t('allOfCatalog') }}</span>
+          <span v-if="category_name"> {{ $t('allOfCatalog') }}</span>
           <span v-else> {{ category_name }}</span>
         </div>
       </div>
@@ -25,7 +25,7 @@
     <div class="products_and_filter d-flex justify-space-between">
       <div class="products_show">
         <div class="row">
-          <div :class="filter.display_quantity > 8 ? 'col-md-2 col-sm-6 py-0' : 'col-md-3 col-sm-6 py-0'"
+          <div class="py-0 col-sm-4 col-6 col-md-2"
                v-for="(product, index) in $store.getters['products/data'].products" :key="index">
             <v-card
               elevation="0"
@@ -76,7 +76,7 @@
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
-                         @click="deleteFromCart(product.cart_product.id, index)">
+                         @click="deleteFromCart(product.cart_product.id, product.id)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-cart-off
@@ -91,7 +91,7 @@
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
-                         @click="deleteFromFavorites(product.favorite_product.id, index)">
+                         @click="deleteFromFavorites(product.favorite_product.id, index, product.id)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-heart-off
@@ -263,13 +263,13 @@ export default {
       favoriteLoading: false,
       category_name: '',
       data: [],
-      displayQuantityArray: [8, 12, 18, 24, 30],
+      displayQuantityArray: [10, 15, 20, 25, 30],
       filter: {
         language: this.$i18n.locale,
         category_slug: this.$route.params.catalog,
         brand_slug: this.$route.params.brand,
         page: 1,
-        display_quantity: 12,
+        display_quantity: 10,
         search: '',
         recommended: false,
         bestseller: false,
@@ -333,22 +333,27 @@ export default {
             cart_product: {
               id: response.data.success.id
             },
-            index
+            productId
           })
           this.cartLoading = false;
           this.cartLoadingIndex = -1;
           this.$store.commit('cart/changeCount', 1);
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
         }
       });
     },
-    deleteFromCart(cartProductId, index) {
-      this.$store.commit('products/deleteCartProduct', index)
+    deleteFromCart(cartProductId, productId) {
+      this.$store.commit('products/deleteCartProduct', productId)
       this.$store.commit('cart/changeCount', -1)
       this.$store.dispatch('cart/delete', {
         cartProductId
       }).then(response => {
         if (response.data.success) {
-          this.$store.dispatch('cart/getCount');
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
         }
       });
     },
@@ -374,14 +379,13 @@ export default {
         }
       });
     },
-    deleteFromFavorites(favoriteProductId, index) {
-      this.$store.commit('products/deleteFavoriteProduct', index)
-      this.$store.commit('favorites/deleteFavoriteProduct', index)
+    deleteFromFavorites(favoriteProductId, index, productId) {
+      this.$store.commit('products/deleteFavoriteProduct', productId)
       this.$store.commit('favorites/changeCount', -1);
       this.$store.dispatch('favorites/delete', {
         favoriteProductId
       }).then(response => {
-        if(response.data.success){
+        if (response.data.success) {
           this.$store.dispatch('favorites/getData', {
             language: this.language,
           });
@@ -426,4 +430,5 @@ export default {
   height: 190px;
   transition: .5s;
 }
+
 </style>
