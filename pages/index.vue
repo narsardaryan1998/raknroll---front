@@ -4,12 +4,12 @@
     <div id="discounted">
       <div class="container container-padding">
         <div class="discounted_top_section d-flex justify-space-between align-center">
-          <div class="discounted_top_section_header d-flex align-center"
+          <div class="component-top-header d-flex align-center"
                data-aos="fade-right"
                data-aos-duration="1500"
                data-aos-once="true">
             <div>
-              <hr class="discounted_top_section_header_hr">
+              <hr class="component-top-header-hr">
             </div>
             <div class="ml-4">
               <span>Discounted</span>
@@ -17,9 +17,10 @@
           </div>
         </div>
       </div>
-      <div class="discounted_products margin-top-from-header mx-2"
+      <div class="discounted_products margin-top-from-header mx-4"
            ref="discountedProducts"
            data-aos="fade-right"
+           data-aos-delay="700"
            data-aos-duration="1500">
         <div class="d-flex" v-swiper="swiperOption">
           <div class="swiper-wrapper"
@@ -102,9 +103,33 @@
           </div>
           <div class="swiper-button-next red--text text--darken-4"><span class="icon-play"></span></div>
           <div class="swiper-button-prev red--text text--darken-4"><span class="icon-play-flip"></span></div>
-          <div class="swiper-pagination" v-for="(item,index) in $store.getters['home/data'].discountedProducts" :key="index" slot="pagination">
+          <div class="swiper-pagination" v-for="(item,index) in $store.getters['home/data'].discountedProducts"
+               :key="index" slot="pagination">
           </div>
         </div>
+      </div>
+    </div>
+    <div id="main_about_us">
+      <div class="container container-padding">
+        <div class="main_about_us_top_section d-flex justify-space-between align-center">
+          <div class="component-top-header d-flex align-center"
+               data-aos="fade-right"
+               data-aos-duration="1500"
+               data-aos-once="true">
+            <div>
+              <hr class="component-top-header-hr">
+            </div>
+            <div class="ml-4">
+              <span>Наши преимущества</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_about_us-section"
+           ref="mainAboutUsSection"
+           data-aos="fade-right"
+           data-aos-delay="1000"
+           data-aos-duration="1500">
       </div>
     </div>
     <div style="height: 1500px;" class="vzgooo">
@@ -112,155 +137,163 @@
   </div>
 </template>
 <script>
-  import Intro from '~/components/Intro'
-  import {directive} from 'vue-awesome-swiper'
-  import AOS from 'aos'
-  import 'aos/dist/aos.css'
+import Intro from '~/components/Intro'
+import {directive} from 'vue-awesome-swiper'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-  export default {
-    data() {
-      return {
-        language: this.$i18n.locale,
-        cartLoadingIndex: -1,
-        cartLoading: false,
-        favoriteLoadingIndex: -1,
-        favoriteLoading: false,
-        swiperOption: {
-          loop: false,
-          slidesPerView: 7,
-          spaceBetween: 30,
-          autoplay: {
-            delay: 5000
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            type: "bullets"
-          }
+export default {
+  data() {
+    return {
+      language: this.$i18n.locale,
+      cartLoadingIndex: -1,
+      cartLoading: false,
+      favoriteLoadingIndex: -1,
+      favoriteLoading: false,
+      swiperOption: {
+        loop: false,
+        slidesPerView: 7,
+        spaceBetween: 30,
+        autoplay: {
+          delay: 5000
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: "bullets"
         }
       }
-    },
-    mounted() {
-      AOS.init({
-        once: true,// whether animation should happen only once - while scrolling down
-        mirror: false, // whether elements should animate out while scrolling past them
-      })
-    },
-    async fetch() {
-      await this.$store.dispatch('home/getData', {
-        language: this.language
+    }
+  },
+  mounted() {
+    AOS.init({
+      once: true,// whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+    })
+  },
+  async fetch() {
+    await this.$store.dispatch('home/getData', {
+      language: this.language
+    });
+  },
+  directives: {
+    swiper: directive
+  },
+  components: {
+    Intro,
+  },
+  methods: {
+    addToCart(productId, index) {
+      this.cartLoading = true;
+      this.cartLoadingIndex = index;
+      this.$store.dispatch('cart/store', {
+        productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.commit('home/addProductToCart', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            productId
+          });
+          this.cartLoading = false;
+          this.cartLoadingIndex = -1;
+          this.$store.commit('cart/changeCount', 1);
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
       });
     },
-    directives: {
-      swiper: directive
+    deleteFromCart(cartProductId, productId) {
+      this.$store.commit('home/deleteCartProduct', productId);
+      this.$store.commit('cart/changeCount', -1);
+      this.$store.dispatch('cart/delete', {
+        cartProductId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
+      });
     },
-    components: {
-      Intro,
+    addToFavorites(productId, index) {
+      this.favoriteLoading = true;
+      this.favoriteLoadingIndex = index;
+      this.$store.dispatch('favorites/store', {
+        productId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.commit('home/addProductToFavorites', {
+            favorite_product: {
+              id: response.data.success.id
+            },
+            index
+          });
+          this.favoriteLoading = false;
+          this.favoriteLoadingIndex = -1;
+          this.$store.commit('favorites/changeCount', 1);
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
+      });
     },
-    methods: {
-      addToCart(productId, index) {
-        this.cartLoading = true;
-        this.cartLoadingIndex = index;
-        this.$store.dispatch('cart/store', {
-          productId
-        }).then(response => {
-          if (response.data.success) {
-            this.$store.commit('home/addProductToCart', {
-              cart_product: {
-                id: response.data.success.id
-              },
-              productId
-            });
-            this.cartLoading = false;
-            this.cartLoadingIndex = -1;
-            this.$store.commit('cart/changeCount', 1);
-            this.$store.dispatch('favorites/getData', {
-              language: this.language,
-            });
-          }
-        });
-      },
-      deleteFromCart(cartProductId, productId) {
-        this.$store.commit('home/deleteCartProduct', productId);
-        this.$store.commit('cart/changeCount', -1);
-        this.$store.dispatch('cart/delete', {
-          cartProductId
-        }).then(response => {
-          if (response.data.success) {
-            this.$store.dispatch('favorites/getData', {
-              language: this.language,
-            });
-          }
-        });
-      },
-      addToFavorites(productId, index) {
-        this.favoriteLoading = true;
-        this.favoriteLoadingIndex = index;
-        this.$store.dispatch('favorites/store', {
-          productId
-        }).then(response => {
-          if (response.data.success) {
-            this.$store.commit('home/addProductToFavorites', {
-              favorite_product: {
-                id: response.data.success.id
-              },
-              index
-            });
-            this.favoriteLoading = false;
-            this.favoriteLoadingIndex = -1;
-            this.$store.commit('favorites/changeCount', 1);
-            this.$store.dispatch('favorites/getData', {
-              language: this.language,
-            });
-          }
-        });
-      },
-      deleteFromFavorites(favoriteProductId, index, productId) {
-        this.$store.commit('home/deleteFavoriteProduct', productId);
-        this.$store.commit('favorites/changeCount', -1);
-        this.$store.dispatch('favorites/delete', {
-          favoriteProductId
-        }).then(response => {
-          if (response.data.success) {
-            this.$store.dispatch('favorites/getData', {
-              language: this.language,
-            });
-          }
-        });
-      },
-    }
+    deleteFromFavorites(favoriteProductId, index, productId) {
+      this.$store.commit('home/deleteFavoriteProduct', productId);
+      this.$store.commit('favorites/changeCount', -1);
+      this.$store.dispatch('favorites/delete', {
+        favoriteProductId
+      }).then(response => {
+        if (response.data.success) {
+          this.$store.dispatch('favorites/getData', {
+            language: this.language,
+          });
+        }
+      });
+    },
   }
+}
 </script>
 <style scoped>
-  #discounted {
-    margin-top: 4vw;
-  }
+#discounted {
+  margin-top: 4vw;
+}
 
-  .discounted_top_section_header_hr {
-    width: 8vw;
-    border: 0.075vw solid #ffffff;
-    background-color: #ffffff;
-  }
+.component-top-header-hr {
+  width: 8vw;
+  border: 0.075vw solid #ffffff;
+  background-color: #ffffff;
+}
 
-  .discounted_contacts_data_subheader hr {
-    width: 4vw;
-    border: 0.04vw solid rgba(205, 205, 205, 0.7);
-    background-color: rgba(205, 205, 205, 0.7);
-  }
+.component-top-header {
+  font-family: 'Caveat', cursive !important;
+  font-size: 3.5vw;
+  width: 100%;
+}
 
-  .discounted_top_section_header {
-    font-family: 'Caveat', cursive !important;
-    font-size: 3.5vw;
-    width: 100%;
-  }
+.products_show_product_image {
+  width: 100%;
+  height: 190px;
+  transition: .5s;
+}
 
-  .products_show_product_image {
-    width: 100%;
-    height: 190px;
-    transition: .5s;
-  }
+#main_about_us {
+  margin-top: 4vw;
+  width: 100%;
+}
+
+.main_about_us-section {
+  margin-top: 2vw;
+  margin-right: 5vw;
+  height: 1000px;
+  background-image: url("~/assets/intro2_background.png");
+  background-position: right;
+  background-repeat: no-repeat;
+}
 </style>

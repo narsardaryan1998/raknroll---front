@@ -223,7 +223,6 @@ export default {
   position: relative;
   height: 100vh;
   background-image: url("~/assets/header_background.png");
-  filter: blur(8);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
