@@ -219,8 +219,6 @@
 </template>
 
 <script>
-import AOS from 'aos'
-
 export default {
   name: "Header",
   data() {
@@ -236,9 +234,6 @@ export default {
       language: this.language,
     });
   },
-  mounted() {
-    AOS.init({})
-  },
   methods: {
     changeLanguage() {
       let routePath = $nuxt.$route.path;
@@ -249,8 +244,8 @@ export default {
         pushTo = routePath.replace("/ru", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
       } else if (routePath.includes("/en/")) {
         pushTo = routePath.replace("en/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
-      } else if (routePath.includes("/ru")) {
-        pushTo = routePath.replace("/ru", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
+      } else if (routePath.includes("/en")) {
+        pushTo = routePath.replace("/en", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
       } else {
         pushTo = this.$i18n.locale !== "uk" ? "/" + this.$i18n.locale + routePath : routePath;
       }
@@ -265,8 +260,9 @@ export default {
       this.openFavoritesModal = false;
     },
     deleteFromFavorites(favoriteProductId, index, productId) {
-      this.$store.commit('favorites/deleteFavoriteProduct', index)
-      this.$store.commit('products/deleteFavoriteProduct', productId)
+      this.$store.commit('favorites/deleteFavoriteProduct', index);
+      this.$store.commit('products/deleteFavoriteProduct', productId);
+      this.$store.commit('home/deleteFavoriteProduct', productId);
       this.$store.commit('favorites/changeCount', -1);
       this.$store.dispatch('favorites/delete', {
         favoriteProductId
@@ -289,14 +285,21 @@ export default {
             },
             productId
           });
+          this.$store.commit('home/addProductToCart', {
+            cart_product: {
+              id: response.data.success.id
+            },
+            productId
+          });
           this.$store.commit('cart/changeCount', 1);
         }
       });
     },
     deleteFromCart(cartProductId, index, productId) {
-      this.$store.commit('products/deleteCartProduct', productId)
-      this.$store.commit('favorites/deleteCartProduct', index)
-      this.$store.commit('cart/changeCount', -1)
+      this.$store.commit('products/deleteCartProduct', productId);
+      this.$store.commit('home/deleteCartProduct', productId);
+      this.$store.commit('favorites/deleteCartProduct', index);
+      this.$store.commit('cart/changeCount', -1);
       this.$store.dispatch('cart/delete', {
         cartProductId
       })

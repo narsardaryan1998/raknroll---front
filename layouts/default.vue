@@ -62,7 +62,6 @@
 
 <script>
 import Header from '~/components/Header'
-import AOS from 'aos'
 
 export default {
   data() {
@@ -75,8 +74,6 @@ export default {
     Header,
   },
   mounted() {
-    this.isMounted = true
-    AOS.init({})
     window.addEventListener('scroll', this.onScroll)
   },
   computed: {

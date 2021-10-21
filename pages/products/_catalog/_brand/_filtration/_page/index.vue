@@ -6,7 +6,7 @@
           <hr class="products_top_section_header_hr">
         </div>
         <div class="ml-4">
-          <span v-if="category_name"> {{ $t('allOfCatalog') }}</span>
+          <span v-if="!category_name"> {{ $t('allOfCatalog') }}</span>
           <span v-else> {{ category_name }}</span>
         </div>
       </div>
@@ -259,8 +259,8 @@ export default {
       cartLoadingIndex: -1,
       cartLoading: false,
       favoriteLoadingIndex: -1,
-      language: this.$i18n.locale,
       favoriteLoading: false,
+      language: this.$i18n.locale,
       category_name: '',
       data: [],
       displayQuantityArray: [10, 15, 20, 25, 30],
@@ -334,7 +334,7 @@ export default {
               id: response.data.success.id
             },
             productId
-          })
+          });
           this.cartLoading = false;
           this.cartLoadingIndex = -1;
           this.$store.commit('cart/changeCount', 1);
@@ -345,8 +345,8 @@ export default {
       });
     },
     deleteFromCart(cartProductId, productId) {
-      this.$store.commit('products/deleteCartProduct', productId)
-      this.$store.commit('cart/changeCount', -1)
+      this.$store.commit('products/deleteCartProduct', productId);
+      this.$store.commit('cart/changeCount', -1);
       this.$store.dispatch('cart/delete', {
         cartProductId
       }).then(response => {
@@ -365,11 +365,11 @@ export default {
       }).then(response => {
         if (response.data.success) {
           this.$store.commit('products/addProductToFavorites', {
-            cart_product: {
+            favorite_product: {
               id: response.data.success.id
             },
             index
-          })
+          });
           this.favoriteLoading = false;
           this.favoriteLoadingIndex = -1;
           this.$store.commit('favorites/changeCount', 1);
@@ -380,7 +380,7 @@ export default {
       });
     },
     deleteFromFavorites(favoriteProductId, index, productId) {
-      this.$store.commit('products/deleteFavoriteProduct', productId)
+      this.$store.commit('products/deleteFavoriteProduct', productId);
       this.$store.commit('favorites/changeCount', -1);
       this.$store.dispatch('favorites/delete', {
         favoriteProductId
