@@ -83,10 +83,13 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
+  ],
 
   axios: {
-    baseURL: 'http://raknroll.ua/'
+    baseURL: 'https://raknroll.ua/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -114,6 +117,10 @@ export default {
     color: '#B71C1C',
     height: '4px',
     throttle: 0
+  },
+
+  router: {
+    middleware: ['auth']
   }
   //
   // router: {
