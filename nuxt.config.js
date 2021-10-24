@@ -119,8 +119,37 @@ export default {
     throttle: 0
   },
 
-  router: {
-    middleware: ['auth']
+  auth: {
+    strategies: {
+      'laravelJWT': {
+        provider: 'laravel/jwt',
+        url: 'https://raknroll.ua',
+        endpoints: {
+          login: {
+            url: '/api/auth/login',
+            method: 'post',
+            propertyName: 'token',
+          },
+          user: {
+            url: '/api/auth/user',
+            method: 'get',
+            propertyName: 'data',
+          },
+          logout: {
+            url: '/api/auth/logout',
+            method: 'get',
+            propertyName: 'token',
+          },
+        },
+        token: {
+          property: 'access_token',
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        },
+      }
+    }
   }
   //
   // router: {

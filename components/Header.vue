@@ -1,7 +1,5 @@
 <template>
-  <header id="header" class="d-flex"
-          data-aos="fade-down"
-          data-aos-duration="1000">
+  <header id="header" class="d-flex animate__animated animate__fadeInDown animate__fast">
     <div class="container pl-0 mx-0 pr-5">
       <div class="header_row">
         <div class="header_logo">

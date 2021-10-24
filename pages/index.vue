@@ -143,6 +143,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 export default {
+  name: 'home',
   data() {
     return {
       language: this.$i18n.locale,
