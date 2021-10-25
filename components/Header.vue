@@ -212,38 +212,157 @@
                     <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
                   </v-btn>
                 </NuxtLink>
-                <div class="row justify-center">
-                  <v-dialog
-                    v-model="loginDialog"
-                    persistent
-                    max-width="600">
-                    <v-card>
-                      <v-card-title class="text-h5">
-                        Use Google's location service?
-                      </v-card-title>
-                      <v-card-text>asdfs</v-card-text>
-                      <v-card-actions>
-                        <v-spacer></v-spacer>
+                <div class="login-register-modal modal">
+                  <vue-modaltor :close-scroll="false" :visible="openLoginModal" @hide="closeLogin">
+                    <template #header>
+                      <div class="d-flex justify-end">
                         <v-btn
-                          color="green darken-1"
-                          text
-                          @click="loginDialog = false">
-                          Disagree
+                          @click="closeLogin"
+                          class="float-right"
+                          icon
+                          color="white">
+                          <v-icon
+                            color="black">mdi-close
+                          </v-icon>
                         </v-btn>
-                        <v-btn
-                          color="green darken-1"
-                          text
-                          @click="loginDialog = false">
-                          Agree
-                        </v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </v-dialog>
+                      </div>
+                    </template>
+                    <template #body>
+                      <div class="row justify-center">
+                        <div class="col-md-5 pt-0">
+                          <v-img
+                            position="center"
+                            src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
+                            lazy-src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
+                            alt="RAK'N'ROLL logo"
+                            contain>
+                          </v-img>
+                        </div>
+                      </div>
+                      <v-stepper light v-model="e1">
+                        <v-stepper-items>
+                          <v-stepper-content
+                            class="pt-0"
+                            :key="`1-content`"
+                            :step="1">
+                            <div class="row pt-3">
+                              <div class="col-md-12">
+                                <v-form
+                                  ref="loginForm"
+                                  v-model="loginForm.valid"
+                                  lazy-validation>
+                                  <div class="container">
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          light
+                                          filled
+                                          rounded
+                                          color="black"
+                                          v-model="loginForm.username"
+                                          :rules="usernameRules"
+                                          :counter="50"
+                                          label="Username"
+                                          required>
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          filled
+                                          light
+                                          rounded
+                                          color="black"
+                                          v-model="loginForm.password"
+                                          :append-icon="loginForm.passwordShowInLogin ? 'mdi-eye' : 'mdi-eye-off'"
+                                          :rules="passwordRules"
+                                          :type="loginForm.passwordShowInLogin ? 'text' : 'password'"
+                                          name="password"
+                                          :counter="50"
+                                          label="Password"
+                                          required
+                                          @click:append="loginForm.passwordShowInLogin = !loginForm.passwordShowInLogin">
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-btn
+                                          large
+                                          rounded
+                                          class="width-100"
+                                          dark
+                                          @click="customLogin">
+                                          Submit
+                                        </v-btn>
+                                      </div>
+                                    </div>
+                                    <div class="row mt-5">
+                                      <div class="col-md-12 text-center">
+                                        <span>- OR -</span>
+                                      </div>
+                                    </div>
+                                    <div class="row mt-1">
+                                      <div class="col-md-12 text-center">
+                                        <span>Sign in with:</span>
+                                      </div>
+                                    </div>
+                                    <div class="d-flex justify-center mt-5 align-center">
+                                      <div class="mr-5">
+                                        <v-btn
+                                          @click="socialLogin('facebook')"
+                                          color="light-blue darken-4"
+                                          fab
+                                          small
+                                          light>
+                                          <img src="~/assets/fb-logo.png" alt="Facebook login"/>
+                                        </v-btn>
+                                      </div>
+                                      <div>
+                                        <div class="ml-5">
+                                          <v-btn
+                                            @click="socialLogin('google')"
+                                            fab
+                                            light
+                                            small>
+                                            <img src="~/assets/google-logo.png" alt="Google login"/>
+                                          </v-btn>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row mt-5">
+                                    <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
+                                      <span>Don't have an account? </span><span
+                                      class="login-register-modal_go-to-register_button cursor-pointer" @click="e1 = 2">Register</span>
+                                    </div>
+                                  </div>
+                                </v-form>
+                              </div>
+                            </div>
+                          </v-stepper-content>
+                          <v-stepper-content
+                            :key="`2-content`"
+                            :step="2">
+                            <div class="row">
+                              <h1>Register</h1>
+                            </div>
+                            <v-btn
+                              color="primary"
+                              @click="e1 = 1">
+                              Back
+                            </v-btn>
+                          </v-stepper-content>
+                        </v-stepper-items>
+                      </v-stepper>
+                    </template>
+                  </vue-modaltor>
                 </div>
                 <v-btn
                   v-if="!$auth.loggedIn && !$auth.user"
                   class="ma-2 header_nav_user_part_button"
-                  @click=""
+                  @click="openLogin"
                   outlined
                   small
                   fab
@@ -264,9 +383,27 @@ export default {
   name: "Header",
   data() {
     return {
+      e1: 1,
+      steps: 2,
       openFavoritesModal: false,
-      loginDialog: false,
+      openLoginModal: false,
       language: this.$i18n.locale,
+      loginForm: {
+        valid: false,
+        username: '',
+        password: '',
+        passwordShowInLogin: false,
+      },
+      usernameRules: [
+        v => !!v || 'Username is required',
+        v => (v && v.length > 7) || 'Username must be more than 8 characters',
+        v => (v && v.length <= 50) || 'Username must be less than 50 characters',
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required',
+        v => (v && v.length <= 50) || 'Max 50 characters',
+        v => (v && v.length > 7) || 'Min 8 characters',
+      ],
     }
   },
   created() {
@@ -300,6 +437,14 @@ export default {
     closeFavorites() {
       document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
       this.openFavoritesModal = false;
+    },
+    openLogin() {
+      document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+      this.openLoginModal = true;
+    },
+    closeLogin() {
+      document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+      this.openLoginModal = false;
     },
     deleteFromFavorites(favoriteProductId, index, productId) {
       this.$store.commit('favorites/deleteFavoriteProduct', index);
@@ -346,7 +491,15 @@ export default {
         cartProductId
       })
     },
-  }
+    customLogin() {
+      if (this.$refs.loginForm.validate()) {
+        this.closeLogin();
+      }
+    },
+    socialLogin(service) {
+      window.location.href = 'https://raknroll.ua/api/auth/login/' + service;
+    },
+  },
 }
 </script>
 

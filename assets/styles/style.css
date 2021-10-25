@@ -116,6 +116,10 @@ body {
   width: 50% !important;
 }
 
+.width-100 {
+  width: 100% !important;
+}
+
 .v-pagination button {
   border-radius: 0 !important;
 }
@@ -229,6 +233,25 @@ body {
   width: 50% !important;
   background: #ffffff !important;
   color: #1f1f1f;
+}
+
+.login-register-modal .modaltor__panel {
+  width: 25% !important;
+  background: #ffffff !important;
+  color: #1f1f1f;
+}
+
+.login-register-modal .v-sheet {
+  box-shadow: none !important;
+}
+
+.login-register-modal_go-to-register {
+  font-size: 0.85vw;
+}
+
+.login-register-modal_go-to-register_button {
+  font-size: 0.90vw;
+  font-weight: bold;
 }
 
 .modaltor__content {

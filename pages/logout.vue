@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 8vw">
     <h1 @click="logout">
       logout
     </h1>
