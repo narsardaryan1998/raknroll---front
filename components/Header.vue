@@ -199,8 +199,51 @@
                     </v-badge>
                   </v-btn>
                 </NuxtLink>
+                <NuxtLink
+                  v-if="$auth.loggedIn && $auth.user"
+                  class="header_nav_navigation_menu_link"
+                  :to='localePath("/user/" + $auth.user.slug)'>
+                  <v-btn
+                    class="ma-2 header_nav_user_part_button"
+                    outlined
+                    small
+                    fab
+                    color="white">
+                    <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
+                  </v-btn>
+                </NuxtLink>
+                <div class="row justify-center">
+                  <v-dialog
+                    v-model="loginDialog"
+                    persistent
+                    max-width="600">
+                    <v-card>
+                      <v-card-title class="text-h5">
+                        Use Google's location service?
+                      </v-card-title>
+                      <v-card-text>asdfs</v-card-text>
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          color="green darken-1"
+                          text
+                          @click="loginDialog = false">
+                          Disagree
+                        </v-btn>
+                        <v-btn
+                          color="green darken-1"
+                          text
+                          @click="loginDialog = false">
+                          Agree
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </div>
                 <v-btn
+                  v-if="!$auth.loggedIn && !$auth.user"
                   class="ma-2 header_nav_user_part_button"
+                  @click=""
                   outlined
                   small
                   fab
@@ -222,6 +265,7 @@ export default {
   data() {
     return {
       openFavoritesModal: false,
+      loginDialog: false,
       language: this.$i18n.locale,
     }
   },

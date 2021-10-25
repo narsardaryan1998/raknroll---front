@@ -130,6 +130,11 @@ export default {
             method: 'post',
             propertyName: 'token',
           },
+          register: {
+            url: '/api/auth/register',
+            method: 'post',
+            propertyName: 'token',
+          },
           user: {
             url: '/api/auth/user',
             method: 'get',
