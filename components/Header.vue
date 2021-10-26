@@ -249,7 +249,7 @@
                               <div class="col-md-12">
                                 <v-form
                                   ref="loginForm"
-                                  v-model="loginForm.valid"
+                                  v-model="loginFormValid"
                                   lazy-validation>
                                   <div class="container">
                                     <div class="row">
@@ -259,10 +259,11 @@
                                           filled
                                           rounded
                                           color="black"
-                                          v-model="loginForm.username"
-                                          :rules="usernameRules"
+                                          name="email"
+                                          v-model="loginForm.email"
+                                          :rules="emailRules"
                                           :counter="50"
-                                          label="Username"
+                                          label="Email *"
                                           required>
                                         </v-text-field>
                                       </div>
@@ -275,14 +276,14 @@
                                           rounded
                                           color="black"
                                           v-model="loginForm.password"
-                                          :append-icon="loginForm.passwordShowInLogin ? 'mdi-eye' : 'mdi-eye-off'"
+                                          :append-icon="loginFormPasswordShowIn ? 'mdi-eye' : 'mdi-eye-off'"
                                           :rules="passwordRules"
-                                          :type="loginForm.passwordShowInLogin ? 'text' : 'password'"
+                                          :type="loginFormPasswordShowIn ? 'text' : 'password'"
                                           name="password"
                                           :counter="50"
-                                          label="Password"
+                                          label="Password *"
                                           required
-                                          @click:append="loginForm.passwordShowInLogin = !loginForm.passwordShowInLogin">
+                                          @click:append="loginFormPasswordShowIn = !loginFormPasswordShowIn">
                                         </v-text-field>
                                       </div>
                                     </div>
@@ -335,7 +336,8 @@
                                   <div class="row mt-5">
                                     <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
                                       <span>Don't have an account? </span><span
-                                      class="login-register-modal_go-to-register_button cursor-pointer" @click="e1 = 2">Register</span>
+                                      class="login-register-modal_go-to-register_button cursor-pointer red--text text--darken-4"
+                                      @click="e1 = 2">Register</span>
                                     </div>
                                   </div>
                                 </v-form>
@@ -345,14 +347,124 @@
                           <v-stepper-content
                             :key="`2-content`"
                             :step="2">
-                            <div class="row">
-                              <h1>Register</h1>
+                            <div class="row pt-3">
+                              <div class="col-md-12">
+                                <v-form
+                                  ref="registerForm"
+                                  v-model="registerFormValid"
+                                  lazy-validation>
+                                  <div class="container">
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          light
+                                          filled
+                                          rounded
+                                          color="black"
+                                          name="name"
+                                          v-model="registerForm.name"
+                                          :rules="nameRules"
+                                          :counter="50"
+                                          label="Name *"
+                                          required>
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          light
+                                          filled
+                                          type="email"
+                                          rounded
+                                          name="email"
+                                          color="black"
+                                          v-model="registerForm.email"
+                                          :rules="emailRules"
+                                          :counter="50"
+                                          label="Email *"
+                                          required>
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          light
+                                          filled
+                                          v-mask="'(###) ### - ## - ##'"
+                                          type="tel"
+                                          hint="For example - 0965990909"
+                                          rounded
+                                          name="phone"
+                                          color="black"
+                                          v-model="registerForm.phone"
+                                          label="Phone"
+                                          required>
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          filled
+                                          light
+                                          rounded
+                                          color="black"
+                                          v-model="registerForm.password"
+                                          :append-icon="registerFormPasswordShowIn ? 'mdi-eye' : 'mdi-eye-off'"
+                                          :rules="passwordRules"
+                                          :type="registerFormPasswordShowIn ? 'text' : 'password'"
+                                          name="password"
+                                          :counter="50"
+                                          label="Password *"
+                                          required
+                                          @click:append="registerFormPasswordShowIn = !registerFormPasswordShowIn">
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-text-field
+                                          filled
+                                          light
+                                          rounded
+                                          color="black"
+                                          v-model="registerForm.confirm_password"
+                                          :append-icon="registerFormPasswordConfirmedShow ? 'mdi-eye' : 'mdi-eye-off'"
+                                          :rules="passwordConfirmedRules"
+                                          :type="registerFormPasswordConfirmedShow ? 'text' : 'password'"
+                                          name="confirm_password"
+                                          :counter="50"
+                                          label="Confirm password *"
+                                          required
+                                          @click:append="registerFormPasswordConfirmedShow = !registerFormPasswordConfirmedShow">
+                                        </v-text-field>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12 py-0">
+                                        <v-btn
+                                          large
+                                          rounded
+                                          class="width-100"
+                                          dark
+                                          @click="customRegister">
+                                          Register
+                                        </v-btn>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row mt-5">
+                                    <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
+                                      <span>Do you have account? </span><span
+                                      class="login-register-modal_go-to-register_button cursor-pointer red--text text--darken-4"
+                                      @click="e1 = 1">Log in</span>
+                                    </div>
+                                  </div>
+                                </v-form>
+                              </div>
                             </div>
-                            <v-btn
-                              color="primary"
-                              @click="e1 = 1">
-                              Back
-                            </v-btn>
                           </v-stepper-content>
                         </v-stepper-items>
                       </v-stepper>
@@ -387,22 +499,40 @@ export default {
       steps: 2,
       openFavoritesModal: false,
       openLoginModal: false,
+      registerFormValid: false,
+      loginFormValid: false,
+      loginFormPasswordShowIn: false,
+      registerFormPasswordShowIn: false,
+      registerFormPasswordConfirmedShow: false,
       language: this.$i18n.locale,
       loginForm: {
-        valid: false,
-        username: '',
+        email: '',
         password: '',
-        passwordShowInLogin: false,
       },
-      usernameRules: [
-        v => !!v || 'Username is required',
-        v => (v && v.length > 7) || 'Username must be more than 8 characters',
-        v => (v && v.length <= 50) || 'Username must be less than 50 characters',
+      registerForm: {
+        name: '',
+        email: '',
+        password: '',
+        phone: '',
+        confirm_password: '',
+      },
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length > 3) || 'Name must be more than 4 characters',
+        v => (v && v.length <= 50) || 'Name must be less than 50 characters',
       ],
       passwordRules: [
         v => !!v || 'Password is required',
         v => (v && v.length <= 50) || 'Max 50 characters',
-        v => (v && v.length > 7) || 'Min 8 characters',
+        v => (v && v.length > 5) || 'Min 6 characters',
+      ],
+      passwordConfirmedRules: [
+        v => !!v || 'Password Confirmed is required',
+        v => (v && v === this.registerForm.password) || 'Password dont much',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
     }
   },
@@ -493,7 +623,25 @@ export default {
     },
     customLogin() {
       if (this.$refs.loginForm.validate()) {
-        this.closeLogin();
+        this.$auth.loginWith('laravelJWT', {
+          data: this.loginForm
+        })
+      }
+    },
+    async customRegister() {
+      if (this.$refs.registerForm.validate()) {
+        await this.$axios.post('/api/auth/register', this.registerForm).then(response => {
+          if (response.data.success) {
+            this.$auth.loginWith('laravelJWT', {
+              data: {
+                email: this.registerForm.email,
+                password: this.registerForm.password,
+              }
+            }).then(response => {
+              console.log(response);
+            })
+          }
+        })
       }
     },
     socialLogin(service) {
