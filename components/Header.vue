@@ -245,6 +245,25 @@
                             class="pt-0"
                             :key="`1-content`"
                             :step="1">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <v-alert
+                                  v-if="loginErrors.exists"
+                                  color="red darken-4"
+                                  dismissible
+                                  type="error"
+                                  border="left"
+                                  elevation="2"
+                                  light
+                                  colored-border
+                                  class="red--text text--darken-4"
+                                  icon="mdi-alert-octagon-outline">
+                                    <span v-for="error in loginErrors.data">
+                                      - {{ error[0] }}
+                                    </span>
+                                </v-alert>
+                              </div>
+                            </div>
                             <div class="row pt-3">
                               <div class="col-md-12">
                                 <v-form
@@ -347,6 +366,25 @@
                           <v-stepper-content
                             :key="`2-content`"
                             :step="2">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <v-alert
+                                  v-if="registerErrors.exists"
+                                  color="red darken-4"
+                                  dismissible
+                                  type="error"
+                                  border="left"
+                                  elevation="2"
+                                  light
+                                  colored-border
+                                  class="red--text text--darken-4"
+                                  icon="mdi-alert-octagon-outline">
+                                    <span v-for="error in registerErrors.data">
+                                      - {{ error[0] }}
+                                    </span>
+                                </v-alert>
+                              </div>
+                            </div>
                             <div class="row pt-3">
                               <div class="col-md-12">
                                 <v-form
@@ -505,6 +543,14 @@ export default {
       registerFormPasswordShowIn: false,
       registerFormPasswordConfirmedShow: false,
       language: this.$i18n.locale,
+      loginErrors: {
+        exists: false,
+        data: []
+      },
+      registerErrors: {
+        exists: false,
+        data: []
+      },
       loginForm: {
         email: '',
         password: '',
@@ -625,6 +671,16 @@ export default {
       if (this.$refs.loginForm.validate()) {
         this.$auth.loginWith('laravelJWT', {
           data: this.loginForm
+        }).then(response => {
+          if (response.data.success) {
+            this.loginErrors.data = [];
+            this.loginErrors.exists = false;
+          }
+        }).catch((error) => {
+          if (error.response.data.errors) {
+            this.loginErrors.data = error.response.data.errors;
+            this.loginErrors.exists = true;
+          }
         })
       }
     },
@@ -632,14 +688,16 @@ export default {
       if (this.$refs.registerForm.validate()) {
         await this.$axios.post('/api/auth/register', this.registerForm).then(response => {
           if (response.data.success) {
-            this.$auth.loginWith('laravelJWT', {
-              data: {
-                email: this.registerForm.email,
-                password: this.registerForm.password,
-              }
-            }).then(response => {
-              console.log(response);
-            })
+            this.registerErrors.data = [];
+            this.registerErrors.exists = false;
+            this.loginForm.email = this.registerForm.email;
+            this.loginForm.password = this.registerForm.password;
+            this.customLogin();
+          }
+        }).catch((error) => {
+          if (error.response.data.errors) {
+            this.registerErrors.data = error.response.data.errors;
+            this.registerErrors.exists = true;
           }
         })
       }
