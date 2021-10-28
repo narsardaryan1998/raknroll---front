@@ -28,6 +28,7 @@
     "vue-kinesis": "^1.2.3",
     "vue-modaltor": "^1.5.4",
     "vue-property-decorator": "^9.1.2",
+    "vue-toastification": "^1.7.14",
     "vue-zoom-on-hover": "^1.0.6",
     "vuetify": "^2.5.5",
     "vuex": "latest"

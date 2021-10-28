@@ -534,7 +534,6 @@ export default {
   data() {
     return {
       e1: 1,
-      steps: 2,
       openFavoritesModal: false,
       openLoginModal: false,
       registerFormValid: false,
@@ -668,36 +667,97 @@ export default {
       })
     },
     customLogin() {
-      if (this.$refs.loginForm.validate()) {
-        this.$auth.loginWith('laravelJWT', {
-          data: this.loginForm
-        }).then(response => {
-          if (response.data.success) {
-            this.loginErrors.data = [];
-            this.loginErrors.exists = false;
-          }
-        }).catch((error) => {
-          if (error.response.data.errors) {
-            this.loginErrors.data = error.response.data.errors;
-            this.loginErrors.exists = true;
-          }
-        })
-      }
+      this.$toast.success("Successfully logged in", {
+        position: "top-right",
+        timeout: 5000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+      // if ((this.$refs.loginForm.validate()) && !this.$auth.loggedIn) {
+      //   this.$auth.loginWith('laravelJWT', {
+      //     data: this.loginForm
+      //   }).then(response => {
+      //     if (response.data.success) {
+      //       this.closeLogin();
+      //       this.$toast.success("Successfully logged in", {
+      //         position: "top-right",
+      //         timeout: 5000,
+      //         closeOnClick: true,
+      //         pauseOnFocusLoss: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         draggablePercent: 0.6,
+      //         showCloseButtonOnHover: false,
+      //         hideProgressBar: true,
+      //         closeButton: "button",
+      //         icon: true,
+      //         rtl: false
+      //       });
+      //       this.loginErrors = Object.assign({}, this.loginErrors, {
+      //         data: [],
+      //         exists: false
+      //       })
+      //       this.loginForm = Object.assign({}, this.loginForm, {
+      //         email: '',
+      //         password: ''
+      //       })
+      //     }
+      //   }).catch((error) => {
+      //     if (error.response.data.errors) {
+      //       this.loginErrors = Object.assign({}, this.loginErrors, {data: error.response.data.errors, exists: true})
+      //     }
+      //   })
+      // }
     },
     async customRegister() {
-      if (this.$refs.registerForm.validate()) {
+      if (this.$refs.registerForm.validate() && !this.$auth.loggedIn) {
         await this.$axios.post('/api/auth/register', this.registerForm).then(response => {
           if (response.data.success) {
-            this.registerErrors.data = [];
-            this.registerErrors.exists = false;
-            this.loginForm.email = this.registerForm.email;
-            this.loginForm.password = this.registerForm.password;
-            this.customLogin();
+            this.registerErrors = Object.assign({}, this.registerErrors, {
+              data: [],
+              exists: false
+            });
+            this.loginForm = Object.assign({}, this.loginForm, {
+              email: this.registerForm.email,
+              password: this.registerForm.password
+            });
+            this.e1 = 1;
+            this.$toast.success("Successfully registered in", {
+              position: "top-right",
+              timeout: 5000,
+              closeOnClick: true,
+              pauseOnFocusLoss: true,
+              pauseOnHover: true,
+              draggable: true,
+              draggablePercent: 0.6,
+              showCloseButtonOnHover: false,
+              hideProgressBar: true,
+              closeButton: "button",
+              icon: true,
+              rtl: false
+            });
+            this.registerForm = Object.assign({}, this.registerForm, {
+              email: '',
+              name: '',
+              password: '',
+              phone: '',
+              confirm_password: '',
+            });
           }
         }).catch((error) => {
           if (error.response.data.errors) {
-            this.registerErrors.data = error.response.data.errors;
-            this.registerErrors.exists = true;
+            this.registerErrors = Object.assign({}, this.registerErrors, {
+              data: error.response.data.errors,
+              exists: true
+            });
           }
         })
       }

@@ -48,6 +48,7 @@ export default {
     {src: '~/plugins/vue-zoom-on-hover', ssr: false},
     {src: '~/plugins/vue-modaltor'},
     {src: '~/plugins/v-mask'},
+    {src: '~/plugins/vue-toastification', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
