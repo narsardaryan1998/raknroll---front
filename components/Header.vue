@@ -16,7 +16,7 @@
           </NuxtLink>
         </div>
         <div class="header_nav">
-          <div class="header_nav_delivery_and_user_part d-flex align-center">
+          <div class="header_nav_delivery_and_user_part d-flex align-center justify-space-between">
             <div class="header_nav_delivery_part d-flex align-center justify-space-between">
               <div class="header_nav_delivery_part_language">
                 <v-select
@@ -47,6 +47,17 @@
                   single-line>
                 </v-select>
               </div>
+            </div>
+            <div class="header_nav_user_part_balance" v-if="$auth.loggedIn && $auth.user">
+              <span>Balance: {{ $auth.user.balance }} ₴</span>
+              <v-btn
+                class="ma-2 header_nav_user_part_button"
+                outlined
+                small
+                fab
+                color="white">
+                <img src="~/assets/icons/wallet.png" alt="Top up wallet"/>
+              </v-btn>
             </div>
           </div>
           <div class="header_nav_links d-flex align-center justify-space-between pt-4">
@@ -182,7 +193,7 @@
                     </template>
                   </vue-modaltor>
                 </div>
-                <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/cart")'>
+                <NuxtLink :to='localePath("/cart")'>
                   <v-btn
                     class="ma-2 header_nav_user_part_button"
                     outlined
@@ -199,19 +210,38 @@
                     </v-badge>
                   </v-btn>
                 </NuxtLink>
-                <NuxtLink
+                <v-menu
                   v-if="$auth.loggedIn && $auth.user"
-                  class="header_nav_navigation_menu_link"
-                  :to='localePath("/user/" + $auth.user.slug)'>
-                  <v-btn
-                    class="ma-2 header_nav_user_part_button"
-                    outlined
-                    small
-                    fab
-                    color="white">
-                    <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
-                  </v-btn>
-                </NuxtLink>
+                  bottom
+                  origin="center center"
+                  transition="scale-transition">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      class="ma-2 header_nav_user_part_button"
+                      outlined
+                      small
+                      fab
+                      v-bind="attrs"
+                      v-on="on"
+                      color="white">
+                      <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
+                    </v-btn>
+                  </template>
+                  <v-list>
+                    <NuxtLink
+                      class="header_nav_user_part_actions"
+                      :to='localePath("/user/" + $auth.user.slug)'>
+                      <v-list-item>
+                        <v-list-item-title>Account</v-list-item-title>
+                      </v-list-item>
+                    </NuxtLink>
+                    <a @click="logout" href="javascript:void(0)" class="header_nav_user_part_actions">
+                      <v-list-item>
+                        <v-list-item-title>Logout</v-list-item-title>
+                      </v-list-item>
+                    </a>
+                  </v-list>
+                </v-menu>
                 <div class="login-register-modal modal">
                   <vue-modaltor :close-scroll="false" :visible="openLoginModal" @hide="closeLogin">
                     <template #header>
@@ -667,55 +697,38 @@ export default {
       })
     },
     customLogin() {
-      this.$toast.success("Successfully logged in", {
-        position: "top-right",
-        timeout: 5000,
-        closeOnClick: true,
-        pauseOnFocusLoss: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true,
-        rtl: false
-      });
-      // if ((this.$refs.loginForm.validate()) && !this.$auth.loggedIn) {
-      //   this.$auth.loginWith('laravelJWT', {
-      //     data: this.loginForm
-      //   }).then(response => {
-      //     if (response.data.success) {
-      //       this.closeLogin();
-      //       this.$toast.success("Successfully logged in", {
-      //         position: "top-right",
-      //         timeout: 5000,
-      //         closeOnClick: true,
-      //         pauseOnFocusLoss: true,
-      //         pauseOnHover: true,
-      //         draggable: true,
-      //         draggablePercent: 0.6,
-      //         showCloseButtonOnHover: false,
-      //         hideProgressBar: true,
-      //         closeButton: "button",
-      //         icon: true,
-      //         rtl: false
-      //       });
-      //       this.loginErrors = Object.assign({}, this.loginErrors, {
-      //         data: [],
-      //         exists: false
-      //       })
-      //       this.loginForm = Object.assign({}, this.loginForm, {
-      //         email: '',
-      //         password: ''
-      //       })
-      //     }
-      //   }).catch((error) => {
-      //     if (error.response.data.errors) {
-      //       this.loginErrors = Object.assign({}, this.loginErrors, {data: error.response.data.errors, exists: true})
-      //     }
-      //   })
-      // }
+      if ((this.$refs.loginForm.validate()) && !this.$auth.loggedIn) {
+        this.$auth.loginWith('laravelJWT', {
+          data: this.loginForm
+        }).then(response => {
+          if (response.data.success) {
+            this.closeLogin();
+            this.$toast.success("Successfully logged in " + response.data.user_name, {
+              position: "top-right",
+              timeout: 5000,
+              closeOnClick: true,
+              pauseOnFocusLoss: true,
+              pauseOnHover: true,
+              draggable: true,
+              draggablePercent: 0.6,
+              showCloseButtonOnHover: false,
+              hideProgressBar: false,
+              closeButton: "button",
+              icon: true,
+              rtl: false
+            });
+            this.loginErrors = Object.assign({}, this.loginErrors, {
+              data: [],
+              exists: false
+            })
+            this.$refs.loginForm.reset();
+          }
+        }).catch((error) => {
+          if (error.response.data.errors) {
+            this.loginErrors = Object.assign({}, this.loginErrors, {data: error.response.data.errors, exists: true})
+          }
+        })
+      }
     },
     async customRegister() {
       if (this.$refs.registerForm.validate() && !this.$auth.loggedIn) {
@@ -738,19 +751,13 @@ export default {
               pauseOnHover: true,
               draggable: true,
               draggablePercent: 0.6,
-              showCloseButtonOnHover: false,
-              hideProgressBar: true,
+              showCloseButtonOnHover: true,
+              hideProgressBar: false,
               closeButton: "button",
               icon: true,
               rtl: false
             });
-            this.registerForm = Object.assign({}, this.registerForm, {
-              email: '',
-              name: '',
-              password: '',
-              phone: '',
-              confirm_password: '',
-            });
+            this.$refs.registerForm.reset();
           }
         }).catch((error) => {
           if (error.response.data.errors) {
@@ -765,6 +772,23 @@ export default {
     socialLogin(service) {
       window.location.href = 'https://raknroll.ua/api/auth/login/' + service;
     },
+    async logout() {
+      await this.$auth.logout()
+      this.$toast.error("Successfully logged out", {
+        position: "top-right",
+        timeout: 5000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: false,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+    }
   },
 }
 </script>
@@ -809,17 +833,26 @@ export default {
   min-width: 45%;
 }
 
-.header_nav_user_part img {
+.header_nav_user_part_balance {
+  font-size: 0.875vw;
+}
+
+.header_nav_user_part img, .header_nav_user_part_balance img {
   width: 1.3vw;
 }
 
 .header_nav_navigation_menu_link {
-
   font-size: 1vw;
   line-height: 1;
   color: #feffff;
   text-transform: uppercase;
   transition: .5s;
+  text-decoration: none;
+}
+
+.header_nav_user_part_actions {
+  font-size: 1vw;
+  color: #feffff;
   text-decoration: none;
 }
 

@@ -144,7 +144,7 @@ export default {
           },
           logout: {
             url: '/api/auth/logout',
-            method: 'get',
+            method: 'post',
             propertyName: 'token',
           },
         },

@@ -254,12 +254,20 @@ body {
   font-weight: bold;
 }
 
+.offset-cart-40 {
+  margin-top: -40px;
+}
+
 .modaltor__content {
   padding: 1vw;
 }
 
 .modaltor__panel::-webkit-scrollbar-thumb {
   background-color: #B71C1C !important;
+}
+
+.Vue-Toastification__container {
+  z-index: 99999999999999999999999999 !important;
 }
 
 /*Custom Button*/
