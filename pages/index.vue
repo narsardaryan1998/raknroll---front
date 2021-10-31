@@ -176,9 +176,9 @@ export default {
       mirror: false, // whether elements should animate out while scrolling past them
     })
   },
-  async fetch() {
-    await this.$store.dispatch('home/getData', {
-      language: this.language
+  async asyncData({store, i18n}) {
+    await store.dispatch('home/getData', {
+      language: i18n.locale
     });
   },
   directives: {

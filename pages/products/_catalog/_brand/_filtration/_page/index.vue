@@ -261,39 +261,38 @@ export default {
       favoriteLoadingIndex: -1,
       favoriteLoading: false,
       language: this.$i18n.locale,
-      category_name: '',
-      data: [],
       displayQuantityArray: [10, 15, 20, 25, 30],
-      filter: {
-        language: this.$i18n.locale,
-        category_slug: this.$route.params.catalog,
-        brand_slug: this.$route.params.brand,
-        page: 1,
-        display_quantity: 10,
-        search: '',
-        recommended: false,
-        bestseller: false,
-        discounted: false,
-        final_price: [0, 23000]
-      }
     }
   },
-  async fetch() {
-    if (this.$route.params.filtration) {
-      this.$set(this.$route.params, 'filtration', JSON.parse(this.$route.params.filtration));
-      for (const [key, value] of Object.entries(this.$route.params.filtration)) {
-        this.$set(this.filter, key, value);
+  async asyncData({params, store, i18n}) {
+    const filter = {
+      language: i18n.locale,
+      category_slug: params.catalog,
+      brand_slug: params.brand,
+      page: 1,
+      display_quantity: 10,
+      search: '',
+      recommended: false,
+      bestseller: false,
+      discounted: false,
+      final_price: [0, 23000]
+    }
+    if (params.filtration) {
+      params.filtration = JSON.parse(params.filtration)
+      for (const [key, value] of Object.entries(params.filtration)) {
+        filter[key] = value;
       }
     }
-    this.$set(this.filter, 'page', parseInt(this.$route.params.page.replace('page-', '')));
-    this.$set(this.filter, 'category_slug', this.$route.params.catalog);
-    this.$set(this.filter, 'brand_slug', this.$route.params.brand);
-    await this.$store.dispatch('products/getData', this.filter);
-    if (this.$store.getters['products/data'].paginateCount < this.filter.page) {
-      this.$set(this.filter, 'page', this.$store.getters['products/data'].paginateCount);
+    filter.page = parseInt(params.page.replace('page-', ''))
+    filter.category_slug = params.catalog;
+    filter.brand_slug = params.brand;
+    await store.dispatch('products/getData', filter);
+    if (store.getters['products/data'].paginateCount < filter.page) {
+      filter.page = store.getters['products/data'].paginateCount;
     }
-    let category = this.$store.getters['products/data'].categories.find(category => category.slug === this.filter.category_slug);
-    this.category_name = category ? category.name : '';
+    let category = store.getters['products/data'].categories.find(category => category.slug === filter.category_slug);
+    const category_name = category ? category.name : '';
+    return {filter, category_name}
   },
   methods: {
     filtration(e, isPaginate = false) {

@@ -175,9 +175,9 @@
 <script>
 export default {
   name: "Cart",
-  async fetch() {
-    await this.$store.dispatch('cart/getData', {
-      language: this.language,
+  async asyncData({store, i18n}) {
+    await store.dispatch('cart/getData', {
+      language: i18n.locale
     });
   },
   data() {

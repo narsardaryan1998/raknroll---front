@@ -31,8 +31,7 @@
                     <v-text-field
                       color="red darken-4"
                       v-model="form.email"
-                      label="eMail"
-                      disabled>
+                      label="eMail">
                     </v-text-field>
                   </div>
                   <div class="col-md-4 col-12">
@@ -55,9 +54,9 @@
                   <div class="col-md-6 col-12">
                     <v-text-field
                       color="red darken-4"
+                      v-mask="'(###) ### - ## - ##'"
                       v-model="form.phone"
-                      label="Телефон"
-                      disabled>
+                      label="Телефон">
                     </v-text-field>
                   </div>
                 </div>
@@ -133,7 +132,7 @@
               <div class="row">
                 <div class="col-md-4 offset-md-4 offset-cart-40">
                   <v-avatar size="100%">
-                    <img :src="this.$store.getters['user/data'].user.avatar"
+                    <img :src="$store.getters['user/data'].user.avatar"
                          alt="John">
                   </v-avatar>
                 </div>
@@ -147,7 +146,7 @@
                         </v-icon>
                       </v-list-item-title>
                       <v-list-item-subtitle color="white">
-                        {{ this.$store.getters['user/data'].user.balance }} ₴
+                        {{ $store.getters['user/data'].user.balance }} ₴
                       </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
@@ -157,7 +156,7 @@
             <v-card-text>
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <h3>{{ this.$store.getters['user/data'].user.name }}</h3>
+                  <h3>{{ $store.getters['user/data'].user.name }}</h3>
                 </div>
               </div>
               <v-divider></v-divider>
@@ -260,23 +259,23 @@
 
 <script>
 export default {
-  name: "user",
-  async fetch() {
-    await this.$store.dispatch('user/getData', {slug: this.$route.params.slug});
-    this.form = Object.assign({}, this.form, {
-      id: this.$store.getters['user/data'].user.id,
-      name: this.$store.getters['user/data'].user.name,
-      email: this.$store.getters['user/data'].user.email,
-      profession: this.$store.getters['user/data'].user.profession,
-      role: this.$store.getters['user/data'].user.role,
-      phone: this.$store.getters['user/data'].user.phone,
-      address: this.$store.getters['user/data'].user.address,
-      city: this.$store.getters['user/data'].user.city,
-      home: this.$store.getters['user/data'].user.home,
-      intercom: this.$store.getters['user/data'].user.intercom,
-      floor: this.$store.getters['user/data'].user.floor,
-      description: this.$store.getters['user/data'].user.description,
-    })
+  async asyncData({params, store}) {
+    await store.dispatch('user/getData', {slug: params.slug});
+    const form = {
+      id: store.getters['user/data'].user.id,
+      name: store.getters['user/data'].user.name,
+      email: store.getters['user/data'].user.email,
+      profession: store.getters['user/data'].user.profession,
+      role: store.getters['user/data'].user.role,
+      phone: store.getters['user/data'].user.phone,
+      address: store.getters['user/data'].user.address,
+      city: store.getters['user/data'].user.city,
+      home: store.getters['user/data'].user.home,
+      intercom: store.getters['user/data'].user.intercom,
+      floor: store.getters['user/data'].user.floor,
+      description: store.getters['user/data'].user.description,
+    }
+    return {form}
   },
   data() {
     return {
@@ -284,27 +283,7 @@ export default {
       checkbox: false,
       dialog: false,
       floorArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
-      form: {
-        slug: this.$route.params.slug,
-        id: '',
-        name: '',
-        email: '',
-        profession: '',
-        role: '',
-        phone: '',
-        address: '',
-        city: '',
-        home: '',
-        intercom: '',
-        floor: '',
-        description: '',
-        blocked: '',
-        best_customer: '',
-      },
     }
-  },
-  mounted() {
-    // console.log(this.$auth.user);
   },
   methods: {
     edit(editing) {
