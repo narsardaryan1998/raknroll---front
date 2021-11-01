@@ -254,6 +254,10 @@ body {
   font-weight: bold;
 }
 
+.map-section_map-content {
+  opacity: 0.8;
+}
+
 .offset-cart-40 {
   margin-top: -40px;
 }

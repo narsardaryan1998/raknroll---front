@@ -233,7 +233,6 @@
               height: 479px;
               width: 100%;
             }</style>
-            <a href="https://www.embedgooglemap.net">google maps embed responsive</a>
             <style>.gmap_canvas {
               overflow: hidden;
               background: none !important;
@@ -315,9 +314,5 @@ export default {
 .contact-us_contacts_text a:hover {
   color: #B71C1C !important;
   transition: .5s;
-}
-
-.map-section_map-content {
-  opacity: 0.8;
 }
 </style>
