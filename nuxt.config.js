@@ -158,30 +158,4 @@ export default {
       }
     }
   }
-  //
-  // router: {
-  //   extendRoutes(routes, resolve) {
-  //     routes.push(
-  //       {
-  //         path: '/products/:slug',
-  //         name: 'products',
-  //         component: resolve(__dirname, 'pages/products.vue')
-  //       }
-  //     )
-  //   }
-  // }
-
-  // router: {
-  //   extendRoutes(routes, resolve) {
-  //     routes.push({
-  //       path: '/products/:slug/:page',
-  //       components: {
-  //         default: resolve(__dirname, 'pages/products')
-  //       },
-  //       chunkNames: {
-  //         modal: 'components/products'
-  //       }
-  //     })
-  //   }
-  // }
 }

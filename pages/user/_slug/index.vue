@@ -13,6 +13,25 @@
       </div>
       <div class="row user-profile_details_and_orders margin-top-from-header">
         <div class="col-md-8 col-12 user-profile_details">
+          <div class="row pt-5">
+            <div class="col-md-12">
+              <v-alert
+                v-if="updatingErrors.exists"
+                color="red darken-4"
+                dismissible
+                type="error"
+                border="left"
+                elevation="2"
+                light
+                colored-border
+                class="red--text text--darken-4"
+                icon="mdi-alert-octagon-outline">
+                <span v-for="error in updatingErrors.data">
+                  - {{ error[0] }}
+                </span>
+              </v-alert>
+            </div>
+          </div>
           <div class="row p-5">
             <div class="col-md-12">
               <v-form
@@ -22,20 +41,26 @@
                 <div class="row">
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter="50"
                       color="red darken-4"
+                      :rules="nameRules"
                       v-model="form.name"
                       label="Имя">
                     </v-text-field>
                   </div>
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter="50"
                       color="red darken-4"
+                      :rules="emailRules"
                       v-model="form.email"
-                      label="eMail">
+                      label="eMail"
+                      :disabled="$store.getters['user/data'].service.name === 'google' || $store.getters['user/data'].service.name ===  'facebook'">
                     </v-text-field>
                   </div>
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter="100"
                       color="red darken-4"
                       v-model="form.profession"
                       label="Профессия">
@@ -46,7 +71,7 @@
                   <div class="col-md-6 col-12">
                     <v-text-field
                       color="red darken-4"
-                      v-model="form.role"
+                      :value="$store.getters['user/data'].role"
                       label="Роль"
                       disabled>
                     </v-text-field>
@@ -63,6 +88,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <v-text-field
+                      counter
                       color="red darken-4"
                       v-model="form.address"
                       label="Адрес">
@@ -72,6 +98,7 @@
                 <div class="row">
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter
                       color="red darken-4"
                       v-model="form.city"
                       label="Город">
@@ -79,6 +106,7 @@
                   </div>
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter
                       type="number"
                       color="red darken-4"
                       v-model="form.home"
@@ -87,6 +115,7 @@
                   </div>
                   <div class="col-md-4 col-12">
                     <v-text-field
+                      counter
                       color="red darken-4"
                       v-model="form.intercom"
                       label="Домофон">
@@ -96,6 +125,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <v-textarea
+                      counter="500"
                       color="red darken-4"
                       name="input-7-4"
                       label="Обо мне"
@@ -105,16 +135,12 @@
                 </div>
                 <div class="row float-right">
                   <div class="col-md-12">
-                    <v-btn
-                      :disabled="!valid"
-                      color="success"
-                      class="mr-4"
-                      @click="$refs.form.validate() ? dialog = true : dialog = false">
+                    <v-btn large
+                           :disabled="!valid"
+                           @click="edit">
                       Сохранить
-                      <v-icon
-                        dark
-                        right>
-                        mdi-checkbox-marked-circle
+                      <v-icon right>
+                        mdi-pencil
                       </v-icon>
                     </v-btn>
                   </div>
@@ -132,8 +158,9 @@
               <div class="row">
                 <div class="col-md-4 offset-md-4 offset-cart-40">
                   <v-avatar size="100%">
-                    <img :src="$store.getters['user/data'].user.avatar"
-                         alt="John">
+                    <v-img :src="$store.getters['user/data'].avatar"
+                           :lazy-src="$store.getters['user/data'].avatar">
+                    </v-img>
                   </v-avatar>
                 </div>
                 <div class="col-md-4">
@@ -146,7 +173,7 @@
                         </v-icon>
                       </v-list-item-title>
                       <v-list-item-subtitle color="white">
-                        {{ $store.getters['user/data'].user.balance }} ₴
+                        {{ $store.getters['user/data'].balance }} ₴
                       </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
@@ -156,7 +183,7 @@
             <v-card-text>
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <h3>{{ $store.getters['user/data'].user.name }}</h3>
+                  <h3>{{ $store.getters['user/data'].name }}</h3>
                 </div>
               </div>
               <v-divider></v-divider>
@@ -230,50 +257,27 @@
           </v-card>
         </div>
       </div>
-      <v-dialog
-        v-model="dialog"
-        max-width="290">
-        <v-card>
-          <v-card-title class="headline">Вы уверены?</v-card-title>
-          <v-card-text>Вы хотите сохранить изменения?</v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="blue"
-              text
-              @click="edit(false)">
-              Отменить
-            </v-btn>
-            <v-btn
-              color="red"
-              text
-              @click="edit(true)">
-              Сохранить
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({params, store}) {
-    await store.dispatch('user/getData', {slug: params.slug});
+  middleware: ['authenticated', 'checkUser'],
+  async asyncData({store}) {
+    await store.dispatch('user/getData');
     const form = {
-      id: store.getters['user/data'].user.id,
-      name: store.getters['user/data'].user.name,
-      email: store.getters['user/data'].user.email,
-      profession: store.getters['user/data'].user.profession,
-      role: store.getters['user/data'].user.role,
-      phone: store.getters['user/data'].user.phone,
-      address: store.getters['user/data'].user.address,
-      city: store.getters['user/data'].user.city,
-      home: store.getters['user/data'].user.home,
-      intercom: store.getters['user/data'].user.intercom,
-      floor: store.getters['user/data'].user.floor,
-      description: store.getters['user/data'].user.description,
+      id: store.getters['user/data'].id,
+      name: store.getters['user/data'].name,
+      email: store.getters['user/data'].email,
+      profession: store.getters['user/data'].profession,
+      phone: store.getters['user/data'].phone,
+      address: store.getters['user/data'].address,
+      city: store.getters['user/data'].city,
+      home: store.getters['user/data'].home,
+      intercom: store.getters['user/data'].intercom,
+      floor: store.getters['user/data'].floor,
+      description: store.getters['user/data'].description,
     }
     return {form}
   },
@@ -281,23 +285,68 @@ export default {
     return {
       valid: true,
       checkbox: false,
-      dialog: false,
+      updatingErrors: {
+        exists: false,
+        data: []
+      },
       floorArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length > 3) || 'Name must be more than 4 characters',
+        v => (v && v.length <= 50) || 'Name must be less than 50 characters',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
     }
   },
   methods: {
-    edit(editing) {
-      if (editing) {
-
-      } else {
-        // Swal.fire({
-        //   position: 'top-end',
-        //   icon: 'info',
-        //   title: 'Изменения не сохраняются',
-        //   showConfirmButton: false,
-        //   timer: 1500
-        // });
-        // this.dialog = false;
+    async edit() {
+      if (this.$refs.form.validate()) {
+        await this.$store.dispatch('user/update', this.form).then(response => {
+          this.$toast.success("Successfully updated", {
+            position: "top-right",
+            timeout: 5000,
+            closeOnClick: true,
+            pauseOnFocusLoss: true,
+            pauseOnHover: true,
+            draggable: true,
+            draggablePercent: 0.6,
+            showCloseButtonOnHover: false,
+            hideProgressBar: false,
+            closeButton: "button",
+            icon: true,
+            rtl: false
+          });
+          this.updatingErrors = Object.assign({}, this.updatingErrors, {
+            data: [],
+            exists: false
+          })
+        }).catch((error) => {
+          if (error.response.data.errorMessage) {
+            this.$toast.error(error.response.data.errorMessage, {
+              position: "top-right",
+              timeout: 5000,
+              closeOnClick: true,
+              pauseOnFocusLoss: true,
+              pauseOnHover: true,
+              draggable: true,
+              draggablePercent: 0.6,
+              showCloseButtonOnHover: false,
+              hideProgressBar: false,
+              closeButton: "button",
+              icon: true,
+              rtl: false
+            });
+          }
+          if (error.response.data.errors) {
+            this.updatingErrors = Object.assign({}, this.updatingErrors, {
+              data: error.response.data.errors,
+              exists: true
+            })
+          }
+        })
       }
     },
   }

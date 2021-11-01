@@ -21,7 +21,7 @@ export default {
       return this.$router.push('/register?error=Your token invalid')
     })
 
-    this.$router.push('/about_us')
+    this.$router.push('/')
   }
 }
 </script>

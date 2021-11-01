@@ -1,12 +1,15 @@
 import https from "https";
 
 export const actions = {
-  getData({commit}, params) {
-    const httpsAgent = new https.Agent({ rejectUnauthorized: false });
-    return this.$axios.get('/api/auth/user-by-slug', {params, httpsAgent}).then(response => {
+  getData({commit}) {
+    const httpsAgent = new https.Agent({rejectUnauthorized: false});
+    return this.$axios.get('/api/auth/user', {httpsAgent}).then(response => {
       commit('updateData', response.data);
     })
-  }
+  },
+  update({commit}, form) {
+    return this.$axios.post('/api/auth/user/update', form)
+  },
 };
 
 export const mutations = {

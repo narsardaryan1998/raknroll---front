@@ -596,6 +596,10 @@ export default {
         v => (v && v.length > 3) || 'Name must be more than 4 characters',
         v => (v && v.length <= 50) || 'Name must be less than 50 characters',
       ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
       passwordRules: [
         v => !!v || 'Password is required',
         v => (v && v.length <= 50) || 'Max 50 characters',
@@ -604,10 +608,6 @@ export default {
       passwordConfirmedRules: [
         v => !!v || 'Password Confirmed is required',
         v => (v && v === this.registerForm.password) || 'Password dont much',
-      ],
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
     }
   },
