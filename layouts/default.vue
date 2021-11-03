@@ -12,7 +12,7 @@
     <!--        <div class="col-md-2 col-sm-4 mobile-header_logo">-->
     <!--          <NuxtLink :to='localePath("/")' class="mobile-header_logo_link">-->
     <!--            <img-->
-    <!--              src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"-->
+    <!--              :src="require('~/assets/raknroll-logo.png')"-->
     <!--              alt="RAK'N'ROLL logo">-->
     <!--          </NuxtLink>-->
     <!--        </div>-->
@@ -57,56 +57,89 @@
     <v-main>
       <nuxt/>
     </v-main>
+    <transition name="slide-fade">
+      <div
+        class="text-center"
+        v-if="scrollToTopButton"
+        id="scrollToTopButton">
+        <v-btn fab
+               :elevation="20"
+               dark
+               transition="slide-x-transition"
+               @click="scrollToTop"
+               color="white"
+               large
+               light>
+          <v-img :src="require('~/assets/scroll-to-top-icon.png')"
+                 :lazy-src="require('~/assets/scroll-to-top-icon.png')">
+          </v-img>
+        </v-btn>
+        <br>
+        <span class="cursor-pointer"
+              @click="scrollToTop">{{ $t('scrollToTop') }}</span>
+      </div>
+    </transition>
     <Footer></Footer>
   </v-app>
 </template>
 
 <script>
-  import Header from '~/components/Header'
-  import Footer from '~/components/Footer'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
 
-  export default {
-    data() {
-      return {
-        header: true,
-        isMounted: false,
-      }
-    },
-    components: {
-      Header,
-      Footer,
-    },
-    mounted() {
-      if (window) {
-        window.addEventListener('scroll', this.onScroll)
-      }
-    },
-    computed: {
-      mobileOrTablet: function () {
-        return this.isMounted && ['xs', 'sm'].includes(this.$vuetify.breakpoint.name);
-      }
-    },
-    methods: {
-      onScroll() {
-        if (document.getElementById('header')) {
-          if (window.pageYOffset > 0) {
-            document.getElementById('header').classList.add("menu-background-after-scroll");
-          } else {
-            document.getElementById('header').classList.remove("menu-background-after-scroll");
-          }
+export default {
+  data() {
+    return {
+      header: true,
+      isMounted: false,
+      scrollToTopButton: false
+    }
+  },
+  components: {
+    Header,
+    Footer,
+  },
+  mounted() {
+    if (window) {
+      window.addEventListener('scroll', this.onScroll)
+    }
+  },
+  computed: {
+    mobileOrTablet: function () {
+      return this.isMounted && ['xs', 'sm'].includes(this.$vuetify.breakpoint.name);
+    }
+  },
+  methods: {
+    onScroll() {
+      if (document.getElementById('header')) {
+        if (window.pageYOffset > 0) {
+          this.scrollToTopButton = true;
+          document.getElementById('header').classList.add("menu-background-after-scroll");
+        } else {
+          this.scrollToTopButton = false;
+          document.getElementById('header').classList.remove("menu-background-after-scroll");
         }
       }
+    },
+    scrollToTop() {
+      let intervalId = setInterval(() => {
+        if (window.pageYOffset === 0) {
+          clearInterval(intervalId)
+        }
+        window.scroll(0, window.pageYOffset - 50)
+      }, 20)
     }
   }
+}
 </script>
 
 <style scoped>
-  .mobile-header_logo {
-    padding: 0 !important;
-    width: 100%;
-  }
+.mobile-header_logo {
+  padding: 0 !important;
+  width: 100%;
+}
 
-  .mobile-header_logo_link img {
-    height: 40px;
-  }
+.mobile-header_logo_link img {
+  height: 40px;
+}
 </style>

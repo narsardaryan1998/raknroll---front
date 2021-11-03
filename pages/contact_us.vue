@@ -158,7 +158,7 @@
                   color="red darken-4"
                   v-model="form.email"
                   :counter="50"
-                  label="eMail"
+                  :label="$t('emailAddress')"
                   hide-details
                   required>
                 </v-text-field>
@@ -227,18 +227,6 @@
                     src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             <a href="https://123movies-to.org"></a><br>
-            <style>.mapouter {
-              position: relative;
-              text-align: right;
-              height: 479px;
-              width: 100%;
-            }</style>
-            <style>.gmap_canvas {
-              overflow: hidden;
-              background: none !important;
-              height: 479px;
-              width: 100%;
-            }</style>
           </div>
         </div>
       </div>
@@ -285,15 +273,15 @@ export default {
   background-color: #ffffff;
 }
 
+.contact-us_top_section_header {
+  font-size: 3.5vw;
+  width: 100%;
+}
+
 .contact-us_contacts_data_subheader hr {
   width: 4vw;
   border: 0.04vw solid rgba(205, 205, 205, 0.7);
   background-color: rgba(205, 205, 205, 0.7);
-}
-
-.contact-us_top_section_header {
-  font-size: 3.5vw;
-  width: 100%;
 }
 
 .contact-us_contacts_data img {
@@ -314,5 +302,19 @@ export default {
 .contact-us_contacts_text a:hover {
   color: #B71C1C !important;
   transition: .5s;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 479px;
+  width: 100%;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 479px;
+  width: 100%;
 }
 </style>

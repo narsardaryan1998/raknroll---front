@@ -1,5 +1,5 @@
 <template>
-  <div id="product-show" v-if="this.$store.getters['product/data'].product">
+  <div id="product-show">
     <div class="row product-show_product container container-padding">
       <div class="col-md-5 col-sm-12">
         <client-only>
@@ -547,11 +547,10 @@ export default {
   directives: {
     swiper: directive
   },
-  async fetch() {
-    this.slug = this.$route.params.slug;
-    await this.$store.dispatch('product/getData', {
-      slug: this.slug,
-      language: this.language,
+  async asyncData({store, i18n, params}) {
+    await store.dispatch('product/getData', {
+      slug: params.slug,
+      language: i18n.locale,
     });
   },
   data() {

@@ -10,6 +10,7 @@
     "about_us": "About Us",
     "bonuses": "Bonuses",
     "delivery": "Delivery and Payment",
+    "testimonials": "Testimonials",
     "contact_us": "Contact"
   },
   "introSubheader": {
@@ -48,5 +49,30 @@
   "addToCart": "Add to cart",
   "linkToBrand": "All {brandName} brand products",
   "tastierTogether": "Tastier together",
-  "phone": "Телефон"
+  "phone": "Телефон",
+  "ourAdvantages": "Our advantages",
+  "subscribe": "Subscribe",
+  "menu": "Menu",
+  "ourGallery": "Our gallery",
+  "profile": "Profile",
+  "logout": "Logout",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "login": "Login",
+  "or": "OR",
+  "signInWith": "Sign in with",
+  "doNotHaveAccount": "Don't have an account",
+  "doYouHaveAccount": "Do you have account",
+  "register": "Register",
+  "more": "more",
+  "less": "less",
+  "scrollToTop": "Scroll to top",
+  "balance": "Balance",
+  "yourDetails": "Your details",
+  "validationText": {
+    "fieldRequired": "\"{fieldName}\" is a required field",
+    "moreOrLessThenCharacters": "\"{fieldName}\" must be {moreOrLess} than {qty} characters",
+    "mustBeValid": "\"{fieldName}\" must be valid",
+    "dontMuch": "The \"{fieldName}\" doesn't much"
+  }
 }

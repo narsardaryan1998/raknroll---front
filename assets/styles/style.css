@@ -1,5 +1,18 @@
 @charset "utf-8";
 
+.slide-fade-enter-active {
+  transition: all .4s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .4s ease;
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
 .v-application {
   background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;
   font-family: 'Cormorant Garamond', serif !important;
@@ -98,6 +111,17 @@ body {
 
 .overflow-hidden {
   overflow: hidden !important;
+}
+
+#scrollToTopButton {
+  z-index: 9999999999999999999999999999999999999;
+  position: fixed;
+  bottom: 0.8vw;
+  right: 1vw;
+}
+
+#scrollToTopButton .v-responsive__content {
+  width: 100% !important;
 }
 
 .width-20 {

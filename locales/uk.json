@@ -10,6 +10,7 @@
     "about_us": "Про нас",
     "bonuses": "Бонуси",
     "delivery": "Доставка і оплата",
+    "testimonials": "Відгуки",
     "contact_us": "Контакт"
   },
   "introSubheader": {
@@ -48,5 +49,30 @@
   "addToCart": "Додати в кошик",
   "linkToBrand": "Вся продукція бренду {brandName}",
   "tastierTogether": "Разом смачніше",
-  "phone": "Телефон"
+  "phone": "Телефон",
+  "ourAdvantages": "Наші переваги",
+  "subscribe": "Подписывайся",
+  "menu": "Меню",
+  "ourGallery": "Наша галерея",
+  "profile": "Профіль",
+  "logout": "Вийти",
+  "password": "Пароль",
+  "confirmPassword": "Підтвердьте пароль",
+  "login": "Увійти",
+  "or": "АБО",
+  "signInWith": "Увійти в систему через",
+  "doNotHaveAccount": "Немає облікового запису",
+  "doYouHaveAccount": "У вас є обліковий запис",
+  "register": "Зареєструйте",
+  "more": "більше",
+  "less": "менше",
+  "scrollToTop": "Прокрутіть вгору",
+  "balance": "Баланс",
+  "yourDetails": "Ваші дані",
+  "validationText": {
+    "fieldRequired": "\"{fieldName}\" – обов’язкове поле",
+    "moreOrLessThenCharacters": "\"{fieldName}\" має містити {moreOrLess} {qty} символів",
+    "mustBeValid": "\"{fieldName}\" - має бути дійсною",
+    "dontMuch": "\"{fieldName}\" не збігається"
+  }
 }

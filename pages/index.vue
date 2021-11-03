@@ -12,7 +12,7 @@
               <hr class="component-top-header-hr">
             </div>
             <div class="ml-4">
-              <span>Discounted</span>
+              <span>{{ $t('discounted') }}</span>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@
                     <v-btn class="p-0 mw-100"
                            v-else
                            @click="deleteFromFavorites(product.favorite_product.id, index, product.id)">
-                      <span>{{ $t('userButtons.cart') }}</span>
+                      <span>{{ $t('userButtons.favorites') }}</span>
                       <v-icon
                         color="red darken-4">mdi-heart-off
                       </v-icon>
@@ -120,7 +120,7 @@
               <hr class="component-top-header-hr">
             </div>
             <div class="ml-4">
-              <span>Наши преимущества</span>
+              <span>{{ $t('ourAdvantages') }}</span>
             </div>
           </div>
         </div>

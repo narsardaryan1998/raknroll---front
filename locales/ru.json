@@ -10,6 +10,7 @@
     "about_us": "О нас",
     "bonuses": "Бонусы",
     "delivery": "Доставка и Оплата",
+    "testimonials": "Отзывы",
     "contact_us": "Контакт"
   },
   "introSubheader": {
@@ -48,5 +49,30 @@
   "addToCart": "Добавить в корзину",
   "linkToBrand": "Вся продукция бренда {brandName}",
   "tastierTogether": "Вместе вкуснее",
-  "phone": "Телефон"
+  "phone": "Телефон",
+  "ourAdvantages": "Наши преимущества",
+  "subscribe": "Подписывайся",
+  "menu": "Меню",
+  "ourGallery": "Наша галерея",
+  "profile": "Профиль",
+  "logout": "Выйти",
+  "password": "Пароль",
+  "confirmPassword": "Подтвердите пароль",
+  "login": "Вход",
+  "or": "ИЛИ",
+  "signInWith": "Войти в систему через",
+  "doNotHaveAccount": "Нет учетной записи",
+  "doYouHaveAccount": "У вас есть аккаунт",
+  "register": "Зарегистрируйте",
+  "more": "более",
+  "less": "меньше",
+  "scrollToTop": "Пролистать наверх",
+  "balance": "Баланс",
+  "yourDetails": "Ваши данные",
+  "validationText": {
+    "fieldRequired": "\"{fieldName}\" - обязательное поле",
+    "moreOrLessThenCharacters": "\"{fieldName}\" - должно состоять {moreOrLess} чем из {qty} символов",
+    "mustBeValid": "\"{fieldName}\" - должна быть действительной",
+    "dontMuch": "\"{fieldName}\" не совпадает"
+  }
 }

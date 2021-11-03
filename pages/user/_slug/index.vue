@@ -7,7 +7,7 @@
             <hr class="user-profile_top_section_header_hr">
           </div>
           <div class="ml-4">
-            <span>Your details</span>
+            <span>{{ $t('yourDetails') }}</span>
           </div>
         </div>
       </div>
@@ -158,8 +158,15 @@
               <div class="row">
                 <div class="col-md-4 offset-md-4 offset-cart-40">
                   <v-avatar size="100%">
-                    <v-img :src="$store.getters['user/data'].avatar"
-                           :lazy-src="$store.getters['user/data'].avatar">
+                    <v-img
+                      v-if="$store.getters['user/data'].avatar"
+                      :src="$store.getters['user/data'].avatar"
+                      :lazy-src="$store.getters['user/data'].avatar">
+                    </v-img>
+                    <v-img
+                      v-else
+                      :src="require('~/assets/default_user_avatar.png')"
+                      :lazy-src="require('~/assets/default_user_avatar.png')">
                     </v-img>
                   </v-avatar>
                 </div>
@@ -167,7 +174,7 @@
                   <v-list-item dark>
                     <v-list-item-content class="text-right">
                       <v-list-item-title class="title">
-                        <span>Баланс</span>
+                        <span>{{ $t('balance') }}</span>
                         <v-icon>
                           mdi-wallet
                         </v-icon>
@@ -291,13 +298,21 @@ export default {
       },
       floorArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
       nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length > 3) || 'Name must be more than 4 characters',
-        v => (v && v.length <= 50) || 'Name must be less than 50 characters',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('name')}),
+        v => (v && v.length > 3) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('name'),
+          moreOrLess: this.$t('more'),
+          qty: '4',
+        }),
+        v => (v && v.length <= 50) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('name'),
+          moreOrLess: this.$t('less'),
+          qty: '50',
+        }),
       ],
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('emailAddress')}),
+        v => /.+@.+/.test(v) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
       ],
     }
   },

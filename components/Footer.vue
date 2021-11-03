@@ -14,7 +14,7 @@
               </v-btn>
             </div>
           </div>
-          <div class="row footer_information_working-hours_text footer_information_text ">
+          <div class="row footer_information_working-hours_text footer_information_text mt-0">
             <div class="col-md-12 text-center">
               <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
               <br>
@@ -34,7 +34,7 @@
               </v-btn>
             </div>
           </div>
-          <div class="row footer_information_working-hours_text footer_information_text ">
+          <div class="row footer_information_working-hours_text footer_information_text mt-0">
             <div class="col-md-12 text-center">
               <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
               <br>
@@ -54,7 +54,7 @@
               </v-btn>
             </div>
           </div>
-          <div class="row footer_information_working-hours_text footer_information_text ">
+          <div class="row footer_information_working-hours_text footer_information_text mt-0">
             <div class="col-md-12 text-center">
               <a href="javascript:void(0)">support@raknroll.com.ua</a>
             </div>
@@ -72,7 +72,7 @@
               </v-btn>
             </div>
           </div>
-          <div class="row footer_information_working-hours_text footer_information_text ">
+          <div class="row footer_information_working-hours_text footer_information_text mt-0">
             <div class="col-md-12 text-center">
               <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
               <br>
@@ -89,7 +89,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
                   <span class="footer_section_menu_header footer_section_header">
-                    Subscribe
+                    {{ $t('subscribe') }}
                   </span>
             </div>
           </div>
@@ -111,7 +111,7 @@
                         v-model="subscribeForm.email"
                         :rules="emailRules"
                         :counter="50"
-                        label="Email *"
+                        :label="$t('emailAddress')"
                         required>
                       </v-text-field>
                     </div>
@@ -124,12 +124,12 @@
                         class="width-100"
                         @click="subscribe"
                         dark>
-                        Subscribe
+                        {{ $t('subscribe') }}
                       </v-btn>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row">
                   <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.e repellat sequi sit voluptates!</span>
                   </div>
@@ -142,7 +142,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
                   <span class="footer_section_menu_header footer_section_header">
-                    Menu
+                    {{ $t('menu') }}
                   </span>
             </div>
           </div>
@@ -182,6 +182,11 @@
                       {{ $t('menuLinks.contact_us') }}
                     </NuxtLink>
                   </li>
+                  <li>
+                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/testimonials")'>
+                      {{ $t('menuLinks.testimonials') }}
+                    </NuxtLink>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -191,7 +196,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
                   <span class="footer_section_header">
-                    Gallery
+                      {{ $t('ourGallery') }}
                   </span>
             </div>
           </div>
@@ -205,7 +210,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
                   <span class="footer_section_header">
-                    Map
+                  {{ $t('weOnMap') }}
                   </span>
             </div>
           </div>
@@ -218,18 +223,6 @@
                             src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     <a href="https://123movies-to.org"></a><br>
-                    <style>.mapouter {
-                      position: relative;
-                      text-align: right;
-                      height: 250px;
-                      width: 100%;
-                    }</style>
-                    <style>.gmap_canvas {
-                      overflow: hidden;
-                      background: none !important;
-                      height: 250px;
-                      width: 100%;
-                    }</style>
                   </div>
                 </div>
               </div>
@@ -248,7 +241,8 @@
                 <v-btn
                   fab
                   small
-                  light>
+                  dark
+                  color="white">
                   <img :src="hover ? require('~/assets/fb-logo-red.png') : require('~/assets/fb-logo-dark.png')"
                        alt="Facebook"/>
                 </v-btn>
@@ -259,7 +253,8 @@
                   class="ml-3"
                   fab
                   small
-                  light>
+                  dark
+                  color="white">
                   <img
                     :src="hover ? require('~/assets/instaram-logo-red.png') : require('~/assets/instaram-logo-dark.png')"
                     alt="Instagram"/>
@@ -271,7 +266,8 @@
                   fab
                   class="ml-3"
                   small
-                  light>
+                  dark
+                  color="white">
                   <img :src="hover ? require('~/assets/yt-logo-red.png') : require('~/assets/yt-logo-dark.png')"
                        alt="Youtube"/>
                 </v-btn>
@@ -282,7 +278,8 @@
                   class="ml-3"
                   fab
                   small
-                  light>
+                  dark
+                  color="white">
                   <img
                     :src="hover ? require('~/assets/whatsapp-logo-red.png') : require('~/assets/whatsapp-logo-dark.png')"
                     alt="WhatApp"/>
@@ -294,7 +291,8 @@
                   fab
                   class="ml-3"
                   small
-                  light>
+                  dark
+                  color="white">
                   <img :src="hover ? require('~/assets/viber-logo-red.png') : require('~/assets/viber-logo-dark.png')"
                        alt="Viber"/>
                 </v-btn>
@@ -305,7 +303,8 @@
                   fab
                   class="ml-3"
                   small
-                  light>
+                  dark
+                  color="white">
                   <img
                     :src="hover ? require('~/assets/telegram-logo-red.png') : require('~/assets/telegram-logo-dark.png')"
                     alt="Telegram"/>
@@ -334,8 +333,8 @@ export default {
         email: '',
       },
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('emailAddress')}),
+        v => /.+@.+/.test(v) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
       ],
     }
   },
@@ -389,7 +388,7 @@ footer {
 }
 
 .footer_section {
-  margin-top: 3vw;
+  margin-top: 2vw;
   font-size: 1.6vw;
 }
 
@@ -420,5 +419,19 @@ footer {
 
 .footer_socialite img {
   width: 1.3vw;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 250px;
+  width: 100%;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 250px;
+  width: 100%;
 }
 </style>

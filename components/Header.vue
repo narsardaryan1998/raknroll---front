@@ -7,8 +7,8 @@
             <v-hover v-slot="{ hover }">
               <v-img
                 position="left"
-                src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
-                lazy-src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
+                :src="require('~/assets/raknroll-logo.png')"
+                :lazy-src="require('~/assets/raknroll-logo.png')"
                 alt="RAK'N'ROLL logo"
                 contain>
               </v-img>
@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="header_nav_user_part_balance" v-if="$auth.loggedIn && $auth.user">
-              <span>Balance: {{ $auth.user.balance }} ₴</span>
+              <span>{{ $t('balance') }}: {{ $auth.user.balance }} ₴</span>
               <v-btn
                 class="ma-2 header_nav_user_part_button"
                 outlined
@@ -86,6 +86,11 @@
                   <li>
                     <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/delivery")'>
                       {{ $t('menuLinks.delivery') }}
+                    </NuxtLink>
+                  </li>
+                  <li>
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/testimonials")'>
+                      {{ $t('menuLinks.testimonials') }}
                     </NuxtLink>
                   </li>
                   <li>
@@ -232,12 +237,12 @@
                       class="header_nav_user_part_actions"
                       :to='localePath("/user/" + $auth.user.slug)'>
                       <v-list-item>
-                        <v-list-item-title>Account</v-list-item-title>
+                        <v-list-item-title>{{ $t('profile') }}</v-list-item-title>
                       </v-list-item>
                     </NuxtLink>
                     <a @click="logout" href="javascript:void(0)" class="header_nav_user_part_actions">
                       <v-list-item>
-                        <v-list-item-title>Logout</v-list-item-title>
+                        <v-list-item-title>{{ $t('logout') }}</v-list-item-title>
                       </v-list-item>
                     </a>
                   </v-list>
@@ -262,8 +267,8 @@
                         <div class="col-md-5 pt-0">
                           <v-img
                             position="center"
-                            src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
-                            lazy-src="https://raknroll.com.ua/index.php?option=com_gridbox&task=gridbox.compressImagelaptop&image=%2Fimages%2Fheaders%2Fimg_7802.png"
+                            :src="require('~/assets/raknroll-logo.png')"
+                            :lazy-src="require('~/assets/raknroll-logo.png')"
                             alt="RAK'N'ROLL logo"
                             contain>
                           </v-img>
@@ -312,7 +317,7 @@
                                           v-model="loginForm.email"
                                           :rules="emailRules"
                                           :counter="50"
-                                          label="Email *"
+                                          :label="$t('emailAddress') +  ' *'"
                                           required>
                                         </v-text-field>
                                       </div>
@@ -330,7 +335,7 @@
                                           :type="loginFormPasswordShowIn ? 'text' : 'password'"
                                           name="password"
                                           :counter="50"
-                                          label="Password *"
+                                          :label="$t('password') +  ' *'"
                                           required
                                           @click:append="loginFormPasswordShowIn = !loginFormPasswordShowIn">
                                         </v-text-field>
@@ -344,18 +349,18 @@
                                           class="width-100"
                                           dark
                                           @click="customLogin">
-                                          Submit
+                                          {{ $t('login') }}
                                         </v-btn>
                                       </div>
                                     </div>
                                     <div class="row mt-5">
                                       <div class="col-md-12 text-center">
-                                        <span>- OR -</span>
+                                        <span>- {{ $t('or') }} -</span>
                                       </div>
                                     </div>
                                     <div class="row mt-1">
                                       <div class="col-md-12 text-center">
-                                        <span>Sign in with:</span>
+                                        <span>{{ $t('signInWith') }}:</span>
                                       </div>
                                     </div>
                                     <div class="d-flex justify-center mt-5 align-center">
@@ -384,9 +389,9 @@
                                   </div>
                                   <div class="row mt-5">
                                     <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
-                                      <span>Don't have an account? </span><span
+                                      <span>{{ $t('doNotHaveAccount') }}? </span><span
                                       class="login-register-modal_go-to-register_button cursor-pointer red--text text--darken-4"
-                                      @click="e1 = 2">Register</span>
+                                      @click="e1 = 2">{{ $t('register') }}</span>
                                     </div>
                                   </div>
                                 </v-form>
@@ -433,7 +438,7 @@
                                           v-model="registerForm.name"
                                           :rules="nameRules"
                                           :counter="50"
-                                          label="Name *"
+                                          :label="$t('name') + ' *'"
                                           required>
                                         </v-text-field>
                                       </div>
@@ -450,7 +455,7 @@
                                           v-model="registerForm.email"
                                           :rules="emailRules"
                                           :counter="50"
-                                          label="Email *"
+                                          :label="$t('emailAddress') + ' *'"
                                           required>
                                         </v-text-field>
                                       </div>
@@ -467,7 +472,7 @@
                                           name="phone"
                                           color="black"
                                           v-model="registerForm.phone"
-                                          label="Phone"
+                                          :label="$t('phone') + ' *'"
                                           required>
                                         </v-text-field>
                                       </div>
@@ -485,7 +490,7 @@
                                           :type="registerFormPasswordShowIn ? 'text' : 'password'"
                                           name="password"
                                           :counter="50"
-                                          label="Password *"
+                                          :label="$t('password') + ' *'"
                                           required
                                           @click:append="registerFormPasswordShowIn = !registerFormPasswordShowIn">
                                         </v-text-field>
@@ -504,7 +509,7 @@
                                           :type="registerFormPasswordConfirmedShow ? 'text' : 'password'"
                                           name="confirm_password"
                                           :counter="50"
-                                          label="Confirm password *"
+                                          :label="$t('confirmPassword') + ' *'"
                                           required
                                           @click:append="registerFormPasswordConfirmedShow = !registerFormPasswordConfirmedShow">
                                         </v-text-field>
@@ -518,16 +523,16 @@
                                           class="width-100"
                                           dark
                                           @click="customRegister">
-                                          Register
+                                          {{ $t('register') }}
                                         </v-btn>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="row mt-5">
                                     <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
-                                      <span>Do you have account? </span><span
+                                      <span>{{ $t('doYouHaveAccount') }}? </span><span
                                       class="login-register-modal_go-to-register_button cursor-pointer red--text text--darken-4"
-                                      @click="e1 = 1">Log in</span>
+                                      @click="e1 = 1">{{ $t('login') }}</span>
                                     </div>
                                   </div>
                                 </v-form>
@@ -592,22 +597,38 @@ export default {
         confirm_password: '',
       },
       nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length > 3) || 'Name must be more than 4 characters',
-        v => (v && v.length <= 50) || 'Name must be less than 50 characters',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('name')}),
+        v => (v && v.length > 3) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('name'),
+          moreOrLess: this.$t('more'),
+          qty: '4',
+        }),
+        v => (v && v.length <= 50) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('name'),
+          moreOrLess: this.$t('less'),
+          qty: '50',
+        }),
       ],
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('emailAddress')}),
+        v => /.+@.+/.test(v) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
       ],
       passwordRules: [
-        v => !!v || 'Password is required',
-        v => (v && v.length <= 50) || 'Max 50 characters',
-        v => (v && v.length > 5) || 'Min 6 characters',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('password')}),
+        v => (v && v.length <= 50) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('password'),
+          moreOrLess: this.$t('less'),
+          qty: '50',
+        }),
+        v => (v && v.length > 5) || this.$t('validationText.moreOrLessThenCharacters', {
+          fieldName: this.$t('password'),
+          moreOrLess: this.$t('more'),
+          qty: '6',
+        }),
       ],
       passwordConfirmedRules: [
-        v => !!v || 'Password Confirmed is required',
-        v => (v && v === this.registerForm.password) || 'Password dont much',
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('confirmPassword')}),
+        v => (v && v === this.registerForm.password) || this.$t('validationText.dontMuch', {fieldName: this.$t('password')}),
       ],
     }
   },
@@ -650,6 +671,8 @@ export default {
     closeLogin() {
       document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
       this.openLoginModal = false;
+      this.$refs.loginForm.reset();
+      this.$refs.registerForm.reset();
     },
     deleteFromFavorites(favoriteProductId, index, productId) {
       this.$store.commit('favorites/deleteFavoriteProduct', index);
@@ -810,7 +833,8 @@ export default {
 }
 
 .header_logo_link {
-  width: 65%;
+  margin-left: 1vw;
+  width: 35%;
   position: relative;
   display: block;
   align-self: flex-end;
