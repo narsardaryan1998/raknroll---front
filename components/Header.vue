@@ -89,8 +89,8 @@
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/testimonials")'>
-                      {{ $t('menuLinks.testimonials') }}
+                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/reviews")'>
+                      {{ $t('menuLinks.reviews') }}
                     </NuxtLink>
                   </li>
                   <li>

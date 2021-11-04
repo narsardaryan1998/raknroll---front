@@ -10,7 +10,7 @@
     "about_us": "О нас",
     "bonuses": "Бонусы",
     "delivery": "Доставка и Оплата",
-    "testimonials": "Отзывы",
+    "reviews": "Отзывы",
     "contact_us": "Контакт"
   },
   "introSubheader": {
@@ -44,6 +44,9 @@
   "weOnMap": "Мы на карте",
   "sendMessage": "Отправить сообщение",
   "reviews": "отзывы",
+  "yourOpinion": "Ваше мнение",
+  "sendReview": "Отправить отзыв",
+  "writeYourReview": "Напишите свой отзыв",
   "pc": "шт",
   "description": "Описание",
   "addToCart": "Добавить в корзину",

@@ -210,6 +210,10 @@ body {
   padding-right: 4.2vw !important;
 }
 
+.v-messages {
+  font-size: 14px !important;
+}
+
 .products_filter .v-text-field .v-select__selection--comma {
   font-size: 1vw !important;
 }
@@ -254,15 +258,18 @@ body {
 }
 
 .modaltor__panel {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") !important;
+  background-repeat: repeat;
   width: 50% !important;
-  background: #ffffff !important;
   color: #1f1f1f;
 }
 
 .login-register-modal .modaltor__panel {
   width: 25% !important;
-  background: #ffffff !important;
-  color: #1f1f1f;
+}
+
+.login-register-modal .v-stepper {
+  background-color: transparent !important;
 }
 
 .login-register-modal .v-sheet {
@@ -284,6 +291,14 @@ body {
 
 .offset-cart-40 {
   margin-top: -40px;
+}
+
+.offset-cart-2 {
+  margin-top: -2vw;
+}
+
+.offset-cart-left-2 {
+  margin-left: -2vw !important;
 }
 
 .modaltor__content {

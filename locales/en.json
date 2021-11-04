@@ -10,7 +10,7 @@
     "about_us": "About Us",
     "bonuses": "Bonuses",
     "delivery": "Delivery and Payment",
-    "testimonials": "Testimonials",
+    "reviews": "Reviews",
     "contact_us": "Contact"
   },
   "introSubheader": {
@@ -44,6 +44,9 @@
   "weOnMap": "We are on the map",
   "sendMessage": "Send a message",
   "reviews": "reviews",
+  "yourOpinion": "Your opinion",
+  "sendReview": "Send review",
+  "writeYourReview": "Write your review",
   "pc": "pc",
   "description": "Description",
   "addToCart": "Add to cart",

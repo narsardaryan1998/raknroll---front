@@ -10,7 +10,7 @@
     "about_us": "Про нас",
     "bonuses": "Бонуси",
     "delivery": "Доставка і оплата",
-    "testimonials": "Відгуки",
+    "reviews": "Відгуки",
     "contact_us": "Контакт"
   },
   "introSubheader": {
@@ -44,6 +44,9 @@
   "weOnMap": "Ми на карті",
   "sendMessage": "Надіслати повідомлення",
   "reviews": "відгуки",
+  "yourOpinion": "Ваша думка",
+  "sendReview": "Надіслати відгук",
+  "writeYourReview": "Напишіть свій відгук",
   "pc": "шт",
   "description": "Опис",
   "addToCart": "Додати в кошик",

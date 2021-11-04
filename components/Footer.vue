@@ -183,8 +183,8 @@
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/testimonials")'>
-                      {{ $t('menuLinks.testimonials') }}
+                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/reviews")'>
+                      {{ $t('menuLinks.reviews') }}
                     </NuxtLink>
                   </li>
                 </ul>
