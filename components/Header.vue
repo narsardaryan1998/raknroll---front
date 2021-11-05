@@ -818,10 +818,9 @@ export default {
 
 <style scoped>
 #header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 999999999999;
-  transition: 1s !important;
 }
 
 .header_row {

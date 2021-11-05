@@ -49,6 +49,7 @@ export default {
     {src: '~/plugins/vue-modaltor'},
     {src: '~/plugins/v-mask'},
     {src: '~/plugins/vue-toastification', ssr: false},
+    {src: '~/plugins/vue-infinite-scroll.js', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

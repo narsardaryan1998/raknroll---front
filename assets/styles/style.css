@@ -15,9 +15,14 @@
 
 .v-application {
   background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;
+  /*background: url("https://img1.goodfon.com/wallpaper/nbig/b/25/leather-black-dark-pattern.jpg") repeat !important;*/
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: Bold;
-  font-style: italic;
+}
+
+.v-application .error--text {
+  color: #B71C1C !important;
+  caret-color: #B71C1C !important;
 }
 
 ::-webkit-scrollbar {
@@ -193,6 +198,11 @@ body {
   transition: .5s;
 }
 
+.opacity-is-8 {
+  opacity: 0.8;
+  transition: .5s;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -253,6 +263,11 @@ body {
   padding-top: 0 !important;
 }
 
+.background-white-texture{
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") !important;
+  background-repeat: repeat;
+}
+
 .modaltor__overlay {
   background: rgba(14, 14, 14, 0.6) !important;
 }
@@ -262,6 +277,15 @@ body {
   background-repeat: repeat;
   width: 50% !important;
   color: #1f1f1f;
+}
+
+.answer-modal .modaltor__panel {
+  width: 30% !important;
+}
+
+.answer-modal-text{
+  font-size: 32px;
+  line-height: normal;
 }
 
 .login-register-modal .modaltor__panel {
@@ -294,7 +318,7 @@ body {
 }
 
 .offset-cart-2 {
-  margin-top: -2vw;
+  margin-top: -2vw !important;
 }
 
 .offset-cart-left-2 {

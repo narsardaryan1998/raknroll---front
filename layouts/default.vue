@@ -104,21 +104,12 @@ export default {
       window.addEventListener('scroll', this.onScroll)
     }
   },
-  computed: {
-    mobileOrTablet: function () {
-      return this.isMounted && ['xs', 'sm'].includes(this.$vuetify.breakpoint.name);
-    }
-  },
   methods: {
     onScroll() {
-      if (document.getElementById('header')) {
-        if (window.pageYOffset > 0) {
-          this.scrollToTopButton = true;
-          document.getElementById('header').classList.add("menu-background-after-scroll");
-        } else {
-          this.scrollToTopButton = false;
-          document.getElementById('header').classList.remove("menu-background-after-scroll");
-        }
+      if (window.pageYOffset > 0) {
+        this.scrollToTopButton = true;
+      } else {
+        this.scrollToTopButton = false;
       }
     },
     scrollToTop() {
