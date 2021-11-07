@@ -19,7 +19,7 @@
         voluptatum.
       </div>
     </div>
-    <div class="reviews_write_review margin-top-from-header">
+    <div class="reviews_write_review inset-shadow-10 white-pattern-background margin-top-from-header">
       <div class="answer-modal modal">
         <vue-modaltor :close-scroll="false" :visible="openReviewAnswerModal" @hide="closeAnswerModal">
           <template #header>
@@ -137,7 +137,7 @@
       </div>
       <div class="reviews_all_testimonials margin-top-from-header container-padding">
         <div class="row">
-          <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5">
+          <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5" class="width-100">
             <div class="col-md-6 col-12 offset-md-3 mb-5"
                  v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index">
               <v-card
@@ -176,6 +176,9 @@
                 </div>
               </v-card>
             </div>
+            <div class="text-center">
+              <pulse-loader :loading="busy" color="#202020" size="20px"></pulse-loader>
+            </div>
           </div>
         </div>
       </div>
@@ -186,12 +189,14 @@
 <script>
 import Rating from '~/components/Rating'
 import StaticRating from '~/components/StaticRating'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 export default {
   name: "reviews",
   components: {
     Rating,
     StaticRating,
+    PulseLoader,
   },
   async asyncData({store}) {
     const cursor = 1;
@@ -311,8 +316,6 @@ export default {
 }
 
 .reviews_write_review {
-  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") !important;
-  background-repeat: repeat;
   padding-bottom: 3vw;
 }
 </style>

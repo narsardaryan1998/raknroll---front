@@ -68,30 +68,28 @@
                   class="products_show_product"
                   grow>
                   <v-btn class="p-0 mw-100"
-                         :loading="cartLoading && index === cartLoadingIndex"
-                         v-if="!product.cart_product"
-                         @click="addToCart(product.id, index)">
+                         v-if="!$store.getters['cart/storageData'].find(cart => product.id === cart.id)"
+                         @click="addToCart(product)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon>mdi-cart</v-icon>
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
-                         @click="deleteFromCart(product.cart_product.id, product.id)">
+                         @click="deleteFromCart(product.id)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-cart-off
                     </v-icon>
                   </v-btn>
                   <v-btn class="p-0 mw-100"
-                         :loading="favoriteLoading && index === favoriteLoadingIndex"
-                         v-if="!product.favorite_product"
-                         @click="addToFavorites(product.id, index)">
+                         v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
+                         @click="addToFavorites(product)">
                     <span>{{ $t('userButtons.favorites') }}</span>
                     <v-icon>mdi-heart</v-icon>
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
-                         @click="deleteFromFavorites(product.favorite_product.id, index, product.id)">
+                         @click="deleteFromFavorites(product.id)">
                     <span>{{ $t('userButtons.cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-heart-off
@@ -256,10 +254,6 @@ export default {
   },
   data() {
     return {
-      cartLoadingIndex: -1,
-      cartLoading: false,
-      favoriteLoadingIndex: -1,
-      favoriteLoading: false,
       language: this.$i18n.locale,
       displayQuantityArray: [10, 15, 20, 25, 30],
     }
@@ -321,75 +315,17 @@ export default {
       }
       this.$router.push({name: pathName, params})
     },
-    addToCart(productId, index) {
-      this.cartLoading = true;
-      this.cartLoadingIndex = index;
-      this.$store.dispatch('cart/store', {
-        productId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.commit('products/addProductToCart', {
-            cart_product: {
-              id: response.data.success.id
-            },
-            productId
-          });
-          this.cartLoading = false;
-          this.cartLoadingIndex = -1;
-          this.$store.commit('cart/changeCount', 1);
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    addToCart(product) {
+      this.$store.commit('cart/add', product);
     },
-    deleteFromCart(cartProductId, productId) {
-      this.$store.commit('products/deleteCartProduct', productId);
-      this.$store.commit('cart/changeCount', -1);
-      this.$store.dispatch('cart/delete', {
-        cartProductId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    deleteFromCart(productId) {
+      this.$store.commit('cart/delete', productId);
     },
-    addToFavorites(productId, index) {
-      this.favoriteLoading = true;
-      this.favoriteLoadingIndex = index;
-      this.$store.dispatch('favorites/store', {
-        productId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.commit('products/addProductToFavorites', {
-            favorite_product: {
-              id: response.data.success.id
-            },
-            index
-          });
-          this.favoriteLoading = false;
-          this.favoriteLoadingIndex = -1;
-          this.$store.commit('favorites/changeCount', 1);
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    addToFavorites(product) {
+      this.$store.commit('favorites/add', product);
     },
-    deleteFromFavorites(favoriteProductId, index, productId) {
-      this.$store.commit('products/deleteFavoriteProduct', productId);
-      this.$store.commit('favorites/changeCount', -1);
-      this.$store.dispatch('favorites/delete', {
-        favoriteProductId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    deleteFromFavorites(productId) {
+      this.$store.commit('favorites/delete', productId);
     },
   }
 }

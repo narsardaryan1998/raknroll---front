@@ -102,7 +102,24 @@
               </nav>
             </div>
             <div class="header_nav_user_section">
-              <div class="header_nav_user_part d-flex justify-end">
+              <div class="header_nav_user_part d-flex justify-end align-center">
+                <v-btn
+                  class="ma-2 header_nav_user_part_button"
+                  outlined
+                  small
+                  fab
+                  color="white">
+                  <v-badge
+                    bordered
+                    class="font-brigada"
+                    color="red darken-4"
+                    :content="this.$store.getters['cart/count'] ? this.$store.getters['cart/count'] : '0'"
+                    overlap>
+                    <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
+                  </v-badge>
+                </v-btn>
+                <span class="header_nav_user_part_cart-current-total-price"
+                      v-if="$store.getters['cart/cartCurrentTotalPrice']">{{$store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
                 <v-btn
                   class="ma-2 header_nav_user_part_button"
                   outlined
@@ -114,7 +131,7 @@
                     bordered
                     class="font-brigada"
                     color="red darken-4"
-                    :content="this.$store.getters['favorites/count'].count ? this.$store.getters['favorites/count'].count : '0'"
+                    :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"
                     overlap>
                     <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
                   </v-badge>
@@ -136,32 +153,32 @@
                     </template>
                     <template #body>
                       <div class="modaltor__content p-5"
-                           v-if="$store.getters['favorites/data'].favoriteProducts && $store.getters['favorites/data'].favoriteProducts.favorite_products.length">
+                           v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">
                         <div
-                          v-for="(favoriteProduct, index) in $store.getters['favorites/data'].favoriteProducts.favorite_products"
+                          v-for="(favorite, index) in $store.getters['favorites/storageData']"
                           :key="index">
-                          <div class="row favorite_products align-center" v-if="favoriteProduct.product">
+                          <div class="row favorite_products align-center" v-if="favorite.id">
                             <div class="col-md-2">
                               <v-img class="favorite_product_image cursor-pointer"
                                      contain
-                                     :src="'http://raknroll.ua/' + favoriteProduct.product.image"
-                                     :lazy-src="'http://raknroll.ua/' + favoriteProduct.product.image">
+                                     :src="'http://raknroll.ua/' + favorite.image"
+                                     :lazy-src="'http://raknroll.ua/' + favorite.image">
                               </v-img>
                             </div>
                             <div class="col-md-6 favorite_product_texts">
-                              <span class="favorite_product_texts_header">{{ favoriteProduct.product.name }}</span>
+                              <span class="favorite_product_texts_header">{{ favorite.name }}</span>
                               <br>
                               <span class="favorite_product_texts_description">{{
-                                  favoriteProduct.product.short_description
+                                  favorite.short_description
                                 }}</span>
                             </div>
                             <div class="col-md-2 favorite_product_price">
                               <span class="favorite_product_texts_description_price">{{
                                   $t('price')
-                                }}: {{ favoriteProduct.product.final_price }} ₴</span>
+                                }}: {{ favorite.final_price }} ₴</span>
                               <br>
                               <v-rating
-                                :value="parseFloat(favoriteProduct.product.rating)"
+                                :value="parseFloat(favorite.rating)"
                                 color="red darken-4"
                                 dense
                                 half-increments
@@ -170,22 +187,23 @@
                               </v-rating>
                             </div>
                             <div class="col-md-2 favorite_product_actions">
-                              <v-btn v-if="!favoriteProduct.cart_product"
-                                     @click="addToCart(favoriteProduct.product.id, index)"
-                                     icon>
+                              <v-btn
+                                v-if="!$store.getters['cart/storageData'].find(cart => favorite.id === cart.id)"
+                                @click="addToCart(favorite)"
+                                icon>
                                 <v-icon
                                   color="grey darken-3">mdi-cart
                                 </v-icon>
                               </v-btn>
                               <v-btn v-else
-                                     @click="deleteFromCart(favoriteProduct.cart_product.id, index, favoriteProduct.product.id)"
+                                     @click="deleteFromCart(favorite.id)"
                                      icon>
                                 <v-icon
                                   color="grey darken-3">mdi-cart-off
                                 </v-icon>
                               </v-btn>
                               <v-btn
-                                @click="deleteFromFavorites(favoriteProduct.id, index, favoriteProduct.product.id)"
+                                @click="deleteFromFavorites(favorite.id)"
                                 icon>
                                 <v-icon color="grey darken-3">mdi-heart-off
                                 </v-icon>
@@ -198,23 +216,6 @@
                     </template>
                   </vue-modaltor>
                 </div>
-                <NuxtLink :to='localePath("/cart")'>
-                  <v-btn
-                    class="ma-2 header_nav_user_part_button"
-                    outlined
-                    small
-                    fab
-                    color="white">
-                    <v-badge
-                      bordered
-                      class="font-brigada"
-                      color="red darken-4"
-                      :content="this.$store.getters['cart/count'].count ? this.$store.getters['cart/count'].count : '0'"
-                      overlap>
-                      <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
-                    </v-badge>
-                  </v-btn>
-                </NuxtLink>
                 <v-menu
                   v-if="$auth.loggedIn && $auth.user"
                   bottom
@@ -633,11 +634,8 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('cart/getCount');
-    this.$store.dispatch('favorites/getCount');
-    this.$store.dispatch('favorites/getData', {
-      language: this.language,
-    });
+    this.$store.commit('cart/values');
+    this.$store.commit('favorites/values');
   },
   methods: {
     changeLanguage() {
@@ -674,50 +672,14 @@ export default {
       this.$refs.loginForm.reset();
       this.$refs.registerForm.reset();
     },
-    deleteFromFavorites(favoriteProductId, index, productId) {
-      this.$store.commit('favorites/deleteFavoriteProduct', index);
-      this.$store.commit('products/deleteFavoriteProduct', productId);
-      this.$store.commit('home/deleteFavoriteProduct', productId);
-      this.$store.commit('favorites/changeCount', -1);
-      this.$store.dispatch('favorites/delete', {
-        favoriteProductId
-      });
+    deleteFromFavorites(productId) {
+      this.$store.commit('favorites/delete', productId);
     },
-    addToCart(productId, index) {
-      this.$store.dispatch('cart/store', {
-        productId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.commit('favorites/addProductToCart', {
-            cart_product: {
-              id: response.data.success.id
-            },
-            index
-          });
-          this.$store.commit('products/addProductToCart', {
-            cart_product: {
-              id: response.data.success.id
-            },
-            productId
-          });
-          this.$store.commit('home/addProductToCart', {
-            cart_product: {
-              id: response.data.success.id
-            },
-            productId
-          });
-          this.$store.commit('cart/changeCount', 1);
-        }
-      });
+    addToCart(productId) {
+      this.$store.commit('cart/add', productId);
     },
-    deleteFromCart(cartProductId, index, productId) {
-      this.$store.commit('products/deleteCartProduct', productId);
-      this.$store.commit('home/deleteCartProduct', productId);
-      this.$store.commit('favorites/deleteCartProduct', index);
-      this.$store.commit('cart/changeCount', -1);
-      this.$store.dispatch('cart/delete', {
-        cartProductId
-      })
+    deleteFromCart(productId) {
+      this.$store.commit('cart/delete', productId);
     },
     customLogin() {
       if ((this.$refs.loginForm.validate()) && !this.$auth.loggedIn) {
@@ -862,6 +824,10 @@ export default {
 
 .header_nav_user_part img, .header_nav_user_part_balance img {
   width: 1.3vw;
+}
+
+.header_nav_user_part_cart-current-total-price {
+  font-size: 14px;
 }
 
 .header_nav_navigation_menu_link {

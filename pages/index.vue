@@ -1,13 +1,12 @@
 <template>
   <div>
     <Intro></Intro>
-    <div id="discounted">
+    <div id="discounted" class="inset-shadow-10 white-pattern-background">
       <div class="container container-padding">
         <div class="discounted_top_section d-flex justify-space-between align-center">
           <div class="component-top-header d-flex align-center"
                data-aos="fade-right"
-               data-aos-duration="1500"
-               data-aos-once="true">
+               data-aos-duration="1500">
             <div>
               <hr class="component-top-header-hr">
             </div>
@@ -17,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="discounted_products margin-top-from-header mx-4"
+      <div class="discounted_products margin-top-from-header"
            ref="discountedProducts"
            data-aos="fade-right"
            data-aos-delay="700"
@@ -35,14 +34,14 @@
                   v-slot="{ hover }">
                   <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                     <v-img class="products_show_product_image"
-                           :class="{ 'opacity-is-50': hover }"
+                           :class="{ 'opacity-is-8': hover }"
                            :src="'http://raknroll.ua/' + product.image"
                            :lazy-src="'http://raknroll.ua/' + product.image">
                     </v-img>
                   </NuxtLink>
                 </v-hover>
-                <v-card-title>{{ product.name }}</v-card-title>
-                <v-card-text class="p-0">
+                <v-card-title class="black--text font-weight-bold">{{ product.name }}</v-card-title>
+                <v-card-text class="p-0 grey--text text--darken-3 font-weight-bold">
                   <v-row
                     class="mx-0"
                     align="center">
@@ -54,7 +53,7 @@
                       readonly
                       size="14">
                     </v-rating>
-                    <div class="grey--text ml-2 font-brigada">| {{ product.final_price }} ₴
+                    <div class="ml-2 font-brigada">| {{ product.final_price }} ₴
                     </div>
                   </v-row>
                   <div class="my-4 subtitle-1">
@@ -67,31 +66,29 @@
                     class="products_show_product"
                     grow>
                     <v-btn class="p-0 mw-100"
-                           :loading="cartLoading && index === cartLoadingIndex"
-                           v-if="!product.cart_product"
-                           @click="addToCart(product.id, index)">
-                      <span>{{ $t('userButtons.cart') }}</span>
-                      <v-icon>mdi-cart</v-icon>
+                           v-if="!$store.getters['cart/storageData'].find(cart => product.id === cart.id)"
+                           @click="addToCart(product)">
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.cart') }}</span>
+                      <v-icon color="grey darken-3">mdi-cart</v-icon>
                     </v-btn>
                     <v-btn class="p-0 mw-100"
                            v-else
-                           @click="deleteFromCart(product.cart_product.id, product.id)">
-                      <span>{{ $t('userButtons.cart') }}</span>
+                           @click="deleteFromCart(product.id)">
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.cart') }}</span>
                       <v-icon
                         color="red darken-4">mdi-cart-off
                       </v-icon>
                     </v-btn>
                     <v-btn class="p-0 mw-100"
-                           :loading="favoriteLoading && index === favoriteLoadingIndex"
-                           v-if="!product.favorite_product"
-                           @click="addToFavorites(product.id, index)">
-                      <span>{{ $t('userButtons.favorites') }}</span>
-                      <v-icon>mdi-heart</v-icon>
+                           v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
+                           @click="addToFavorites(product)">
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.favorites') }}</span>
+                      <v-icon color="grey darken-3">mdi-heart</v-icon>
                     </v-btn>
                     <v-btn class="p-0 mw-100"
                            v-else
-                           @click="deleteFromFavorites(product.favorite_product.id, index, product.id)">
-                      <span>{{ $t('userButtons.favorites') }}</span>
+                           @click="deleteFromFavorites(product.id)">
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.favorites') }}</span>
                       <v-icon
                         color="red darken-4">mdi-heart-off
                       </v-icon>
@@ -114,8 +111,7 @@
         <div class="main_about_us_top_section d-flex justify-space-between align-center">
           <div class="component-top-header d-flex align-center"
                data-aos="fade-right"
-               data-aos-duration="1500"
-               data-aos-once="true">
+               data-aos-duration="1500">
             <div>
               <hr class="component-top-header-hr">
             </div>
@@ -124,12 +120,18 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="main_about_us-section"
-           ref="mainAboutUsSection"
-           data-aos="fade-right"
-           data-aos-delay="1000"
-           data-aos-duration="1500">
+        <div class="main_about_us-section"
+             ref="mainAboutUsSection"
+             data-aos="fade-right"
+             data-aos-delay="1000"
+             data-aos-duration="1500">
+          <div class="col-md-8 col-12">
+            <div class="row">
+              <OurAdvantagesSingle :params="advantage" v-for="advantage in ourAdvantages"
+                                   :key="advantage.name"></OurAdvantagesSingle>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div style="height: 1500px;" class="vzgooo">
@@ -138,6 +140,7 @@
 </template>
 <script>
 import Intro from '~/components/Intro'
+import OurAdvantagesSingle from '~/components/OurAdvantagesSingle'
 import {directive} from 'vue-awesome-swiper'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -147,10 +150,6 @@ export default {
   data() {
     return {
       language: this.$i18n.locale,
-      cartLoadingIndex: -1,
-      cartLoading: false,
-      favoriteLoadingIndex: -1,
-      favoriteLoading: false,
       swiperOption: {
         loop: false,
         slidesPerView: 7,
@@ -167,7 +166,39 @@ export default {
           clickable: true,
           type: "bullets"
         }
-      }
+      },
+      ourAdvantages: [
+        {
+          image: require('~/assets/icons/icons8-good-quality-64.png'),
+          header: 'Гарантия качества',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ex expedita facere fugiinima natus non perferendis sint temporibus totam! Consequuntur quos suscipit voluptatibus!',
+        },
+        {
+          image: require('~/assets/icons/icons8-e-commerce-64.png'),
+          header: 'Профессиональный сайт',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ',
+        },
+        {
+          image: require('~/assets/icons/icons8-deliver-food-64.png'),
+          header: 'Быстрая доставка',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsmet, consectetur adipisicin aperiam culpa ea eius esse',
+        },
+        {
+          image: require('~/assets/icons/icons8-sushi-64.png'),
+          header: 'Незабываемый вкус',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
+        },
+        {
+          image: require('~/assets/icons/icons8-discount-64.png'),
+          header: 'Бонусна програма',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
+        },
+        {
+          image: require('~/assets/icons/icons8-restaurant-menu-64.png'),
+          header: 'Обновленный ассортимент',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
+        },
+      ]
     }
   },
   mounted() {
@@ -186,77 +217,20 @@ export default {
   },
   components: {
     Intro,
+    OurAdvantagesSingle,
   },
   methods: {
-    addToCart(productId, index) {
-      this.cartLoading = true;
-      this.cartLoadingIndex = index;
-      this.$store.dispatch('cart/store', {
-        productId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.commit('home/addProductToCart', {
-            cart_product: {
-              id: response.data.success.id
-            },
-            productId
-          });
-          this.cartLoading = false;
-          this.cartLoadingIndex = -1;
-          this.$store.commit('cart/changeCount', 1);
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    addToCart(product) {
+      this.$store.commit('cart/add', product);
     },
-    deleteFromCart(cartProductId, productId) {
-      this.$store.commit('home/deleteCartProduct', productId);
-      this.$store.commit('cart/changeCount', -1);
-      this.$store.dispatch('cart/delete', {
-        cartProductId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    deleteFromCart(productId) {
+      this.$store.commit('cart/delete', productId);
     },
-    addToFavorites(productId, index) {
-      this.favoriteLoading = true;
-      this.favoriteLoadingIndex = index;
-      this.$store.dispatch('favorites/store', {
-        productId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.commit('home/addProductToFavorites', {
-            favorite_product: {
-              id: response.data.success.id
-            },
-            index
-          });
-          this.favoriteLoading = false;
-          this.favoriteLoadingIndex = -1;
-          this.$store.commit('favorites/changeCount', 1);
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    addToFavorites(product) {
+      this.$store.commit('favorites/add', product);
     },
-    deleteFromFavorites(favoriteProductId, index, productId) {
-      this.$store.commit('home/deleteFavoriteProduct', productId);
-      this.$store.commit('favorites/changeCount', -1);
-      this.$store.dispatch('favorites/delete', {
-        favoriteProductId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    deleteFromFavorites(productId) {
+      this.$store.commit('favorites/delete', productId);
     },
   }
 }
@@ -264,6 +238,20 @@ export default {
 <style scoped>
 #discounted {
   margin-top: 4vw;
+}
+
+.white-pattern-background .component-top-header-hr {
+  width: 8vw;
+  border: 0.075vw solid #000000;
+  background-color: #000000;
+}
+
+.white-pattern-background .component-top-header {
+  font-family: 'Caveat', cursive !important;
+  font-size: 3.5vw;
+  width: 100%;
+  color: black;
+  font-weight: bold;
 }
 
 .component-top-header-hr {
@@ -290,11 +278,11 @@ export default {
 }
 
 .main_about_us-section {
-  margin-top: 2vw;
-  margin-right: 5vw;
-  height: 1000px;
+  margin-top: 3vw;
+  height: 850px;
   background-image: url("~/assets/intro2_background.png");
   background-position: right;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 </style>

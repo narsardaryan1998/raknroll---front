@@ -1,23 +1,26 @@
 <template>
-  <div class="intro1_background">
+  <div class="intro1_background"
+       data-aos="fade"
+       data-aos-duration="1500"
+       data-aos-once="true">
     <kinesis-container
       event="scroll">
-      <div class="snail1"
-           data-aos="fade"
-           data-aos-duration="1000"
-           data-aos-once="true">
-        <kinesis-element
-          tag="div"
-          :strength="80"
-          type="rotate">
-          <v-img
-            :src="require('~/assets/snail1.png')"
-            :lazy-src="require('~/assets/snail1.png')"
-            alt="Snail"
-            contain>
-          </v-img>
-        </kinesis-element>
-      </div>
+<!--      <div class="snail1"-->
+<!--           data-aos="fade"-->
+<!--           data-aos-duration="1000"-->
+<!--           data-aos-once="true">-->
+<!--        <kinesis-element-->
+<!--          tag="div"-->
+<!--          :strength="80"-->
+<!--          type="rotate">-->
+<!--          <v-img-->
+<!--            :src="require('~/assets/snail1.png')"-->
+<!--            :lazy-src="require('~/assets/snail1.png')"-->
+<!--            alt="Snail"-->
+<!--            contain>-->
+<!--          </v-img>-->
+<!--        </kinesis-element>-->
+<!--      </div>-->
       <div class="intro1_header">
         <kinesis-element
           tag="div"
@@ -137,22 +140,22 @@
           </div>
         </div>
       </div>
-      <div class="krevetka1"
-           data-aos="fade"
-           data-aos-duration="1000"
-           data-aos-once="true">
-        <kinesis-element
-          tag="div"
-          :strength="24"
-          type="rotate">
-          <v-img
-            :src="require('~/assets/krevetka.png')"
-            :lazy-src="require('~/assets/krevetka.png')"
-            alt="Ice"
-            contain>
-          </v-img>
-        </kinesis-element>
-      </div>
+<!--      <div class="krevetka1"-->
+<!--           data-aos="fade"-->
+<!--           data-aos-duration="1000"-->
+<!--           data-aos-once="true">-->
+<!--        <kinesis-element-->
+<!--          tag="div"-->
+<!--          :strength="24"-->
+<!--          type="rotate">-->
+<!--          <v-img-->
+<!--            :src="require('~/assets/krevetka.png')"-->
+<!--            :lazy-src="require('~/assets/krevetka.png')"-->
+<!--            alt="Ice"-->
+<!--            contain>-->
+<!--          </v-img>-->
+<!--        </kinesis-element>-->
+<!--      </div>-->
     </kinesis-container>
   </div>
 </template>
@@ -182,7 +185,7 @@ export default {
 
 .intro1_subheader {
   font-family: 'Caveat', cursive !important;
-  margin-left: 53.875vw;
+  margin-left: 57vw;
   letter-spacing: 0.1em;
   font-size: 2.875vw;
   margin-top: -2vw;
@@ -190,11 +193,11 @@ export default {
 }
 
 .intro1_header {
-  margin-top: -5vw;
+  padding-top: 8vw;
   font-family: 'Tangerine', cursive;
   font-weight: 400;
   letter-spacing: -0.08em;
-  margin-left: 53.875vw;
+  margin-left: 57vw;
   font-size: 7.875vw;
   color: white;
 }
@@ -222,10 +225,10 @@ export default {
   width: 100%;
   position: relative;
   height: 100vh;
-  background-image: url("~/assets/header_background.png");
+  background-image: url("~/assets/header_background3.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
 }
 
 .snail1 {

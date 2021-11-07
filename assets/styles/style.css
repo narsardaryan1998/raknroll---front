@@ -14,6 +14,9 @@
 }
 
 .v-application {
+  /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini-dark.png") repeat !important;*/
+  /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/country-quilt-dark.png") repeat !important;*/
+  /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/dark_wood.png") repeat !important;*/
   background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;
   /*background: url("https://img1.goodfon.com/wallpaper/nbig/b/25/leather-black-dark-pattern.jpg") repeat !important;*/
   font-family: 'Cormorant Garamond', serif !important;
@@ -149,6 +152,10 @@ body {
   width: 100% !important;
 }
 
+.width-90 {
+  width: 90% !important;
+}
+
 .v-pagination button {
   border-radius: 0 !important;
 }
@@ -182,11 +189,15 @@ body {
 }
 
 .swiper-pagination-bullet {
-  background: #a0a0a0 !important;
+  background: #a0a0a0;
 }
 
 .swiper-pagination-bullet-active {
   background-color: #B71C1C !important;
+}
+
+.white-pattern-background .swiper-pagination-bullet {
+  background: #424242;
 }
 
 .opacity-1 {
@@ -241,8 +252,17 @@ body {
   color: #fff;
 }
 
+.white-pattern-background {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") !important;
+  background-repeat: repeat !important;
+}
+
 .margin-top-from-header {
   margin-top: 3vw !important;
+}
+
+.inset-shadow-10{
+  box-shadow: inset 0 0 10px 0 rgb(0 0 0);
 }
 
 .white-opacity-07 {
@@ -263,7 +283,7 @@ body {
   padding-top: 0 !important;
 }
 
-.background-white-texture{
+.white-pattern-background {
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") !important;
   background-repeat: repeat;
 }
@@ -283,7 +303,7 @@ body {
   width: 30% !important;
 }
 
-.answer-modal-text{
+.answer-modal-text {
   font-size: 32px;
   line-height: normal;
 }

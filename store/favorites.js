@@ -1,53 +1,68 @@
-export const actions = {
-  getData({commit}, params) {
-    return this.$axios.get('/api/favorites', {params}).then(response => {
-      commit('updateData', response.data);
-    })
-  },
-  getCount({commit}) {
-    return this.$axios.get('/api/favorites/count').then(response => {
-      commit('updateCount', response.data);
-    })
-  },
-  store({commit}, params) {
-    return this.$axios.post('/api/favorites/store', params).then(response => {
-      return response;
-    })
-  },
-  delete({commit}, params) {
-    return this.$axios.post('/api/favorites/delete', params).then(response => {
-      return response;
-    })
-  },
-};
-
 export const mutations = {
-  updateData(state, data) {
-    state.data = data;
+  values(state) {
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites && favorites.length) {
+      state.storageData = favorites;
+      state.count = favorites.length;
+    }
   },
-  updateCount(state, count) {
-    state.count = count;
+  add(state, product) {
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites) {
+      let qty = product.min_quantity ? product.min_quantity : 1
+      favorites.push({
+        id: product.id,
+        name: product.name,
+        final_price: product.final_price * qty,
+        short_description: product.short_description,
+        description: product.description,
+        image: product.image,
+        rating: product.rating,
+        qty,
+      })
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      let qty = product.min_quantity ? product.min_quantity : 1
+      favorites = [
+        {
+          id: product.id,
+          name: product.name,
+          final_price: product.final_price * qty,
+          short_description: product.short_description,
+          description: product.description,
+          image: product.image,
+          rating: product.rating,
+          qty,
+        }
+      ];
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+    state.count++;
+    state.storageData = favorites;
   },
-  deleteFavoriteProduct(state, index) {
-    state.data.favoriteProducts.favorite_products.splice(index, 1);
-  },
-  changeCount(state, value) {
-    state.count.count += value;
-  },
-  addProductToCart(state, data) {
-    state.data.favoriteProducts.favorite_products[data.index].cart_product = data.cart_product;
-  },
-  deleteCartProduct(state, index) {
-    state.data.favoriteProducts.favorite_products[index].cart_product = null;
+  delete(state, productId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites) {
+      favorites = favorites.filter(function (obj) {
+        return productId !== obj.id;
+      });
+      if (favorites.length) {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      } else {
+        localStorage.removeItem('favorites');
+      }
+      state.count--;
+      state.storageData = favorites;
+    }
   },
 };
 
 export const state = () => ({
-  data: [],
+  storageData: [],
   count: 0,
 });
 
 export const getters = {
-  data: state => state.data,
   count: state => state.count,
+  storageData: state => state.storageData,
 };
