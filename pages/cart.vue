@@ -100,49 +100,41 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12"
-           v-if="this.$store.getters['cart/data'].cartProducts && this.$store.getters['cart/data'].cartProducts.cart_products.length">
-        <div v-for="(item, index) in this.$store.getters['cart/data'].cartProducts.cart_products" :key="index">
-          <div class="row cart_products align-center" v-if="item.product">
+           v-if="$store.getters['cart/storageData'] && $store.getters['cart/storageData'].length">
+        <div v-for="(cart, index) in $store.getters['cart/storageData']" :key="index">
+          <div class="row cart_products align-center">
             <div class="col-md-2">
               <v-hover
                 v-slot="{ hover }">
                 <v-img class="cart_product_image cursor-pointer"
                        contain
                        :class="{ 'opacity-is-50': hover }"
-                       :src="'http://raknroll.ua/' + item.product.image"
-                       :lazy-src="'http://raknroll.ua/' + item.product.image">
+                       :src="'http://raknroll.ua/' + cart.image"
+                       :lazy-src="'http://raknroll.ua/' + cart.image">
                 </v-img>
               </v-hover>
             </div>
             <div class="col-md-5 cart_product_texts">
-              <span class="cart_product_texts_header">{{ item.product.name }}</span>
+              <span class="cart_product_texts_header">{{ cart.name }}</span>
               <br>
-              <span class="cart_product_texts_description white-opacity-07">{{ item.product.short_description }}</span>
+              <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
             </div>
             <div class="col-md-2 cart_product_counter">
               <div class="row cart_product_counter_row">
                 <div class="col-md-3 cart_product_counter_row_minus d-flex justify-start">
                   <v-btn
-                    @click="updateQuantity(item.id, index, -1)"
+                    @click="updateQuantity({productId: cart.id, value: -1})"
                     icon
                     color="white">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </div>
-                <div class="col-md-6 cart_product_counter_row_quantity">
-                  <v-text-field
-                    class="font-brigada"
-                    name="Quantity"
-                    :value="item.qty"
-                    color="red darken-4"
-                    :counter="50"
-                    hide-details
-                    required>
-                  </v-text-field>
+                <div class="col-md-6 cart_product_counter_row_quantity text-center font-brigada pt-4">
+                  <p class="show_counter_quantity mb-0">{{ cart.qty }}</p>
                 </div>
                 <div class="col-md-3 cart_product_counter_row_plus d-flex justify-end">
                   <v-btn
-                    @click="updateQuantity(item.id, index, 1)"
+                    @click="updateQuantity({productId: cart.id, value: 1})"
                     icon
                     color="white">
                     <v-icon>mdi-plus</v-icon>
@@ -151,13 +143,16 @@
               </div>
             </div>
             <div class="col-md-2 cart_product_price">
-              <span class="cart_product_texts_description white-opacity-07">{{
+                  <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
+                      $t('price')
+                    }}: {{ cart.final_price }} x {{ cart.qty }} ₴</span>
+              <span class="cart_product_texts_description white-opacity-07" v-else>{{
                   $t('price')
-                }}: {{ item.product.final_price * item.qty }} ₴</span>
+                }}: {{ cart.final_price }} ₴</span>
             </div>
             <div class="col-md-1 cart_product_remove">
               <v-btn
-                @click="deleteCartProduct(item.id, index)"
+                @click="deleteFromCart(cart.id)"
                 class="float-right"
                 icon
                 color="white">
@@ -175,42 +170,28 @@
 <script>
 export default {
   name: "Cart",
-  async asyncData({store, i18n}) {
-    await store.dispatch('cart/getData', {
-      language: i18n.locale
-    });
-  },
   data() {
     return {
       language: this.$i18n.locale,
     }
   },
+  async mounted() {
+    this.$store.commit('cart/values');
+    let productIds = [];
+    if (this.$store.getters['cart/storageData'].length) {
+      productIds.push(this.$store.getters['cart/storageData'].find(cart => 0 < cart.id).id);
+    }
+    await this.$store.dispatch('cart/getData', {
+      language: this.language,
+      productIds
+    });
+  },
   methods: {
-    updateQuantity(cartProductId, index, value) {
-      let currentQty = this.$store.getters['cart/data'].cartProducts.cart_products[index].qty;
-      if ((currentQty + value) > 0) {
-        this.$store.commit('cart/updateCartProductQty', {
-          index,
-          value
-        })
-        this.$store.dispatch('cart/update', {
-          cartProductId,
-          qty: this.$store.getters['cart/data'].cartProducts.cart_products[index].qty
-        });
-      }
+    updateQuantity(params) {
+      this.$store.commit('cart/updateQuantity', params);
     },
-    deleteCartProduct(cartProductId, index) {
-      this.$store.commit('cart/deleteCartProduct', index)
-      this.$store.commit('cart/changeCount', -1)
-      this.$store.dispatch('cart/delete', {
-        cartProductId
-      }).then(response => {
-        if (response.data.success) {
-          this.$store.dispatch('favorites/getData', {
-            language: this.language,
-          });
-        }
-      });
+    deleteFromCart(productId) {
+      this.$store.commit('cart/delete', productId);
     },
   }
 }

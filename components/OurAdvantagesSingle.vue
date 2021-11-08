@@ -1,5 +1,8 @@
 <template>
-  <div class="col-6 our-advantages-single">
+  <div class="col-6 our-advantages-single"
+       data-aos="fade-right"
+       :data-aos-delay="params.delay"
+       data-aos-duration="1500">
     <div class="row">
       <div class="col-2">
         <v-img class="our-advantages-single_image"

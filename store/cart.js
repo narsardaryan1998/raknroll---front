@@ -19,7 +19,7 @@ export const mutations = {
       state.storageData = cart;
       state.count = cart.length;
       state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
-        return accumulator + item.final_price;
+        return accumulator + item.final_price * item.qty;
       }, 0);
     }
   },
@@ -27,14 +27,16 @@ export const mutations = {
     let cart = JSON.parse(localStorage.getItem('cart'));
     if (cart) {
       let qty = product.min_quantity ? product.min_quantity : 1
+      console.log(qty);
       cart.push({
         id: product.id,
         name: product.name,
-        final_price: product.final_price * qty,
+        final_price: product.final_price,
         short_description: product.short_description,
         description: product.description,
         image: product.image,
         rating: product.rating,
+        min_quantity: qty,
         qty,
       })
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -44,11 +46,12 @@ export const mutations = {
         {
           id: product.id,
           name: product.name,
-          final_price: product.final_price * qty,
+          final_price: product.final_price,
           short_description: product.short_description,
           description: product.description,
           image: product.image,
           rating: product.rating,
+          min_quantity: qty,
           qty,
         }
       ];
@@ -56,7 +59,7 @@ export const mutations = {
     }
     state.count++;
     state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
-      return accumulator + item.final_price;
+      return accumulator + item.final_price * item.qty;
     }, 0);
     state.storageData = cart;
   },
@@ -69,7 +72,7 @@ export const mutations = {
       if (cart.length) {
         localStorage.setItem('cart', JSON.stringify(cart));
         state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
-          return accumulator + item.final_price;
+          return accumulator + item.final_price * item.qty;
         }, 0);
       } else {
         state.cartCurrentTotalPrice = 0;
@@ -79,6 +82,21 @@ export const mutations = {
       state.storageData = cart;
     }
   },
+  updateQuantity(state, params) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart) {
+      let product = cart.find(cart => cart.id === params.productId);
+      if ((product.qty + params.value) >= product.min_quantity) {
+        product.qty = product.qty + params.value;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
+          return accumulator + item.final_price * item.qty;
+        }, 0);
+        state.storageData = cart;
+      }
+    }
+  },
+
 };
 
 export const state = () => ({

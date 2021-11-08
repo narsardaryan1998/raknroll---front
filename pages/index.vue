@@ -171,31 +171,37 @@ export default {
         {
           image: require('~/assets/icons/icons8-good-quality-64.png'),
           header: 'Гарантия качества',
+          delay: '300',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ex expedita facere fugiinima natus non perferendis sint temporibus totam! Consequuntur quos suscipit voluptatibus!',
         },
         {
           image: require('~/assets/icons/icons8-e-commerce-64.png'),
           header: 'Профессиональный сайт',
+          delay: '550',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ',
         },
         {
           image: require('~/assets/icons/icons8-deliver-food-64.png'),
           header: 'Быстрая доставка',
+          delay: '800',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsmet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-sushi-64.png'),
           header: 'Незабываемый вкус',
+          delay: '1050',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-discount-64.png'),
           header: 'Бонусна програма',
+          delay: '1300',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-restaurant-menu-64.png'),
           header: 'Обновленный ассортимент',
+          delay: '1550',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
       ]

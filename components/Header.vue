@@ -107,23 +107,6 @@
                   class="ma-2 header_nav_user_part_button"
                   outlined
                   small
-                  fab
-                  color="white">
-                  <v-badge
-                    bordered
-                    class="font-brigada"
-                    color="red darken-4"
-                    :content="this.$store.getters['cart/count'] ? this.$store.getters['cart/count'] : '0'"
-                    overlap>
-                    <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>
-                  </v-badge>
-                </v-btn>
-                <span class="header_nav_user_part_cart-current-total-price"
-                      v-if="$store.getters['cart/cartCurrentTotalPrice']">{{$store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
-                <v-btn
-                  class="ma-2 header_nav_user_part_button"
-                  outlined
-                  small
                   @click="openFavorites"
                   fab
                   color="white">
