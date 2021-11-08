@@ -228,6 +228,15 @@ export default {
   methods: {
     addToCart(product) {
       this.$store.commit('cart/add', product);
+      document.getElementsByClassName('shoppingCartFromRightButtonBody_button_icon')[0].classList.add('cart-icon-rotate');
+      document.getElementById('cartModal').classList.add('cart-modal-bounce');
+      setTimeout(function () {
+        document.getElementsByClassName('shoppingCartFromRightButtonBody_button_icon')[0].classList.remove('cart-icon-rotate');
+      }, 601);
+      setTimeout(function () {
+        document.getElementById('cartModal').classList.remove('cart-modal-bounce');
+      }, 1001);
+
     },
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);

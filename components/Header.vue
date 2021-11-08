@@ -1,6 +1,6 @@
 <template>
   <header id="header" class="d-flex animate__animated animate__fadeInDown animate__fast">
-    <div class="container pl-0 mx-0 pr-5">
+    <div class="container pl-0 mx-0 padding-for-offset-cart-modal">
       <div class="header_row">
         <div class="header_logo">
           <NuxtLink :to='localePath("/")' class="header_logo_link">
@@ -17,6 +17,32 @@
         </div>
         <div class="header_nav">
           <div class="header_nav_delivery_and_user_part d-flex align-center justify-space-between">
+            <div class="header_nav_pages-menu">
+              <nav class="d-block">
+                <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
+                  <li>
+                    <NuxtLink class="header_nav_navigation_menu_pages_link" :to='localePath("/")'>
+                      {{ $t('menuLinks.home') }}
+                    </NuxtLink>
+                  </li>
+                  <li class="pl-5">
+                    <NuxtLink class="header_nav_navigation_menu_pages_link"
+                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.products') }}
+                    </NuxtLink>
+                  </li>
+                  <li class="pl-5">
+                    <NuxtLink class="header_nav_navigation_menu_pages_link" :to='localePath("/reviews")'>
+                      {{ $t('menuLinks.reviews') }}
+                    </NuxtLink>
+                  </li>
+                  <li class="pl-5">
+                    <NuxtLink class="header_nav_navigation_menu_pages_link" :to='localePath("/contact_us")'>
+                      {{ $t('menuLinks.contact_us') }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </nav>
+            </div>
             <div class="header_nav_delivery_part d-flex align-center justify-space-between">
               <div class="header_nav_delivery_part_language">
                 <v-select
@@ -820,6 +846,19 @@ export default {
   text-transform: uppercase;
   transition: .5s;
   text-decoration: none;
+}
+
+.header_nav_navigation_menu_pages_link {
+  font-size: 18px;
+  line-height: 1;
+  color: #feffff;
+  transition: .5s;
+  text-decoration: none;
+}
+
+.header_nav_navigation_menu_pages_link:hover {
+  color: #B71C1C !important;
+  transition: .5s;
 }
 
 .header_nav_user_part_actions {

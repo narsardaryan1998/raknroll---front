@@ -20,7 +20,6 @@
     methods: {
       async register() {
         await this.$axios.post('/api/auth/register', this.form);
-        console.log('regexav');
         await this.$auth.loginWith('laravelJWT', {
           data: this.form
         })

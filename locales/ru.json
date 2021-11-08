@@ -13,6 +13,12 @@
     "reviews": "Отзывы",
     "contact_us": "Контакт"
   },
+  "language": "Язык",
+  "languages": {
+    "uk": "Украинский",
+    "ru": "Русский",
+    "en": "Английский"
+  },
   "introSubheader": {
     "first" : "Свежие <span class='red--text text--darken-4'>раки,</span> пиво, ",
     "second" : "рыба и т. Д."

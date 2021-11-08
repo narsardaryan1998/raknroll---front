@@ -27,7 +27,6 @@ export const mutations = {
     let cart = JSON.parse(localStorage.getItem('cart'));
     if (cart) {
       let qty = product.min_quantity ? product.min_quantity : 1
-      console.log(qty);
       cart.push({
         id: product.id,
         name: product.name,

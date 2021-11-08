@@ -1,0 +1,62 @@
+@keyframes openCartModalKeyframe {
+  0% {
+    transform: translateX(651px);
+  }
+  60% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.open-cart-modal {
+  animation-name: openCartModalKeyframe;
+  animation-duration: .6s;
+  transform: translateX(0) !important;
+}
+
+@keyframes CartIconRotateAnimation {
+  0% {
+    transform: rotate(0);
+  }
+  60% {
+    transform: rotate(390deg);
+  }
+  80% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.cart-icon-rotate {
+  animation-name: CartIconRotateAnimation;
+  animation-duration: .6s;
+  transform: rotate(0);
+}
+
+@keyframes cartModalBounceWhenAdd {
+  0% {
+    transform: translateX(651px)
+  }
+  25% {
+    transform: translateX(580px)
+  }
+  50% {
+    transform: translateX(645px)
+  }
+  75% {
+    transform: translateX(630px)
+  }
+  100% {
+    transform: translateX(651px)
+  }
+}
+
+.cart-modal-bounce {
+  animation-name: cartModalBounceWhenAdd;
+  animation-duration: 1s;
+  transform: translateX(651px)
+}

@@ -13,6 +13,12 @@
     "reviews": "Reviews",
     "contact_us": "Contact"
   },
+  "language": "Language",
+  "languages": {
+    "uk": "Ukrainian",
+    "ru": "Russian",
+    "en": "English"
+  },
   "introSubheader": {
     "first" : "Fresh <span class='red--text text--darken-4'>crayfish,</span> beer, ",
     "second" : "fish and so on"

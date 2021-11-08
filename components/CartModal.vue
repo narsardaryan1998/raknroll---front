@@ -1,9 +1,9 @@
 <template>
   <div id="cartModal" class="cart-modal-closed">
-    <div class="cartModal_button">
+    <div class="cartModal_button justify-center">
       <v-btn
         @click="openCartModal"
-        class="ma-2 shoppingCartFromRightButtonBody_button"
+        class="ma-2 shoppingCartFromRightButtonBody_button mr-0"
         outlined
         fab
         small>
@@ -15,17 +15,14 @@
           :content="this.$store.getters['cart/count'] ? this.$store.getters['cart/count'] : '0'"
           overlap>
           <v-icon
+            large
+            class="shoppingCartFromRightButtonBody_button_icon"
             color="black">mdi-cart-variant
           </v-icon>
-          <!--            <img src="~/assets/icons/icons8-paid-64.png" :alt="$t('userButtons.cart')"/>-->
         </v-badge>
       </v-btn>
-      <span class="shoppingCartFromRightButtonBody_button_cart-current-total-price black--text text-center"
-            v-if="$store.getters['cart/cartCurrentTotalPrice']">{{
-          $store.getters['cart/cartCurrentTotalPrice']
-        }} ₴</span>
     </div>
-    <div class="cartModal_products white-pattern-background">
+    <div class="cartModal_products white-pattern-background inset-shadow-10">
       <div class="row">
         <div class="col-12 cartModal_products_header d-flex justify-space-between">
           <div>
