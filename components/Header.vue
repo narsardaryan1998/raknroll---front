@@ -90,38 +90,9 @@
             <div class="header_nav_navigation">
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/")'>{{ $t('menuLinks.home') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
+                  <li v-for="category in $store.getters['categories/data']">
                     <NuxtLink class="header_nav_navigation_menu_link"
-                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.products') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/about_us")'>
-                      {{ $t('menuLinks.about_us') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/bonuses")'>
-                      {{ $t('menuLinks.bonuses') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/delivery")'>
-                      {{ $t('menuLinks.delivery') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/reviews")'>
-                      {{ $t('menuLinks.reviews') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="header_nav_navigation_menu_link" :to='localePath("/contact_us")'>
-                      {{ $t('menuLinks.contact_us') }}
+                              :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
                     </NuxtLink>
                   </li>
                 </ul>
@@ -197,7 +168,7 @@
                             </div>
                             <div class="col-md-2 favorite_product_actions">
                               <v-btn
-                                v-if="!$store.getters['cart/storageData'].find(cart => favorite.id === cart.id)"
+                                v-if="!$store.getters['cart/data'].find(cart => favorite.id === cart.id)"
                                 @click="addToCart(favorite)"
                                 icon>
                                 <v-icon
@@ -643,11 +614,18 @@ export default {
     }
   },
   created() {
-    this.$store.commit('cart/values');
+    this.$store.dispatch('categories/getData', {
+      language: this.language
+    });
+    this.getCartDataByLanguage();
     this.$store.commit('favorites/values');
   },
   methods: {
     changeLanguage() {
+      this.$store.dispatch('categories/getData', {
+        language: this.$i18n.locale
+      });
+      this.getCartDataByLanguage();
       let routePath = $nuxt.$route.path;
       let pushTo = '';
       if (routePath.includes("/ru/")) {
@@ -782,6 +760,19 @@ export default {
         icon: true,
         rtl: false
       });
+    },
+    getCartDataByLanguage() {
+      let cartArray = JSON.parse(localStorage.getItem('cart'));
+      if (cartArray && cartArray.length) {
+        let productIds = [];
+        for (let i = 0; i < cartArray.length; i++) {
+          productIds.push(cartArray[i].id)
+        }
+        this.$store.dispatch('cart/getData', {
+          language: this.$i18n.locale,
+          productIds
+        });
+      }
     }
   },
 }
@@ -835,23 +826,19 @@ export default {
   width: 1.3vw;
 }
 
-.header_nav_user_part_cart-current-total-price {
-  font-size: 14px;
-}
-
 .header_nav_navigation_menu_link {
-  font-size: 1vw;
+  font-size: 22px;
   line-height: 1;
   color: #feffff;
-  text-transform: uppercase;
   transition: .5s;
   text-decoration: none;
 }
 
 .header_nav_navigation_menu_pages_link {
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1;
   color: #feffff;
+  text-transform: uppercase;
   transition: .5s;
   text-decoration: none;
 }

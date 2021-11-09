@@ -66,7 +66,7 @@
                     class="products_show_product"
                     grow>
                     <v-btn class="p-0 mw-100"
-                           v-if="!$store.getters['cart/storageData'].find(cart => product.id === cart.id)"
+                           v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)"
                            @click="addToCart(product)">
                       <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.cart') }}</span>
                       <v-icon color="grey darken-3">mdi-cart</v-icon>

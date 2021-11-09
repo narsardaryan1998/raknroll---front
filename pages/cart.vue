@@ -100,8 +100,8 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-12"
-           v-if="$store.getters['cart/storageData'] && $store.getters['cart/storageData'].length">
-        <div v-for="(cart, index) in $store.getters['cart/storageData']" :key="index">
+           v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+        <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
           <div class="row cart_products align-center">
             <div class="col-md-2">
               <v-hover
@@ -176,15 +176,14 @@ export default {
     }
   },
   async mounted() {
-    this.$store.commit('cart/values');
-    let productIds = [];
-    if (this.$store.getters['cart/storageData'].length) {
-      productIds.push(this.$store.getters['cart/storageData'].find(cart => 0 < cart.id).id);
-    }
-    await this.$store.dispatch('cart/getData', {
-      language: this.language,
-      productIds
-    });
+    // let productIds = [];
+    // if (this.$store.getters['cart/data'].length) {
+    //   productIds.push(this.$store.getters['cart/data'].find(cart => 0 < cart.id).id);
+    // }
+    // await this.$store.dispatch('cart/getData', {
+    //   language: this.language,
+    //   productIds
+    // });
   },
   methods: {
     updateQuantity(params) {

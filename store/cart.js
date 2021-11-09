@@ -4,23 +4,37 @@ export const actions = {
   getData({commit}, params) {
     const httpsAgent = new https.Agent({rejectUnauthorized: false});
     return this.$axios.get('/api/cart', {params, httpsAgent}).then(response => {
-      commit('updateData', response.data);
+      commit('values', response.data);
     })
   },
 };
 
 export const mutations = {
-  updateData(state, data) {
-    state.data = data;
-  },
-  values(state) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart && cart.length) {
-      state.storageData = cart;
-      state.count = cart.length;
-      state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
+  values(state, data) {
+    if (data && data.length) {
+      let dataLength = data.length;
+      let cartInStart = JSON.parse(localStorage.getItem('cart'));
+      let cartFinal = [];
+      for (let i = 0; i < dataLength; i++) {
+        let qty = cartInStart.find(cart => data[i].id === cart.id).qty
+        cartFinal.push({
+          id: data[i].id,
+          name: data[i].name,
+          qty,
+          final_price: data[i].final_price,
+          rating: data[i].rating,
+          short_description: data[i].short_description,
+        })
+      }
+      state.data = cartFinal;
+      state.count = cartFinal.length;
+      state.cartCurrentTotalPrice = cartFinal.reduce(function (accumulator, item) {
         return accumulator + item.final_price * item.qty;
       }, 0);
+      console.log(state.data);
+      localStorage.setItem('cart', JSON.stringify(cartFinal));
+    } else {
+      localStorage.removeItem('cart');
     }
   },
   add(state, product) {
@@ -60,7 +74,7 @@ export const mutations = {
     state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
       return accumulator + item.final_price * item.qty;
     }, 0);
-    state.storageData = cart;
+    state.data = cart;
   },
   delete(state, productId) {
     let cart = JSON.parse(localStorage.getItem('cart'));
@@ -78,7 +92,7 @@ export const mutations = {
         localStorage.removeItem('cart');
       }
       state.count--;
-      state.storageData = cart;
+      state.data = cart;
     }
   },
   updateQuantity(state, params) {
@@ -91,7 +105,7 @@ export const mutations = {
         state.cartCurrentTotalPrice = cart.reduce(function (accumulator, item) {
           return accumulator + item.final_price * item.qty;
         }, 0);
-        state.storageData = cart;
+        state.data = cart;
       }
     }
   },
@@ -100,14 +114,13 @@ export const mutations = {
 
 export const state = () => ({
   data: [],
-  storageData: [],
+  vazgen: [],
   count: 0,
   cartCurrentTotalPrice: 0,
 });
 
 export const getters = {
-  data: state => state.data,
   count: state => state.count,
   cartCurrentTotalPrice: state => state.cartCurrentTotalPrice,
-  storageData: state => state.storageData,
+  data: state => state.data,
 };

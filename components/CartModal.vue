@@ -49,8 +49,8 @@
       </div>
       <div class="row">
         <div class="col-12"
-             v-if="$store.getters['cart/storageData'] && $store.getters['cart/storageData'].length">
-          <div v-for="(cart, index) in $store.getters['cart/storageData']" :key="index">
+             v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+          <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
             <div class="row cartModal_products_section align-center">
               <div class="col-md-2">
                 <v-hover
