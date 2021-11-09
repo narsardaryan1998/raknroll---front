@@ -97,7 +97,7 @@
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
                         v-if="cart.qty > 1">{{
                       $t('price')
-                    }}: {{ cart.final_price }} x {{ cart.qty }} ₴</span>
+                    }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
                 <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
                     $t('price')
                   }}: {{ cart.final_price }} ₴</span>

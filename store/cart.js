@@ -11,28 +11,29 @@ export const actions = {
 
 export const mutations = {
   values(state, data) {
+    state.data = [];
     if (data && data.length) {
       let dataLength = data.length;
       let cartInStart = JSON.parse(localStorage.getItem('cart'));
-      let cartFinal = [];
       for (let i = 0; i < dataLength; i++) {
-        let qty = cartInStart.find(cart => data[i].id === cart.id).qty
-        cartFinal.push({
+        let qty = cartInStart.find(cart => data[i].id === cart.id).qty;
+        qty = qty < data[i].min_quantity ? data[i].min_quantity : qty;
+        state.data.push({
           id: data[i].id,
           name: data[i].name,
           qty,
           final_price: data[i].final_price,
           rating: data[i].rating,
+          image: data[i].image,
           short_description: data[i].short_description,
+          min_quantity: data[i].min_quantity ? data[i].min_quantity : 1,
         })
       }
-      state.data = cartFinal;
-      state.count = cartFinal.length;
-      state.cartCurrentTotalPrice = cartFinal.reduce(function (accumulator, item) {
+      state.count = state.data.length;
+      state.cartCurrentTotalPrice = state.data.reduce(function (accumulator, item) {
         return accumulator + item.final_price * item.qty;
       }, 0);
-      console.log(state.data);
-      localStorage.setItem('cart', JSON.stringify(cartFinal));
+      localStorage.setItem('cart', JSON.stringify(state.data));
     } else {
       localStorage.removeItem('cart');
     }
@@ -46,7 +47,6 @@ export const mutations = {
         name: product.name,
         final_price: product.final_price,
         short_description: product.short_description,
-        description: product.description,
         image: product.image,
         rating: product.rating,
         min_quantity: qty,
@@ -61,7 +61,6 @@ export const mutations = {
           name: product.name,
           final_price: product.final_price,
           short_description: product.short_description,
-          description: product.description,
           image: product.image,
           rating: product.rating,
           min_quantity: qty,

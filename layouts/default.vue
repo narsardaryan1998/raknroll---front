@@ -4,29 +4,31 @@
     <v-main>
       <nuxt/>
     </v-main>
+    <!--    <transition name="slide-fade">-->
+    <!--      <div-->
+    <!--        class="text-center"-->
+    <!--        v-if="scrollToTopButton"-->
+    <!--        id="scrollToTopButton">-->
+    <!--        <v-btn fab-->
+    <!--               :elevation="20"-->
+    <!--               dark-->
+    <!--               transition="slide-x-transition"-->
+    <!--               @click="scrollToTop"-->
+    <!--               color="white"-->
+    <!--               large-->
+    <!--               light>-->
+    <!--          <v-img :src="require('~/assets/scroll-to-top-icon.png')"-->
+    <!--                 :lazy-src="require('~/assets/scroll-to-top-icon.png')">-->
+    <!--          </v-img>-->
+    <!--        </v-btn>-->
+    <!--        <br>-->
+    <!--        <span class="cursor-pointer"-->
+    <!--              @click="scrollToTop">{{ $t('scrollToTop') }}</span>-->
+    <!--      </div>-->
+    <!--    </transition>-->
     <transition name="slide-fade">
-      <div
-        class="text-center"
-        v-if="scrollToTopButton"
-        id="scrollToTopButton">
-        <v-btn fab
-               :elevation="20"
-               dark
-               transition="slide-x-transition"
-               @click="scrollToTop"
-               color="white"
-               large
-               light>
-          <v-img :src="require('~/assets/scroll-to-top-icon.png')"
-                 :lazy-src="require('~/assets/scroll-to-top-icon.png')">
-          </v-img>
-        </v-btn>
-        <br>
-        <span class="cursor-pointer"
-              @click="scrollToTop">{{ $t('scrollToTop') }}</span>
-      </div>
+      <CartModal v-show="showCartModal"></CartModal>
     </transition>
-    <CartModal v-show="showCartModal"></CartModal>
     <Footer></Footer>
   </v-app>
 </template>

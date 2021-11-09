@@ -11,157 +11,200 @@
       </div>
     </div>
     <div class="row cart_order-section">
-      <div class="col-md-6 col-sm-12">
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <v-text-field
-              name="name"
-              color="red darken-4"
-              :counter="50"
-              :label="$t('name') + '*'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <v-text-field
-              name="phone"
-              color="red darken-4"
-              :counter="50"
-              :label="$t('phone') + '*'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-12">
-            <v-text-field
-              name="city"
-              color="red darken-4"
-              :counter="50"
-              :label="'city' + '*'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-          <div class="col-md-8 col-sm-12">
-            <v-text-field
-              name="address"
-              color="red darken-4"
-              :counter="50"
-              :label="'address' + '*'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-12">
-            <v-text-field
-              name="home"
-              color="red darken-4"
-              :counter="50"
-              :label="'home' + '*'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-          <div class="col-md-4 col-sm-12">
-            <v-text-field
-              name="floor"
-              color="red darken-4"
-              :counter="50"
-              :label="'floor'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-          <div class="col-md-4 col-sm-12">
-            <v-text-field
-              name="intercom"
-              color="red darken-4"
-              :counter="50"
-              :label="'intercom'"
-              hide-details
-              required>
-            </v-text-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <v-textarea
-              name="additionalInformation"
-              color="red darken-4"
-              :label="'additional information'"
-              hide-details>
-            </v-textarea>
+      <div class="col-md-9 col-12 cart_order-section_products">
+        <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+          <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
+            <div class="row cart_products align-center">
+              <div class="col-md-2">
+                <v-hover
+                  v-slot="{ hover }">
+                  <v-img class="cart_product_image cursor-pointer"
+                         contain
+                         :class="{ 'opacity-is-50': hover }"
+                         :src="'http://raknroll.ua/' + cart.image"
+                         :lazy-src="'http://raknroll.ua/' + cart.image">
+                  </v-img>
+                </v-hover>
+              </div>
+              <div class="col-md-5 cart_product_texts">
+                <span class="cart_product_texts_header">{{ cart.name }}</span>
+                <br>
+                <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
+              </div>
+              <div class="col-md-2 cart_product_counter">
+                <div class="row cart_product_counter_row">
+                  <div class="col-md-3 cart_product_counter_row_minus d-flex justify-start">
+                    <v-btn
+                      @click="updateQuantity({productId: cart.id, value: -1})"
+                      icon
+                      color="white">
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </div>
+                  <div class="col-md-6 cart_product_counter_row_quantity text-center font-brigada pt-4">
+                    <p class="show_counter_quantity mb-0">{{ cart.qty }}</p>
+                  </div>
+                  <div class="col-md-3 cart_product_counter_row_plus d-flex justify-end">
+                    <v-btn
+                      @click="updateQuantity({productId: cart.id, value: 1})"
+                      icon
+                      color="white">
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 cart_product_price">
+                  <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
+                      $t('price')
+                    }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
+                <span class="cart_product_texts_description white-opacity-07" v-else>{{
+                    $t('price')
+                  }}: {{ cart.final_price }} ₴</span>
+              </div>
+              <div class="col-md-1 cart_product_remove">
+                <v-btn
+                  @click="deleteFromCart(cart.id)"
+                  class="float-right"
+                  icon
+                  color="white">
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </div>
+            </div>
+            <v-divider class="cart_products_hr" inset></v-divider>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12"
-           v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
-        <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
-          <div class="row cart_products align-center">
-            <div class="col-md-2">
-              <v-hover
-                v-slot="{ hover }">
-                <v-img class="cart_product_image cursor-pointer"
-                       contain
-                       :class="{ 'opacity-is-50': hover }"
-                       :src="'http://raknroll.ua/' + cart.image"
-                       :lazy-src="'http://raknroll.ua/' + cart.image">
-                </v-img>
-              </v-hover>
+      <div class="col-md-3 col-12 cart_order-section_register-order">
+        <div class="row">
+          <div class="col-12 cart_order-section_register-order_your-order-header">
+            <span>Информация</span>
+          </div>
+        </div>
+        <v-form
+          ref="orderForm"
+          v-model="orderFormValid"
+          lazy-validation>
+          <div class="row">
+            <div class="col-12 pb-0">
+              <v-text-field
+                type="tel"
+                name="phone"
+                color="white"
+                :rules="phoneRules"
+                v-mask="'(###) ### - ## - ##'"
+                hint="For example - 0965990909"
+                :label="$t('phone') + ' *'"
+                v-model="orderForm.phone"
+                required>
+              </v-text-field>
             </div>
-            <div class="col-md-5 cart_product_texts">
-              <span class="cart_product_texts_header">{{ cart.name }}</span>
-              <br>
-              <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
+          </div>
+          <div class="row">
+            <div class="col-12 py-0">
+              <v-text-field
+                name="address"
+                color="white"
+                hint="For example - 0965990909"
+                v-model="orderForm.address"
+                :rules="addressRules"
+                :label="$t('address') + ' *'"
+                required>
+              </v-text-field>
             </div>
-            <div class="col-md-2 cart_product_counter">
-              <div class="row cart_product_counter_row">
-                <div class="col-md-3 cart_product_counter_row_minus d-flex justify-start">
-                  <v-btn
-                    @click="updateQuantity({productId: cart.id, value: -1})"
-                    icon
-                    color="white">
-                    <v-icon>mdi-minus</v-icon>
-                  </v-btn>
-                </div>
-                <div class="col-md-6 cart_product_counter_row_quantity text-center font-brigada pt-4">
-                  <p class="show_counter_quantity mb-0">{{ cart.qty }}</p>
-                </div>
-                <div class="col-md-3 cart_product_counter_row_plus d-flex justify-end">
-                  <v-btn
-                    @click="updateQuantity({productId: cart.id, value: 1})"
-                    icon
-                    color="white">
-                    <v-icon>mdi-plus</v-icon>
-                  </v-btn>
-                </div>
+          </div>
+          <div class="row">
+            <div class="col-12 py-0">
+              <v-textarea
+                v-model="orderForm.additional_information"
+                name="additional_information"
+                color="white"
+                :label="'Additional information'">
+              </v-textarea>
+            </div>
+          </div>
+          <div class="row margin-top-from-header">
+            <div class="col-12 cart_order-section_register-order_your-order-header">
+              <span>Ваш заказ</span>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              <div>
+                Кэшбэк
+              </div>
+              <div>
+                263 ₴
               </div>
             </div>
-            <div class="col-md-2 cart_product_price">
-                  <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
-                      $t('price')
-                    }}: {{ cart.final_price }} x {{ cart.qty }} ₴</span>
-              <span class="cart_product_texts_description white-opacity-07" v-else>{{
-                  $t('price')
-                }}: {{ cart.final_price }} ₴</span>
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              <div>
+                Покупки
+              </div>
+              <div>
+                {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴
+              </div>
             </div>
-            <div class="col-md-1 cart_product_remove">
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              <div>
+                Перевозки
+              </div>
+              <div>
+                <v-radio-group
+                  v-model="orderForm.isDelivery"
+                  column>
+                  <v-radio
+                    color="white"
+                    label="Заберу сам + 0 ₴"
+                    :value="false">
+                  </v-radio>
+                  <v-radio
+                    color="white"
+                    label="Доставка + 500 ₴"
+                    :value="true">
+                  </v-radio>
+                </v-radio-group>
+              </div>
+            </div>
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row">
+            <div
+              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              <div>
+                Общий
+              </div>
+              <div>
+                {{
+                  orderForm.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
+                }} ₴
+              </div>
+            </div>
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row margin-top-from-header">
+            <div class="col-12">
               <v-btn
-                @click="deleteFromCart(cart.id)"
-                class="float-right"
-                icon
-                color="white">
-                <v-icon>mdi-close</v-icon>
+                large
+                rounded
+                @click="finishOrder"
+                class="width-100 font-weight-bold"
+                light>
+                Завершить заказ
               </v-btn>
             </div>
           </div>
-          <v-divider class="cart_products_hr" inset></v-divider>
-        </div>
+        </v-form>
       </div>
     </div>
   </div>
@@ -173,17 +216,20 @@ export default {
   data() {
     return {
       language: this.$i18n.locale,
+      orderFormValid: false,
+      orderForm: {
+        phone: '',
+        address: '',
+        additional_information: '',
+        isDelivery: true,
+      },
+      phoneRules: [
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('phone')}),
+      ],
+      addressRules: [
+        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('address')}),
+      ],
     }
-  },
-  async mounted() {
-    // let productIds = [];
-    // if (this.$store.getters['cart/data'].length) {
-    //   productIds.push(this.$store.getters['cart/data'].find(cart => 0 < cart.id).id);
-    // }
-    // await this.$store.dispatch('cart/getData', {
-    //   language: this.language,
-    //   productIds
-    // });
   },
   methods: {
     updateQuantity(params) {
@@ -192,6 +238,11 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
+    finishOrder() {
+      if (this.$refs.orderForm.validate()) {
+
+      }
+    }
   }
 }
 </script>
@@ -234,5 +285,17 @@ export default {
 
 .cart_products_hr {
   margin: 0 8% 0 10%;
+}
+
+.cart_order-section_register-order_your-order_hr {
+  margin: 0 10% 0 10% !important;
+}
+
+.cart_order-section_register-order_your-order-header {
+  font-size: 38px;
+}
+
+.cart_order-section_register-order_your-order-costs {
+  font-size: 20px;
 }
 </style>
