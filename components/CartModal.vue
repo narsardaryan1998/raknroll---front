@@ -81,7 +81,7 @@
                     </v-btn>
                   </div>
                   <div class="col-md-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
-                    <p class="show_counter_quantity grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
+                    <p class="show_counter_quantity-light grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
                   </div>
                   <div class="col-md-3 cartModal_products_counter_row_plus d-flex justify-end">
                     <v-btn

@@ -26,9 +26,9 @@
     <!--              @click="scrollToTop">{{ $t('scrollToTop') }}</span>-->
     <!--      </div>-->
     <!--    </transition>-->
-    <transition name="slide-fade">
-      <CartModal v-show="showCartModal"></CartModal>
-    </transition>
+<!--    <transition name="slide-fade">-->
+      <CartModal></CartModal>
+<!--    </transition>-->
     <Footer></Footer>
   </v-app>
 </template>

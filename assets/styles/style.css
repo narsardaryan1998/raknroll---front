@@ -179,11 +179,17 @@ body {
 
 .page-header {
   height: 275px;
-  background-image: url("https://as1.ftcdn.net/v2/jpg/04/47/68/60/1000_F_447686074_WM42OykJXm9VMY3sbGxVWDwFCtvdGLQd.jpg");
+  background-image: url("~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg");
   background-size: cover;
   background-position: center bottom;
   background-attachment: fixed;
   box-shadow: inset 0 0 7px 3px rgb(0 0 0);
+}
+
+.page-header p {
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 0 -4px 0 #1e1e1e;
 }
 
 .swiper-slider_product .v-image__image {
@@ -303,6 +309,10 @@ body {
 
 .show_counter_quantity {
   border-bottom: 1px dashed white;
+}
+
+.show_counter_quantity-light {
+  border-bottom: 1px dashed #424242;
 }
 
 .white-pattern-background {

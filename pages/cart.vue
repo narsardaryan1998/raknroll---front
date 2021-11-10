@@ -2,14 +2,14 @@
   <div id="cart">
     <div
       class="cart_top_section page-header width-100 d-flex justify-space-between align-center margin-bottom-from-header">
-      <p class="width-100">{{ $t('cart') }}</p>
+      <p class="width-100 text-center">{{ $t('cart') }}</p>
     </div>
     <div class="row cart_order-section container container-padding">
       <div class="col-md-9 col-12 cart_order-section_products">
         <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
             <div class="row cart_products align-center">
-              <div class="col-md-2">
+              <div class="col-2">
                 <v-hover
                   v-slot="{ hover }">
                   <v-img class="cart_product_image cursor-pointer"
@@ -20,14 +20,14 @@
                   </v-img>
                 </v-hover>
               </div>
-              <div class="col-md-5 cart_product_texts">
+              <div class="col-5 cart_product_texts">
                 <span class="cart_product_texts_header">{{ cart.name }}</span>
                 <br>
                 <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
               </div>
-              <div class="col-md-2 cart_product_counter">
+              <div class="col-2 cart_product_counter">
                 <div class="row cart_product_counter_row">
-                  <div class="col-md-3 cart_product_counter_row_minus d-flex justify-start">
+                  <div class="col-3 cart_product_counter_row_minus d-flex justify-start">
                     <v-btn
                       @click="updateQuantity({productId: cart.id, value: -1})"
                       icon
@@ -35,10 +35,10 @@
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
-                  <div class="col-md-6 cart_product_counter_row_quantity text-center font-brigada pt-4">
+                  <div class="col-6 cart_product_counter_row_quantity text-center font-brigada pt-4">
                     <p class="show_counter_quantity mb-0">{{ cart.qty }}</p>
                   </div>
-                  <div class="col-md-3 cart_product_counter_row_plus d-flex justify-end">
+                  <div class="col-3 cart_product_counter_row_plus d-flex justify-end">
                     <v-btn
                       @click="updateQuantity({productId: cart.id, value: 1})"
                       icon
@@ -48,7 +48,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2 cart_product_price">
+              <div class="col-2 cart_product_price">
                   <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
                       $t('price')
                     }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
@@ -56,7 +56,7 @@
                     $t('price')
                   }}: {{ cart.final_price }} ₴</span>
               </div>
-              <div class="col-md-1 cart_product_remove">
+              <div class="col-1 cart_product_remove">
                 <v-btn
                   @click="deleteFromCart(cart.id)"
                   class="float-right"
