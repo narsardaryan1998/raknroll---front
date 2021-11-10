@@ -70,13 +70,13 @@
                   <v-btn class="p-0 mw-100"
                          v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)"
                          @click="addToCart(product)">
-                    <span>{{ $t('userButtons.cart') }}</span>
+                    <span>{{ $t('cart') }}</span>
                     <v-icon>mdi-cart</v-icon>
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
                          @click="deleteFromCart(product.id)">
-                    <span>{{ $t('userButtons.cart') }}</span>
+                    <span>{{ $t('cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-cart-off
                     </v-icon>
@@ -84,13 +84,13 @@
                   <v-btn class="p-0 mw-100"
                          v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
                          @click="addToFavorites(product)">
-                    <span>{{ $t('userButtons.favorites') }}</span>
+                    <span>{{ $t('favorites') }}</span>
                     <v-icon>mdi-heart</v-icon>
                   </v-btn>
                   <v-btn class="p-0 mw-100"
                          v-else
                          @click="deleteFromFavorites(product.id)">
-                    <span>{{ $t('userButtons.cart') }}</span>
+                    <span>{{ $t('cart') }}</span>
                     <v-icon
                       color="red darken-4">mdi-heart-off
                     </v-icon>

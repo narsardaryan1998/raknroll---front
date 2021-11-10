@@ -68,13 +68,13 @@
                     <v-btn class="p-0 mw-100"
                            v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)"
                            @click="addToCart(product)">
-                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.cart') }}</span>
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('cart') }}</span>
                       <v-icon color="grey darken-3">mdi-cart</v-icon>
                     </v-btn>
                     <v-btn class="p-0 mw-100"
                            v-else
                            @click="deleteFromCart(product.id)">
-                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.cart') }}</span>
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('cart') }}</span>
                       <v-icon
                         color="red darken-4">mdi-cart-off
                       </v-icon>
@@ -82,13 +82,13 @@
                     <v-btn class="p-0 mw-100"
                            v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
                            @click="addToFavorites(product)">
-                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.favorites') }}</span>
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('favorites') }}</span>
                       <v-icon color="grey darken-3">mdi-heart</v-icon>
                     </v-btn>
                     <v-btn class="p-0 mw-100"
                            v-else
                            @click="deleteFromFavorites(product.id)">
-                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('userButtons.favorites') }}</span>
+                      <span class="grey--text text--darken-3 font-weight-bold">{{ $t('favorites') }}</span>
                       <v-icon
                         color="red darken-4">mdi-heart-off
                       </v-icon>

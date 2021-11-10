@@ -1,16 +1,10 @@
 <template>
-  <div id="cart" class="container container-padding">
-    <div class="cart_top_section d-flex justify-space-between align-center margin-bottom-from-header">
-      <div class="cart_top_section_header d-flex align-center">
-        <div>
-          <hr class="cart_top_section_header_hr">
-        </div>
-        <div class="ml-4">
-          <span>Cart</span>
-        </div>
-      </div>
+  <div id="cart">
+    <div
+      class="cart_top_section page-header width-100 d-flex justify-space-between align-center margin-bottom-from-header">
+      <p class="width-100">{{ $t('cart') }}</p>
     </div>
-    <div class="row cart_order-section">
+    <div class="row cart_order-section container container-padding">
       <div class="col-md-9 col-12 cart_order-section_products">
         <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
@@ -79,7 +73,7 @@
       <div class="col-md-3 col-12 cart_order-section_register-order">
         <div class="row">
           <div class="col-12 cart_order-section_register-order_your-order-header">
-            <span>Информация</span>
+            <span>{{ $t('information') }}</span>
           </div>
         </div>
         <v-form
@@ -94,7 +88,7 @@
                 color="white"
                 :rules="phoneRules"
                 v-mask="'(###) ### - ## - ##'"
-                hint="For example - 0965990909"
+                :hint="$t('forExample') + ' (096) 599 - 09 - 09'"
                 :label="$t('phone') + ' *'"
                 v-model="orderForm.phone"
                 required>
@@ -106,10 +100,10 @@
               <v-text-field
                 name="address"
                 color="white"
-                hint="For example - 0965990909"
+                :hint="$t('addressExample')"
                 v-model="orderForm.address"
                 :rules="addressRules"
-                :label="$t('address') + ' *'"
+                :label="$t('address') + ' * (' + $t('addressExample') + ')'"
                 required>
               </v-text-field>
             </div>
@@ -120,32 +114,32 @@
                 v-model="orderForm.additional_information"
                 name="additional_information"
                 color="white"
-                :label="'Additional information'">
+                :hint="$t('notRequired')"
+                :label="$t('additionalInformation') + ' (' + $t('notRequired') + ')'">
               </v-textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 py-0 d-flex justify-end">
+              <v-checkbox
+                v-model="orderForm.rememberInformation"
+                :label="$t('rememberMyInformation')"
+                color="red darken-4"
+                value="red darken-4"
+                hide-details>
+              </v-checkbox>
             </div>
           </div>
           <div class="row margin-top-from-header">
             <div class="col-12 cart_order-section_register-order_your-order-header">
-              <span>Ваш заказ</span>
+              <span>{{ $t('yourOrder') }}</span>
             </div>
           </div>
           <div class="row">
             <div
               class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
-                Кэшбэк
-              </div>
-              <div>
-                263 ₴
-              </div>
-            </div>
-            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
-          </div>
-          <div class="row">
-            <div
-              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
-              <div>
-                Покупки
+                {{ $t('purchases') }}:
               </div>
               <div>
                 {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴
@@ -157,7 +151,7 @@
             <div
               class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
-                Перевозки
+                {{ $t('shipping') }}:
               </div>
               <div>
                 <v-radio-group
@@ -165,12 +159,12 @@
                   column>
                   <v-radio
                     color="white"
-                    label="Заберу сам + 0 ₴"
+                    :label="$t('takeItMyself') + ' + 0 ₴'"
                     :value="false">
                   </v-radio>
                   <v-radio
                     color="white"
-                    label="Доставка + 500 ₴"
+                    :label="$t('delivery') + ' + 500 ₴'"
                     :value="true">
                   </v-radio>
                 </v-radio-group>
@@ -182,9 +176,9 @@
             <div
               class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
-                Общий
+                {{ $t('totalAmount') }}:
               </div>
-              <div>
+              <div class="white--text font-weight-bold">
                 {{
                   orderForm.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
                 }} ₴
@@ -192,15 +186,95 @@
             </div>
             <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
           </div>
-          <div class="row margin-top-from-header">
+          <div class="row">
+            <div
+              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              <div>
+                {{ $t('cashback') }}:
+              </div>
+              <div class="green--text text--accent-4 font-weight-bold">
+                + 263 ₴ <span class="white--text">({{ $t('toYourBalance') }})</span>
+              </div>
+            </div>
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row mt-5">
+            <div class="col-12 cart_order-section_register-order_your-order_payment-methods white-opacity-07">
+              <v-radio-group v-model="orderForm.paymentMethod" class="justify-center">
+                <template v-slot:label>
+                  <div class="cart_order-section_register-order_your-order_payment-methods_header">
+                    {{ $t('paymentMethod') }}:
+                  </div>
+                </template>
+                <div class="d-flex justify-end">
+                  <div></div>
+                  <div>
+                    <v-radio color="white" value="creditCard" class="mt-5">
+                      <template v-slot:label>
+                        <div class="d-flex justify-center">
+                          <div>
+                            {{ $t('withCreditCard') }}
+                          </div>
+                          <v-img
+                            class="ml-5"
+                            max-width="55"
+                            src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                            lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                            contain>
+                          </v-img>
+                        </div>
+                      </template>
+                    </v-radio>
+                    <v-radio color="white" value="accountBalance">
+                      <template v-slot:label>
+                        <div class="d-flex align-center">
+                          <div>
+                            {{ $t('cash') }}
+                          </div>
+                          <v-img
+                            class="ml-5"
+                            max-width="33"
+                            src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                            lazy-src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                            contain>
+                          </v-img>
+                        </div>
+                      </template>
+                    </v-radio>
+                    <client-only>
+                      <v-radio v-if="$auth && $auth.loggedIn && $auth.user" color="white" value="cash">
+                        <template v-slot:label>
+                          <div class="d-flex align-center">
+                            <div>
+                              {{ $t('withAccountBalance') }}
+                            </div>
+                            <v-img
+                              class="ml-5"
+                              max-width="30"
+                              :src="require('~/assets/raknroll-logo.png')"
+                              :lazy-src="require('~/assets/raknroll-logo.png')"
+                              contain>
+                            </v-img>
+                          </div>
+                        </template>
+                      </v-radio>
+                    </client-only>
+                  </div>
+                </div>
+              </v-radio-group>
+            </div>
+            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+          </div>
+          <div class="row mt-5 pt-1">
             <div class="col-12">
               <v-btn
+                color="green accent-4"
                 large
                 rounded
                 @click="finishOrder"
-                class="width-100 font-weight-bold"
+                class="width-100 font-weight-bold white--text"
                 light>
-                Завершить заказ
+                {{ $t('finishTheOrder') }}
               </v-btn>
             </div>
           </div>
@@ -222,6 +296,8 @@ export default {
         address: '',
         additional_information: '',
         isDelivery: true,
+        rememberInformation: true,
+        paymentMethod: 'creditCard',
       },
       phoneRules: [
         v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('phone')}),
@@ -250,12 +326,6 @@ export default {
 <style scoped>
 #cart {
   margin-top: 9vw;
-}
-
-.cart_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
 }
 
 .cart_top_section_header {
@@ -297,5 +367,14 @@ export default {
 
 .cart_order-section_register-order_your-order-costs {
   font-size: 20px;
+}
+
+.cart_order-section_register-order_your-order_payment-methods_header {
+  color: white;
+  font-size: 25px;
+}
+
+.cart_order-section_register-order_your-order_payment-methods {
+  font-size: 18px;
 }
 </style>

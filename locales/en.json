@@ -1,12 +1,11 @@
 {
-  "userButtons": {
-    "favorites" : "Favorites",
-    "cart" : "Cart",
-    "account" : "Account"
-  },
+  "favorites": "Favorites",
+  "cart": "Cart",
+  "account": "Account",
   "menuLinks": {
     "home": "Home",
     "products": "Products",
+    "shop": "Shop",
     "about_us": "About Us",
     "bonuses": "Bonuses",
     "delivery": "Delivery and Payment",
@@ -20,16 +19,16 @@
     "en": "English"
   },
   "introSubheader": {
-    "first" : "Fresh <span class='red--text text--darken-4'>crayfish,</span> beer, ",
-    "second" : "fish and so on"
+    "first": "Fresh <span class='red--text text--darken-4'>crayfish,</span> beer, ",
+    "second": "fish and so on"
   },
   "informationPart1": {
-    "first" : "Ukraine, Kyiv,",
-    "second" : "Kharkiv highway 17 A"
+    "first": "Ukraine, Kyiv,",
+    "second": "Kharkiv highway 17 A"
   },
   "informationPart12": {
-    "first" : "Mon-Sun:",
-    "second" : "Order:"
+    "first": "Mon-Sun:",
+    "second": "Order:"
   },
   "bestseller": "Bestseller",
   "allOfCatalog": "All Of catalog",
@@ -61,7 +60,26 @@
   "linkToBrand": "All {brandName} brand products",
   "tastierTogether": "Tastier together",
   "phone": "Phone",
+  "forExample": "For example:",
   "address": "Address",
+  "addressExample": "For example: Kyiv, Kharkiv highway 17 A",
+  "additionalInformation": "Additional information",
+  "rememberMyInformation": "Remember my information",
+  "information": "Information",
+  "yourOrder": "Your order",
+  "purchases": "Purchases",
+  "shipping": "Shipping",
+  "takeItMyself": "I'll take it myself",
+  "delivery": "Delivery",
+  "totalAmount": "Total amount",
+  "cashback": "Cashback",
+  "toYourBalance": "To your balance",
+  "paymentMethod": "Payment method",
+  "withCreditCard": "With credit card",
+  "cash": "Cash",
+  "withAccountBalance": "With account balance",
+  "finishTheOrder": "Finish the order",
+  "notRequired": "Not required",
   "ourAdvantages": "Our advantages",
   "subscribe": "Subscribe",
   "menu": "Menu",

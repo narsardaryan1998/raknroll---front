@@ -1,12 +1,11 @@
 {
-  "userButtons": {
-    "favorites" : "Избранное",
-    "cart" : "Корзина",
-    "account" : "ПрофильПрофиль"
-  },
+  "favorites": "Избранное",
+  "cart": "Корзина",
+  "account": "ПрофильПрофиль",
   "menuLinks": {
     "home": "Главная",
     "products": "Продукты",
+    "shop": "Магазин",
     "about_us": "О нас",
     "bonuses": "Бонусы",
     "delivery": "Доставка и Оплата",
@@ -20,16 +19,16 @@
     "en": "Английский"
   },
   "introSubheader": {
-    "first" : "Свежие <span class='red--text text--darken-4'>раки,</span> пиво, ",
-    "second" : "рыба и т. Д."
+    "first": "Свежие <span class='red--text text--darken-4'>раки,</span> пиво, ",
+    "second": "рыба и т. Д."
   },
   "informationPart1": {
-    "first" : "Украина, Киев,",
-    "second" : "Харьковское шоссе 17 А"
+    "first": "Украина, Киев,",
+    "second": "Харьковское шоссе 17 А"
   },
   "informationPart12": {
-    "first" : "Пн-Вс:",
-    "second" : "Заказы"
+    "first": "Пн-Вс:",
+    "second": "Заказы"
   },
   "bestseller": "Хит Продаж",
   "allOfCatalog": "Весь каталог",
@@ -61,7 +60,26 @@
   "linkToBrand": "Вся продукция бренда {brandName}",
   "tastierTogether": "Вместе вкуснее",
   "phone": "Телефон",
+  "forExample": "Например:",
   "address": "Адрес",
+  "addressExample": "Наприклад: Киев, Харьковское шоссе 17 А",
+  "additionalInformation": "Дополнительная информация",
+  "rememberMyInformation": "Запомнить мою информацию",
+  "information": "Информация",
+  "yourOrder": "Ваш заказ",
+  "purchases": "Покупки",
+  "shipping": "Перевозки",
+  "takeItMyself": "Заберу сам",
+  "delivery": "Доставка",
+  "totalAmount": "Итого",
+  "cashback": "Кэшбэк",
+  "toYourBalance": "На ваш баланс",
+  "paymentMethod": "Способ оплаты",
+  "withCreditCard": "Кредитной картой",
+  "cash": "Наличные",
+  "withAccountBalance": "С остатком на счете",
+  "notRequired": "Не обязательно",
+  "finishTheOrder": "Завершить заказ",
   "ourAdvantages": "Наши преимущества",
   "subscribe": "Подписывайся",
   "menu": "Меню",

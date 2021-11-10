@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-12 cartModal_products_header d-flex justify-space-between">
           <div>
-            <span class="black--text font-weight-bold">{{ $t('userButtons.cart') }}</span>
+            <span class="black--text font-weight-bold">{{ $t('cart') }}</span>
           </div>
           <div>
             <v-btn

@@ -27,7 +27,7 @@
                   </li>
                   <li class="pl-5">
                     <NuxtLink class="header_nav_navigation_menu_pages_link"
-                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.products') }}
+                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.shop') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
@@ -113,7 +113,7 @@
                     color="red darken-4"
                     :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"
                     overlap>
-                    <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('userButtons.favorites')"/>
+                    <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('favorites')"/>
                   </v-badge>
                 </v-btn>
                 <div class="favorites-modal modal">
@@ -210,7 +210,7 @@
                       v-bind="attrs"
                       v-on="on"
                       color="white">
-                      <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
+                      <img src="~/assets/icons/icons8-account-64.png" :alt="$t('account')"/>
                     </v-btn>
                   </template>
                   <v-list>
@@ -533,7 +533,7 @@
                   small
                   fab
                   color="white">
-                  <img src="~/assets/icons/icons8-account-64.png" :alt="$t('userButtons.account')"/>
+                  <img src="~/assets/icons/icons8-account-64.png" :alt="$t('account')"/>
                 </v-btn>
               </div>
             </div>

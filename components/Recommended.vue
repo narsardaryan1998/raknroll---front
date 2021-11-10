@@ -47,11 +47,11 @@
                 class=" swiper-slider_product"
                 grow>
                 <v-btn class="px-0 mw-100">
-                  <span>{{ $t('userButtons.cart') }}</span>
+                  <span>{{ $t('cart') }}</span>
                   <v-icon>mdi-cart</v-icon>
                 </v-btn>
                 <v-btn class="px-0 mw-100">
-                  <span>{{ $t('userButtons.favorites') }}</span>
+                  <span>{{ $t('favorites') }}</span>
                   <v-icon>mdi-heart</v-icon>
                 </v-btn>
               </v-bottom-navigation>
