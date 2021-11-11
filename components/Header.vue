@@ -26,11 +26,6 @@
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link"
-                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{ $t('menuLinks.shop') }}
-                    </NuxtLink>
-                  </li>
-                  <li class="pl-5">
                     <NuxtLink class="header_nav_navigation_menu_pages_link" :to='localePath("/reviews")'>
                       {{ $t('menuLinks.reviews') }}
                     </NuxtLink>

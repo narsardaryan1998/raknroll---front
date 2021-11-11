@@ -157,6 +157,10 @@ body {
   width: 100% !important;
 }
 
+.height-100 {
+  height: 100% !important;
+}
+
 .width-90 {
   width: 90% !important;
 }
@@ -179,15 +183,21 @@ body {
 
 .page-header {
   height: 275px;
-  background-image: url("~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg");
-  background-size: cover;
-  background-position: center bottom;
+}
+
+.page-header .v-image__image {
+  background-position: bottom;
   background-attachment: fixed;
   box-shadow: inset 0 0 7px 3px rgb(0 0 0);
 }
 
+#catalogSection .v-image__image {
+  background-attachment: fixed;
+}
+
 .page-header p {
   font-size: 80px;
+  padding-top: 55px;
   font-weight: bold;
   text-shadow: 0 -4px 0 #1e1e1e;
 }

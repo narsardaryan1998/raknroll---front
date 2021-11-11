@@ -1,28 +1,16 @@
 <template>
-  <div id="products" class="container container-padding page-container-padding-bottom">
-    <div class="products_top_section d-flex justify-space-between align-center margin-bottom-from-header">
-      <div class="products_top_section_header d-flex align-center">
-        <div>
-          <hr class="products_top_section_header_hr">
-        </div>
-        <div class="ml-4">
-          <span v-if="!category_name"> {{ $t('allOfCatalog') }}</span>
-          <span v-else> {{ category_name }}</span>
-        </div>
-      </div>
-      <div class="products_top_section_search">
-        <v-text-field
-          hide-details
-          v-model="filter.search"
-          color="red darken-4"
-          @keyup.enter="(e) => {e.target.blur()}"
-          @blur="filtration"
-          :label="$t('searchProduct')"
-          prepend-icon="mdi-shopping-search">
-        </v-text-field>
-      </div>
+  <div id="products" class="page-container-padding-bottom">
+    <div class="products_top_section page-header width-100 margin-bottom-from-header">
+      <v-img
+        class="width-100 height-100"
+        :src="filter.category_slug === 'pivo' ? 'https://as1.ftcdn.net/v2/jpg/01/01/92/96/1000_F_101929688_dTRNPrsGmQ0l6jetRctSFvvIUBl7oU7I.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        :lazy-src="filter.category_slug === 'pivo' ? 'https://as1.ftcdn.net/v2/jpg/01/01/92/96/1000_F_101929688_dTRNPrsGmQ0l6jetRctSFvvIUBl7oU7I.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        cover>
+        <p class="width-100 text-center" v-if="!category_name"> {{ $t('allOfCatalog') }}</p>
+        <p class="width-100 text-center" v-else> {{ category_name }}</p>
+      </v-img>
     </div>
-    <div class="products_and_filter d-flex justify-space-between">
+    <div class="products_and_filter d-flex justify-space-between container-padding container">
       <div class="products_show">
         <div class="row">
           <div class="py-0 col-sm-4 col-6 col-md-2"
@@ -115,6 +103,18 @@
       </div>
       <div class="products_filter d-flex flex-column">
         <div>
+          <v-text-field
+            dark
+            hide-details
+            v-model="filter.search"
+            color="red darken-4"
+            @keyup.enter="(e) => {e.target.blur()}"
+            @blur="filtration"
+            :label="$t('searchProduct')"
+            append-icon="mdi-shopping-search">
+          </v-text-field>
+        </div>
+        <div class="margin-top-from-header">
           <v-select
             :items="$store.getters['products/data'].categories"
             menu-props="auto"

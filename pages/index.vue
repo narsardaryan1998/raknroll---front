@@ -106,6 +106,7 @@
         </div>
       </div>
     </div>
+    <CatalogSection></CatalogSection>
     <div id="main_about_us">
       <div class="container container-padding">
         <div class="main_about_us_top_section d-flex justify-space-between align-center">
@@ -141,6 +142,7 @@
 <script>
 import Intro from '~/components/Intro'
 import OurAdvantagesSingle from '~/components/OurAdvantagesSingle'
+import CatalogSection from '~/components/CatalogSection'
 import {directive} from 'vue-awesome-swiper'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -224,6 +226,7 @@ export default {
   components: {
     Intro,
     OurAdvantagesSingle,
+    CatalogSection,
   },
   methods: {
     addToCart(product) {

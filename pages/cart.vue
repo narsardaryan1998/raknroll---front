@@ -1,8 +1,14 @@
 <template>
   <div id="cart">
     <div
-      class="cart_top_section page-header width-100 d-flex justify-space-between align-center margin-bottom-from-header">
-      <p class="width-100 text-center">{{ $t('cart') }}</p>
+      class="cart_top_section page-header width-100 margin-bottom-from-header">
+      <v-img
+        class="width-100 height-100"
+        :src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        :lazy-src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        cover>
+        <p class="width-100 text-center">{{ $t('cart') }}</p>
+      </v-img>
     </div>
     <div class="row cart_order-section container container-padding">
       <div class="col-md-9 col-12 cart_order-section_products">
@@ -80,9 +86,16 @@
           ref="orderForm"
           v-model="orderFormValid"
           lazy-validation>
-          <div class="row">
-            <div class="col-12 pb-0">
+          <div class="row mt-3">
+            <div class="col-12 pb-0 cart_order-section_register-order_your-order-subheader red--text text--darken-4">
+              {{ $t('requiredFields') }}:
+              <v-icon color="red darken-4">mdi-arrow-down-box</v-icon>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-12 py-0">
               <v-text-field
+                filled
                 type="tel"
                 name="phone"
                 color="white"
@@ -98,6 +111,7 @@
           <div class="row">
             <div class="col-12 py-0">
               <v-text-field
+                filled
                 name="address"
                 color="white"
                 :hint="$t('addressExample')"
@@ -108,14 +122,65 @@
               </v-text-field>
             </div>
           </div>
+          <div class="row mt-3">
+            <div class="col-12 pb-0 cart_order-section_register-order_your-order-subheader">
+              {{ $t('optionalFields') }}:
+              <v-icon>mdi-arrow-down-box</v-icon>
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-6 py-0">
+              <v-text-field
+                filled
+                name="entrance"
+                color="white"
+                :label="$t('entrance')"
+                v-model="orderForm.entrance"
+                required>
+              </v-text-field>
+            </div>
+            <div class="col-6 py-0">
+              <v-text-field
+                filled
+                name="intercom"
+                color="white"
+                :label="$t('intercom')"
+                v-model="orderForm.intercom"
+                required>
+              </v-text-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 py-0">
+              <v-text-field
+                filled
+                name="floor"
+                color="white"
+                :label="$t('floor')"
+                v-model="orderForm.floor"
+                required>
+              </v-text-field>
+            </div>
+            <div class="col-6 py-0">
+              <v-text-field
+                filled
+                name="home"
+                color="white"
+                :label="$t('homeApartmentOffice')"
+                v-model="orderForm.home"
+                required>
+              </v-text-field>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12 py-0">
               <v-textarea
+                filled
                 v-model="orderForm.additional_information"
                 name="additional_information"
                 color="white"
                 :hint="$t('notRequired')"
-                :label="$t('additionalInformation') + ' (' + $t('notRequired') + ')'">
+                :label="$t('additionalInformationAboutOrder')">
               </v-textarea>
             </div>
           </div>
@@ -124,8 +189,8 @@
               <v-checkbox
                 v-model="orderForm.rememberInformation"
                 :label="$t('rememberMyInformation')"
-                color="red darken-4"
-                value="red darken-4"
+                color="white"
+                value="white"
                 hide-details>
               </v-checkbox>
             </div>
@@ -202,7 +267,7 @@
             <div class="col-12 cart_order-section_register-order_your-order_payment-methods white-opacity-07">
               <v-radio-group v-model="orderForm.paymentMethod" class="justify-center">
                 <template v-slot:label>
-                  <div class="cart_order-section_register-order_your-order_payment-methods_header">
+                  <div class="cart_order-section_register-order_your-order-subheader">
                     {{ $t('paymentMethod') }}:
                   </div>
                 </template>
@@ -294,6 +359,10 @@ export default {
       orderForm: {
         phone: '',
         address: '',
+        home: '',
+        floor: '',
+        intercom: '',
+        entrance: '',
         additional_information: '',
         isDelivery: true,
         rememberInformation: true,
@@ -369,9 +438,9 @@ export default {
   font-size: 20px;
 }
 
-.cart_order-section_register-order_your-order_payment-methods_header {
+.cart_order-section_register-order_your-order-subheader {
   color: white;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .cart_order-section_register-order_your-order_payment-methods {
