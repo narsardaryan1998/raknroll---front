@@ -22,7 +22,7 @@
         </v-badge>
       </v-btn>
     </div>
-    <div class="cartModal_products white-pattern-background inset-shadow-10">
+    <div class="cartModal_products white-pattern-background inset-shadow-from-left">
       <div class="row">
         <div class="col-12 cartModal_products_header d-flex justify-space-between">
           <div>

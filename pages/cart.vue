@@ -4,8 +4,8 @@
       class="cart_top_section page-header width-100 margin-bottom-from-header">
       <v-img
         class="width-100 height-100"
-        :src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
-        :lazy-src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        src="https://as2.ftcdn.net/v2/jpg/04/04/91/41/1000_F_404914196_9Onya1dDOxITGkp7dIovpkla94v3e64d.jpg"
+        lazy-src="https://as2.ftcdn.net/v2/jpg/04/04/91/41/1000_F_404914196_9Onya1dDOxITGkp7dIovpkla94v3e64d.jpg"
         cover>
         <p class="width-100 text-center">{{ $t('cart') }}</p>
       </v-img>

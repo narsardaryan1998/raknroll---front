@@ -169,6 +169,32 @@ body {
   border-radius: 0 !important;
 }
 
+.white-pattern-background .component-top-header-hr {
+  width: 8vw;
+  border: 0.075vw solid #000000;
+  background-color: #000000;
+}
+
+.white-pattern-background .component-top-header {
+  font-family: 'Caveat', cursive !important;
+  font-size: 3.5vw;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+}
+
+.component-top-header-hr {
+  width: 8vw;
+  border: 0.075vw solid #ffffff;
+  background-color: #ffffff;
+}
+
+.component-top-header {
+  font-family: 'Caveat', cursive !important;
+  font-size: 3.5vw;
+  width: 100%;
+}
+
 .display-quantity-select {
   max-width: 4vw;
 }
@@ -188,11 +214,19 @@ body {
 .page-header .v-image__image {
   background-position: bottom;
   background-attachment: fixed;
-  box-shadow: inset 0 0 7px 3px rgb(0 0 0);
+  box-shadow: inset 0 0 7px 3px #0a0a0a;
 }
 
-#catalogSection .v-image__image {
-  background-attachment: fixed;
+.catalogSection_articles_inset-shadow-from-top .v-image__image {
+  box-shadow: inset 0 14px 11px -6px #0a0a0a;
+}
+
+.catalogSection_articles_inset-shadow-from-bottom .v-image__image {
+  box-shadow: inset 0 -14px 11px -6px #0a0a0a;
+}
+
+.inset-shadow-from-left {
+  box-shadow: inset 9px 0 9px -7px #0a0a0a;
 }
 
 .page-header p {
@@ -244,6 +278,11 @@ body {
   transition: .5s;
 }
 
+.opacity-is-1 {
+  opacity: 1 !important;
+  transition: .5s;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -292,11 +331,11 @@ body {
 }
 
 .inset-shadow-10 {
-  box-shadow: inset 0 0 10px 0 rgb(0 0 0);
+  box-shadow: inset 0 0 10px 0 #0a0a0a;
 }
 
 .box-shadow-10 {
-  box-shadow: 0 0 10px 0 rgb(0 0 0);
+  box-shadow: 0 0 10px 0 #0a0a0a;
 }
 
 .white-opacity-07 {
