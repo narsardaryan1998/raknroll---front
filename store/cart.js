@@ -108,12 +108,16 @@ export const mutations = {
       }
     }
   },
-
+  clear(state) {
+    state.data = [];
+    state.count = 0;
+    state.cartCurrentTotalPrice = 0;
+    localStorage.removeItem('cart');
+  }
 };
 
 export const state = () => ({
   data: [],
-  vazgen: [],
   count: 0,
   cartCurrentTotalPrice: 0,
 });

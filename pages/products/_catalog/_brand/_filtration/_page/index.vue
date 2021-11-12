@@ -4,7 +4,7 @@
       <v-img
         class="width-100 height-100"
         :src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
-        :lazy-src="filter.category_slug === 'pivo' ? 'https://as1.ftcdn.net/v2/jpg/01/01/92/96/1000_F_101929688_dTRNPrsGmQ0l6jetRctSFvvIUBl7oU7I.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+        :lazy-src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
         cover>
         <p class="width-100 text-center" v-if="!category_name"> {{ $t('allOfCatalog') }}</p>
         <p class="width-100 text-center" v-else> {{ category_name }}</p>
@@ -342,21 +342,6 @@ export default {
 <style scoped>
 #products {
   margin-top: 9vw;
-}
-
-.products_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
-}
-
-.products_top_section_header {
-  font-size: 3.5vw;
-  width: 55%;
-}
-
-.products_top_section_search {
-  width: 45%;
 }
 
 .products_filter {

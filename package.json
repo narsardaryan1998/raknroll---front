@@ -37,6 +37,7 @@
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1",
     "vue-router": "^3.5.2",
-    "vue-spinner": "^1.0.4"
+    "vue-spinner": "^1.0.4",
+    "sweetalert2": "^10.13.0"
   }
 }

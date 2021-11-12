@@ -129,6 +129,18 @@
             </div>
           </div>
           <div class="row pt-3">
+            <div class="col-12 py-0">
+              <v-text-field
+                filled
+                name="email"
+                color="white"
+                :label="$t('emailAddress')"
+                v-model="orderForm.email"
+                :rules="emailRules">
+              </v-text-field>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-6 py-0">
               <v-text-field
                 filled
@@ -179,7 +191,6 @@
                 v-model="orderForm.additional_information"
                 name="additional_information"
                 color="white"
-                :hint="$t('notRequired')"
                 :label="$t('additionalInformationAboutOrder')">
               </v-textarea>
             </div>
@@ -187,10 +198,9 @@
           <div class="row">
             <div class="col-12 py-0 d-flex justify-end">
               <v-checkbox
-                v-model="orderForm.rememberInformation"
+                v-model="rememberInformation"
                 :label="$t('rememberMyInformation')"
                 color="white"
-                value="white"
                 hide-details>
               </v-checkbox>
             </div>
@@ -274,9 +284,25 @@
                 <div class="d-flex justify-end">
                   <div></div>
                   <div>
-                    <v-radio color="white" value="creditCard" class="mt-5">
+                    <v-radio color="white" value="cashlessPaymentTerminal" class="mt-5">
                       <template v-slot:label>
-                        <div class="d-flex justify-center">
+                        <div class="d-flex align-center">
+                          <div>
+                            {{ $t('cashlessPaymentTerminal') }}
+                          </div>
+                          <v-img
+                            class="ml-1"
+                            max-width="30"
+                            src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                            lazy-src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                            contain>
+                          </v-img>
+                        </div>
+                      </template>
+                    </v-radio>
+                    <v-radio color="white" value="creditCard">
+                      <template v-slot:label>
+                        <div class="d-flex align-center">
                           <div>
                             {{ $t('withCreditCard') }}
                           </div>
@@ -290,7 +316,7 @@
                         </div>
                       </template>
                     </v-radio>
-                    <v-radio color="white" value="accountBalance">
+                    <v-radio color="white" value="cash">
                       <template v-slot:label>
                         <div class="d-flex align-center">
                           <div>
@@ -307,7 +333,7 @@
                       </template>
                     </v-radio>
                     <client-only>
-                      <v-radio v-if="$auth && $auth.loggedIn && $auth.user" color="white" value="cash">
+                      <v-radio v-if="$auth && $auth.loggedIn && $auth.user" color="white" value="accountBalance">
                         <template v-slot:label>
                           <div class="d-flex align-center">
                             <div>
@@ -336,10 +362,10 @@
                 color="green accent-4"
                 large
                 rounded
-                @click="finishOrder"
+                @click="checkout"
                 class="width-100 font-weight-bold white--text"
                 light>
-                {{ $t('finishTheOrder') }}
+                {{ $t('checkout') }}
               </v-btn>
             </div>
           </div>
@@ -350,14 +376,20 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
+import {mapGetters} from "vuex";
+
 export default {
   name: "Cart",
   data() {
     return {
       language: this.$i18n.locale,
       orderFormValid: false,
+      rememberInformation: true,
+      orderResponse: '',
       orderForm: {
         phone: '',
+        email: '',
         address: '',
         home: '',
         floor: '',
@@ -365,8 +397,7 @@ export default {
         entrance: '',
         additional_information: '',
         isDelivery: true,
-        rememberInformation: true,
-        paymentMethod: 'creditCard',
+        paymentMethod: 'cashlessPaymentTerminal',
       },
       phoneRules: [
         v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('phone')}),
@@ -374,8 +405,22 @@ export default {
       addressRules: [
         v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('address')}),
       ],
+      emailRules: [
+        v => (!v || /.+@.+/.test(v)) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
+      ],
     }
   },
+
+  mounted() {
+    this.$store.commit('order/setCustomerOrderInformation')
+  },
+
+  computed: {
+    ...mapGetters({
+      customerOrderInformation: 'order/customerOrderInformation'
+    })
+  },
+
   methods: {
     updateQuantity(params) {
       this.$store.commit('cart/updateQuantity', params);
@@ -383,9 +428,42 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
-    finishOrder() {
-      if (this.$refs.orderForm.validate()) {
-
+    async checkout() {
+      let productsLength = this.$store.getters['cart/data'].length;
+      if (this.$refs.orderForm.validate() && productsLength) {
+        let products = [];
+        for (let i = 0; i < productsLength; i++) {
+          products.push({
+            id: this.$store.getters['cart/data'][i].id,
+            qty: this.$store.getters['cart/data'][i].qty,
+          })
+        }
+        await this.$store.dispatch('order/store', {
+          products,
+          orderForm: this.orderForm,
+        }).then(response => {
+          if (response.data.success) {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: response.data.message,
+              showConfirmButton: false,
+              timer: 1500
+            });
+            this.$store.commit('cart/clear')
+            if (this.rememberInformation) {
+              localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderForm))
+            }
+            this.$refs.orderForm.reset();
+          }
+        })
+      }
+    },
+  },
+  watch: {
+    customerOrderInformation(val) {
+      if (val) {
+        this.orderForm = val
       }
     }
   }
@@ -395,11 +473,6 @@ export default {
 <style scoped>
 #cart {
   margin-top: 9vw;
-}
-
-.cart_top_section_header {
-  font-size: 3.5vw;
-  width: 100%;
 }
 
 .cart_product_image {
