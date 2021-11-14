@@ -1,41 +1,41 @@
 <template>
-  <section id="ourAdvantages">
+  <section id="ourAdvantages" class="margin-top-6vh width-100">
     <div class="container container-padding">
       <div class="ourAdvantages_top_section d-flex justify-space-between align-center">
-        <div class="component-top-header d-flex align-center"
-             data-aos="fade-right"
-             data-aos-duration="1500">
+        <div class="component-top-header font-caveat d-flex align-center"
+             data-aos="fade-up"
+             data-aos-duration="1000">
           <div>
             <hr class="component-top-header-hr">
           </div>
-          <div class="ml-4">
+          <div class="ml-4 white-text-shadow">
             <span>{{ $t('ourAdvantages') }}</span>
           </div>
         </div>
       </div>
-      <div class="ourAdvantages-section"
+      <div class="ourAdvantages-section margin-top-6vh"
            ref="mainAboutUsSection"
-           data-aos="fade-right"
+           data-aos="fade-up"
            data-aos-delay="1000"
-           data-aos-duration="1500">
+           data-aos-duration="1000">
         <div class="col-md-8 col-12">
           <div class="row">
             <div class="col-6 our-advantages-single"
                  v-for="advantage in ourAdvantages"
                  :key="advantage.name"
-                 data-aos="fade-right"
+                 data-aos="fade-up"
                  :data-aos-delay="advantage.delay"
-                 data-aos-duration="1500">
+                 data-aos-duration="1000">
               <div class="row">
                 <div class="col-2">
-                  <v-img class="our-advantages-single_image"
+                  <v-img class="our-advantages-single_image transition-05 cursor-pointer"
                          position="right"
                          :src="advantage.image"
                          :lazy-src="advantage.image">
                   </v-img>
                 </div>
                 <div class="col-10">
-                  <span class="our-advantages-single_text_header">{{ advantage.header }}</span>
+                  <span class="our-advantages-single_text_header transition-05">{{ advantage.header }}</span>
                 </div>
               </div>
               <div class="row mt-0">
@@ -66,31 +66,31 @@ export default {
         {
           image: require('~/assets/icons/icons8-e-commerce-64.png'),
           header: 'Профессиональный сайт',
-          delay: '550',
+          delay: '600',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ',
         },
         {
           image: require('~/assets/icons/icons8-deliver-food-64.png'),
           header: 'Быстрая доставка',
-          delay: '800',
+          delay: '850',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsmet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-sushi-64.png'),
           header: 'Незабываемый вкус',
-          delay: '1050',
+          delay: '1150',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-discount-64.png'),
           header: 'Бонусна програма',
-          delay: '1300',
+          delay: '1400',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
           image: require('~/assets/icons/icons8-restaurant-menu-64.png'),
           header: 'Обновленный ассортимент',
-          delay: '1550',
+          delay: '1700',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
       ]
@@ -100,13 +100,7 @@ export default {
 </script>
 
 <style scoped>
-#ourAdvantages {
-  margin-top: 4vw;
-  width: 100%;
-}
-
 .ourAdvantages-section {
-  margin-top: 3vw;
   height: 850px;
   background-image: url("~/assets/intro2_background.png");
   background-position: right;
@@ -117,7 +111,6 @@ export default {
 .our-advantages-single_text_header {
   font-size: 39px;
   line-height: normal;
-  transition: .5s;
 }
 
 .our-advantages-single_text_header:hover {
@@ -131,5 +124,11 @@ export default {
 
 .our-advantages-single_image {
   width: 85%;
+}
+
+.our-advantages-single_image:hover {
+  width: 85%;
+  transform: rotate(-20deg);
+  transition: .5s;
 }
 </style>

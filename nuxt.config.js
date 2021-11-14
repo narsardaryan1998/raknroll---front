@@ -20,7 +20,7 @@ export default {
       {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/raknroll-logo.png'},
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap'},
@@ -41,6 +41,8 @@ export default {
     '@/assets/styles/style.css',
     '@/assets/styles/animations.css',
     '@/assets/styles/responsive.css',
+    '@/assets/styles/static.css',
+    '@/assets/styles/font.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -49,7 +51,6 @@ export default {
     {src: '~/plugins/vue-zoom-on-hover', ssr: false},
     {src: '~/plugins/vue-modaltor'},
     {src: '~/plugins/v-mask'},
-    {src: '~/plugins/vue-toastification', ssr: false},
     {src: '~/plugins/vue-infinite-scroll.js', ssr: false},
   ],
 
@@ -88,12 +89,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/axios'
   ],
 
   axios: {
-    baseURL: 'https://raknroll.ua/'
+    baseURL: 'http://raknroll.ua/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -122,42 +122,4 @@ export default {
     height: '4px',
     throttle: 0
   },
-
-  auth: {
-    strategies: {
-      'laravelJWT': {
-        provider: 'laravel/jwt',
-        url: 'https://raknroll.ua',
-        endpoints: {
-          login: {
-            url: '/api/auth/login',
-            method: 'post',
-            propertyName: 'token',
-          },
-          register: {
-            url: '/api/auth/register',
-            method: 'post',
-            propertyName: 'token',
-          },
-          user: {
-            url: '/api/auth/user',
-            method: 'get',
-            propertyName: 'data',
-          },
-          logout: {
-            url: '/api/auth/logout',
-            method: 'post',
-            propertyName: 'token',
-          },
-        },
-        token: {
-          property: 'access_token',
-          maxAge: 60 * 60
-        },
-        refreshToken: {
-          maxAge: 20160 * 60
-        },
-      }
-    }
-  }
 }

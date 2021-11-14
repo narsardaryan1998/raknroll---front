@@ -4,8 +4,7 @@
     <CashbackProductsSection></CashbackProductsSection>
     <CatalogSection></CatalogSection>
     <OurAdvantages></OurAdvantages>
-    <div style="height: 1500px;" class="vzgooo">
-    </div>
+    <ParallaxOurShop></ParallaxOurShop>
   </div>
 </template>
 <script>
@@ -13,16 +12,12 @@ import Intro from '~/components/Intro'
 import OurAdvantages from '~/components/OurAdvantages'
 import CatalogSection from '~/components/CatalogSection'
 import CashbackProductsSection from '~/components/CashbackProductsSection'
+import ParallaxOurShop from '~/components/ParallaxOurShop'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 export default {
   name: 'home',
-  data() {
-    return {
-      language: this.$i18n.locale,
-    }
-  },
   mounted() {
     AOS.init({
       once: true,// whether animation should happen only once - while scrolling down
@@ -39,8 +34,7 @@ export default {
     OurAdvantages,
     CatalogSection,
     CashbackProductsSection,
+    ParallaxOurShop,
   },
 }
 </script>
-<style scoped>
-</style>

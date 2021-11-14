@@ -17,7 +17,6 @@ export const mutations = {
         short_description: product.short_description,
         description: product.description,
         image: product.image,
-        rating: product.rating,
         qty,
       })
       localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -31,7 +30,6 @@ export const mutations = {
           short_description: product.short_description,
           description: product.description,
           image: product.image,
-          rating: product.rating,
           qty,
         }
       ];

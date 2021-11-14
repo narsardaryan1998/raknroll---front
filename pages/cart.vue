@@ -1,11 +1,12 @@
 <template>
   <div id="cart">
     <div
-      class="cart_top_section page-header width-100 margin-bottom-from-header">
+      class="cart_top_section page-header width-100 margin-bottom-10vh">
       <v-img
+        position="bottom"
         class="width-100 height-100"
-        src="https://as2.ftcdn.net/v2/jpg/04/04/91/41/1000_F_404914196_9Onya1dDOxITGkp7dIovpkla94v3e64d.jpg"
-        lazy-src="https://as2.ftcdn.net/v2/jpg/04/04/91/41/1000_F_404914196_9Onya1dDOxITGkp7dIovpkla94v3e64d.jpg"
+        :src="require('~/assets/parralax-section-header-background.jpg')"
+        :lazy-src="require('~/assets/parralax-section-header-background.jpg')"
         cover>
         <p class="width-100 text-center">{{ $t('cart') }}</p>
       </v-img>
@@ -14,13 +15,13 @@
       <div class="col-md-9 col-12 cart_order-section_products">
         <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
-            <div class="row cart_products align-center">
+            <div class="row position-relative align-center">
               <div class="col-2">
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img class="cart_product_image cursor-pointer"
+                  <v-img class="cart_product_image width-100 transition-05 cursor-pointer"
                          contain
-                         :class="{ 'opacity-is-50': hover }"
+                         :class="{ 'opacity-05': hover }"
                          :src="'http://raknroll.ua/' + cart.image"
                          :lazy-src="'http://raknroll.ua/' + cart.image">
                   </v-img>
@@ -205,7 +206,7 @@
               </v-checkbox>
             </div>
           </div>
-          <div class="row margin-top-from-header">
+          <div class="row margin-top-6vh">
             <div class="col-12 cart_order-section_register-order_your-order-header">
               <span>{{ $t('yourOrder') }}</span>
             </div>
@@ -257,18 +258,6 @@
                 {{
                   orderForm.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
                 }} ₴
-              </div>
-            </div>
-            <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
-          </div>
-          <div class="row">
-            <div
-              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
-              <div>
-                {{ $t('cashback') }}:
-              </div>
-              <div class="green--text text--accent-4 font-weight-bold">
-                + 263 ₴ <span class="white--text">({{ $t('toYourBalance') }})</span>
               </div>
             </div>
             <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -332,24 +321,6 @@
                         </div>
                       </template>
                     </v-radio>
-                    <client-only>
-                      <v-radio v-if="$auth && $auth.loggedIn && $auth.user" color="white" value="accountBalance">
-                        <template v-slot:label>
-                          <div class="d-flex align-center">
-                            <div>
-                              {{ $t('withAccountBalance') }}
-                            </div>
-                            <v-img
-                              class="ml-5"
-                              max-width="30"
-                              :src="require('~/assets/raknroll-logo.png')"
-                              :lazy-src="require('~/assets/raknroll-logo.png')"
-                              contain>
-                            </v-img>
-                          </div>
-                        </template>
-                      </v-radio>
-                    </client-only>
                   </div>
                 </div>
               </v-radio-group>
@@ -378,11 +349,32 @@
 <script>
 import Swal from 'sweetalert2'
 import {mapGetters} from "vuex";
+import {directive} from 'vue-awesome-swiper'
 
 export default {
   name: "Cart",
+  directives: {
+    swiper: directive
+  },
   data() {
     return {
+      swiperOption: {
+        loop: false,
+        slidesPerView: 7,
+        spaceBetween: 30,
+        autoplay: {
+          delay: 5000
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: "bullets"
+        }
+      },
       language: this.$i18n.locale,
       orderFormValid: false,
       rememberInformation: true,
@@ -412,7 +404,7 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('order/setCustomerOrderInformation')
+    this.$store.commit('order/setCustomerOrderInformation');
   },
 
   computed: {
@@ -427,6 +419,24 @@ export default {
     },
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
+    },
+    addToCart(product) {
+      this.$store.commit('cart/add', product);
+      document.getElementsByClassName('shoppingCartFromRightButtonBody_button_icon')[0].classList.add('cart-icon-rotate');
+      document.getElementById('cartModal').classList.add('cart-modal-bounce');
+      setTimeout(function () {
+        document.getElementsByClassName('shoppingCartFromRightButtonBody_button_icon')[0].classList.remove('cart-icon-rotate');
+      }, 601);
+      setTimeout(function () {
+        document.getElementById('cartModal').classList.remove('cart-modal-bounce');
+      }, 1001);
+
+    },
+    addToFavorites(product) {
+      this.$store.commit('favorites/add', product);
+    },
+    deleteFromFavorites(productId) {
+      this.$store.commit('favorites/delete', productId);
     },
     async checkout() {
       let productsLength = this.$store.getters['cart/data'].length;
@@ -451,19 +461,18 @@ export default {
               timer: 1500
             });
             this.$store.commit('cart/clear')
-            if (this.rememberInformation) {
-              localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderForm))
-            }
-            this.$refs.orderForm.reset();
           }
         })
+        if (this.rememberInformation) {
+          localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderForm))
+        }
       }
     },
   },
   watch: {
     customerOrderInformation(val) {
       if (val) {
-        this.orderForm = val
+        this.orderForm = Object.assign({}, this.orderForm, val)
       }
     }
   }
@@ -472,27 +481,21 @@ export default {
 
 <style scoped>
 #cart {
-  margin-top: 9vw;
+  margin-top: 18vh;
 }
 
 .cart_product_image {
-  width: 100%;
   height: 190px;
-  transition: .5s;
 }
 
 .cart_product_texts_header {
-  font-size: 1.7vw;
+  font-size: 33px;
 }
 
 .cart_product_remove {
   position: absolute;
   top: 5px;
   right: 0;
-}
-
-.cart_products {
-  position: relative;
 }
 
 .cart_products_hr {
@@ -518,5 +521,13 @@ export default {
 
 .cart_order-section_register-order_your-order_payment-methods {
   font-size: 18px;
+}
+
+.products_show_product_image {
+  height: 190px;
+}
+
+.we-also-recommended_header {
+  font-size: 50px;
 }
 </style>

@@ -1,9 +1,6 @@
-import https from "https";
-
 export const actions = {
   getData({commit}, params) {
-    const httpsAgent = new https.Agent({ rejectUnauthorized: false });
-    return this.$axios.get('/api/review', {params, httpsAgent}).then(response => {
+    return this.$axios.get('/api/review', {params}).then(response => {
       commit('updateData', response.data);
     })
   },

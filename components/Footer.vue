@@ -130,7 +130,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 text-center mt-5 login-register-modal_go-to-register">
+                  <div class="col-md-12 text-center mt-5">
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.e repellat sequi sit voluptates!</span>
                   </div>
                 </div>
@@ -153,28 +153,6 @@
                   <li>
                     <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/")'>
                       {{ $t('menuLinks.home') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link"
-                              :to='localePath("/products/all-catalog/all-brands/page-1")'>{{
-                        $t('menuLinks.products')
-                      }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/about_us")'>
-                      {{ $t('menuLinks.about_us') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/bonuses")'>
-                      {{ $t('menuLinks.bonuses') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/delivery")'>
-                      {{ $t('menuLinks.delivery') }}
                     </NuxtLink>
                   </li>
                   <li>

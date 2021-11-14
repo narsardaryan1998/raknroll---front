@@ -2,17 +2,22 @@
   <div id="contact-us">
     <div class="container container-padding">
       <div class="contact-us_top_section d-flex justify-space-between align-center">
-        <div class="contact-us_top_section_header d-flex align-center">
+        <div class="component-top-header d-flex align-center">
           <div>
-            <hr class="contact-us_top_section_header_hr">
+            <hr class="component-top-header-hr">
           </div>
-          <div class="ml-4">
+          <div class="ml-4 white-text-shadow">
             <span>{{ $t('contactUs') }}</span>
           </div>
         </div>
       </div>
-      <div class="contact-us_contacts row margin-top-from-header">
-        <div class="col-md-6 col-sm-12 contact-us_contacts_data">
+      <div class="row margin-top-6vh">
+        <div class="col-12 col-md-6 contact-us_description text-center">
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus ea facilis fugiat labore laudantium, natus nisi quam quas, quisquam reprehenderit saepe vel voluptate. Delectus enim nemo pariatur quibusdam quisquam.</span>
+        </div>
+      </div>
+      <div class="contact-us_contacts row margin-top-6vh">
+        <div class="col-md-6 offset-md-3 col-12 contact-us_contacts_data">
           <div class="row">
             <div class="col-6">
               <div class="contact-us_contacts_data_subheader d-flex align-center">
@@ -27,7 +32,7 @@
                 <div>
                   <img src="~/assets/icons/icons8-phone-64-red.png" alt="Phone"/>
                 </div>
-                <div class="ml-3 contact-us_contacts_text">
+                <div class="ml-3 contact-us_contacts_text transition-05">
                   <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
                   <br>
                   <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
@@ -124,91 +129,9 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12 contact-us_contacts_send-message">
-          <div class="contact-us_contacts_data_subheader d-flex align-center justify-center">
-            <div class="mr-3">
-              <hr>
-            </div>
-            <div>
-              <span>{{ $t('sendMessage') }}</span>
-            </div>
-            <div class="ml-3">
-              <hr>
-            </div>
-          </div>
-          <v-form
-            class="mt-5"
-            ref="form"
-            v-model="valid"
-            lazy-validation>
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <v-text-field
-                  color="red darken-4"
-                  v-model="form.name"
-                  :counter="50"
-                  :label="$t('name')"
-                  hide-details
-                  required>
-                </v-text-field>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <v-text-field
-                  :rules="emailRules"
-                  color="red darken-4"
-                  v-model="form.email"
-                  :counter="50"
-                  :label="$t('emailAddress')"
-                  hide-details
-                  required>
-                </v-text-field>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <v-text-field
-                  color="red darken-4"
-                  v-model="form.subject"
-                  :counter="50"
-                  :label="$t('subject')"
-                  hide-details
-                  required>
-                </v-text-field>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <v-textarea
-                  color="red darken-4"
-                  :label="$t('message')"
-                  hide-details
-                  v-model="form.message"
-                ></v-textarea>
-              </div>
-            </div>
-            <div class="row float-right">
-              <div class="col"
-                   :class="$vuetify.breakpoint.sm || $vuetify.breakpoint.xs ? 'col-sm-12' : ''">
-                <v-btn
-                  :disabled="!valid"
-                  color="red darken-4"
-                  :class="$vuetify.breakpoint.sm || $vuetify.breakpoint.xs ? 'w-100' : ''"
-                  class="mr-4"
-                  @click="sendMessage">
-                  Добавить
-                  <v-icon
-                    dark
-                    right>
-                    mdi-send
-                  </v-icon>
-                </v-btn>
-              </div>
-            </div>
-          </v-form>
-        </div>
       </div>
     </div>
-    <div class="map-section margin-top-from-header">
+    <div class="map-section margin-top-6vh">
       <div class="contact-us_contacts_data_subheader d-flex align-center justify-center">
         <div class="mr-3">
           <hr>
@@ -237,66 +160,35 @@
 <script>
 export default {
   name: "ContactUs",
-  data() {
-    return {
-      valid: true,
-      form: {
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      },
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
-    }
-  },
-  methods: {
-    sendMessage() {
-      if (this.$refs.form.validate()) {
-        console.log('gg');
-      }
-    }
-  }
 }
 </script>
 
 <style scoped>
 #contact-us {
-  margin-top: 9vw;
+  margin-top: 18vh;
 }
 
-.contact-us_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
-}
-
-.contact-us_top_section_header {
-  font-size: 3.5vw;
-  width: 100%;
+.contact-us_description {
+  font-size: 21px;
 }
 
 .contact-us_contacts_data_subheader hr {
-  width: 4vw;
+  width: 80px;
   border: 0.04vw solid rgba(205, 205, 205, 0.7);
   background-color: rgba(205, 205, 205, 0.7);
 }
 
 .contact-us_contacts_data img {
-  width: 1.5vw;
+  width: 30px;
 }
 
 .contact-us_contacts_data_subheader {
-  font-size: 1.7vw;
+  font-size: 33px;
 }
 
 .contact-us_contacts_text a {
   color: rgba(205, 205, 205, 0.7) !important;
-  text-decoration: none !important;
-  font-size: 0.9vw;
-  transition: .5s;
+  font-size: 18px;
 }
 
 .contact-us_contacts_text a:hover {

@@ -1,16 +1,16 @@
 <template>
   <div id="reviews">
     <div class="reviews_top_section d-flex justify-space-between align-center container-padding container">
-      <div class="reviews_top_section_header d-flex align-center">
+      <div class="reviews_top_section_header width-100 d-flex align-center">
         <div>
-          <hr class="reviews_top_section_header_hr">
+          <hr class="component-top-header-hr">
         </div>
-        <div class="ml-4">
+        <div class="ml-4 white-text-shadow">
           <span>{{ $t('menuLinks.reviews') }} (В процессе)</span>
         </div>
       </div>
     </div>
-    <div class="row margin-top-from-header container-padding container">
+    <div class="row margin-top-6vh container-padding container">
       <div class="col-md-6 offset-md-3 text-center col-12 reviews_write_review_description">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
         explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
@@ -19,7 +19,7 @@
         voluptatum.
       </div>
     </div>
-    <div class="reviews_write_review inset-shadow-10 white-pattern-background margin-top-from-header">
+    <div class="reviews_write_review inset-shadow-10 margin-top-6vh">
       <div class="answer-modal modal">
         <vue-modaltor :close-scroll="false" :visible="openReviewAnswerModal" @hide="closeAnswerModal">
           <template #header>
@@ -30,7 +30,7 @@
                 icon
                 color="white">
                 <v-icon
-                  color="black">mdi-close
+                  color="white">mdi-close
                 </v-icon>
               </v-btn>
             </div>
@@ -62,7 +62,7 @@
           </template>
         </vue-modaltor>
       </div>
-      <div class="row container-padding">
+      <div class="row container-padding red-pattern-background inset-shadow-10">
         <div class="col-12 pt-5 px-0">
           <v-form
             ref="reviewForm"
@@ -70,7 +70,7 @@
             lazy-validation>
             <div class="row">
               <div class="col-md-12 reviews_write_review_section text-center px-0">
-                <span class="reviews_write_review_section_text">{{ $t('writeYourReview') }}</span>
+                <span class="reviews_write_review_section_text black--text black-text-shadow">{{ $t('writeYourReview') }}</span>
               </div>
             </div>
             <div class="row">
@@ -85,8 +85,8 @@
                   :rules="nameRules"
                   counter="50"
                   name="name"
-                  light
-                  color="black"
+                  dark
+                  color="white"
                   v-model="reviewForm.name"
                   :label="$t('name')"
                   required>
@@ -100,8 +100,8 @@
                   name="email"
                   v-model="reviewForm.email"
                   :label="$t('emailAddress')"
-                  light
-                  color="black"
+                  dark
+                  color="white"
                   required>
                 </v-text-field>
               </div>
@@ -115,8 +115,8 @@
                   name="text"
                   v-model="reviewForm.text"
                   :label="$t('yourOpinion')"
-                  light
-                  color="black"
+                  dark
+                  color="white"
                   required>
                 </v-textarea>
               </div>
@@ -124,10 +124,11 @@
             <div class="row mb-4">
               <div class="col-md-12 px-0 text-center">
                 <v-btn
+                  class="font-weight-bold"
                   @click="sendReview"
                   large
                   rounded
-                  dark>
+                  light>
                   {{ $t('sendReview') }}
                 </v-btn>
               </div>
@@ -135,14 +136,14 @@
           </v-form>
         </div>
       </div>
-      <div class="reviews_all_testimonials margin-top-from-header container-padding">
+      <div class="reviews_all_testimonials margin-top-6vh container-padding">
         <div class="row">
           <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5" class="width-100">
-            <div class="col-md-6 col-12 offset-md-3 mb-5"
+            <div class="col-md-7 col-12 offset-md-3 mb-5"
                  v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index">
               <v-card
                 light
-                class="reviews_all_testimonials_card rounded-0"
+                class="white-pattern-background"
                 elevation="12">
                 <div class="row">
                   <div class="col-md-2 reviews_all_testimonials_card_customer-avatar offset-cart-left-2">
@@ -156,12 +157,12 @@
                   <div class="col-md-9">
                     <div class="row">
                       <div class="col-md-12 reviews_all_testimonials_card_customer-name">
-                        <span class="white--text">{{ review.name }}</span>
+                        <span>{{ review.name }}</span>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12 reviews_all_testimonials_card_review pt-0">
-                        <span class="white--text">{{ review.text }}</span>
+                        <span>{{ review.text }}</span>
                       </div>
                     </div>
                   </div>
@@ -170,7 +171,7 @@
                   <div class="col ml-5">
                     <StaticRating :rateValue="review.rate"></StaticRating>
                   </div>
-                  <div class="col white--text text-right mr-5">
+                  <div class="col text-right mr-5">
                     {{ review.created_at }}
                   </div>
                 </div>
@@ -279,43 +280,30 @@ export default {
 
 <style scoped>
 #reviews {
-  margin-top: 9vw;
-}
-
-.reviews_top_section_header_hr {
-  width: 8vw;
-  border: 0.075vw solid #ffffff;
-  background-color: #ffffff;
+  margin-top: 18vh;
 }
 
 .reviews_top_section_header {
-  font-size: 3.5vw;
-  width: 100%;
+  font-size: 70px;
 }
 
 .reviews_write_review_description {
-  font-size: 1.1vw;
+  font-size: 21px;
 }
 
 .reviews_write_review_section_text {
-  color: black;
-  font-size: 2.6vw;
-}
-
-.reviews_all_testimonials_card {
-  background-image: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg");
-  background-repeat: repeat;
+  font-size: 51px;
 }
 
 .reviews_all_testimonials_card_customer-name {
-  font-size: 2.1vw;
+  font-size: 40px;
 }
 
 .reviews_all_testimonials_card_review {
-  font-size: 0.85vw;
+  font-size: 16px;
 }
 
 .reviews_write_review {
-  padding-bottom: 3vw;
+  padding-bottom: 6vh;
 }
 </style>

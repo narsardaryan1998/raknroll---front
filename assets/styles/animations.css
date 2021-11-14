@@ -60,3 +60,48 @@
   animation-duration: 1s;
   transform: translateX(651px)
 }
+
+@keyframes customAnimationFadeToUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.custom-animation-fade-to-up {
+  animation: customAnimationFadeToUp 1s;
+}
+
+@keyframes customAnimationFadeToDown {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.custom-animation-fade-to-down {
+  animation: customAnimationFadeToDown 1s;
+}
+
+@keyframes customAnimationFadeToLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.custom-animation-fade-to-left {
+  animation: customAnimationFadeToLeft 1s;
+}

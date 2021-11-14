@@ -1,5 +1,5 @@
 <template>
-  <div id="cartModal" class="cart-modal-closed">
+  <div id="cartModal" class="cart-modal-closed transition-05">
     <div class="cartModal_button justify-center">
       <v-btn
         @click="openCartModal"
@@ -22,9 +22,9 @@
         </v-badge>
       </v-btn>
     </div>
-    <div class="cartModal_products white-pattern-background inset-shadow-from-left">
+    <div class="cartModal_products white-pattern-background">
       <div class="row">
-        <div class="col-12 cartModal_products_header d-flex justify-space-between">
+        <div class="col-12 cartModal_products_header font-caveat d-flex justify-space-between">
           <div>
             <span class="black--text font-weight-bold">{{ $t('cart') }}</span>
           </div>
@@ -42,8 +42,6 @@
       <div class="row mr-5">
         <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
           <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
-          <br>
-          <span>Кэшбэк: 263 ₴</span>
           <hr class="cartModal_products_hr">
         </div>
       </div>
@@ -55,9 +53,9 @@
               <div class="col-md-2">
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img class="cartModal_products_image cursor-pointer"
+                  <v-img class="cursor-pointer cartModal_products_image width-100 transition-05"
                          contain
-                         :class="{ 'opacity-is-50': hover }"
+                         :class="{ 'scale-1-2': hover }"
                          :src="'http://raknroll.ua/' + cart.image"
                          :lazy-src="'http://raknroll.ua/' + cart.image">
                   </v-img>
@@ -81,7 +79,7 @@
                     </v-btn>
                   </div>
                   <div class="col-md-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
-                    <p class="show_counter_quantity-light grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
+                    <p class="show_counter_quantity grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
                   </div>
                   <div class="col-md-3 cartModal_products_counter_row_plus d-flex justify-end">
                     <v-btn
@@ -175,13 +173,10 @@ export default {
   font-size: 60px;
   padding-left: 1.5vw;
   margin-top: 0.5vw;
-  font-family: 'Caveat', cursive !important;
 }
 
 .cartModal_products_image {
-  width: 100%;
   height: 190px;
-  transition: .5s;
 }
 
 .cartModal_products_texts_header {

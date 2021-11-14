@@ -1,9 +1,6 @@
-import https from "https";
-
 export const actions = {
   getData({commit}, params) {
-    const httpsAgent = new https.Agent({rejectUnauthorized: false});
-    return this.$axios.get('/api/cart', {params, httpsAgent}).then(response => {
+    return this.$axios.get('/api/cart', {params}).then(response => {
       commit('values', response.data);
     })
   },
@@ -23,7 +20,6 @@ export const mutations = {
           name: data[i].name,
           qty,
           final_price: data[i].final_price,
-          rating: data[i].rating,
           image: data[i].image,
           short_description: data[i].short_description,
           min_quantity: data[i].min_quantity ? data[i].min_quantity : 1,
@@ -48,7 +44,6 @@ export const mutations = {
         final_price: product.final_price,
         short_description: product.short_description,
         image: product.image,
-        rating: product.rating,
         min_quantity: qty,
         qty,
       })
@@ -62,7 +57,6 @@ export const mutations = {
           final_price: product.final_price,
           short_description: product.short_description,
           image: product.image,
-          rating: product.rating,
           min_quantity: qty,
           qty,
         }
