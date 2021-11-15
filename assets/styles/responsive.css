@@ -1,3 +1,82 @@
+@media screen and (max-width: 1440px) {
+  .header_logo {
+    min-width: 13% !important;
+  }
+
+  .header_logo_link {
+    width: 40% !important;
+  }
+
+  .header_nav {
+    min-width: 87% !important;
+  }
+
+  .header_nav_delivery_part {
+    width: 30% !important;
+  }
+
+  .header_nav_navigation {
+    min-width: 80% !important;
+  }
+
+  .header_nav_navigation_menu_link {
+    font-size: 20px !important;
+  }
+
+  .header_nav_navigation_menu_pages_link {
+    font-size: 13px !important;
+  }
+
+  .favorite_product_image {
+    height: 160px !important;
+  }
+
+  .favorite_product_texts_header {
+    font-size: 28px !important;
+  }
+
+  .header_nav_delivery_part .v-text-field .v-select__selection--comma {
+    font-size: 15px !important;
+  }
+
+  .header_nav_delivery_part .v-text-field i {
+    font-size: 16px !important;
+  }
+
+  .intro1_header {
+    margin-left: 55vw !important;
+    font-size: 135px !important;
+  }
+
+  .intro1_subheader {
+    margin-left: 55vw !important;
+    font-size: 39px !important;
+  }
+
+  .intro1_information1 {
+    font-size: 24px !important;
+    margin-left: 68vw !important;
+  }
+
+  .intro1_information2 {
+    font-size: 24px !important;
+    margin-left: 68vw !important;
+  }
+
+  .component-top-header {
+    font-size: 65px !important;
+  }
+
+  .card_product_image {
+    height: 150px !important;
+  }
+
+  .products_show_product .v-card__title {
+    font-size: 19px;
+    height: 60px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .header_nav_delivery_part {
     width: 48% !important;
@@ -17,13 +96,17 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 768px) {
   .products_show .col-md-2 {
     flex: 0 0 20%;
     max-width: 20%;
   }
 }
 
-@media screen and (max-width: 576px) {
-
+@media screen and (max-width: 380px) {
+  .swiper-container .swiper-slide {
+    padding-right: 5% !important;
+    padding-left: 5% !important;
+    max-width: 90% !important;
+  }
 }

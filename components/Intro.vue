@@ -1,6 +1,7 @@
 <template>
   <div class="intro1_background width-100">
     <v-img
+      position="center"
       class="width-100 height-100"
       :src="require('~/assets/header_background3.png')"
       :lazy-src="require('~/assets/header_background3.png')"
@@ -87,7 +88,7 @@
           </div>
         </div>
         <div class="intro1_information1 font-caveat">
-          <div class="d-flex justify-end">
+          <div class="d-flex justify-start">
             <div class="intro1_information_icon pt-2">
               <div data-aos="fade-left"
                    data-aos-duration="1000"
@@ -115,7 +116,7 @@
           </div>
         </div>
         <div class="intro1_information2 font-caveat">
-          <div class="d-flex justify-end">
+          <div class="d-flex justify-start">
             <div class="intro1_information_icon pt-2">
               <div data-aos="fade-left"
                    data-aos-duration="1000"
@@ -174,9 +175,6 @@ export default {
     KinesisContainer,
     KinesisElement,
   },
-  mounted() {
-    AOS.init({})
-  },
 }
 </script>
 
@@ -200,13 +198,13 @@ export default {
 .intro1_information1 {
   letter-spacing: -0.01em;
   font-size: 29px;
-  margin-right: 15vw;
+  margin-left: 70vw;
 }
 
 .intro1_information2 {
   letter-spacing: -0.01em;
   font-size: 29px;
-  margin-right: 15vw;
+  margin-left: 70vw;
 }
 
 .intro1_information_icon img {

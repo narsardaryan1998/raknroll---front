@@ -522,12 +522,4 @@ export default {
 .cart_order-section_register-order_your-order_payment-methods {
   font-size: 18px;
 }
-
-.products_show_product_image {
-  height: 190px;
-}
-
-.we-also-recommended_header {
-  font-size: 50px;
-}
 </style>

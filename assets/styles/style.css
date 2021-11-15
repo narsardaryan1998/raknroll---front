@@ -48,7 +48,7 @@
 }
 
 .component-top-header {
-  font-size: 65px;
+  font-size: 80px;
 }
 
 .display-quantity-select {
@@ -102,7 +102,7 @@
 }
 
 #cartModal {
-  width: 711px;
+  width: 50%;
 }
 
 #cartModal .cartModal_button {
@@ -113,11 +113,11 @@
 }
 
 #cartModal .cartModal_products {
-  width: 651px;
+  width: calc(100% - 60px);
 }
 
 .cart-modal-closed {
-  transform: translateX(651px)
+  transform: translateX(calc(100% - 60px))
 }
 
 .answer-modal .modaltor__panel {
@@ -139,4 +139,8 @@
 
 .modaltor__content {
   padding: 20px;
+}
+
+.card_product_image {
+  height: 190px;
 }

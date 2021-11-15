@@ -581,8 +581,4 @@ hr {
 .product-show_tastier-together hr:first-child {
   width: 65%;
 }
-
-.swiper-slider_product_image {
-  height: 190px;
-}
 </style>

@@ -1,9 +1,9 @@
 @keyframes openCartModalKeyframe {
   0% {
-    transform: translateX(651px);
+    transform: translateX(calc(100% - 60px));
   }
   60% {
-    transform: translateX(-30px);
+    transform: translateX(calc(0% - 30px));
   }
   100% {
     transform: translateX(0);
@@ -39,31 +39,31 @@
 
 @keyframes cartModalBounceWhenAdd {
   0% {
-    transform: translateX(651px)
+    transform: translateX(calc(100% - 60px))
   }
   25% {
-    transform: translateX(580px)
+    transform: translateX(calc(100% - 131px))
   }
   50% {
-    transform: translateX(645px)
+    transform: translateX(calc(100% - 67px))
   }
   75% {
-    transform: translateX(630px)
+    transform: translateX(calc(100% - 80px))
   }
   100% {
-    transform: translateX(651px)
+    transform: translateX(calc(100% - 60px))
   }
 }
 
 .cart-modal-bounce {
   animation-name: cartModalBounceWhenAdd;
   animation-duration: 1s;
-  transform: translateX(651px)
+  transform: translateX(calc(100% - 60px))
 }
 
 @keyframes customAnimationFadeToUp {
   0% {
-    transform: translateY(50px);
+    transform: translateY(80px);
     opacity: 0;
   }
   100% {
@@ -78,7 +78,7 @@
 
 @keyframes customAnimationFadeToDown {
   0% {
-    transform: translateY(-30px);
+    transform: translateY(-80px);
     opacity: 0;
   }
   100% {
@@ -93,7 +93,7 @@
 
 @keyframes customAnimationFadeToLeft {
   0% {
-    transform: translateX(-50px);
+    transform: translateX(-80px);
     opacity: 0;
   }
   100% {
@@ -103,5 +103,5 @@
 }
 
 .custom-animation-fade-to-left {
-  animation: customAnimationFadeToLeft 1s;
+  animation: customAnimationFadeToLeft 1s liner 3s;
 }

@@ -156,12 +156,6 @@ body {
   background-attachment: fixed;
 }
 
-.intro1_background .v-image__image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
-
 .transition-05 {
   transition: .5s;
 }
@@ -291,3 +285,17 @@ a {
 .position-relative {
   position: relative;
 }
+
+/*.swiper-wrapper {*/
+/*  max-width: 374px !important;*/
+/*  margin-right: 10px !important;*/
+/*  margin-left: 10px !important;*/
+/*}*/
+
+/*.swiper-container .swiper-slide-active {*/
+/*  width: 100% !important;*/
+/*}*/
+
+/*.swiper-container .swiper-slide {*/
+/*  width: 100% !important;*/
+/*}*/

@@ -23,7 +23,7 @@
               <v-hover
                 v-slot="{ hover }">
                 <NuxtLink :to='localePath("/product/show/" + product.slug)'>
-                  <v-img class="products_show_product_image width-100 transition-05"
+                  <v-img class="card_product_image width-100 transition-05"
                          :class="{ 'scale-1-2': hover }"
                          :src="'http://raknroll.ua/' + product.image"
                          :lazy-src="'http://raknroll.ua/' + product.image"
@@ -414,9 +414,4 @@ export default {
 .products_show {
   width: 80%;
 }
-
-.products_show_product_image {
-  height: 190px;
-}
-
 </style>

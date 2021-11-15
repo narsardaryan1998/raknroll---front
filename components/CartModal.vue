@@ -53,7 +53,7 @@
               <div class="col-md-2">
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img class="cursor-pointer cartModal_products_image width-100 transition-05"
+                  <v-img class="cursor-pointer card_product_image width-100 transition-05"
                          contain
                          :class="{ 'scale-1-2': hover }"
                          :src="'http://raknroll.ua/' + cart.image"
@@ -173,10 +173,6 @@ export default {
   font-size: 60px;
   padding-left: 1.5vw;
   margin-top: 0.5vw;
-}
-
-.cartModal_products_image {
-  height: 190px;
 }
 
 .cartModal_products_texts_header {

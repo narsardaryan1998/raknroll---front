@@ -327,7 +327,7 @@ export default {
 
 .favorite_products_hr {
   margin: 0 8% 0 10%;
-  border: 0.04vw solid rgba(86, 86, 86, 0.7);
+  border: 0.08vh solid rgba(86, 86, 86, 0.7);
   background-color: rgba(86, 86, 86, 0.7);
 }
 
