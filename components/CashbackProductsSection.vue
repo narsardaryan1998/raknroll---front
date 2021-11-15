@@ -17,7 +17,6 @@
     <div class="cashbackProductsSection_products">
       <div class="custom-animation-fade-to-left margin-top-6vh"
            data-aos="fade-up"
-           data-aos-delay="300"
            data-aos-duration="1000"
            ref="cashbackProductsSectionProducts">
         <div class="d-flex" v-swiper="swiperOption">
@@ -242,9 +241,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.cashbackProductsSection_products {
-  height: 640px;
-}
-</style>

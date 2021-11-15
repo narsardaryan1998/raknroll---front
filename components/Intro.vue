@@ -184,12 +184,12 @@ export default {
   font-family: 'Tangerine', cursive;
   font-weight: 400;
   letter-spacing: -0.08em;
-  margin-left: 57vw;
+  margin-left: 52vw;
   font-size: 155px;
 }
 
 .intro1_subheader {
-  margin-left: 57vw;
+  margin-left: 52vw;
   letter-spacing: 0.1em;
   font-size: 50px;
   margin-top: -3vh;
@@ -198,13 +198,13 @@ export default {
 .intro1_information1 {
   letter-spacing: -0.01em;
   font-size: 29px;
-  margin-left: 70vw;
+  margin-left: 65vw;
 }
 
 .intro1_information2 {
   letter-spacing: -0.01em;
   font-size: 29px;
-  margin-left: 70vw;
+  margin-left: 65vw;
 }
 
 .intro1_information_icon img {

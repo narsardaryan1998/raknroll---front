@@ -1,90 +1,75 @@
 <template>
   <footer class="mb-5">
     <div class="container-padding pt-5">
-      <div class="row footer_information pt-5">
-        <div class="col-md-3 footer_information_working-hours">
-          <div class="row footer_information_working-hours_icon">
-            <div class="col-md-12 text-center">
-              <v-btn
-                light
-                color="red darken-4"
-                fab
-                x-large>
-                <img src="~/assets/icons/icons8-clock-64 (1).png" alt="Time"/>
-              </v-btn>
-            </div>
-          </div>
-          <div class="row footer_information_working-hours_text footer_information_text mt-0">
-            <div class="col-md-12 text-center">
-              <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
-              <br>
-              <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 footer_information_phone">
-          <div class="row footer_information_working-hours_icon">
-            <div class="col-md-12 text-center">
-              <v-btn
-                light
-                color="red darken-4"
-                fab
-                x-large>
-                <img src="~/assets/icons/icons8-phone-64 (1).png" alt="Time"/>
-              </v-btn>
-            </div>
-          </div>
-          <div class="row footer_information_working-hours_text footer_information_text mt-0">
-            <div class="col-md-12 text-center">
-              <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
-              <br>
-              <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 footer_information_email">
-          <div class="row footer_information_working-hours_icon">
-            <div class="col-md-12 text-center">
-              <v-btn
-                light
-                color="red darken-4"
-                fab
-                x-large>
-                <img src="~/assets/icons/icons8-mail-64 (1).png" alt="Time"/>
-              </v-btn>
-            </div>
-          </div>
-          <div class="row footer_information_working-hours_text footer_information_text mt-0">
-            <div class="col-md-12 text-center">
-              <a href="javascript:void(0)">support@raknroll.com.ua</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 footer_information_location">
-          <div class="row footer_information_working-hours_icon">
-            <div class="col-md-12 text-center">
-              <v-btn
-                light
-                color="red darken-4"
-                fab
-                x-large>
-                <img src="~/assets/icons/icons8-user-location-64.png" alt="Time"/>
-              </v-btn>
-            </div>
-          </div>
-          <div class="row footer_information_working-hours_text footer_information_text mt-0">
-            <div class="col-md-12 text-center">
-              <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
-              <br>
-              <a href="javascript:void(0)">{{ $t('informationPart1.second') }}</a>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="row footer_first-line">
         <hr>
       </div>
       <div class="row footer_section">
+        <div class="col-md-3 footer_section_information">
+          <div class="row">
+            <div class="col-md-12 text-center">
+                  <span class="footer_section_information_header footer_section_header">
+                    {{ $t('contactUs') }}
+                  </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="d-flex mt-3 align-center">
+                <div>
+                  <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
+                </div>
+                <div class="ml-3 contact-us_contacts_text">
+                  <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
+                  <br>
+                  <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
+                </div>
+              </div>
+              <div class="d-flex mt-3 align-center">
+                <div>
+                  <img src="~/assets/icons/icons8-phone-64-red.png" alt="Phone"/>
+                </div>
+                <div class="ml-3 contact-us_contacts_text transition-05">
+                  <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
+                  <br>
+                  <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
+                </div>
+              </div>
+              <div class="d-flex align-center mt-3">
+                <div>
+                  <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
+                </div>
+                <div class="ml-3 contact-us_contacts_text">
+                  <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
+                  <br>
+                  <a href="javascript:void(0)">{{ $t('informationPart1.second') }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 footer_section_menu">
+          <div class="row">
+            <div class="col-md-12 text-center">
+                  <span class="footer_section_menu_header footer_section_header">
+                    {{ $t('ourCatalog') }}
+                  </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <nav class="d-block">
+                <ul class="list-style-none footer_section_nav_navigation_menu d-flex flex-column pl-0">
+                  <li v-for="category in $store.getters['categories/data']">
+                    <NuxtLink class="footer_section_nav_navigation_menu_link"
+                              :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
         <div class="col-md-3 footer_section_subscribe">
           <div class="row">
             <div class="col-md-12 text-center">
@@ -130,57 +115,11 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12 text-center mt-5">
+                  <div class="col-md-12 text-center mt-3 footer_section_subscribe_description">
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.e repellat sequi sit voluptates!</span>
                   </div>
                 </div>
               </v-form>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 footer_section_menu">
-          <div class="row">
-            <div class="col-md-12 text-center">
-                  <span class="footer_section_menu_header footer_section_header">
-                    {{ $t('menu') }}
-                  </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <nav class="d-block">
-                <ul class="list-style-none footer_section_nav_navigation_menu d-flex flex-column pl-0">
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/")'>
-                      {{ $t('menuLinks.home') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/contact_us")'>
-                      {{ $t('menuLinks.contact_us') }}
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="footer_section_nav_navigation_menu_link" :to='localePath("/reviews")'>
-                      {{ $t('menuLinks.reviews') }}
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 footer_section_gallery">
-          <div class="row">
-            <div class="col-md-12 text-center">
-                  <span class="footer_section_header">
-                      {{ $t('ourGallery') }}
-                  </span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-
             </div>
           </div>
         </div>
@@ -212,7 +151,7 @@
     <div class="row footer_copyright_and_socialite">
       <div class="col-md-12 pb-0">
         <div class="container-padding">
-          <div class="col-md-12 pt-5 mt-5">
+          <div class="col-md-12 pt-5 mt-3">
             <div class="row footer_socialite justify-center">
               <v-hover
                 v-slot="{ hover }">
@@ -289,7 +228,7 @@
                 </v-btn>
               </v-hover>
             </div>
-            <div class="row footer_copyright text-center mt-5">
+            <div class="row footer_copyright text-center mt-3">
               <div class="col-md-12">
                 © Copyright 2021 | www.raknroll.com.ua | All Rights Reserved.
               </div>
@@ -328,37 +267,18 @@ export default {
 
 <style scoped>
 footer {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(205, 205, 205, 0.7) !important;
   background-color: rgba(18, 18, 18, 0.53);
 }
 
-.footer_information_text a {
-  color: rgba(205, 205, 205, 0.7) !important;
-  text-decoration: none !important;
-  font-size: 1vw;
-  transition: .5s;
-}
-
-.footer_information_text a:hover {
-  color: #B71C1C !important;
-  transition: .5s;
-}
-
-.footer_information img {
-  width: 50px;
-}
-
 .footer_section_menu {
+  line-height: normal;
   border-left: 2px solid rgba(205, 205, 205, 0.7);
   border-right: 2px solid rgba(205, 205, 205, 0.7);
 }
 
-.footer_section_gallery {
-  border-right: 2px solid rgba(205, 205, 205, 0.7);
-}
-
 .footer_first-line {
-  margin-top: 1.5vw;
+  margin-top: 3vh;
   width: 100%;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -366,20 +286,19 @@ footer {
 }
 
 .footer_section {
-  margin-top: 2vw;
-  font-size: 1.6vw;
+  margin-top: 4vh;
+  font-size: 31px;
 }
 
 .footer_section_header {
   color: white;
-  font-size: 1.6vw;
+  font-size: 31px;
 }
 
 .footer_section_nav_navigation_menu_link {
-  font-size: 1.1vw;
+  font-size: 19px;
   color: rgba(255, 255, 255, 0.8);
   transition: .5s;
-  text-decoration: none;
 }
 
 .footer_section_nav_navigation_menu_link:hover {
@@ -411,5 +330,32 @@ footer {
   text-align: right;
   height: 250px;
   width: 100%;
+}
+
+.footer_section_subscribe {
+  border-right: 2px solid rgba(205, 205, 205, 0.7);
+}
+
+.footer_section_subscribe_description {
+  font-size: 16px;
+}
+
+.footer_section_information img {
+  width: 33px;
+}
+
+.footer_section_information a {
+  font-size: 20px;
+  color: rgba(205, 205, 205, 0.7) !important;
+  transition: .5s;
+}
+
+.footer_section_information a:hover {
+  color: #B71C1C !important;
+  transition: .5s;
+}
+
+.contact-us_contacts_text {
+  line-height: normal;
 }
 </style>

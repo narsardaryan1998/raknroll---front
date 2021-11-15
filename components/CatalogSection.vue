@@ -211,10 +211,6 @@ export default {
 </script>
 
 <style scoped>
-#catalogSection {
-  /*margin-top: 4vw;*/
-}
-
 .catalogSection_articles {
   width: 100%;
   height: 600px;

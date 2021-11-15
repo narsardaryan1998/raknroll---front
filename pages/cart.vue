@@ -11,7 +11,7 @@
         <p class="width-100 text-center">{{ $t('cart') }}</p>
       </v-img>
     </div>
-    <div class="row cart_order-section container container-padding">
+    <div class="row cart_order-section container-padding">
       <div class="col-md-9 col-12 cart_order-section_products">
         <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">

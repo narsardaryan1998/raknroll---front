@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          <div class="header_nav_links d-flex align-center justify-space-between pt-4">
+          <div class="header_nav_links d-flex align-center justify-space-between pt-lg-4 pt-md-2">
             <div class="header_nav_navigation">
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">

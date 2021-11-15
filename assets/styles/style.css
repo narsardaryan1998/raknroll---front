@@ -32,7 +32,7 @@
 }
 
 .red-pattern-background {
-  background: url("~/assets/raknroll-back-pattern1.png") repeat !important;
+  background: url("~/assets/raknroll-back-pattern2.png") repeat !important;
 }
 
 .black-text-shadow {
@@ -143,4 +143,9 @@
 
 .card_product_image {
   height: 190px;
+}
+
+.container-padding {
+  padding-left: 4.2vw !important;
+  padding-right: 4.2vw !important;
 }

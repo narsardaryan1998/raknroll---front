@@ -12,8 +12,8 @@
     </div>
     <div class="products_and_filter d-flex justify-space-between container-padding container">
       <div class="products_show">
-        <div class="row">
-          <div class="py-0 col-sm-4 col-6 col-md-2"
+        <div class="row products_page_products_show">
+          <div class="py-0 col-sm-12 col-md-6 col-lg-3"
                v-for="(product, index) in $store.getters['products/data'].products" :key="index">
             <v-card
               elevation="12"
@@ -37,7 +37,7 @@
                   {{ $t('minimum') + ': ' + product.min_quantity }}
                 </div>
                 <div
-                  :class="product.min_quantity || product.weight ? 'pl-2 pt-4 d-flex justify-space-between' : 'pl-2 pt-4 d-flex justify-end'">
+                  :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
                   <div class="pl-3" v-if="product.weight">
                     {{ '1 ' + $t('portion') + ' / ' + product.weight + $t('shortGram') }}
                   </div>
@@ -315,7 +315,7 @@ export default {
   data() {
     return {
       language: this.$i18n.locale,
-      displayQuantityArray: [10, 15, 20, 25, 30],
+      displayQuantityArray: [12, 24, 36, 48, 60],
     }
   },
   async asyncData({params, store, i18n}) {
@@ -324,7 +324,7 @@ export default {
       category_slug: params.catalog,
       brand_slug: params.brand,
       page: 1,
-      display_quantity: 10,
+      display_quantity: 12,
       search: '',
       recommended: false,
       bestseller: false,
@@ -404,7 +404,7 @@ export default {
 
 <style scoped>
 #products {
-  margin-top: 9vw;
+  margin-top: 18vh;
 }
 
 .products_filter {

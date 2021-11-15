@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row margin-top-6vh container-padding container">
-      <div class="col-md-6 offset-md-3 text-center col-12 reviews_write_review_description">
+      <div class="col-lg-7 offset-lg-2 col-md-8 offset-md-2 text-center col-12 reviews_write_review_description">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
         explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
         perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
@@ -20,48 +20,6 @@
       </div>
     </div>
     <div class="reviews_write_review inset-shadow-10 margin-top-6vh">
-      <div class="answer-modal modal">
-        <vue-modaltor :close-scroll="false" :visible="openReviewAnswerModal" @hide="closeAnswerModal">
-          <template #header>
-            <div class="d-flex justify-end">
-              <v-btn
-                @click="closeAnswerModal"
-                class="float-right"
-                icon
-                color="white">
-                <v-icon
-                  color="white">mdi-close
-                </v-icon>
-              </v-btn>
-            </div>
-          </template>
-          <template #body>
-            <div class="row">
-              <div class="col-md-4 offset-4 pt-0">
-                <v-img
-                  :src="require('~/assets/2930365.png')"
-                  :lazy-src="require('~/assets/2930365.png')">
-                </v-img>
-              </div>
-            </div>
-            <div class="row">
-              <p class="answer-modal-text text-center">{{ $t('reviewSuccess') }}</p>
-            </div>
-            <div class="row">
-              <div class="col-md-12 px-0 text-center">
-                <v-btn
-                  class="width-50"
-                  large
-                  rounded
-                  @click="closeAnswerModal"
-                  dark>
-                  {{ $t('ok') }}
-                </v-btn>
-              </div>
-            </div>
-          </template>
-        </vue-modaltor>
-      </div>
       <div class="row container-padding red-pattern-background inset-shadow-10">
         <div class="col-12 pt-5 px-0">
           <v-form
@@ -139,7 +97,7 @@
       <div class="reviews_all_testimonials margin-top-6vh container-padding">
         <div class="row">
           <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5" class="width-100">
-            <div class="col-md-7 col-12 offset-md-3 mb-5"
+            <div class="col-md-8 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
                  v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index">
               <v-card
                 light
@@ -147,10 +105,10 @@
                 elevation="12">
                 <div class="row">
                   <div class="col-md-2 reviews_all_testimonials_card_customer-avatar offset-cart-left-2">
-                    <v-avatar width="100%" height="auto">
+                    <v-avatar width="70%" height="auto">
                       <v-img
-                        :src="require('~/assets/default_user_avatar.png')"
-                        :lazy-src="require('~/assets/default_user_avatar.png')">
+                        :src="require('~/assets/icons/user.png')"
+                        :lazy-src="require('~/assets/icons/user.png')">
                       </v-img>
                     </v-avatar>
                   </div>
@@ -191,6 +149,7 @@
 import Rating from '~/components/Rating'
 import StaticRating from '~/components/StaticRating'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import Swal from "sweetalert2";
 
 export default {
   name: "reviews",
@@ -211,7 +170,6 @@ export default {
     return {
       valid: false,
       busy: false,
-      openReviewAnswerModal: false,
       reviewForm: {
         name: '',
         email: '',
@@ -254,13 +212,16 @@ export default {
     async sendReview() {
       if (this.$refs.reviewForm.validate()) {
         await this.$store.dispatch('reviews/store', this.reviewForm).then(response => {
-          this.openReviewAnswerModal = true;
+          this.$refs.reviewForm.reset();
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: this.$t('reviewSuccess'),
+            showConfirmButton: false,
+            timer: 5000
+          });
         });
       }
-    },
-    closeAnswerModal() {
-      this.openReviewAnswerModal = false;
-      this.$refs.reviewForm.reset();
     },
     loadMore() {
       if (this.$store.getters['reviews/data'].reviews.length < this.$store.getters['reviews/data'].allCount) {

@@ -12,12 +12,12 @@
         </div>
       </div>
       <div class="row margin-top-6vh">
-        <div class="col-12 col-md-6 contact-us_description text-center">
+        <div class="col-12 col-md-8 col-lg-7 offset-md-1 col-xl-6 contact-us_description text-center">
           <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus ea facilis fugiat labore laudantium, natus nisi quam quas, quisquam reprehenderit saepe vel voluptate. Delectus enim nemo pariatur quibusdam quisquam.</span>
         </div>
       </div>
       <div class="contact-us_contacts row margin-top-6vh">
-        <div class="col-md-6 offset-md-3 col-12 contact-us_contacts_data">
+        <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
           <div class="row">
             <div class="col-6">
               <div class="contact-us_contacts_data_subheader d-flex align-center">
