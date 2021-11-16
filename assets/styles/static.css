@@ -7,7 +7,7 @@ body {
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/country-quilt-dark.png") repeat !important;*/
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/dark_wood.png") repeat !important;*/
   /*background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;*/
-  background: url("~/assets/raknroll-back-pattern1.jpg") repeat !important;
+  background: url("~/assets/raknroll-back-pattern2.jpg") repeat !important;
   /*background: url("https://img1.goodfon.com/wallpaper/nbig/b/25/leather-black-dark-pattern.jpg") repeat !important;*/
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: Bold !important;
@@ -103,6 +103,10 @@ body {
 
 .swiper-pagination-bullet-active {
   background-color: #B71C1C !important;
+}
+
+.red-pattern-background {
+  background: url("~/assets/raknroll-back-pattern1.png") repeat !important;
 }
 
 .main-blured {
@@ -208,6 +212,10 @@ body {
   margin-top: 6vh !important;
 }
 
+.padding-top-6vh {
+  padding-top: 6vh !important;
+}
+
 .margin-bottom-10vh {
   margin-bottom: 10vh;
 }
@@ -294,16 +302,16 @@ a {
   position: relative;
 }
 
-/*.swiper-wrapper {*/
-/*  max-width: 374px !important;*/
-/*  margin-right: 10px !important;*/
-/*  margin-left: 10px !important;*/
-/*}*/
+.white-brush-background {
+  background: url("~/assets/white-background-brush-for-header.png") no-repeat;
+  background-size: 100% 100%;
+}
 
-/*.swiper-container .swiper-slide-active {*/
-/*  width: 100% !important;*/
-/*}*/
+.black-brush-background {
+  background: url("~/assets/black-background-brush-for-header.png") no-repeat;
+  background-size: 100% 100%;
+}
 
-/*.swiper-container .swiper-slide {*/
-/*  width: 100% !important;*/
-/*}*/
+.margin-left-10vw {
+  margin-left: 10vw;
+}

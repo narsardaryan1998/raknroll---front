@@ -13,12 +13,21 @@
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import CartModal from '~/components/CartModal'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export default {
   data() {
     return {
       header: true,
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0);
+    AOS.init({
+      once: true,// whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+    })
   },
   components: {
     Header,
@@ -27,14 +36,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.mobile-header_logo {
-  padding: 0 !important;
-  width: 100%;
-}
-
-.mobile-header_logo_link img {
-  height: 40px;
-}
-</style>

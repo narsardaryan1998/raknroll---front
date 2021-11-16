@@ -1,17 +1,24 @@
 <template>
   <div id="reviews">
-    <div class="reviews_top_section d-flex justify-space-between align-center container-padding container">
-      <div class="reviews_top_section_header width-100 d-flex align-center">
-        <div>
-          <hr class="component-top-header-hr">
-        </div>
-        <div class="ml-4 white-text-shadow">
-          <span>{{ $t('menuLinks.reviews') }} (В процессе)</span>
-        </div>
+    <div class="reviews_top_section d-flex justify-space-between align-center container-padding container component_and_page_header_section">
+      <div>
+        <client-only>
+          <div class="reviews_top_section_header"
+               data-aos="fade-right"
+               data-aos-duration="1000">
+            <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+              <p class="py-8 px-16"
+                 data-aos="fade-right"
+                 data-aos-delay="300"
+                 data-aos-duration="1000">{{ $t('menuLinks.reviews') }}</p>
+            </div>
+          </div>
+        </client-only>
       </div>
-    </div>
-    <div class="row margin-top-6vh container-padding container">
-      <div class="col-lg-7 offset-lg-2 col-md-8 offset-md-2 text-center col-12 reviews_write_review_description">
+      <div class="reviews_write_review_description margin-left-10vw page_description"
+           data-aos="fade-right"
+           data-aos-duration="1000"
+           data-aos-delay="800">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
         explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
         perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
@@ -27,17 +34,30 @@
             v-model="valid"
             lazy-validation>
             <div class="row">
-              <div class="col-md-12 reviews_write_review_section text-center px-0">
-                <span class="reviews_write_review_section_text black--text black-text-shadow">{{ $t('writeYourReview') }}</span>
+              <div class="col-md-12 reviews_write_review_section text-center">
+                <div
+                  class="d-inline-flex black-brush-background"
+                  data-aos="fade-right"
+                  data-aos-duration="1000"
+                  data-aos-delay="1100">
+                  <p class="reviews_write_review_section_text white--text white-text-shadow font-caveat py-8 px-16"
+                     data-aos="fade-right"
+                     data-aos-duration="1000"
+                     data-aos-delay="500">{{ $t('writeYourReview') }}</p>
+                </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 px-0">
+              <div class="col-md-12 px-0"
+                   data-aos="fade-right"
+                   data-aos-duration="1000">
                 <Rating @passRate="reviewForm.rate = $event"></Rating>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-4 col-12 offset-md-2">
+              <div class="col-md-4 col-12 offset-md-2"
+                   data-aos="fade-right"
+                   data-aos-duration="1000">
                 <v-text-field
                   filled
                   :rules="nameRules"
@@ -50,7 +70,10 @@
                   required>
                 </v-text-field>
               </div>
-              <div class="col-md-4 col-12">
+              <div class="col-md-4 col-12"
+                   data-aos="fade-right"
+                   data-aos-delay="500"
+                   data-aos-duration="1000">
                 <v-text-field
                   filled
                   :rules="emailRules"
@@ -65,7 +88,9 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8 offset-md-2">
+              <div class="col-md-8 offset-md-2"
+                   data-aos="fade-right"
+                   data-aos-duration="1000">
                 <v-textarea
                   filled
                   :rules="textRules"
@@ -80,7 +105,9 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div class="col-md-12 px-0 text-center">
+              <div class="col-md-12 px-0 text-center"
+                   data-aos="fade-right"
+                   data-aos-duration="1000">
                 <v-btn
                   class="font-weight-bold"
                   @click="sendReview"
@@ -96,9 +123,12 @@
       </div>
       <div class="reviews_all_testimonials margin-top-6vh container-padding">
         <div class="row">
-          <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5" class="width-100">
+          <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5"
+               class="width-100">
             <div class="col-md-8 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
-                 v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index">
+                 v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index"
+                 data-aos="fade-right"
+                 data-aos-duration="1000">
               <v-card
                 light
                 class="white-pattern-background"

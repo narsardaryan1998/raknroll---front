@@ -1,16 +1,26 @@
 <template>
-  <section id="cashbackProductsSection" class="inset-shadow-10 red-pattern-background margin-top-6vh">
+  <section id="cashbackProductsSection" class="inset-shadow-10 red-pattern-background padding-top-6vh">
     <div class="container container-padding black--text">
-      <div class="cashbackProductsSection_top_section d-flex justify-space-between align-center">
+      <div class="cashbackProductsSection_top_section d-flex justify-space-between align-center component_and_page_header_section">
         <div class="component-top-header font-caveat d-flex align-center"
              data-aos="fade-up"
              data-aos-duration="1000">
-          <div>
-            <hr class="component-top-header-hr">
+          <div class="ml-4 black-text-shadow black--text white-brush-background">
+            <p class="py-8 px-16"
+               style="line-height: normal"
+               data-aos="fade-up"
+               data-aos-duration="1000">{{ $t('discounted') }}</p>
           </div>
-          <div class="ml-4 black-text-shadow">
-            <span>{{ $t('discounted') }}</span>
-          </div>
+        </div>
+        <div class="page_description margin-left-10vw white--text white-text-shadow"
+             data-aos="fade-up"
+             data-aos-duration="1000"
+             data-aos-delay="800">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
+          explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
+          perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
+          mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
+          voluptatum.
         </div>
       </div>
     </div>

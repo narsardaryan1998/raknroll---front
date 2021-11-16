@@ -1,130 +1,172 @@
 <template>
   <div id="contact-us">
-    <div class="container container-padding">
-      <div class="contact-us_top_section d-flex justify-space-between align-center">
-        <div class="component-top-header d-flex align-center">
-          <div>
-            <hr class="component-top-header-hr">
+    <div class="contact-us_top_section d-flex justify-space-between align-center container-padding component_and_page_header_section">
+      <div>
+        <client-only>
+          <div class="component-top-header"
+               data-aos="fade-right"
+               data-aos-duration="1000">
+            <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+              <p class="py-8 px-16"
+                 style="line-height: normal"
+                 data-aos="fade-right"
+                 data-aos-delay="300"
+                 data-aos-duration="1000">{{ $t('contactUs') }}</p>
+            </div>
           </div>
-          <div class="ml-4 white-text-shadow">
-            <span>{{ $t('contactUs') }}</span>
+        </client-only>
+      </div>
+      <div class="contact-us_description margin-left-10vw"
+           data-aos="fade-right"
+           data-aos-duration="1000"
+           data-aos-delay="800">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
+        explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
+        perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
+        mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
+        voluptatum.
+      </div>
+    </div>
+    <div class="contact-us_contacts red-pattern-background row margin-top-6vh inset-shadow-10 py-10">
+      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
+        <div class="row">
+          <div class="col-6">
+            <div class="contact-us_contacts_data_subheader d-flex align-center"
+                 data-aos="fade-up"
+                 data-aos-duration="1000">
+              <div>
+                <hr>
+              </div>
+              <div class="ml-3">
+                <span>{{ $t('telephones') }}</span>
+              </div>
+            </div>
+            <div class="d-flex mt-5 align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="300"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-phone-64 (1).png" alt="Phone"/>
+              </div>
+              <div class="ml-3 contact-us_contacts_text transition-05">
+                <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
+                <br>
+                <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="contact-us_contacts_data_subheader d-flex align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <span>{{ $t('workingHours') }}</span>
+              </div>
+              <div class="ml-3">
+                <hr>
+              </div>
+            </div>
+            <div class="d-flex mt-5 align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="800"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-clock-64 (1).png" alt="Time"/>
+              </div>
+              <div class="ml-3 contact-us_contacts_text">
+                <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
+                <br>
+                <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row margin-top-6vh">
-        <div class="col-12 col-md-8 col-lg-7 offset-md-1 col-xl-6 contact-us_description text-center">
-          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus ea facilis fugiat labore laudantium, natus nisi quam quas, quisquam reprehenderit saepe vel voluptate. Delectus enim nemo pariatur quibusdam quisquam.</span>
+        <div class="row mt-5">
+          <div class="col-6">
+            <div class="contact-us_contacts_data_subheader d-flex align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="300"
+                 data-aos-duration="1000">
+              <div>
+                <hr>
+              </div>
+              <div class="ml-3">
+                <span>{{ $t('messengers') }}</span>
+              </div>
+            </div>
+            <div class="d-flex mt-5"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-viber-64 (1).png" alt="Viber"/>
+              </div>
+              <div class="ml-3 contact-us_contacts_text">
+                <a href="viber://chat?number=%2B380965990909">Viber</a>
+              </div>
+            </div>
+            <div class="d-flex mt-1"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-whatsapp-64 (1).png" alt="WhatsApp"/>
+              </div>
+              <div class="ml-3 contact-us_contacts_text">
+                <a href="https://api.whatsapp.com/send?phone=380965990909">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="contact-us_contacts_data_subheader d-flex align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <span>{{ $t('emailAddress') }}</span>
+              </div>
+              <div class="ml-3">
+                <hr>
+              </div>
+            </div>
+            <div class="d-flex mt-5"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-mail-64 (1).png" alt="eMail"/>
+              </div>
+              <div class="ml-3 contact-us_contacts_text">
+                <a href="javascript:void(0)">support@raknroll.com.ua</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="contact-us_contacts row margin-top-6vh">
-        <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
-          <div class="row">
-            <div class="col-6">
-              <div class="contact-us_contacts_data_subheader d-flex align-center">
-                <div>
-                  <hr>
-                </div>
-                <div class="ml-3">
-                  <span>{{ $t('telephones') }}</span>
-                </div>
+        <div class="row mt-5">
+          <div class="col-6">
+            <div class="contact-us_contacts_data_subheader d-flex align-center"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <hr>
               </div>
-              <div class="d-flex mt-5 align-center">
-                <div>
-                  <img src="~/assets/icons/icons8-phone-64-red.png" alt="Phone"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text transition-05">
-                  <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
-                  <br>
-                  <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
-                </div>
+              <div class="ml-3">
+                <span>{{ $t('ourAddress') }}</span>
               </div>
             </div>
-            <div class="col-6">
-              <div class="contact-us_contacts_data_subheader d-flex align-center">
-                <div>
-                  <span>{{ $t('workingHours') }}</span>
-                </div>
-                <div class="ml-3">
-                  <hr>
-                </div>
+            <div class="d-flex align-center mt-5"
+                 data-aos="fade-up"
+                 data-aos-delay="500"
+                 data-aos-duration="1000">
+              <div>
+                <img src="~/assets/icons/icons8-user-location-64 (1).png" alt="Location"/>
               </div>
-              <div class="d-flex mt-5 align-center">
-                <div>
-                  <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text">
-                  <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
-                  <br>
-                  <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col-6">
-              <div class="contact-us_contacts_data_subheader d-flex align-center">
-                <div>
-                  <hr>
-                </div>
-                <div class="ml-3">
-                  <span>{{ $t('messengers') }}</span>
-                </div>
-              </div>
-              <div class="d-flex mt-5">
-                <div>
-                  <img src="~/assets/icons/icons8-viber-64-red.png" alt="Viber"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text">
-                  <a href="viber://chat?number=%2B380965990909">Viber</a>
-                </div>
-              </div>
-              <div class="d-flex mt-1">
-                <div>
-                  <img src="~/assets/icons/icons8-whatsapp-64.png" alt="WhatsApp"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text">
-                  <a href="https://api.whatsapp.com/send?phone=380965990909">WhatsApp</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="contact-us_contacts_data_subheader d-flex align-center">
-                <div>
-                  <span>{{ $t('emailAddress') }}</span>
-                </div>
-                <div class="ml-3">
-                  <hr>
-                </div>
-              </div>
-              <div class="d-flex mt-5">
-                <div>
-                  <img src="~/assets/icons/icons8-mail-64-red.png" alt="eMail"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text">
-                  <a href="javascript:void(0)">support@raknroll.com.ua</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col-6">
-              <div class="contact-us_contacts_data_subheader d-flex align-center">
-                <div>
-                  <hr>
-                </div>
-                <div class="ml-3">
-                  <span>{{ $t('ourAddress') }}</span>
-                </div>
-              </div>
-              <div class="d-flex align-center mt-5">
-                <div>
-                  <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
-                </div>
-                <div class="ml-3 contact-us_contacts_text">
-                  <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
-                  <br>
-                  <a href="javascript:void(0)">{{ $t('informationPart1.second') }}</a>
-                </div>
+              <div class="ml-3 contact-us_contacts_text">
+                <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
+                <br>
+                <a href="javascript:void(0)">{{ $t('informationPart1.second') }}</a>
               </div>
             </div>
           </div>
@@ -132,19 +174,36 @@
       </div>
     </div>
     <div class="map-section margin-top-6vh">
-      <div class="contact-us_contacts_data_subheader d-flex align-center justify-center">
-        <div class="mr-3">
+      <div class="contact-us_contacts_data_subheader d-flex align-center justify-center py-10">
+        <div class="mr-3"
+             data-aos="fade-right"
+             data-aos-duration="1000">
           <hr>
         </div>
-        <div>
-          <span>{{ $t('weOnMap') }}</span>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000">
+          <div class="component-top-header"
+               data-aos="fade-up"
+               data-aos-duration="1000">
+            <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+              <p class="py-8 px-16"
+                 data-aos="fade-up"
+                 data-aos-delay="300"
+                 data-aos-duration="1000">{{ $t('weOnMap') }}</p>
+            </div>
+          </div>
         </div>
-        <div class="ml-3">
+        <div class="ml-3"
+             data-aos="fade-left"
+             data-aos-duration="1000">
           <hr>
         </div>
       </div>
       <div class="map-section_map-content mt-5">
-        <div class="mapouter">
+        <div class="mapouter"
+             data-aos="fade-up"
+             data-aos-duration="1000">
           <div class="gmap_canvas">
             <iframe width="100%" height="479" id="gmap_canvas"
                     src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
@@ -179,20 +238,21 @@ export default {
 }
 
 .contact-us_contacts_data img {
-  width: 30px;
+  width: 40px;
 }
 
 .contact-us_contacts_data_subheader {
-  font-size: 33px;
+  font-size: 37px;
 }
 
 .contact-us_contacts_text a {
-  color: rgba(205, 205, 205, 0.7) !important;
+  color: #FAFAFA !important;
   font-size: 18px;
+  transition: .5s;
 }
 
 .contact-us_contacts_text a:hover {
-  color: #B71C1C !important;
+  padding-left: 5px;
   transition: .5s;
 }
 

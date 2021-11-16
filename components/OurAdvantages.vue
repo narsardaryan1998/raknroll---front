@@ -5,11 +5,10 @@
         <div class="component-top-header font-caveat d-flex align-center"
              data-aos="fade-up"
              data-aos-duration="1000">
-          <div>
-            <hr class="component-top-header-hr">
-          </div>
-          <div class="ml-4 white-text-shadow">
-            <span>{{ $t('ourAdvantages') }}</span>
+          <div class="ml-4 black-text-shadow black--text white-brush-background">
+            <p class="py-8 px-12"
+               data-aos="fade-up"
+               data-aos-duration="1000">{{ $t('ourAdvantages') }}</p>
           </div>
         </div>
       </div>

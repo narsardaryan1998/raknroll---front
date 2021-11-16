@@ -1,16 +1,27 @@
 <template>
   <section id="catalogSection" class="margin-top-6vh">
     <div class="container container-padding">
-      <div class="catalogSection_top_section align-center">
+      <div
+        class="catalogSection_top_section align-center d-flex justify-space-between component_and_page_header_section">
         <div class="component-top-header component-top-header d-flex align-center"
              data-aos="fade-up"
              data-aos-duration="1000">
-          <div>
-            <hr class="component-top-header-hr">
+          <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+            <p class="py-8 px-12"
+               style="line-height: normal"
+               data-aos="fade-up"
+               data-aos-duration="1000">{{ $t('ourCatalog') }}</p>
           </div>
-          <div class="ml-4 white-text-shadow font-caveat">
-            <span>{{ $t('ourCatalog') }}</span>
-          </div>
+        </div>
+        <div class="page_description margin-left-10vw white--text white-text-shadow"
+             data-aos="fade-up"
+             data-aos-duration="1000"
+             data-aos-delay="800">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
+          explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
+          perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
+          mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
+          voluptatum.
         </div>
       </div>
     </div>
@@ -29,7 +40,8 @@
               lazy-src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg"
               cover>
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -52,7 +64,8 @@
               src="https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg"
               lazy-src="https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -75,7 +88,8 @@
               :src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
               :lazy-src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -98,7 +112,8 @@
               src="https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg"
               lazy-src="https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -121,7 +136,8 @@
               src="https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg"
               lazy-src="https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -144,7 +160,8 @@
               src="https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg"
               lazy-src="https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -167,7 +184,8 @@
               src="https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg"
               lazy-src="https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
@@ -190,7 +208,8 @@
               src="https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg"
               lazy-src="https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100" :class="hover ? 'opacity-1-transition' : ''">
+                <div class="catalogSection_articles_hover width-100 height-100"
+                     :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
                   <br>
                   <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
