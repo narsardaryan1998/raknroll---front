@@ -64,13 +64,18 @@
                   }}: {{ cart.final_price }} ₴</span>
               </div>
               <div class="col-1 cart_product_remove">
-                <v-btn
-                  @click="deleteFromCart(cart.id)"
-                  class="float-right"
-                  icon
-                  color="white">
-                  <v-icon>mdi-close</v-icon>
-                </v-btn>
+                <a href="javascript:void(0)"
+                   class="close-button"
+                   @click="deleteFromCart(cart.id)">
+                  <div class="in">
+                    <div class="close-button-block"></div>
+                    <div class="close-button-block"></div>
+                  </div>
+                  <div class="out">
+                    <div class="close-button-block"></div>
+                    <div class="close-button-block"></div>
+                  </div>
+                </a>
               </div>
             </div>
             <v-divider class="cart_products_hr" inset></v-divider>
@@ -79,7 +84,7 @@
       </div>
       <div class="col-md-3 col-12 cart_order-section_register-order">
         <div class="row">
-          <div class="col-12 cart_order-section_register-order_your-order-header">
+          <div class="col-12 pl-md-0 cart_order-section_register-order_your-order-header">
             <span>{{ $t('information') }}</span>
           </div>
         </div>
@@ -88,13 +93,14 @@
           v-model="orderFormValid"
           lazy-validation>
           <div class="row mt-3">
-            <div class="col-12 pb-0 cart_order-section_register-order_your-order-subheader red--text text--darken-4">
+            <div
+              class="col-12 pl-md-0 pb-0 cart_order-section_register-order_your-order-subheader red--text text--darken-4">
               {{ $t('requiredFields') }}:
               <v-icon color="red darken-4">mdi-arrow-down-box</v-icon>
             </div>
           </div>
           <div class="row pt-3">
-            <div class="col-12 py-0">
+            <div class="col-12 pl-md-0 py-0">
               <v-text-field
                 filled
                 type="tel"
@@ -110,7 +116,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 py-0">
+            <div class="col-12 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="address"
@@ -124,13 +130,13 @@
             </div>
           </div>
           <div class="row mt-3">
-            <div class="col-12 pb-0 cart_order-section_register-order_your-order-subheader">
+            <div class="col-12 pl-md-0 pb-0 cart_order-section_register-order_your-order-subheader">
               {{ $t('optionalFields') }}:
               <v-icon>mdi-arrow-down-box</v-icon>
             </div>
           </div>
           <div class="row pt-3">
-            <div class="col-12 py-0">
+            <div class="col-12 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="email"
@@ -142,7 +148,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6 py-0">
+            <div class="col-6 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="entrance"
@@ -152,7 +158,7 @@
                 required>
               </v-text-field>
             </div>
-            <div class="col-6 py-0">
+            <div class="col-6 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="intercom"
@@ -164,7 +170,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6 py-0">
+            <div class="col-6 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="floor"
@@ -174,7 +180,7 @@
                 required>
               </v-text-field>
             </div>
-            <div class="col-6 py-0">
+            <div class="col-6 pl-md-0 py-0">
               <v-text-field
                 filled
                 name="home"
@@ -186,7 +192,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 py-0">
+            <div class="col-12 pl-md-0 py-0">
               <v-textarea
                 filled
                 v-model="orderForm.additional_information"
@@ -197,7 +203,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12 py-0 d-flex justify-end">
+            <div class="col-12 pl-md-0 py-0 d-flex justify-end">
               <v-checkbox
                 v-model="rememberInformation"
                 :label="$t('rememberMyInformation')"
@@ -207,13 +213,13 @@
             </div>
           </div>
           <div class="row margin-top-6vh">
-            <div class="col-12 cart_order-section_register-order_your-order-header">
+            <div class="col-12 pl-md-0 cart_order-section_register-order_your-order-header">
               <span>{{ $t('yourOrder') }}</span>
             </div>
           </div>
           <div class="row">
             <div
-              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              class="col-12 pl-md-0 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
                 {{ $t('purchases') }}:
               </div>
@@ -225,7 +231,7 @@
           </div>
           <div class="row">
             <div
-              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              class="col-12 pl-md-0 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
                 {{ $t('shipping') }}:
               </div>
@@ -250,7 +256,7 @@
           </div>
           <div class="row">
             <div
-              class="col-12 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+              class="col-12 pl-md-0 d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
               <div>
                 {{ $t('totalAmount') }}:
               </div>
@@ -263,7 +269,7 @@
             <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
           </div>
           <div class="row mt-5">
-            <div class="col-12 cart_order-section_register-order_your-order_payment-methods white-opacity-07">
+            <div class="col-12 pl-md-0 cart_order-section_register-order_your-order_payment-methods white-opacity-07">
               <v-radio-group v-model="orderForm.paymentMethod" class="justify-center">
                 <template v-slot:label>
                   <div class="cart_order-section_register-order_your-order-subheader">
@@ -328,7 +334,7 @@
             <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
           </div>
           <div class="row mt-5 pt-1">
-            <div class="col-12">
+            <div class="col-12 pl-md-0">
               <v-btn
                 color="green accent-4"
                 large

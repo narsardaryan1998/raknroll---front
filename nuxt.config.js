@@ -43,6 +43,7 @@ export default {
     '@/assets/styles/responsive.css',
     '@/assets/styles/static.css',
     '@/assets/styles/font.css',
+    '@/assets/styles/customCloseButton.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

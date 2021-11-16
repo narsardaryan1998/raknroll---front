@@ -121,7 +121,7 @@
   }
 
   #products {
-    margin-top: 10vw !important;
+    margin-top: 20vh !important;
   }
 
   .page-header {
@@ -202,12 +202,273 @@
     font-size: 17px !important;
   }
 
-  .gmap_canvas {
+  #contact-us .gmap_canvas {
     height: 430px !important;
   }
 
-  .mapouter {
+  #contact-us .mapouter {
     height: 430px !important;
+  }
+}
+
+@media screen and (max-width: 1264px) {
+  .header_logo {
+    min-width: 13% !important;
+  }
+
+  .header_logo_link {
+    width: 48% !important;
+  }
+
+  .header_nav {
+    min-width: 87% !important;
+  }
+
+  .header_nav_delivery_part {
+    width: 30% !important;
+  }
+
+  .header_nav_navigation {
+    min-width: 85% !important;
+  }
+
+  .header_nav_navigation_menu_link {
+    font-size: 19px !important;
+  }
+
+  .header_nav_navigation_menu_pages_link {
+    font-size: 12px !important;
+  }
+
+  .favorites-modal .modaltor__panel {
+    width: 68% !important;
+  }
+
+  .favorite_product_image {
+    height: 130px !important;
+  }
+
+  .favorite_product_texts_header {
+    font-size: 28px !important;
+  }
+
+  .header_nav_delivery_part .v-text-field .v-select__selection--comma {
+    font-size: 14px !important;
+  }
+
+  .header_nav_delivery_part .v-text-field i {
+    font-size: 15px !important;
+  }
+
+  .intro1_header {
+    margin-left: 46vw !important;
+    font-size: 125px !important;
+  }
+
+  .intro1_subheader {
+    margin-left: 46vw !important;
+    font-size: 36px !important;
+  }
+
+  .intro1_information1 {
+    font-size: 22px !important;
+    margin-left: 63vw !important;
+  }
+
+  .intro1_information2 {
+    font-size: 22px !important;
+    margin-left: 63vw !important;
+  }
+
+  #cartModal {
+    width: 70% !important;
+  }
+
+  .component-top-header {
+    font-size: 65px !important;
+  }
+
+  .card_product_image {
+    height: 130px !important;
+  }
+
+  .products_show_product .v-card__title {
+    font-size: 19px !important;
+    height: 60px !important;
+  }
+
+  .catalogSection_articles {
+    height: 520px !important;
+  }
+
+  #catalogSection .content-height {
+    height: 260px !important;
+  }
+
+  #catalogSection .catalogSection_alcohol {
+    top: 260px !important;
+  }
+
+  #catalogSection .catalogSection_rolls {
+    top: 260px !important;
+  }
+
+  #catalogSection .catalogSection_drinks {
+    top: 260px !important;
+  }
+
+  #catalogSection .catalogSection_cider {
+    top: 260px !important;
+  }
+
+  .catalogSection_articles_hover_header {
+    font-size: 30px !important;
+  }
+
+  .catalogSection_articles_hover_text {
+    font-size: 14px !important;
+  }
+
+  .ourAdvantages-section {
+    height: 700px !important;
+  }
+
+  .our-advantages-single_text_header {
+    font-size: 32px !important;
+  }
+
+  .our-advantages-single_text_description {
+    font-size: 15px !important;
+  }
+
+  #products {
+    margin-top: 22vh !important;
+  }
+
+  .page-header {
+    height: 220px !important;
+  }
+
+  .page-header p {
+    padding-top: 52px !important;
+    font-size: 70px !important;
+  }
+
+  .products_show {
+    width: 75% !important;
+  }
+
+  .products_filter {
+    width: 23% !important;
+  }
+
+  .products_show_product .font-brigada {
+    font-size: 13px !important;
+  }
+
+  .products_filter .v-text-field .v-select__selection--comma, .v-text-field input, .v-label {
+    font-size: 17px !important;
+  }
+
+  #reviews {
+    margin-top: 22vh !important;
+  }
+
+  .reviews_top_section_header {
+    font-size: 63px !important;
+  }
+
+  .reviews_write_review_description {
+    font-size: 19px !important;
+  }
+
+  .reviews_write_review_section_text {
+    font-size: 48px !important;
+  }
+
+  .reviews_all_testimonials_card_customer-name {
+    font-size: 38px !important;
+  }
+
+  .reviews_all_testimonials_card_review {
+    font-size: 15px !important;
+  }
+
+  #cart {
+    margin-top: 22vh !important;
+  }
+
+  .container-padding {
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+  }
+
+  .cart_product_image {
+    height: 170px !important;
+  }
+
+  .cart_product_texts_header {
+    font-size: 27px !important;
+  }
+
+  .cart_product_texts_description {
+    font-size: 15px !important;
+  }
+
+  .cart_order-section_register-order_your-order-header {
+    font-size: 35px !important;
+  }
+
+  .cart_order-section_register-order_your-order-costs {
+    font-size: 18px !important;
+  }
+
+  .cart_order-section_register-order_your-order-subheader {
+    font-size: 19px !important;
+  }
+
+  .cart_order-section_register-order_your-order_payment-methods {
+    font-size: 16px !important;
+  }
+
+  #contact-us {
+    margin-top: 20vh !important;
+  }
+
+  .contact-us_description {
+    font-size: 19px !important;
+  }
+
+  .contact-us_contacts_data_subheader {
+    font-size: 30px !important;
+  }
+
+  .contact-us_contacts_text a {
+    font-size: 17px !important;
+  }
+
+  #contact-us .gmap_canvas {
+    height: 400px !important;
+  }
+
+  #contact-us .mapouter {
+    height: 400px !important;
+  }
+
+  footer .gmap_canvas {
+    height: 250px !important;
+  }
+
+  footer .mapouter {
+    height: 250px !important;
+  }
+
+  .footer_section_nav_navigation_menu_link {
+    font-size: 17px !important;
+  }
+
+  .footer_section_subscribe_description {
+    font-size: 14px !important;
   }
 }
 

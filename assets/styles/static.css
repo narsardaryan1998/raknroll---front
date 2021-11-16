@@ -129,6 +129,14 @@ body {
   border-bottom: 1px dashed #424242;
 }
 
+.white-pattern-background .close-button-block:before, .white-pattern-background .close-button-block:after {
+  background: black;
+}
+
+.favorites-modal .close-button-block:before, .favorites-modal .close-button-block:after {
+  background: black;
+}
+
 .red-pattern-background .component-top-header-hr {
   border: 2px solid #000000;
   background-color: #000000;

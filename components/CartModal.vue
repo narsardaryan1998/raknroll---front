@@ -29,13 +29,18 @@
             <span class="black--text font-weight-bold">{{ $t('cart') }}</span>
           </div>
           <div>
-            <v-btn
-              @click="openCartModal"
-              class="float-right"
-              icon
-              color="grey darken-3">
-              <v-icon color="grey darken-3">mdi-close</v-icon>
-            </v-btn>
+            <a href="javascript:void(0)"
+               class="close-button float-right"
+               @click="openCartModal">
+              <div class="in">
+                <div class="close-button-block"></div>
+                <div class="close-button-block"></div>
+              </div>
+              <div class="out">
+                <div class="close-button-block"></div>
+                <div class="close-button-block"></div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

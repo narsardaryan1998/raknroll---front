@@ -104,15 +104,18 @@
                   <vue-modaltor :close-scroll="false" :visible="openFavoritesModal" @hide="openFavoritesModal=false">
                     <template #header>
                       <div class="d-flex justify-end">
-                        <v-btn
-                          @click="closeFavorites"
-                          class="float-right"
-                          icon
-                          color="white">
-                          <v-icon
-                            color="black">mdi-close
-                          </v-icon>
-                        </v-btn>
+                        <a href="javascript:void(0)"
+                           class="close-button float-right"
+                           @click="closeFavorites">
+                          <div class="in">
+                            <div class="close-button-block"></div>
+                            <div class="close-button-block"></div>
+                          </div>
+                          <div class="out">
+                            <div class="close-button-block"></div>
+                            <div class="close-button-block"></div>
+                          </div>
+                        </a>
                       </div>
                     </template>
                     <template #body>

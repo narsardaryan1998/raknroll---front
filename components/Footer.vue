@@ -15,7 +15,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="d-flex mt-3 align-center">
+              <div class="d-flex align-center">
                 <div>
                   <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
                 </div>
@@ -59,7 +59,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <nav class="d-block">
-                <ul class="list-style-none footer_section_nav_navigation_menu d-flex flex-column pl-0">
+                <ul class="list-style-none footer_section_nav_navigation_menu pl-0">
                   <li v-for="category in $store.getters['categories/data']">
                     <NuxtLink class="footer_section_nav_navigation_menu_link"
                               :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
@@ -293,6 +293,10 @@ footer {
 .footer_section_header {
   color: white;
   font-size: 31px;
+}
+
+.footer_section_nav_navigation_menu {
+  column-count: 2;
 }
 
 .footer_section_nav_navigation_menu_link {

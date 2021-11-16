@@ -17,7 +17,7 @@
            ref="mainAboutUsSection"
            data-aos="fade-up"
            data-aos-duration="1000">
-        <div class="col-md-8 col-12">
+        <div class="col-md-10 col-lg-8 col-12">
           <div class="row">
             <div class="col-6 our-advantages-single"
                  v-for="advantage in ourAdvantages"
