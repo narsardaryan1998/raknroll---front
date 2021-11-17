@@ -207,13 +207,13 @@ export default {
             slidesPerView: 5,
             spaceBetween: 50
           },
-          1024: {
+          1264: {
             slidesPerView: 4,
             spaceBetween: 40
           },
-          768: {
+          960: {
             slidesPerView: 3,
-            spaceBetween: 45
+            spaceBetween: 30
           },
           320: {
             slidesPerView: 1,

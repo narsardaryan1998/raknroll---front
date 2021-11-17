@@ -1,18 +1,16 @@
 <template>
   <header id="header" class="d-flex custom-animation-fade-to-down">
-    <div class="container pl-0 mx-0 pr-15">
+    <div class="container-padding container pl-0 mx-0">
       <div class="d-flex">
         <div class="header_logo">
           <NuxtLink :to='localePath("/")' class="header_logo_link">
-            <v-hover v-slot="{ hover }">
-              <v-img
-                position="left"
-                :src="require('~/assets/raknroll-logo.png')"
-                :lazy-src="require('~/assets/raknroll-logo.png')"
-                alt="RAK'N'ROLL logo"
-                contain>
-              </v-img>
-            </v-hover>
+            <v-img
+              position="left"
+              :src="require('~/assets/raknroll-logo.png')"
+              :lazy-src="require('~/assets/raknroll-logo.png')"
+              alt="RAK'N'ROLL logo"
+              contain>
+            </v-img>
           </NuxtLink>
         </div>
         <div class="header_nav">
@@ -21,17 +19,20 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05" :to='localePath("/")'>
+                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
+                              :to='localePath("/")'>
                       {{ $t('menuLinks.home') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05" :to='localePath("/reviews")'>
+                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
+                              :to='localePath("/reviews")'>
                       {{ $t('menuLinks.reviews') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05" :to='localePath("/contact_us")'>
+                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
+                              :to='localePath("/contact_us")'>
                       {{ $t('menuLinks.contact_us') }}
                     </NuxtLink>
                   </li>
@@ -119,7 +120,7 @@
                       </div>
                     </template>
                     <template #body>
-                      <div class="modaltor__content p-5"
+                      <div class="modaltor__content pa-lg-5 pa-1"
                            v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">
                         <div
                           v-for="(favorite, index) in $store.getters['favorites/storageData']"

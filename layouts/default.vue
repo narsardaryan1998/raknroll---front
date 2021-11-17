@@ -3,7 +3,8 @@
     <transition name="fade">
       <Loading1 v-show="loading"></Loading1>
     </transition>
-    <Header v-if="!($vuetify.breakpoint.sm || $vuetify.breakpoint.xs) && header"></Header>
+    <Header></Header>
+    <MobileHeader></MobileHeader>
     <v-main>
       <nuxt/>
     </v-main>
@@ -14,6 +15,7 @@
 
 <script>
 import Header from '~/components/Header'
+import MobileHeader from '~/components/MobileHeader'
 import Footer from '~/components/Footer'
 import CartModal from '~/components/CartModal'
 import Loading from '~/components/Loading'
@@ -24,7 +26,6 @@ import 'aos/dist/aos.css'
 export default {
   data() {
     return {
-      header: true,
       loading: true,
     }
   },
@@ -35,11 +36,12 @@ export default {
       mirror: false, // whether elements should animate out while scrolling past them
     })
     this.$nextTick(() => {
-      setTimeout(() => this.loading = false, 10000)
+      setTimeout(() => this.loading = false, 500)
     })
   },
   components: {
     Header,
+    MobileHeader,
     Footer,
     CartModal,
     Loading,

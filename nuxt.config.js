@@ -44,6 +44,7 @@ export default {
     '@/assets/styles/static.css',
     '@/assets/styles/font.css',
     '@/assets/styles/customCloseButton.css',
+    '@/assets/styles/customHamburgerButton.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

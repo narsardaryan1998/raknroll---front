@@ -16,7 +16,7 @@
           </div>
         </client-only>
       </div>
-      <div class="contact-us_description margin-left-10vw"
+      <div class="page_description margin-left-10vw"
            data-aos="fade-right"
            data-aos-duration="1000"
            data-aos-delay="800">

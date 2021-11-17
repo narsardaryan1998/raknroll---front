@@ -1,7 +1,7 @@
 <template>
   <div class="loading-bg-overlay">
     <div class="loader">
-      <scale-loader :loading="true" color="#B71C1C" width="7px"></scale-loader>
+      <scale-loader :loading="true" color="#B71C1C" width="6px" height="70px" margin="4px" radius="0"></scale-loader>
     </div>
   </div>
 </template>

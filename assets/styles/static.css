@@ -251,17 +251,16 @@ body {
 }
 
 #cartModal {
-  height: 100%;
   position: fixed;
   right: 0;
-  z-index: 99999999999999999999999999999999999999999999;
+  z-index: 10000;
 }
 
 #cartModal .cartModal_button {
   display: flex;
   align-items: center;
   position: fixed;
-  top: 25%;
+  margin-top: 15%;
   transition: .5s !important;
   border: none;
 }
@@ -273,7 +272,7 @@ body {
 #cartModal .cartModal_products {
   position: fixed;
   right: 0;
-  height: 100%;
+  height: 100vh;
   overflow-Y: scroll;
   overflow-X: hidden;
 }

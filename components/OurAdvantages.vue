@@ -63,6 +63,7 @@ export default {
         {
           image: require('~/assets/icons/icons8-e-commerce-64.png'),
           header: 'Профессиональный сайт',
+          delay: 500,
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ',
         },
         {
@@ -73,6 +74,7 @@ export default {
         {
           image: require('~/assets/icons/icons8-sushi-64.png'),
           header: 'Незабываемый вкус',
+          delay: 500,
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
         {
@@ -83,6 +85,7 @@ export default {
         {
           image: require('~/assets/icons/icons8-restaurant-menu-64.png'),
           header: 'Обновленный ассортимент',
+          delay: 500,
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
         },
       ]

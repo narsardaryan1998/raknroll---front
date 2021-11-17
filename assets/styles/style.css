@@ -47,6 +47,10 @@
   font-size: 80px;
 }
 
+#mobileHeader {
+  display: none;
+}
+
 .display-quantity-select {
   max-width: 80px;
 }

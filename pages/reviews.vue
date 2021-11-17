@@ -15,7 +15,7 @@
           </div>
         </client-only>
       </div>
-      <div class="reviews_write_review_description margin-left-10vw page_description"
+      <div class="margin-left-10vw page_description"
            data-aos="fade-right"
            data-aos-duration="1000"
            data-aos-delay="800">
