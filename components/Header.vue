@@ -259,7 +259,7 @@ export default {
 #header {
   position: absolute;
   width: 100%;
-  z-index: 999999999999;
+  z-index: 100;
 }
 
 .header_logo {
