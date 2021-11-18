@@ -1,7 +1,7 @@
 <template>
   <header id="mobileHeader"
-          class="custom-animation-fade-to-down container container-padding">
-    <div class="mobileHeader_nav d-flex justify-space-between align-start">
+          class="custom-animation-fade-to-down">
+    <div class="mobileHeader_nav d-flex justify-space-between align-start container container-padding">
       <div class="mobileHeader_logo">
         <NuxtLink :to='localePath("/")' class="mobileHeader_logo_link">
           <v-img
@@ -66,6 +66,7 @@
         </div>
         <div>
           <button class="menu"
+                  @click="openMenuModal"
                   onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
                   aria-label="Main Menu">
             <svg width="40" height="40" viewBox="0 0 100 100">
@@ -79,6 +80,17 @@
         </div>
       </div>
     </div>
+    <div class="mobileHeader_modal text-center">
+      <nav class="d-block">
+        <ul class="list-style-none header_nav_navigation_menu pl-0">
+          <li v-for="category in $store.getters['categories/data']">
+            <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
+                      :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -88,6 +100,7 @@ export default {
   data() {
     return {
       openFavoritesModal: false,
+      menuModalIsOpened: false,
       language: this.$i18n.locale,
     }
   },
@@ -148,6 +161,19 @@ export default {
           productIds
         });
       }
+    },
+    openMenuModal() {
+      if (!this.menuModalIsOpened) {
+        this.menuModalIsOpened = true;
+        document.getElementsByClassName('mobileHeader_modal')[0].classList.add('mobileHeader_modal_open');
+        document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
+        document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+      } else {
+        this.menuModalIsOpened = false;
+        document.getElementsByClassName('mobileHeader_modal')[0].classList.remove('mobileHeader_modal_open');
+        document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
+        document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+      }
     }
   },
 }
@@ -207,5 +233,28 @@ export default {
 .favorite_product_texts_description_price {
   color: #565656;
   font-size: 21px;
+}
+
+.mobileHeader_nav {
+  z-index: 1000000;
+  position: fixed;
+  top: 0;
+}
+
+.mobileHeader_modal {
+  padding-top: 10vh;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 24%);
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  transform: translateX(100%);
+  transition: .5s;
+}
+
+.mobileHeader_modal_open {
+  transform: translateX(0%);
+  animation: ease 0.5s;
 }
 </style>
