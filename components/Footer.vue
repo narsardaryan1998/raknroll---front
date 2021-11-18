@@ -4,53 +4,6 @@
       <div class="row footer_first-line">
         <hr>
       </div>
-      <div class="row">
-        <div class="col-lg-3 col-6">
-          <div class="footer_section_subscribe"
-               data-aos="fade-up"
-               data-aos-duration="1000">
-            <div class="row">
-              <div class="col-md-12">
-                <v-form
-                  ref="subscribeForm"
-                  v-model="subscribeFormValide"
-                  lazy-validation>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 py-0">
-                        <v-text-field
-                          dark
-                          color="white"
-                          name="email"
-                          v-model="subscribeForm.email"
-                          :rules="emailRules"
-                          :counter="50"
-                          :label="$t('emailAddress')"
-                          required>
-                        </v-text-field>
-                      </div>
-                      <div class="col-12 py-0">
-                        <v-btn
-                          large
-                          class="width-100"
-                          @click="subscribe"
-                          dark>
-                          {{ $t('subscribe') }}
-                        </v-btn>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 text-center mt-3 footer_section_subscribe_description">
-                      <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.e repellat sequi sit voluptates!</span>
-                    </div>
-                  </div>
-                </v-form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="row footer_section">
         <div class="col-lg-7 col-md-8">
           <div class="row">

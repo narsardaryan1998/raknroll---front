@@ -1,6 +1,7 @@
 <template>
   <div id="contact-us">
-    <div class="contact-us_top_section d-flex justify-space-between align-center container-padding component_and_page_header_section">
+    <div
+      class="contact-us_top_section d-flex justify-space-between align-center container-padding component_and_page_header_section">
       <div>
         <client-only>
           <div class="component-top-header"
@@ -28,7 +29,7 @@
       </div>
     </div>
     <div class="contact-us_contacts red-pattern-background row margin-top-6vh inset-shadow-10 py-10">
-      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
+      <div class="col-md-8 col-lg-6 col-sm-10 offset-sm-1 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
         <div class="row">
           <div class="col-6">
             <div class="contact-us_contacts_data_subheader d-flex align-center"
@@ -55,29 +56,31 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="contact-us_contacts_data_subheader d-flex align-center"
-                 data-aos="fade-up"
-                 data-aos-delay="500"
-                 data-aos-duration="1000">
-              <div>
-                <span>{{ $t('workingHours') }}</span>
+          <div class="col-6 d-flex justify-end">
+            <div>
+              <div class="contact-us_contacts_data_subheader d-flex align-center"
+                   data-aos="fade-up"
+                   data-aos-delay="500"
+                   data-aos-duration="1000">
+                <div>
+                  <span>{{ $t('workingHours') }}</span>
+                </div>
+                <div class="ml-3">
+                  <hr>
+                </div>
               </div>
-              <div class="ml-3">
-                <hr>
-              </div>
-            </div>
-            <div class="d-flex mt-5 align-center"
-                 data-aos="fade-up"
-                 data-aos-delay="800"
-                 data-aos-duration="1000">
-              <div>
-                <img src="~/assets/icons/icons8-clock-64 (1).png" alt="Time"/>
-              </div>
-              <div class="ml-3 contact-us_contacts_text">
-                <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
-                <br>
-                <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
+              <div class="d-flex mt-5 align-center"
+                   data-aos="fade-up"
+                   data-aos-delay="800"
+                   data-aos-duration="1000">
+                <div>
+                  <img src="~/assets/icons/icons8-clock-64 (1).png" alt="Time"/>
+                </div>
+                <div class="ml-3 contact-us_contacts_text">
+                  <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
+                  <br>
+                  <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
+                </div>
               </div>
             </div>
           </div>
@@ -118,27 +121,29 @@
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="contact-us_contacts_data_subheader d-flex align-center"
-                 data-aos="fade-up"
-                 data-aos-delay="500"
-                 data-aos-duration="1000">
-              <div>
-                <span>{{ $t('emailAddress') }}</span>
+          <div class="col-6 d-flex justify-end">
+            <div>
+              <div class="contact-us_contacts_data_subheader d-flex align-center"
+                   data-aos="fade-up"
+                   data-aos-delay="500"
+                   data-aos-duration="1000">
+                <div>
+                  <span>{{ $t('emailAddress') }}</span>
+                </div>
+                <div class="ml-3">
+                  <hr>
+                </div>
               </div>
-              <div class="ml-3">
-                <hr>
-              </div>
-            </div>
-            <div class="d-flex mt-5"
-                 data-aos="fade-up"
-                 data-aos-delay="500"
-                 data-aos-duration="1000">
-              <div>
-                <img src="~/assets/icons/icons8-mail-64 (1).png" alt="eMail"/>
-              </div>
-              <div class="ml-3 contact-us_contacts_text">
-                <a href="javascript:void(0)">support@raknroll.com.ua</a>
+              <div class="d-flex mt-5"
+                   data-aos="fade-up"
+                   data-aos-delay="500"
+                   data-aos-duration="1000">
+                <div>
+                  <img src="~/assets/icons/icons8-mail-64 (1).png" alt="eMail"/>
+                </div>
+                <div class="ml-3 contact-us_contacts_text">
+                  <a href="javascript:void(0)">support@raknroll.com.ua</a>
+                </div>
               </div>
             </div>
           </div>

@@ -166,8 +166,8 @@
               </v-card>
             </div>
           </div>
-          <div class="swiper-button-next red--text text--darken-4"><span class="icon-play"></span></div>
-          <div class="swiper-button-prev red--text text--darken-4"><span class="icon-play-flip"></span></div>
+          <div class="swiper-button-next"><span class="icon-play"></span></div>
+          <div class="swiper-button-prev"><span class="icon-play-flip"></span></div>
           <div class="swiper-pagination" v-for="(item,index) in $store.getters['home/data'].discountedProducts"
                :key="index" slot="pagination">
           </div>

@@ -125,7 +125,7 @@
         <div class="row">
           <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5"
                class="width-100">
-            <div class="col-md-8 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
+            <div class="col-md-8 col-sm-10 offset-sm-1 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
                  v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index"
                  data-aos="fade-right"
                  data-aos-duration="1000">
@@ -134,7 +134,7 @@
                 class="white-pattern-background"
                 elevation="12">
                 <div class="row">
-                  <div class="col-md-2 reviews_all_testimonials_card_customer-avatar offset-cart-left-2">
+                  <div class="col-md-2 col-3 reviews_all_testimonials_card_customer-avatar offset-cart-left-2">
                     <v-avatar width="70%" height="auto">
                       <v-img
                         :src="require('~/assets/icons/user.png')"
@@ -142,7 +142,7 @@
                       </v-img>
                     </v-avatar>
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-9">
                     <div class="row">
                       <div class="col-md-12 reviews_all_testimonials_card_customer-name">
                         <span>{{ review.name }}</span>

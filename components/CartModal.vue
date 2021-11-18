@@ -73,9 +73,9 @@
                     cart.short_description
                   }}</span>
               </div>
-              <div class="col-md-2 cartModal_products_counter">
+              <div class="col-md-2 col-6 cartModal_products_counter">
                 <div class="row cartModal_products_counter_row">
-                  <div class="col-md-3 cartModal_products_counter_row_minus d-flex justify-start">
+                  <div class="col-3 cartModal_products_counter_row_minus d-flex justify-start">
                     <v-btn
                       @click="updateQuantity({productId: cart.id, value: -1})"
                       icon
@@ -83,10 +83,10 @@
                       <v-icon color="grey darken-3">mdi-minus</v-icon>
                     </v-btn>
                   </div>
-                  <div class="col-md-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
+                  <div class="col-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
                     <p class="show_counter_quantity grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
                   </div>
-                  <div class="col-md-3 cartModal_products_counter_row_plus d-flex justify-end">
+                  <div class="col-3 cartModal_products_counter_row_plus d-flex justify-end">
                     <v-btn
                       @click="updateQuantity({productId: cart.id, value: 1})"
                       icon
@@ -96,7 +96,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-2 cartModal_products_price">
+              <div class="col-md-2 col-6 cartModal_products_price">
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
                         v-if="cart.qty > 1">{{
                       $t('price')

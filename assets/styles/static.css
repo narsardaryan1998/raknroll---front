@@ -318,3 +318,7 @@ a {
 .overflow-y-hidden {
   overflow-y: hidden !important;
 }
+
+.swiper-button-next, .swiper-button-prev {
+  color: white !important;
+}
