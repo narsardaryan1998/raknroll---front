@@ -94,5 +94,6 @@
     "moreOrLessThenCharacters": "\"{fieldName}\" must be {moreOrLess} than {qty} characters",
     "mustBeValid": "\"{fieldName}\" must be valid",
     "dontMuch": "The \"{fieldName}\" doesn't much"
-  }
+  },
+  "displayQuantity": "Display quantity"
 }

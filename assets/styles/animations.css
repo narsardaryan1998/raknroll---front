@@ -1,6 +1,6 @@
 @keyframes openCartModalKeyframe {
   0% {
-    transform: translateX(calc(100% - 60px));
+    transform: translateX(calc(100% - 50px));
   }
   60% {
     transform: translateX(calc(0% - 30px));
@@ -40,7 +40,7 @@
 
 @keyframes cartModalBounceWhenAdd {
   0% {
-    transform: translateX(calc(100% - 60px))
+    transform: translateX(calc(100% - 50px))
   }
   25% {
     transform: translateX(calc(100% - 131px))
@@ -52,14 +52,14 @@
     transform: translateX(calc(100% - 80px))
   }
   100% {
-    transform: translateX(calc(100% - 60px))
+    transform: translateX(calc(100% - 50px))
   }
 }
 
 .cart-modal-bounce {
   animation-name: cartModalBounceWhenAdd;
   animation-duration: 1s;
-  transform: translateX(calc(100% - 60px))
+  transform: translateX(calc(100% - 50px))
 }
 
 @keyframes customAnimationFadeToUp {

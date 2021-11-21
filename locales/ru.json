@@ -94,5 +94,6 @@
     "moreOrLessThenCharacters": "\"{fieldName}\" - должно состоять {moreOrLess} чем из {qty} символов",
     "mustBeValid": "\"{fieldName}\" - должна быть действительной",
     "dontMuch": "\"{fieldName}\" не совпадает"
-  }
+  },
+  "displayQuantity": "Количество дисплей"
 }

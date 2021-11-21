@@ -18,14 +18,14 @@
            data-aos-duration="1000">
         <div class="col-md-10 col-lg-8 col-12">
           <div class="row">
-            <div class="col-6 our-advantages-single"
+            <div class="col-sm-6 col-12 our-advantages-single"
                  v-for="advantage in ourAdvantages"
                  :key="advantage.name"
                  data-aos="fade-up"
                  :data-aos-delay="advantage.delay"
                  data-aos-duration="1000">
               <div class="row">
-                <div class="col-2">
+                <div class="col-2 our-advantages-single_icon">
                   <v-img class="our-advantages-single_image transition-05 cursor-pointer"
                          position="right"
                          :src="advantage.image"
@@ -33,7 +33,7 @@
                   </v-img>
                 </div>
                 <div class="col-10">
-                  <span class="our-advantages-single_text_header transition-05">{{ advantage.header }}</span>
+                  <span class="our-advantages-single_text_header transition-05 font-caveat">{{ advantage.header }}</span>
                 </div>
               </div>
               <div class="row mt-0">

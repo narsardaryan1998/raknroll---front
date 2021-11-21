@@ -11,6 +11,7 @@ body {
   /*background: url("https://img1.goodfon.com/wallpaper/nbig/b/25/leather-black-dark-pattern.jpg") repeat !important;*/
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: Bold !important;
+  line-height: normal !important;
 }
 
 .v-application .error--text {
@@ -250,6 +251,30 @@ body {
   color: #1f1f1f;
 }
 
+#mobileFilterModal {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+.mobileFilterModal_button {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-top: 45vh;
+  transition: .5s !important;
+  border: none;
+}
+
+.mobileFilterModal_fields {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  overflow-Y: scroll;
+  overflow-X: hidden;
+}
+
 #cartModal {
   position: fixed;
   right: 0;
@@ -260,13 +285,9 @@ body {
   display: flex;
   align-items: center;
   position: fixed;
-  margin-top: 15%;
+  margin-top: 37vh;
   transition: .5s !important;
   border: none;
-}
-
-.shoppingCartFromRightButtonBody_button {
-  border: none !important;
 }
 
 #cartModal .cartModal_products {
@@ -277,12 +298,24 @@ body {
   overflow-X: hidden;
 }
 
+.shoppingCartFromRightButtonBody_button {
+  border: none !important;
+}
+
+.border-none {
+  border: none !important;
+}
+
 .answer-modal-text {
   line-height: normal;
 }
 
 .map-section_map-content {
   opacity: 0.8;
+}
+
+.footer_section .white-brush-background {
+  width: fit-content !important;
 }
 
 #cartModal .cartModal_products::-webkit-scrollbar-thumb {
@@ -321,4 +354,8 @@ a {
 
 .swiper-button-next, .swiper-button-prev {
   color: white !important;
+}
+
+.z-index-minus {
+  z-index: -1 !important;
 }

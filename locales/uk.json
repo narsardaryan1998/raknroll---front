@@ -94,5 +94,6 @@
     "moreOrLessThenCharacters": "\"{fieldName}\" має містити {moreOrLess} {qty} символів",
     "mustBeValid": "\"{fieldName}\" - має бути дійсною",
     "dontMuch": "\"{fieldName}\" не збігається"
-  }
+  },
+  "displayQuantity": "Відображення кількості"
 }

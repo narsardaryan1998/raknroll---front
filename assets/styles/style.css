@@ -108,21 +108,31 @@
 
 #cartModal {
   width: 50%;
+  transform: translateX(calc(100% - 50px))
 }
 
 #cartModal .cartModal_button {
-  background: url("~/assets/shop-cart-background.png");
   top: 25%;
-  width: 60px;
-  height: 195px;
+  width: 50px;
+  height: 50px;
 }
 
 #cartModal .cartModal_products {
-  width: calc(100% - 60px);
+  width: calc(100% - 50px);
 }
 
-.cart-modal-closed {
-  transform: translateX(calc(100% - 60px))
+#mobileFilterModal {
+  display: none !important;
+}
+
+.mobileFilterModal_button {
+  top: 25%;
+  width: 50px;
+  height: 50px;
+}
+
+.mobileFilterModal_fields {
+  width: calc(100% - 50px);
 }
 
 .answer-modal .modaltor__panel {

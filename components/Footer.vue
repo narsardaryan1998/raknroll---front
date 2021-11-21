@@ -1,25 +1,22 @@
 <template>
   <footer class="mb-5">
     <div class="container-padding pt-5">
-      <div class="row footer_first-line">
-        <hr>
-      </div>
       <div class="row footer_section">
         <div class="col-lg-7 col-md-8">
           <div class="row">
             <div class="col-12 footer_section_information">
               <div class="row">
-                <div class="col-md-12 text-center"
-                     data-aos="fade-right"
-                     data-aos-duration="1000">
-                  <span class="footer_section_information_header footer_section_header">
-                    {{ $t('contactUs') }}
-                  </span>
+                <div class="col-md-12 d-flex justify-center">
+                  <div class="text-center black-text-shadow black--text white-brush-background">
+                    <p class="py-8 px-12 footer_section_information_header footer_section_header"
+                       data-aos="fade-right"
+                       data-aos-duration="1000">{{ $t('contactUs') }}</p>
+                  </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 d-flex">
-                  <div class="d-flex align-center">
+                <div class="col-md-12 footer_section_information_data d-flex justify-space-around justify-lg-start">
+                  <div class="d-flex align-center flex-column flex-sm-row">
                     <div class="d-flex"
                          data-aos="fade-right"
                          data-aos-duration="1000">
@@ -33,7 +30,7 @@
                       <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
                     </div>
                   </div>
-                  <div class="d-flex ml-5 align-center">
+                  <div class="d-flex ml-sm-3 align-center flex-column flex-sm-row">
                     <div class="d-flex"
                          data-aos="fade-right"
                          data-aos-delay="600"
@@ -48,7 +45,7 @@
                       <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
                     </div>
                   </div>
-                  <div class="d-flex align-center ml-5">
+                  <div class="d-flex align-center ml-sm-3 flex-column flex-sm-row">
                     <div class="d-flex"
                          data-aos="fade-right"
                          data-aos-delay="1200"
@@ -66,14 +63,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 mt-lg-11 footer_section_menu">
+            <div class="col-12 mt-lg-11 footer_section_menu footer_section_menu_pages_section">
               <div class="row">
                 <div class="col-md-12 text-center">
                   <nav class="d-block"
                        data-aos="fade-right"
                        data-aos-delay="300"
                        data-aos-duration="1000">
-                    <ul class="list-style-none footer_section_nav_navigation_menu pl-0 d-flex">
+                    <ul
+                      class="list-style-none footer_section_nav_navigation_menu pl-0 d-flex justify-space-around justify-sm-start">
                       <li>
                         <NuxtLink
                           class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
@@ -107,7 +105,8 @@
                      data-aos-delay="500"
                      data-aos-duration="1000">
                   <nav class="d-block">
-                    <ul class="list-style-none footer_section_nav_navigation_menu pl-0 d-flex justify-space-between">
+                    <ul
+                      class="list-style-none footer_section_nav_navigation_menu pl-0 d-sm-flex justify-sm-space-between">
                       <li v-for="category in $store.getters['categories/data']">
                         <NuxtLink class="footer_section_nav_navigation_menu_link"
                                   :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{
@@ -121,7 +120,7 @@
               </div>
             </div>
             <div class="row footer_socialite mt-3 ml-0">
-              <div class="col-12 d-flex">
+              <div class="col-12 d-flex justify-space-around justify-sm-start">
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
@@ -205,13 +204,13 @@
         </div>
         <div class="col-lg-5 col-md-4 footer_section_map">
           <div class="row">
-            <div class="col-md-12 text-center"
-                 data-aos="fade-right"
-                 data-aos-delay="600"
-                 data-aos-duration="1000">
-                  <span class="footer_section_header">
-                  {{ $t('weOnMap') }}
-                  </span>
+            <div class="col-md-12 d-flex justify-center">
+              <div class="text-center black-text-shadow black--text white-brush-background">
+                <p class="py-8 px-12 footer_section_header"
+                   data-aos="fade-right"
+                   data-aos-delay="600"
+                   data-aos-duration="1000">{{ $t('weOnMap') }}</p>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -220,7 +219,7 @@
                    data-aos="fade-right"
                    data-aos-delay="1200"
                    data-aos-duration="1000">
-                <div class="mapouter opacity-05">
+                <div class="mapouter">
                   <div class="gmap_canvas">
                     <iframe width="100%" height="250" id="gmap_canvas"
                             src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
@@ -234,20 +233,9 @@
         </div>
       </div>
     </div>
-    <div class="row footer_copyright_and_socialite">
-      <div class="col-md-12 pb-0">
-        <div class="container-padding">
-          <div class="col-md-12 pt-5 mt-3">
-            <div class="row footer_copyright text-center mt-3">
-              <div class="col-md-12"
-                   data-aos="fade-right"
-                   data-aos-delay="500"
-                   data-aos-duration="1000">
-                © Copyright 2021 | www.raknroll.com.ua | All Rights Reserved.
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="row footer_copyright text-center mt-3">
+      <div class="col-md-12">
+        © Copyright 2021 | www.raknroll.com.ua | All Rights Reserved.
       </div>
     </div>
   </footer>
@@ -300,7 +288,6 @@ footer {
 }
 
 .footer_section_header {
-  color: white;
   font-size: 31px;
 }
 
@@ -315,7 +302,7 @@ footer {
   transition: .5s;
 }
 
-.footer_copyright_and_socialite {
+.footer_copyright {
   margin-top: 2vh;
 }
 
@@ -336,14 +323,6 @@ footer {
   height: 250px;
   width: 100%;
 }
-
-.footer_section_subscribe_description {
-  font-size: 16px;
-}
-
-/*.footer_section_information{*/
-/*  border-bottom: 2px solid rgba(205, 205, 205, 0.7);*/
-/*}*/
 
 .footer_section_information img {
   width: 33px;

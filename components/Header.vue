@@ -85,6 +85,23 @@
             </div>
             <div class="header_nav_user_section">
               <div class="header_nav_user_part d-flex justify-end align-center">
+                <NuxtLink :to='localePath("/cart")' class="header_logo_link">
+                  <v-btn
+                    class="ma-2 header_nav_user_part_button"
+                    outlined
+                    small
+                    fab
+                    color="white">
+                    <v-badge
+                      bordered
+                      class="font-brigada"
+                      color="red darken-4"
+                      :content="this.$store.getters['cart/count'] ? this.$store.getters['cart/count'] : '0'"
+                      overlap>
+                      <img src="~/assets/icons/icons8-paid-64.png"/>
+                    </v-badge>
+                  </v-btn>
+                </NuxtLink>
                 <v-btn
                   class="ma-2 header_nav_user_part_button"
                   outlined
@@ -102,7 +119,10 @@
                   </v-badge>
                 </v-btn>
                 <div class="favorites-modal modal">
-                  <vue-modaltor :close-scroll="false" :visible="openFavoritesModal" @hide="openFavoritesModal=false">
+                  <vue-modaltor :close-scroll="false"
+                                :animation-panel="'fade'"
+                                :visible="openFavoritesModal"
+                                @hide="openFavoritesModal=false">
                     <template #header>
                       <div class="d-flex justify-end">
                         <a href="javascript:void(0)"

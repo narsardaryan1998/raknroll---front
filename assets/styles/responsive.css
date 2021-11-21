@@ -149,16 +149,36 @@
     font-size: 17px !important;
   }
 
-  #reviews {
+  #product-show {
     margin-top: 20vh !important;
   }
 
-  .reviews_top_section_header {
-    font-size: 63px !important;
+  .product-show_product_name {
+    font-size: 40px !important;
   }
 
-  .reviews_write_review_description {
+  .product-show_product_price {
+    font-size: 21px !important;
+  }
+
+  .product-show_product_description {
+    font-size: 29px !important;
+  }
+
+  .product-show_product_description .white-opacity-07 {
+    font-size: 17px !important;
+  }
+
+  .product-show_product_price .white-opacity-07 {
     font-size: 19px !important;
+  }
+
+  .product-show_tastier-together_header {
+    font-size: 50px !important;
+  }
+
+  #reviews {
+    margin-top: 20vh !important;
   }
 
   .reviews_write_review_section_text {
@@ -378,16 +398,52 @@
     font-size: 17px !important;
   }
 
-  #reviews {
+  .products_filter {
+    width: 22% !important;
+  }
+
+  .products_show_product .font-brigada {
+    font-size: 13px !important;
+  }
+
+  .products_filter .v-text-field .v-select__selection--comma, .v-text-field input, .v-label {
+    font-size: 17px !important;
+  }
+
+  #product-show {
     margin-top: 22vh !important;
   }
 
-  .reviews_top_section_header {
-    font-size: 63px !important;
+  .product-show_product_name {
+    font-size: 38px !important;
   }
 
-  .reviews_write_review_description {
-    font-size: 19px !important;
+  .product-show_product_price {
+    font-size: 20px !important;
+  }
+
+  .product-show_product_description {
+    font-size: 28px !important;
+  }
+
+  .product-show_product_description .white-opacity-07 {
+    font-size: 16px !important;
+  }
+
+  .product-show_product_price .white-opacity-07 {
+    font-size: 18px !important;
+  }
+
+  .product-show_tastier-together_header {
+    font-size: 48px !important;
+  }
+
+  .product-show_product_actions {
+    flex-direction: column !important;;
+  }
+
+  #reviews {
+    margin-top: 22vh !important;
   }
 
   .reviews_write_review_section_text {
@@ -656,14 +712,6 @@
     margin-top: 22vh !important;
   }
 
-  .reviews_top_section_header {
-    font-size: 63px !important;
-  }
-
-  .reviews_write_review_description {
-    font-size: 19px !important;
-  }
-
   .reviews_write_review_section_text {
     font-size: 48px !important;
   }
@@ -814,31 +862,334 @@
     flex-direction: column !important;
   }
 
+  .catalogSection_articles_hover {
+    display: none !important;
+  }
+
   #products {
-    margin-top: 10vh !important;
+    margin-top: 94px !important;
   }
 
   .products_show {
-    width: 70% !important;
+    width: 100% !important;
   }
 
-  .products_filter {
-    width: 30% !important;
+  #product-show {
+    margin-top: 94px !important;
+  }
+
+  .product-show_product_section {
+    text-align: center !important;
   }
 
   #reviews {
-    margin-top: 10vh !important;
+    margin-top: 94px !important;
   }
 
   #cart {
-    margin-top: 10vh !important;
+    margin-top: 94px !important;
+  }
+
+  #mobileFilterModal {
+    display: block !important;
+    width: 60% !important;
+    transform: translateX(calc(100% - 50px))
+  }
+
+  .mobileFilterModal_button {
+    top: 25%;
+    width: 50px;
+    height: 50px;
+  }
+
+  .mobileFilterModal_fields {
+    width: calc(100% - 50px);
   }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 600px) {
+  #cartModal {
+    width: calc(100% + 50px) !important;
+  }
+
+  #mobileFilterModal {
+    width: calc(100% + 50px) !important;
+  }
+
+  .mobileHeader_actions-favorites img {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .mobileHeader_logo_link_img {
+    width: 55px !important;
+  }
+
+  .mobileHeader_phone {
+    width: 100% !important;
+  }
+
+  .mobileHeader-language {
+    width: 100% !important;
+  }
+
+  .mobileHeader_phone-and-language .v-text-field .v-select__selection--comma {
+    font-size: 12px !important;
+  }
+
+  .mobileHeader_phone-and-language {
+    width: 54% !important;
+    flex-direction: column !important;
+  }
+
+  .mobileHeader_actions, .mobileHeader_logo {
+    width: 22% !important;
+  }
+
+  .mobileHeader_actions-favorites .v-badge__badge {
+    font-size: 10px !important;
+    padding: 4px 6px;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .mobileHeader_actions-favorites .v-text-field i {
+    font-size: 13px !important;
+  }
+
+  .mobileHeader_actions-favorites {
+    margin-right: 0 !important;
+  }
+
+  .favorites-modal .modaltor__panel {
+    width: 97% !important;
+  }
+
+  #cashbackProductsSection, #catalogSection, #ourAdvantages {
+    padding-top: 1vh !important;
+  }
+
+  .component-top-header {
+    font-size: 49px !important;
+  }
+
+  .intro1_header {
+    margin-left: 6vw !important;
+    padding-top: 25vh !important;
+    font-size: 80px !important;
+  }
+
+  .intro1_subheader {
+    margin-left: 6vw !important;
+    padding-top: 3vh !important;
+    font-size: 28px !important;
+  }
+
+  .intro1_information1 {
+    padding-top: 3vh !important;
+    font-size: 20px !important;
+    margin-left: 30vw !important;
+  }
+
+  .intro1_information2 {
+    font-size: 20px !important;
+    margin-left: 30vw !important;
+  }
+
+  .page_description {
+    font-size: 14px !important;
+  }
+
   .swiper-container .swiper-slide {
     padding-right: 5% !important;
     padding-left: 5% !important;
     max-width: 90% !important;
+  }
+
+  .catalogSection_articles {
+    height: 400px !important;
+  }
+
+  #catalogSection .content-height {
+    height: 200px !important;
+  }
+
+  #catalogSection .catalogSection_alcohol {
+    top: 200px !important;
+  }
+
+  #catalogSection .catalogSection_rolls {
+    top: 200px !important;
+  }
+
+  #catalogSection .catalogSection_drinks {
+    top: 200px !important;
+  }
+
+  #catalogSection .catalogSection_cider {
+    top: 200px !important;
+  }
+
+  .our-advantages-single_icon {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .ourAdvantages-section {
+    height: auto !important;
+  }
+
+  .our-advantages-single_text_header {
+    font-size: 26px !important;
+  }
+
+  .our-advantages-single_text_description {
+    font-size: 12px !important;
+  }
+
+  .footer_section_information_data {
+    align-items: center !important;
+  }
+
+  .footer_section_nav_navigation_menu {
+    display: block !important;
+    column-count: 2 !important;
+  }
+
+  .footer_section_menu_pages_section {
+    display: none !important;
+  }
+
+  #products {
+    margin-top: 88px !important;
+  }
+
+  .page-header {
+    height: 180px !important;
+  }
+
+  .page-header p {
+    padding-top: 40px !important;
+    font-size: 55px !important;
+  }
+
+  .products_and_filter {
+    padding-right: 4vw !important;
+    padding-left: 4vw !important;
+  }
+
+  .footer_section_information img {
+    width: 25px !important;
+  }
+
+  .footer_section_information .contact-us_contacts_text a {
+    font-size: 11px !important;
+  }
+
+  .footer_section_map {
+    margin-top: 13px !important;
+  }
+
+  .footer_section_nav_navigation_menu_link {
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+  }
+
+  .footer_socialite .v-image {
+    max-width: 25px !important;
+  }
+
+  footer .gmap_canvas {
+    height: 180px !important;
+  }
+
+  footer .mapouter {
+    height: 180px !important;
+  }
+
+  .footer_copyright {
+    font-size: 14px !important;
+  }
+
+  #contact-us {
+    margin-top: 88px !important;
+  }
+
+  #reviews {
+    margin-top: 88px !important;
+  }
+
+  .reviews_write_review_section_text {
+    font-size: 33px !important;
+  }
+
+  .reviews_all_testimonials_card_customer-name {
+    font-size: 23px !important;
+  }
+
+  .reviews_all_testimonials_card_review {
+    font-size: 14px !important;
+  }
+
+  .reviews_write_review .red-pattern-background {
+    padding-right: 6vw !important;
+    padding-left: 6vw !important;
+  }
+
+  .reviews_all_testimonials_card_customer-avatar {
+    padding-right: 0 !important;
+  }
+
+  .reviews_all_testimonials_card_customer-text {
+    padding-left: 0 !important;
+  }
+
+  .contact-us_contacts_data_subheader hr {
+    width: 50px !important;
+  }
+
+  .contact-us_contacts_data img {
+    width: 30px !important;
+  }
+
+  .contact-us_contacts_data_subheader {
+    font-size: 18px !important;
+  }
+
+  .contact-us_contacts_text a {
+    font-size: 13px !important;
+  }
+
+  .map-section .component-top-header {
+    font-size: 37px !important;
+  }
+
+  .footer_section_map {
+    display: none !important;
+  }
+
+  #cart {
+    margin-top: 88px !important;
+  }
+
+  .cart_order-section_single {
+    text-align: center !important;
+    margin-bottom: 3vh !important;
+  }
+
+  .cart_product_remove {
+    right: 20px !important;
+  }
+
+  .cart_product_image {
+    height: 130px !important;
+  }
+
+  .cart_product_texts_header {
+    font-size: 25px !important;
+  }
+
+  .cart_product_texts_description {
+    font-size: 13px !important;
   }
 }

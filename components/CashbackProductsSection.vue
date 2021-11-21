@@ -36,7 +36,7 @@
               <v-card
                 elevation="12"
                 dark
-                class="mx-auto my-12 mt-0 products_show_product products_show_products_black_background"
+                class="mx-auto my-12 mt-0 products_show_product products_show_products_black_background rounded-lg"
                 max-width="374">
                 <v-card-title class="font-weight-bold px-2 pb-0 pt-1">{{ product.name }}</v-card-title>
                 <v-hover
@@ -214,6 +214,10 @@ export default {
           960: {
             slidesPerView: 3,
             spaceBetween: 30
+          },
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 20
           },
           320: {
             slidesPerView: 1,

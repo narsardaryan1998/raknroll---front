@@ -1,7 +1,7 @@
 <template>
   <header id="mobileHeader"
           class="custom-animation-fade-to-down">
-    <div class="mobileHeader_nav d-flex justify-space-between align-start container container-padding">
+    <div class="mobileHeader_nav d-flex justify-space-between align-sm-start align-center container container-padding products_show_products_black_background">
       <div class="mobileHeader_logo">
         <NuxtLink :to='localePath("/")' class="mobileHeader_logo_link">
           <v-img
@@ -50,7 +50,10 @@
       <div class="mobileHeader_actions d-flex justify-end align-center">
         <div>
           <div class="favorites-modal modal">
-            <vue-modaltor :close-scroll="false" :visible="openFavoritesModal" @hide="openFavoritesModal=false">
+            <vue-modaltor :close-scroll="false"
+                          :animation-panel="'fade'"
+                          :visible="openFavoritesModal"
+                          @hide="openFavoritesModal=false">
               <template #header>
                 <div class="d-flex justify-end">
                   <a href="javascript:void(0)"
@@ -126,7 +129,7 @@
           </div>
           <v-btn
             v-show="!menuModalIsOpened"
-            class="ma-2 mobileHeader_actions-favorites"
+            class="mr-0 mr-sm-2 ma-2 mobileHeader_actions-favorites"
             outlined
             small
             @click="openFavorites"
@@ -319,11 +322,13 @@ export default {
       this.$router.push({path: pushTo});
     },
     openFavorites() {
+      document.getElementById('cartModal').classList.add("z-index-minus");
       document.getElementsByClassName('v-main')[0].classList.add("main-blured");
       document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
       this.openFavoritesModal = true;
     },
     closeFavorites() {
+      document.getElementById('cartModal').classList.remove("z-index-minus");
       document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
       document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
       this.openFavoritesModal = false;
@@ -460,5 +465,9 @@ export default {
 .favorite_product_texts_description_price {
   color: #565656;
   font-size: 21px;
+}
+
+.nuxt-link-exact-active {
+  color: #B71C1C !important;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="reviews_top_section d-flex justify-space-between align-center container-padding container component_and_page_header_section">
       <div>
         <client-only>
-          <div class="reviews_top_section_header"
+          <div class="component-top-header"
                data-aos="fade-right"
                data-aos-duration="1000">
             <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
@@ -26,7 +26,7 @@
         voluptatum.
       </div>
     </div>
-    <div class="reviews_write_review inset-shadow-10 margin-top-6vh">
+    <div class="reviews_write_review margin-top-6vh">
       <div class="row container-padding red-pattern-background inset-shadow-10">
         <div class="col-12 pt-5 px-0">
           <v-form
@@ -142,7 +142,7 @@
                       </v-img>
                     </v-avatar>
                   </div>
-                  <div class="col-9">
+                  <div class="col-9 reviews_all_testimonials_card_customer-text">
                     <div class="row">
                       <div class="col-md-12 reviews_all_testimonials_card_customer-name">
                         <span>{{ review.name }}</span>
@@ -272,14 +272,6 @@ export default {
 <style scoped>
 #reviews {
   margin-top: 18vh;
-}
-
-.reviews_top_section_header {
-  font-size: 70px;
-}
-
-.reviews_write_review_description {
-  font-size: 21px;
 }
 
 .reviews_write_review_section_text {

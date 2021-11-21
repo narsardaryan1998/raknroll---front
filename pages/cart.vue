@@ -15,8 +15,8 @@
       <div class="col-md-9 col-12 cart_order-section_products">
         <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
-            <div class="row position-relative align-center">
-              <div class="col-2">
+            <div class="row cart_order-section_single position-relative align-center">
+              <div class="col-12 col-sm-2">
                 <v-hover
                   v-slot="{ hover }">
                   <v-img class="cart_product_image width-100 transition-05 cursor-pointer"
@@ -27,12 +27,12 @@
                   </v-img>
                 </v-hover>
               </div>
-              <div class="col-5 cart_product_texts">
+              <div class="col-12 col-sm-5 cart_product_texts">
                 <span class="cart_product_texts_header">{{ cart.name }}</span>
                 <br>
                 <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
               </div>
-              <div class="col-2 cart_product_counter">
+              <div class="col-sm-2 col-6 cart_product_counter">
                 <div class="row cart_product_counter_row">
                   <div class="col-3 cart_product_counter_row_minus d-flex justify-start">
                     <v-btn
@@ -55,7 +55,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-2 cart_product_price">
+              <div class="col-sm-2 col-6 cart_product_price">
                   <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
                       $t('price')
                     }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>

@@ -1,25 +1,16 @@
 <template>
-  <div id="cartModal" class="cart-modal-closed transition-05">
-    <div class="cartModal_button justify-center">
+  <div id="cartModal" class="transition-05">
+    <div class="cartModal_button white-pattern-background justify-center">
       <v-btn
         @click="openCartModal"
-        class="ma-2 shoppingCartFromRightButtonBody_button mr-0"
+        class="ma-2 shoppingCartFromRightButtonBody_button m-0"
         outlined
         fab
         small>
-        <v-badge
-          bordered
-          class="font-brigada"
-          color="red darken-4"
-          small
-          :content="this.$store.getters['cart/count'] ? this.$store.getters['cart/count'] : '0'"
-          overlap>
-          <v-icon
-            large
-            class="shoppingCartFromRightButtonBody_button_icon"
-            color="black">mdi-cart-variant
-          </v-icon>
-        </v-badge>
+        <v-icon
+          class="shoppingCartFromRightButtonBody_button_icon"
+          color="red darken-4">mdi-cart-variant
+        </v-icon>
       </v-btn>
     </div>
     <div class="cartModal_products white-pattern-background">
@@ -28,7 +19,7 @@
           <div>
             <span class="black--text font-weight-bold">{{ $t('cart') }}</span>
           </div>
-          <div>
+          <div class="pr-2 pt-2">
             <a href="javascript:void(0)"
                class="close-button float-right"
                @click="openCartModal">
@@ -150,12 +141,14 @@ export default {
         document.getElementsByTagName('header')[0].classList.add("main-blured");
         document.getElementsByClassName('v-main')[0].classList.add("main-blured");
         document.getElementsByTagName('footer')[0].classList.add("main-blured");
+        document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
         this.cartModalIsOpen = true;
       } else {
         document.getElementById('cartModal').classList.remove("open-cart-modal")
         document.getElementsByTagName('header')[0].classList.remove("main-blured");
         document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
         document.getElementsByTagName('footer')[0].classList.remove("main-blured");
+        document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
         this.cartModalIsOpen = false;
       }
     },
