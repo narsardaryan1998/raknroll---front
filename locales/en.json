@@ -95,5 +95,6 @@
     "mustBeValid": "\"{fieldName}\" must be valid",
     "dontMuch": "The \"{fieldName}\" doesn't much"
   },
-  "displayQuantity": "Display quantity"
+  "displayQuantity": "Display quantity",
+  "yourCartIsEmpty": "Your cart is empty"
 }

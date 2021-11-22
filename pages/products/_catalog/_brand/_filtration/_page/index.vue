@@ -7,8 +7,8 @@
              data-aos-duration="1000">
           <v-img
             class="width-100 height-100"
-            :src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
-            :lazy-src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? 'https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? 'https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+            :src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? require('~/assets/photo-1583623025817-d180a2221d0a.jpg') : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg') : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
+            :lazy-src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? require('~/assets/photo-1583623025817-d180a2221d0a.jpg') : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg') : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
             cover>
             <div
               data-aos="fade-up"
@@ -35,8 +35,8 @@
                   <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                     <v-img class="card_product_image width-100 transition-05"
                            :class="{ 'scale-1-2': hover }"
-                           :src="'http://raknroll.ua/' + product.image"
-                           :lazy-src="'http://raknroll.ua/' + product.image"
+                           :src="baseUrl + product.image"
+                           :lazy-src="baseUrl + product.image"
                            contain>
                     </v-img>
                   </NuxtLink>
@@ -295,15 +295,6 @@
               hide-details>
             </v-switch>
           </div>
-          <div class="mt-5">
-            <v-switch
-              @change="filtration"
-              v-model="filter.bestseller"
-              :label="$t('bestseller')"
-              color="red darken-4"
-              hide-details>
-            </v-switch>
-          </div>
         </div>
       </div>
     </div>
@@ -470,16 +461,6 @@
               </v-switch>
             </div>
           </div>
-          <div class="row mt-5">
-            <div class="col-12">
-              <v-switch
-                v-model="filter.bestseller"
-                :label="$t('bestseller')"
-                color="white"
-                hide-details>
-              </v-switch>
-            </div>
-          </div>
           <div class="row margin-top-4vh">
             <div class="col-12">
               <v-btn
@@ -517,6 +498,7 @@ export default {
       language: this.$i18n.locale,
       mobileFilterModal: false,
       displayQuantityArray: [8, 12, 16, 20, 24],
+      baseUrl: process.env.BASE_URL
     }
   },
   async asyncData({params, store, i18n}) {
@@ -528,7 +510,6 @@ export default {
       display_quantity: 8,
       search: '',
       recommended: false,
-      bestseller: false,
       discounted: false,
       final_price: [0, 23000]
     }

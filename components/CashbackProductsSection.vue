@@ -44,8 +44,8 @@
                   <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                     <v-img class="card_product_image width-100 transition-05"
                            :class="{ 'scale-1-2': hover }"
-                           :src="'http://raknroll.ua/' + product.image"
-                           :lazy-src="'http://raknroll.ua/' + product.image"
+                           :src="baseUrl + product.image"
+                           :lazy-src="baseUrl + product.image"
                            contain>
                     </v-img>
                   </NuxtLink>
@@ -187,6 +187,7 @@ export default {
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       swiperOption: {
         loop: false,
         spaceBetween: 30,

@@ -180,7 +180,7 @@ export default {
 
 <style scoped>
 .intro1_header {
-  padding-top: 16vh;
+  padding-top: 22vh;
   font-family: 'Tangerine', cursive;
   font-weight: 400;
   letter-spacing: -0.08em;
@@ -192,7 +192,6 @@ export default {
   margin-left: 52vw;
   letter-spacing: 0.1em;
   font-size: 50px;
-  margin-top: -3vh;
 }
 
 .intro1_information1 {

@@ -8,10 +8,10 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - raknroll-front',
+    titleTemplate: "Rak'N'Roll | Best beer, crayfish, sushi",
     title: 'raknroll-front',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'uk'
     },
     meta: [
       {charset: 'utf-8'},
@@ -64,6 +64,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
     [
       'nuxt-i18n',
       {
@@ -95,7 +96,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://raknroll.ua/'
+    baseURL: process.env.BASE_URL
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

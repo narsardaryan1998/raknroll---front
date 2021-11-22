@@ -38,7 +38,7 @@
               </div>
               <div class="row mt-0">
                 <div class="col-10 offset-2 pt-0">
-                  <span class="our-advantages-single_text_description">{{ advantage.description }} </span>
+                  <span class="our-advantages-single_text_description font-caveat">{{ advantage.description }} </span>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default {
 }
 
 .our-advantages-single_text_description {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .our-advantages-single_image {

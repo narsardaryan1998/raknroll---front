@@ -95,5 +95,6 @@
     "mustBeValid": "\"{fieldName}\" - має бути дійсною",
     "dontMuch": "\"{fieldName}\" не збігається"
   },
-  "displayQuantity": "Відображення кількості"
+  "displayQuantity": "Відображення кількості",
+  "yourCartIsEmpty": "Ваш кошик порожній"
 }

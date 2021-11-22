@@ -18,7 +18,6 @@ import Header from '~/components/Header'
 import MobileHeader from '~/components/MobileHeader'
 import Footer from '~/components/Footer'
 import CartModal from '~/components/CartModal'
-import Loading from '~/components/Loading'
 import Loading1 from '~/components/Loading1'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -44,7 +43,6 @@ export default {
     MobileHeader,
     Footer,
     CartModal,
-    Loading,
     Loading1,
   }
 }

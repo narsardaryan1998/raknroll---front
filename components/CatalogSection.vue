@@ -43,8 +43,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -67,8 +65,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -91,8 +87,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -115,8 +109,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -133,14 +125,12 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg"
-              lazy-src="https://as1.ftcdn.net/v2/jpg/02/93/05/22/1000_F_293052266_CVFBRa9DwaeuDs2LHF06gbooDv8ecite.jpg">
+              :src="require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg')"
+              :lazy-src="require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -157,14 +147,12 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg"
-              lazy-src="https://as2.ftcdn.net/v2/jpg/03/23/88/07/1000_F_323880740_7dz5xQ3Jcimx84xWmV37U7lxYGSsvs4t.jpg">
+              :src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')"
+              :lazy-src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
+                  <span class="catalogSection_articles_hover_header">Rolls</span>
                 </div>
               </div>
             </v-img>
@@ -187,8 +175,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -211,8 +197,6 @@
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
                   <span class="catalogSection_articles_hover_header">Pivo</span>
-                  <br>
-                  <span class="catalogSection_articles_hover_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores at consectetur delectus delenitiscipit velit.</span>
                 </div>
               </div>
             </v-img>
@@ -301,9 +285,5 @@ export default {
 
 .catalogSection_articles_hover_header {
   font-size: 32px;
-}
-
-.catalogSection_articles_hover_text {
-  font-size: 15px;
 }
 </style>

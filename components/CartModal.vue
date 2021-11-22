@@ -19,7 +19,7 @@
           <div>
             <span class="black--text font-weight-bold">{{ $t('cart') }}</span>
           </div>
-          <div class="pr-2 pt-2">
+          <div class="pt-2">
             <a href="javascript:void(0)"
                class="close-button float-right"
                @click="openCartModal">
@@ -35,91 +35,111 @@
           </div>
         </div>
       </div>
-      <div class="row mr-5">
-        <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
-          <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
-          <hr class="cartModal_products_hr">
+      <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+        <div class="row mr-5">
+          <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
+            <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
+            <hr class="cartModal_products_hr">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12"
-             v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
-          <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
-            <div class="row cartModal_products_section align-center">
-              <div class="col-md-2">
-                <v-hover
-                  v-slot="{ hover }">
-                  <v-img class="cursor-pointer card_product_image width-100 transition-05"
-                         contain
-                         :class="{ 'scale-1-2': hover }"
-                         :src="'http://raknroll.ua/' + cart.image"
-                         :lazy-src="'http://raknroll.ua/' + cart.image">
-                  </v-img>
-                </v-hover>
-              </div>
-              <div class="col-md-5 cartModal_products_texts">
-                <span class="cartModal_products_texts_header black--text font-weight-bold">{{ cart.name }}</span>
-                <br>
-                <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold">{{
-                    cart.short_description
-                  }}</span>
-              </div>
-              <div class="col-md-2 col-6 cartModal_products_counter">
-                <div class="row cartModal_products_counter_row">
-                  <div class="col-3 cartModal_products_counter_row_minus d-flex justify-start">
-                    <v-btn
-                      @click="updateQuantity({productId: cart.id, value: -1})"
-                      icon
-                      color="grey--text text--darken-3">
-                      <v-icon color="grey darken-3">mdi-minus</v-icon>
-                    </v-btn>
-                  </div>
-                  <div class="col-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
-                    <p class="show_counter_quantity grey--text text--darken-3 font-weight-bold mb-0">{{ cart.qty }}</p>
-                  </div>
-                  <div class="col-3 cartModal_products_counter_row_plus d-flex justify-end">
-                    <v-btn
-                      @click="updateQuantity({productId: cart.id, value: 1})"
-                      icon
-                      color="grey--text text--darken-3">
-                      <v-icon color="grey darken-3">mdi-plus</v-icon>
-                    </v-btn>
+        <div class="row">
+          <div class="col-12">
+            <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
+              <div class="row cartModal_products_section align-center">
+                <div class="col-md-2">
+                  <v-hover
+                    v-slot="{ hover }">
+                    <v-img class="cursor-pointer card_product_image width-100 transition-05"
+                           contain
+                           :class="{ 'scale-1-2': hover }"
+                           :src="baseUrl + cart.image"
+                           :lazy-src="baseUrl + cart.image">
+                    </v-img>
+                  </v-hover>
+                </div>
+                <div class="col-md-5 cartModal_products_texts">
+                  <span class="cartModal_products_texts_header black--text font-weight-bold">{{ cart.name }}</span>
+                  <br>
+                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold">{{
+                      cart.short_description
+                    }}</span>
+                </div>
+                <div class="col-md-2 col-6 cartModal_products_counter">
+                  <div class="row cartModal_products_counter_row">
+                    <div class="col-3 cartModal_products_counter_row_minus d-flex justify-start">
+                      <v-btn
+                        @click="updateQuantity({productId: cart.id, value: -1})"
+                        icon
+                        color="grey--text text--darken-3">
+                        <v-icon color="grey darken-3">mdi-minus</v-icon>
+                      </v-btn>
+                    </div>
+                    <div class="col-6 cartModal_products_counter_row_quantity text-center font-brigada pt-4">
+                      <p class="show_counter_quantity grey--text text--darken-3 font-weight-bold mb-0">{{
+                          cart.qty
+                        }}</p>
+                    </div>
+                    <div class="col-3 cartModal_products_counter_row_plus d-flex justify-end">
+                      <v-btn
+                        @click="updateQuantity({productId: cart.id, value: 1})"
+                        icon
+                        color="grey--text text--darken-3">
+                        <v-icon color="grey darken-3">mdi-plus</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-2 col-6 cartModal_products_price">
+                <div class="col-md-2 col-6 cartModal_products_price">
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
                         v-if="cart.qty > 1">{{
                       $t('price')
                     }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
-                <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
-                    $t('price')
-                  }}: {{ cart.final_price }} ₴</span>
+                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
+                      $t('price')
+                    }}: {{ cart.final_price }} ₴</span>
+                </div>
+                <div class="col-md-1 cartModal_products_remove">
+                  <v-btn
+                    @click="deleteFromCart(cart.id)"
+                    class="float-right"
+                    icon
+                    color="grey darken-3">
+                    <v-icon color="grey darken-3">mdi-close</v-icon>
+                  </v-btn>
+                </div>
               </div>
-              <div class="col-md-1 cartModal_products_remove">
-                <v-btn
-                  @click="deleteFromCart(cart.id)"
-                  class="float-right"
-                  icon
-                  color="grey darken-3">
-                  <v-icon color="grey darken-3">mdi-close</v-icon>
-                </v-btn>
-              </div>
+              <hr class="cartModal_products_hr">
             </div>
-            <hr class="cartModal_products_hr">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 offset-md-3">
+            <v-btn
+              large
+              rounded
+              @click="checkout"
+              class="width-100"
+              dark>
+              Оформить заказ
+            </v-btn>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-          <v-btn
-            large
-            rounded
-            @click="checkout"
-            class="width-100"
-            dark>
-            Оформить заказ
-          </v-btn>
+      <div v-else-if="$store.getters['cart/data'] && !$store.getters['cart/data'].length">
+        <div class="row">
+          <div class="col-12 col-md-6 offset-md-3">
+            <v-img
+              class="width-100"
+              :src="require('~/assets/empty-cart-modal.png')"
+              :lazy-src="require('~/assets/empty-cart-modal.png')"
+              contain>
+            </v-img>
+          </div>
+        </div>
+        <div class="row your-cart-is-empty">
+          <div class="col-12 text-center">
+            <span class="black--text">{{ $t('yourCartIsEmpty') }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -131,7 +151,8 @@ export default {
   name: "CartModal",
   data() {
     return {
-      cartModalIsOpen: false
+      cartModalIsOpen: false,
+      baseUrl: process.env.BASE_URL
     }
   },
   methods: {
@@ -198,5 +219,9 @@ export default {
   height: 1px;
   background-color: #424242;
   border: none;
+}
+
+.your-cart-is-empty{
+  font-size: 50px;
 }
 </style>

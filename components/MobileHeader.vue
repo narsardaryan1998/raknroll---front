@@ -80,8 +80,8 @@
                       <div class="col-12">
                         <v-img class="favorite_product_image cursor-pointer transition-05 width-100"
                                contain
-                               :src="'http://raknroll.ua/' + favorite.image"
-                               :lazy-src="'http://raknroll.ua/' + favorite.image">
+                               :src="baseUrl + favorite.image"
+                               :lazy-src="baseUrl + favorite.image">
                         </v-img>
                       </div>
                       <div class="col-12 favorite_product_texts">
@@ -291,6 +291,7 @@ export default {
       openFavoritesModal: false,
       menuModalIsOpened: false,
       language: this.$i18n.locale,
+      baseUrl: process.env.BASE_URL
     }
   },
   mounted() {
@@ -358,11 +359,13 @@ export default {
     openMenuModal() {
       if (!this.menuModalIsOpened) {
         this.menuModalIsOpened = true;
+        document.getElementById('cartModal').classList.add("z-index-minus");
         document.getElementsByClassName('mobileHeader_modal')[0].classList.add('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.add("main-blured");
       } else {
         this.menuModalIsOpened = false;
+        document.getElementById('cartModal').classList.remove("z-index-minus");
         document.getElementsByClassName('mobileHeader_modal')[0].classList.remove('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.remove("main-blured");

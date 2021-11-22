@@ -58,10 +58,10 @@
               </div>
               <div class="header_nav_delivery_part_call">
                 <v-select
-                  :items="['099969998', '093091885', '041030006']"
+                  :items="['+38 (096) 599 - 09 - 09', '+38 (09) 599 - 09 - 09']"
                   menu-props="auto"
                   color="red darken-4"
-                  value="099969998"
+                  value="+38 (096) 599 - 09 - 09"
                   item-color="red darken-4"
                   class="pt-0 mt-0 without-border-select"
                   hide-details
@@ -149,8 +149,8 @@
                             <div class="col-md-2">
                               <v-img class="favorite_product_image cursor-pointer transition-05 width-100"
                                      contain
-                                     :src="'http://raknroll.ua/' + favorite.image"
-                                     :lazy-src="'http://raknroll.ua/' + favorite.image">
+                                     :src="baseUrl + favorite.image"
+                                     :lazy-src="baseUrl + favorite.image">
                               </v-img>
                             </div>
                             <div class="col-md-6 favorite_product_texts">
@@ -212,6 +212,7 @@ export default {
     return {
       openFavoritesModal: false,
       language: this.$i18n.locale,
+      baseUrl: process.env.BASE_URL
     }
   },
   mounted() {

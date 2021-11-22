@@ -8,54 +8,35 @@
               <div class="row">
                 <div class="col-md-12 d-flex justify-center">
                   <div class="text-center black-text-shadow black--text white-brush-background">
-                    <p class="py-8 px-12 footer_section_information_header footer_section_header"
-                       data-aos="fade-right"
-                       data-aos-duration="1000">{{ $t('contactUs') }}</p>
+                    <p class="py-8 px-12 footer_section_information_header footer_section_header">{{ $t('contactUs') }}</p>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 footer_section_information_data d-flex justify-space-around justify-lg-start">
                   <div class="d-flex align-center flex-column flex-sm-row">
-                    <div class="d-flex"
-                         data-aos="fade-right"
-                         data-aos-duration="1000">
+                    <div class="d-flex">
                       <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
                     </div>
-                    <div class="ml-3 contact-us_contacts_text d-flex flex-column"
-                         data-aos="fade-right"
-                         data-aos-delay="300"
-                         data-aos-duration="1000">
+                    <div class="ml-3 contact-us_contacts_text d-flex flex-column">
                       <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
                       <a href="javascript:void(0)">{{ $t('informationPart12.second') }} 10:00-21:30</a>
                     </div>
                   </div>
                   <div class="d-flex ml-sm-3 align-center flex-column flex-sm-row">
-                    <div class="d-flex"
-                         data-aos="fade-right"
-                         data-aos-delay="600"
-                         data-aos-duration="1000">
+                    <div class="d-flex">
                       <img src="~/assets/icons/icons8-phone-64-red.png" alt="Phone"/>
                     </div>
-                    <div class="ml-3 contact-us_contacts_text transition-05 d-flex flex-column"
-                         data-aos="fade-right"
-                         data-aos-delay="900"
-                         data-aos-duration="1000">
+                    <div class="ml-3 contact-us_contacts_text transition-05 d-flex flex-column">
                       <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
                       <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
                     </div>
                   </div>
                   <div class="d-flex align-center ml-sm-3 flex-column flex-sm-row">
-                    <div class="d-flex"
-                         data-aos="fade-right"
-                         data-aos-delay="1200"
-                         data-aos-duration="1000">
+                    <div class="d-flex">
                       <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
                     </div>
-                    <div class="ml-3 contact-us_contacts_text d-flex flex-column"
-                         data-aos="fade-right"
-                         data-aos-delay="1500"
-                         data-aos-duration="1000">
+                    <div class="ml-3 contact-us_contacts_text d-flex flex-column">
                       <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
                       <a href="javascript:void(0)">{{ $t('informationPart1.second') }}</a>
                     </div>
@@ -66,10 +47,7 @@
             <div class="col-12 mt-lg-11 footer_section_menu footer_section_menu_pages_section">
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <nav class="d-block"
-                       data-aos="fade-right"
-                       data-aos-delay="300"
-                       data-aos-duration="1000">
+                  <nav class="d-block">
                     <ul
                       class="list-style-none footer_section_nav_navigation_menu pl-0 d-flex justify-space-around justify-sm-start">
                       <li>
@@ -100,10 +78,7 @@
             </div>
             <div class="col-12 footer_section_menu">
               <div class="row">
-                <div class="col-md-12 text-center"
-                     data-aos="fade-right"
-                     data-aos-delay="500"
-                     data-aos-duration="1000">
+                <div class="col-md-12 text-center">
                   <nav class="d-block">
                     <ul
                       class="list-style-none footer_section_nav_navigation_menu pl-0 d-sm-flex justify-sm-space-between">
@@ -124,9 +99,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
                     max-width="30"
                     :src="require('~/assets/fb-logo-red.png')"
                     :lazy-src="require('~/assets/fb-logo-red.png')"
@@ -136,9 +108,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="400"
-                    data-aos-duration="1000"
                     class="ml-3"
                     max-width="30"
                     :src="require('~/assets/instaram-logo-red.png')"
@@ -149,9 +118,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="600"
-                    data-aos-duration="1000"
                     class="ml-3"
                     max-width="30"
                     :src="require('~/assets/yt-logo-red.png')"
@@ -162,9 +128,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="800"
-                    data-aos-duration="1000"
                     class="ml-3"
                     max-width="30"
                     :src="require('~/assets/whatsapp-logo-red.png')"
@@ -175,9 +138,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="1000"
-                    data-aos-duration="1000"
                     class="ml-3"
                     max-width="30"
                     :src="require('~/assets/viber-logo-red.png')"
@@ -188,9 +148,6 @@
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    data-aos="fade-right"
-                    data-aos-delay="1200"
-                    data-aos-duration="1000"
                     class="ml-3"
                     max-width="30"
                     :src="require('~/assets/telegram-logo-red.png')"
@@ -206,19 +163,13 @@
           <div class="row">
             <div class="col-md-12 d-flex justify-center">
               <div class="text-center black-text-shadow black--text white-brush-background">
-                <p class="py-8 px-12 footer_section_header"
-                   data-aos="fade-right"
-                   data-aos-delay="600"
-                   data-aos-duration="1000">{{ $t('weOnMap') }}</p>
+                <p class="py-8 px-12 footer_section_header">{{ $t('weOnMap') }}</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 text-center">
-              <div class="map-section_map-content"
-                   data-aos="fade-right"
-                   data-aos-delay="1200"
-                   data-aos-duration="1000">
+              <div class="map-section_map-content">
                 <div class="mapouter">
                   <div class="gmap_canvas">
                     <iframe width="100%" height="250" id="gmap_canvas"

@@ -95,5 +95,6 @@
     "mustBeValid": "\"{fieldName}\" - должна быть действительной",
     "dontMuch": "\"{fieldName}\" не совпадает"
   },
-  "displayQuantity": "Количество дисплей"
+  "displayQuantity": "Количество дисплей",
+  "yourCartIsEmpty": "Ваша корзина пуста"
 }

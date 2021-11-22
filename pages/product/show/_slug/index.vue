@@ -4,7 +4,7 @@
       <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0">
         <client-only>
           <zoom-on-hover :scale="1.1" class="cursor-zoom-in product-show_product_image"
-                         :img-normal="'http://raknroll.ua/' + $store.getters['product/data'].product.image">
+                         :img-normal="baseUrl + $store.getters['product/data'].product.image">
           </zoom-on-hover>
         </client-only>
       </div>
@@ -84,7 +84,7 @@
               <hr>
             </div>
             <div class="py-5">
-              <span>{{ $t('tastierTogether') }}</span>
+              <span>{{ $t('tastierTogether') }} (В процессе)</span>
             </div>
           </div>
         </div>
@@ -486,6 +486,7 @@ export default {
   },
   data() {
     return {
+      baseUrl: process.env.BASE_URL,
       slug: this.$route.params.slug,
       language: this.$i18n.locale,
       swiperOption: {

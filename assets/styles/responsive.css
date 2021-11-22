@@ -121,7 +121,7 @@
   }
 
   .our-advantages-single_text_description {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 
   #products {
@@ -366,7 +366,7 @@
   }
 
   .our-advantages-single_text_description {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 
   #products {
@@ -676,7 +676,7 @@
   }
 
   .our-advantages-single_text_description {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 
   #products {
@@ -1044,7 +1044,7 @@
   }
 
   .our-advantages-single_text_description {
-    font-size: 12px !important;
+    font-size: 13px !important;
   }
 
   .footer_section_information_data {
@@ -1191,5 +1191,10 @@
 
   .cart_product_texts_description {
     font-size: 13px !important;
+  }
+
+  .cartModal_products{
+    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
 }

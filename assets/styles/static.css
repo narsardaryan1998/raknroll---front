@@ -23,6 +23,11 @@ body {
   max-width: 100%;
 }
 
+.cart_order-section_register-order .v-window {
+  background-color: transparent !important;
+  overflow: inherit !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px !important;
   height: 5px !important;

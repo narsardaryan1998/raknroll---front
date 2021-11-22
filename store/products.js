@@ -4,11 +4,6 @@ export const actions = {
       commit('updateData', response.data);
     })
   },
-  getRecommendedProducts({commit}, params) {
-    return this.$axios.get('/api/products/recommended', {params}).then(response => {
-      commit('updateRecommendedProducts', response.data);
-    })
-  },
 };
 
 export const mutations = {

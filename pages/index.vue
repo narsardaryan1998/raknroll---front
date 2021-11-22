@@ -4,7 +4,6 @@
     <CashbackProductsSection></CashbackProductsSection>
     <CatalogSection></CatalogSection>
     <OurAdvantages></OurAdvantages>
-<!--    <ParallaxOurShop></ParallaxOurShop>-->
   </div>
 </template>
 <script>
@@ -12,7 +11,6 @@ import Intro from '~/components/Intro'
 import OurAdvantages from '~/components/OurAdvantages'
 import CatalogSection from '~/components/CatalogSection'
 import CashbackProductsSection from '~/components/CashbackProductsSection'
-import ParallaxOurShop from '~/components/ParallaxOurShop'
 
 export default {
   name: 'home',
@@ -26,7 +24,6 @@ export default {
     OurAdvantages,
     CatalogSection,
     CashbackProductsSection,
-    ParallaxOurShop,
   },
 }
 </script>
