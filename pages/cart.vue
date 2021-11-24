@@ -5,8 +5,8 @@
       <v-img
         position="center"
         class="width-100 height-100"
-        :src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')"
-        :lazy-src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')"
+        :src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
+        :lazy-src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
         cover>
         <p class="width-100 text-center">{{ $t('cart') }}</p>
       </v-img>
@@ -571,8 +571,8 @@
         <div class="col-12 col-md-3 offset-md-4">
           <v-img
             class="width-100"
-            :src="require('~/assets/empty-cart.png')"
-            :lazy-src="require('~/assets/empty-cart.png')"
+            :src="baseUrl + 'images/empty-cart.png'"
+            :lazy-src="baseUrl + 'images/empty-cart.png'"
             contain>
           </v-img>
         </div>

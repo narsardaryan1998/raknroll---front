@@ -81,8 +81,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')"
-              :lazy-src="require('~/assets/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg')">
+              :src="baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'"
+              :lazy-src="baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -125,8 +125,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg')"
-              :lazy-src="require('~/assets/adam-jaime-dmkmrNptMpw-unsplash.jpg')">
+              :src="baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg'"
+              :lazy-src="baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg'">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -147,8 +147,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')"
-              :lazy-src="require('~/assets/photo-1583623025817-d180a2221d0a.jpg')">
+              :src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
+              :lazy-src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -209,7 +209,12 @@
 
 <script>
 export default {
-  name: "CatalogSection"
+  name: "CatalogSection",
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL
+    }
+  }
 }
 </script>
 

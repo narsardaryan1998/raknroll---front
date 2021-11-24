@@ -45,6 +45,7 @@ export default {
     '@/assets/styles/font.css',
     '@/assets/styles/customCloseButton.css',
     '@/assets/styles/customHamburgerButton.css',
+    'vuetify/dist/vuetify.min.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

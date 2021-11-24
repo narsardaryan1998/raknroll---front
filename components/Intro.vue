@@ -3,8 +3,8 @@
     <v-img
       position="center"
       class="width-100 height-100"
-      :src="require('~/assets/header_background3.png')"
-      :lazy-src="require('~/assets/header_background3.png')"
+      :src="baseUrl + 'images/header_background3.png'"
+      :lazy-src="baseUrl + 'images/header_background3.png'"
       cover>
       <kinesis-container
         event="scroll">
@@ -171,6 +171,11 @@ import 'aos/dist/aos.css'
 
 export default {
   name: "Intro",
+  data(){
+    return {
+      baseUrl: process.env.BASE_URL
+    }
+  },
   components: {
     KinesisContainer,
     KinesisElement,

@@ -22,7 +22,6 @@
                  v-for="advantage in ourAdvantages"
                  :key="advantage.name"
                  data-aos="fade-up"
-                 :data-aos-delay="advantage.delay"
                  data-aos-duration="1000">
               <div class="row">
                 <div class="col-2 our-advantages-single_icon">
@@ -97,7 +96,7 @@ export default {
 <style scoped>
 .ourAdvantages-section {
   height: 850px;
-  background-image: url("~/assets/intro2_background.png");
+  background-image: url("https://api.raknroll.site//images/intro2_background.png");
   background-position: right;
   background-size: contain;
   background-repeat: no-repeat;

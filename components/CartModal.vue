@@ -130,8 +130,8 @@
           <div class="col-12 col-md-6 offset-md-3">
             <v-img
               class="width-100"
-              :src="require('~/assets/empty-cart-modal.png')"
-              :lazy-src="require('~/assets/empty-cart-modal.png')"
+              :src="baseUrl + 'images/empty-cart-modal.png'"
+              :lazy-src="baseUrl + 'images/empty-cart-modal.png'"
               contain>
             </v-img>
           </div>
