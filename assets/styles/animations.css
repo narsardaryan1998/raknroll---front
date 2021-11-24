@@ -1,19 +1,6 @@
-@keyframes openCartModalKeyframe {
-  0% {
-    transform: translateX(calc(100% - 50px));
-  }
-  60% {
-    transform: translateX(calc(0% - 30px));
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .open-cart-modal {
   z-index: 10000;
-  animation-name: openCartModalKeyframe;
-  animation-duration: .6s;
+  transition: .5s;
   transform: translateX(0) !important;
 }
 
@@ -90,21 +77,6 @@
 
 .custom-animation-fade-to-down {
   animation: customAnimationFadeToDown 1s;
-}
-
-@keyframes customAnimationFadeToLeft {
-  0% {
-    transform: translateX(-80px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.custom-animation-fade-to-left {
-  animation: customAnimationFadeToLeft 1s liner 3s;
 }
 
 .fade-enter-active, .fade-leave-active {

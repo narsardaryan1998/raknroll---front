@@ -1193,8 +1193,20 @@
     font-size: 13px !important;
   }
 
-  .cartModal_products{
+  .cartModal_products {
     padding-right: 10px !important;
     padding-left: 10px !important;
+  }
+
+  .mobileHeader_modal_open {
+    transition: .3s !important;
+  }
+
+  .transition-05 {
+    transition: .3s !important;
+  }
+
+  .open-cart-modal {
+    transition: .3s !important;
   }
 }

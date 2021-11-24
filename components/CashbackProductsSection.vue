@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="cashbackProductsSection_products">
-      <div class="custom-animation-fade-to-left margin-top-6vh"
+      <div class="margin-top-6vh"
            data-aos="fade-up"
            data-aos-duration="1000"
            ref="cashbackProductsSectionProducts">

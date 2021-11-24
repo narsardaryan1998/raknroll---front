@@ -432,7 +432,7 @@ export default {
 
 .mobileHeader_modal_open {
   transform: translateX(0%);
-  animation: ease 0.5s;
+  transition: .5s;
 }
 
 .mobileHeader_modal_nav_navigation_menu li {
