@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+      <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length" class="mb-10">
         <div class="row mr-5">
           <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
             <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>

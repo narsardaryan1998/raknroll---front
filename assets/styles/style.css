@@ -17,6 +17,10 @@
   height: 55px;
 }
 
+.products_show_catalog_filter_for_mobile {
+  display: none !important;
+}
+
 .products_show_product .font-brigada {
   font-size: 14px;
 }

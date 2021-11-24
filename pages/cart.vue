@@ -696,7 +696,7 @@ export default {
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: response.data.message,
+              title: 'Ваш заказ был успешно получен',
               showConfirmButton: false,
               timer: 1500
             });
@@ -727,7 +727,7 @@ export default {
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: response.data.message,
+              title: 'Ваш заказ был успешно получен',
               showConfirmButton: false,
               timer: 1500
             });

@@ -905,6 +905,10 @@
   .mobileFilterModal_fields {
     width: calc(100% - 50px);
   }
+
+  .products_show_catalog_filter_for_mobile {
+    display: flex !important;
+  }
 }
 
 @media screen and (max-width: 600px) {

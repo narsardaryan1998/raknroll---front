@@ -22,7 +22,26 @@
       </client-only>
       <div class="products_and_filter d-flex justify-space-between container-padding container">
         <div class="products_show">
-          <div class="row products_page_products_show">
+          <div class="row products_show_catalog_filter_for_mobile">
+            <div class="col-12 col-sm-8 offset-sm-2">
+              <v-select
+                @change="filtration"
+                filled
+                :items="$store.getters['products/data'].categories"
+                menu-props="auto"
+                v-model="filter.category_slug"
+                color="white"
+                :placeholder="$t('allOfCatalog')"
+                class="pt-0 mt-0"
+                hide-details
+                item-text="name"
+                item-value="slug"
+                item-color="white"
+                single-line>
+              </v-select>
+            </div>
+          </div>
+          <div class="row products_page_products_show margin-top-6vh">
             <div class="py-0 col-sm-6 col-12 col-md-6 col-lg-3"
                  v-for="(product, index) in $store.getters['products/data'].products" :key="index">
               <v-card
@@ -331,7 +350,7 @@
             </div>
           </div>
         </div>
-        <div class="px-8 pt-10">
+        <div class="px-8 py-10">
           <div class="row">
             <div class="col-12">
               <v-text-field
@@ -343,24 +362,6 @@
                 :label="$t('searchProduct')"
                 append-icon="mdi-shopping-search">
               </v-text-field>
-            </div>
-          </div>
-          <div class="row margin-top-4vh">
-            <div class="col-12">
-              <v-select
-                filled
-                :items="$store.getters['products/data'].categories"
-                menu-props="auto"
-                v-model="filter.category_slug"
-                color="white"
-                :placeholder="$t('allOfCatalog')"
-                class="pt-0 mt-0"
-                hide-details
-                item-text="name"
-                item-value="slug"
-                item-color="white"
-                single-line>
-              </v-select>
             </div>
           </div>
           <div class="row margin-top-4vh">
