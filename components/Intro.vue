@@ -3,27 +3,11 @@
     <v-img
       position="center"
       class="width-100 height-100"
-      :src="baseUrl + 'images/header_background3.png'"
-      :lazy-src="baseUrl + 'images/header_background3.png'"
+      :src="require('~/assets/header_background3.png')"
+      :lazy-src="require('~/assets/header_background3.png')"
       cover>
       <kinesis-container
         event="scroll">
-        <!--      <div class="snail1"-->
-        <!--           data-aos="fade"-->
-        <!--           data-aos-duration="1000"-->
-        <!--           data-aos-once="true">-->
-        <!--        <kinesis-element-->
-        <!--          tag="div"-->
-        <!--          :strength="80"-->
-        <!--          type="rotate">-->
-        <!--          <v-img-->
-        <!--            :src="require('~/assets/snail1.png')"-->
-        <!--            :lazy-src="require('~/assets/snail1.png')"-->
-        <!--            alt="Snail"-->
-        <!--            contain>-->
-        <!--          </v-img>-->
-        <!--        </kinesis-element>-->
-        <!--      </div>-->
         <div class="intro1_header white--text">
           <kinesis-element
             tag="div"
@@ -143,22 +127,6 @@
             </div>
           </div>
         </div>
-        <!--      <div class="krevetka1"-->
-        <!--           data-aos="fade"-->
-        <!--           data-aos-duration="1000"-->
-        <!--           data-aos-once="true">-->
-        <!--        <kinesis-element-->
-        <!--          tag="div"-->
-        <!--          :strength="24"-->
-        <!--          type="rotate">-->
-        <!--          <v-img-->
-        <!--            :src="require('~/assets/krevetka.png')"-->
-        <!--            :lazy-src="require('~/assets/krevetka.png')"-->
-        <!--            alt="Ice"-->
-        <!--            contain>-->
-        <!--          </v-img>-->
-        <!--        </kinesis-element>-->
-        <!--      </div>-->
       </kinesis-container>
     </v-img>
   </div>
