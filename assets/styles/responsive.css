@@ -604,6 +604,10 @@
     font-size: 29px !important;
   }
 
+  .pages_top_with_animation hr {
+    width: 120px !important;
+  }
+
   .intro1_information1 {
     font-size: 19px !important;
     margin-left: 63vw !important;
@@ -1212,5 +1216,13 @@
 
   .open-cart-modal {
     transition: .3s !important;
+  }
+
+  .pages_top_with_animation hr {
+    width: 40px !important;
+  }
+
+  .pages_top_with_animation .component-top-header {
+    font-size: 40px !important;
   }
 }

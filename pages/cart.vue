@@ -1,16 +1,33 @@
 <template>
   <div id="cart">
-    <div
-      class="cart_top_section page-header width-100 margin-bottom-10vh">
-      <v-img
-        position="center"
-        class="width-100 height-100"
-        :src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
-        :lazy-src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
-        cover>
-        <p class="width-100 text-center">{{ $t('cart') }}</p>
-      </v-img>
-    </div>
+    <client-only>
+      <div class="pages_top_with_animation d-flex align-center justify-center pt-10">
+        <div class="mr-3"
+             data-aos="fade-right"
+             data-aos-duration="1000">
+          <hr>
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000">
+          <div class="component-top-header"
+               data-aos="fade-up"
+               data-aos-duration="1000">
+            <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+              <p class="py-8 px-sm-16 px-8"
+                 data-aos="fade-up"
+                 data-aos-delay="300"
+                 data-aos-duration="1000"> {{ $t('cart') }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="ml-3"
+             data-aos="fade-left"
+             data-aos-duration="1000">
+          <hr>
+        </div>
+      </div>
+    </client-only>
     <div class="row cart_order-section container-padding"
          v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
       <div class="col-md-9 col-12 cart_order-section_products">
@@ -571,8 +588,8 @@
         <div class="col-12 col-md-3 offset-md-4">
           <v-img
             class="width-100"
-            :src="baseUrl + 'images/empty-cart.png'"
-            :lazy-src="baseUrl + 'images/empty-cart.png'"
+            :src="require('~/assets/images/empty-cart.png')"
+            :lazy-src="require('~/assets/images/empty-cart.png')"
             contain>
           </v-img>
         </div>

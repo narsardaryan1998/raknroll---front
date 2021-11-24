@@ -7,7 +7,7 @@ body {
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/country-quilt-dark.png") repeat !important;*/
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/dark_wood.png") repeat !important;*/
   /*background: url("https://poetsforamerica.com/wp-content/uploads/2016/07/black-pattern-background-tumblr-dark-backgrounds-3357.jpg") repeat !important;*/
-  background: url("~/assets/raknroll-back-pattern2.jpg") repeat !important;
+  background: url("~/assets/images/raknroll-back-pattern21.jpg") repeat !important;
   /*background: url("https://img1.goodfon.com/wallpaper/nbig/b/25/leather-black-dark-pattern.jpg") repeat !important;*/
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: Bold !important;
@@ -92,7 +92,7 @@ body {
 }
 
 .products_show_products_black_background {
-  background: url("~/assets/raknroll-back-pattern1.jpg") repeat !important;
+  background: url("~/assets/images/raknroll-back-pattern21.jpg") repeat !important;
 }
 
 .swiper-slider_product {
@@ -112,7 +112,7 @@ body {
 }
 
 .red-pattern-background {
-  background: url("~/assets/raknroll-back-pattern1.png") repeat !important;
+  background: url("~/assets/images/raknroll-back-pattern1.png") repeat !important;
 }
 
 .main-blured {
@@ -340,12 +340,12 @@ a {
 }
 
 .white-brush-background {
-  background: url("~/assets/white-background-brush-for-header.png") no-repeat;
+  background: url("~/assets/images/white-background-brush-for-header.png") no-repeat;
   background-size: 100% 100%;
 }
 
 .black-brush-background {
-  background: url("~/assets/black-background-brush-for-header.png") no-repeat;
+  background: url("~/assets/images/black-background-brush-for-header.png") no-repeat;
   background-size: 100% 100%;
 }
 

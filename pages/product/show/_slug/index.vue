@@ -2,11 +2,10 @@
   <div id="product-show">
     <div class="row product-show_product container container-padding">
       <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0">
-        <client-only>
-          <zoom-on-hover :scale="1.1" class="cursor-zoom-in product-show_product_image"
-                         :img-normal="baseUrl + $store.getters['product/data'].product.image">
-          </zoom-on-hover>
-        </client-only>
+        <v-img :src="baseUrl + $store.getters['product/data'].product.image"
+               :lazy-src="baseUrl + $store.getters['product/data'].product.image"
+               cover>
+        </v-img>
       </div>
       <div class="col-md-6 col-12 product-show_product_section">
         <div class="row">

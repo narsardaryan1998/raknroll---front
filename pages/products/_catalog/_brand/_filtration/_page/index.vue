@@ -2,22 +2,35 @@
   <div>
     <div id="products" class="page-container-padding-bottom">
       <client-only>
-        <div class="products_top_section page-header width-100 margin-bottom-10vh"
-             data-aos="fade-up"
-             data-aos-duration="1000">
-          <v-img
-            class="width-100 height-100"
-            :src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'"
-            :lazy-src="filter.category_slug === 'pivo' ? 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg' : filter.category_slug === 'roli' ? baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg' : filter.category_slug === 'napoji' ? 'https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg' : filter.category_slug === 'zakuski' ? 'https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg' : filter.category_slug === 'alkogolni-napoji' ? baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg' : filter.category_slug === 'v-yalena-riba' ? 'https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg' : filter.category_slug === 'sidr' ? 'https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg' : baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'"
-            cover>
-            <div
-              data-aos="fade-up"
-              data-aos-delay="500"
-              data-aos-duration="1000">
-              <p class="width-100 text-center" v-if="!category_name"> {{ $t('allOfCatalog') }}</p>
-              <p class="width-100 text-center" v-else> {{ category_name }}</p>
+        <div class="pages_top_with_animation d-flex align-center justify-center pt-10">
+          <div class="mr-3"
+               data-aos="fade-right"
+               data-aos-duration="1000">
+            <hr>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000">
+            <div class="component-top-header"
+                 data-aos="fade-up"
+                 data-aos-duration="1000">
+              <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
+                <p class="py-8 px-sm-16 px-8"
+                   data-aos="fade-up"
+                   data-aos-delay="300"
+                   data-aos-duration="1000" v-if="!category_name"> {{ $t('allOfCatalog') }}</p>
+                <p class="py-8 px-sm-16 px-8"
+                   data-aos="fade-up"
+                   data-aos-delay="300"
+                   data-aos-duration="1000" v-else> {{ category_name }}</p>
+              </div>
             </div>
-          </v-img>
+          </div>
+          <div class="ml-3"
+               data-aos="fade-left"
+               data-aos-duration="1000">
+            <hr>
+          </div>
         </div>
       </client-only>
       <div class="products_and_filter d-flex justify-space-between container-padding container">

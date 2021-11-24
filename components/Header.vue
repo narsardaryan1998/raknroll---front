@@ -6,8 +6,8 @@
           <NuxtLink :to='localePath("/")' class="header_logo_link">
             <v-img
               position="left"
-              :src="require('~/assets/raknroll-logo.png')"
-              :lazy-src="require('~/assets/raknroll-logo.png')"
+              :src="require('~/assets/images/raknroll-logo.png')"
+              :lazy-src="require('~/assets/images/raknroll-logo.png')"
               alt="RAK'N'ROLL logo"
               contain>
             </v-img>

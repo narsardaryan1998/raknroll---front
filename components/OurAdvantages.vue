@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .ourAdvantages-section {
   height: 850px;
-  background-image: url("https://api.raknroll.site//images/intro2_background.png");
+  background-image: url("~/assets/images/intro2_background1.png");
   background-position: right;
   background-size: contain;
   background-repeat: no-repeat;

@@ -7,8 +7,8 @@
           <v-img
             width="70px"
             class="mobileHeader_logo_link_img"
-            :src="require('~/assets/raknroll-logo.png')"
-            :lazy-src="require('~/assets/raknroll-logo.png')"
+            :src="require('~/assets/images/raknroll-logo.png')"
+            :lazy-src="require('~/assets/images/raknroll-logo.png')"
             alt="RAK'N'ROLL logo"
             contain>
           </v-img>
@@ -207,8 +207,8 @@
               data-aos-delay="200"
               data-aos-duration="1000"
               max-width="30"
-              :src="require('~/assets/fb-logo-red.png')"
-              :lazy-src="require('~/assets/fb-logo-red.png')"
+              :src="require('~/assets/images/fb-logo-red.png')"
+              :lazy-src="require('~/assets/images/fb-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -220,8 +220,8 @@
               data-aos-duration="1000"
               class="ml-3"
               max-width="30"
-              :src="require('~/assets/instaram-logo-red.png')"
-              :lazy-src="require('~/assets/instaram-logo-red.png')"
+              :src="require('~/assets/images/instaram-logo-red.png')"
+              :lazy-src="require('~/assets/images/instaram-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -233,8 +233,8 @@
               data-aos-duration="1000"
               class="ml-3"
               max-width="30"
-              :src="require('~/assets/yt-logo-red.png')"
-              :lazy-src="require('~/assets/yt-logo-red.png')"
+              :src="require('~/assets/images/yt-logo-red.png')"
+              :lazy-src="require('~/assets/images/yt-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -246,8 +246,8 @@
               data-aos-duration="1000"
               class="ml-3"
               max-width="30"
-              :src="require('~/assets/whatsapp-logo-red.png')"
-              :lazy-src="require('~/assets/whatsapp-logo-red.png')"
+              :src="require('~/assets/images/whatsapp-logo-red.png')"
+              :lazy-src="require('~/assets/images/whatsapp-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -259,8 +259,8 @@
               data-aos-duration="1000"
               class="ml-3"
               max-width="30"
-              :src="require('~/assets/viber-logo-red.png')"
-              :lazy-src="require('~/assets/viber-logo-red.png')"
+              :src="require('~/assets/images/viber-logo-red.png')"
+              :lazy-src="require('~/assets/images/viber-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -272,8 +272,8 @@
               data-aos-duration="1000"
               class="ml-3"
               max-width="30"
-              :src="require('~/assets/telegram-logo-red.png')"
-              :lazy-src="require('~/assets/telegram-logo-red.png')"
+              :src="require('~/assets/images/telegram-logo-red.png')"
+              :lazy-src="require('~/assets/images/telegram-logo-red.png')"
               contain>
             </v-img>
           </v-hover>
@@ -363,12 +363,14 @@ export default {
         document.getElementsByClassName('mobileHeader_modal')[0].classList.add('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+        document.getElementsByTagName('footer')[0].classList.add("main-blured");
       } else {
         this.menuModalIsOpened = false;
         document.getElementById('cartModal').classList.remove("z-index-minus");
         document.getElementsByClassName('mobileHeader_modal')[0].classList.remove('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+        document.getElementsByTagName('footer')[0].classList.remove("main-blured");
       }
     },
     goToPath(path) {

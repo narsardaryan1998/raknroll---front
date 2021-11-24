@@ -36,8 +36,8 @@
             <v-img
               class="width-100 height-100 transition-05"
               :class="hover ? ' scale-1-2' : ''"
-              src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg"
-              lazy-src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/22852551/beer.jpg"
+              :src="require('~/assets/images/catalog/beer.jpg')"
+              :lazy-src="require('~/assets/images/catalog/beer.jpg')"
               cover>
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
@@ -59,8 +59,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg"
-              lazy-src="https://as2.ftcdn.net/v2/jpg/02/94/39/09/1000_F_294390925_VqqKV3fbFnxBemLkPTAfHvOOnebcnHY8.jpg">
+              :src="require('~/assets/images/catalog/snacks.jpg')"
+              :lazy-src="require('~/assets/images/catalog/snacks.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -81,8 +81,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'"
-              :lazy-src="baseUrl + 'images/1000_F_379179036_SkNiYp7Pu0DBaPEHPL33p5gMEAwXg93z.jpg'">
+              :src="require('~/assets/images/catalog/crayfish.jpg')"
+              :lazy-src="require('~/assets/images/catalog/crayfish.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -103,8 +103,9 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg"
-              lazy-src="https://as1.ftcdn.net/v2/jpg/02/05/02/74/1000_F_205027412_YirrLjjgtP0iNFYjmofSLC4kmBwG3EiR.jpg">
+              position="top"
+              :src="require('~/assets/images/catalog/dried-fish.jpg')"
+              :lazy-src="require('~/assets/images/catalog/dried-fish.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -125,8 +126,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg'"
-              :lazy-src="baseUrl + 'images/adam-jaime-dmkmrNptMpw-unsplash.jpg'">
+              :src="require('~/assets/images/catalog/alcohol.jpg')"
+              :lazy-src="require('~/assets/images/catalog/alcohol.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -147,8 +148,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'"
-              :lazy-src="baseUrl + 'images/photo-1583623025817-d180a2221d0a.jpg'">
+              :src="require('~/assets/images/catalog/rolls.jpg')"
+              :lazy-src="require('~/assets/images/catalog/rolls.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -169,8 +170,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg"
-              lazy-src="https://as1.ftcdn.net/v2/jpg/03/69/56/02/1000_F_369560255_ze7zKUVKic1yQKzmXOSym2shcEyGqKPg.jpg">
+              :src="require('~/assets/images/catalog/beverages.jpg')"
+              :lazy-src="require('~/assets/images/catalog/beverages.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -191,8 +192,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              src="https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg"
-              lazy-src="https://as2.ftcdn.net/v2/jpg/00/96/35/77/1000_F_96357769_jqkgF0fQbJKIAw1OfhybalW1sbZknE0M.jpg">
+              :src="require('~/assets/images/catalog/cider.jpg')"
+              :lazy-src="require('~/assets/images/catalog/cider.jpg')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
