@@ -65,7 +65,7 @@
                 <v-hover
                   v-slot="{ hover }">
                   <NuxtLink :to='localePath("/product/show/" + product.slug)'>
-                    <v-img class="card_product_image width-100 transition-05"
+                    <v-img class="card_product_image width-100"
                            :class="{ 'scale-1-2': hover }"
                            :src="baseUrl + product.image"
                            :lazy-src="baseUrl + product.image"
@@ -330,7 +330,7 @@
         </div>
       </div>
     </div>
-    <div id="mobileFilterModal" class="transition-05">
+    <div id="mobileFilterModal">
       <div class="mobileFilterModal_button red-pattern-background justify-center">
         <v-btn
           @click="openMobilFilterSection"

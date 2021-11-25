@@ -817,6 +817,7 @@
 
   #cartModal {
     width: 70% !important;
+    transition: 0s !important;
   }
 
   .cartModal_products_section {
@@ -912,6 +913,34 @@
 
   .products_show_catalog_filter_for_mobile {
     display: flex !important;
+  }
+
+  .mobileHeader_modal {
+    transition: 0s !important;
+  }
+
+  .mobileHeader_modal_open {
+    transition: 0s !important;
+  }
+
+  .transition-05 {
+    transition: .3s !important;
+  }
+
+  .open-cart-modal {
+    transition: 0s !important;
+  }
+
+  .modaltor {
+    transition: 0s !important;
+  }
+
+  .modaltor__panel {
+    transition: 0s !important;
+  }
+
+  .main-blured {
+    transition: 0s !important;
   }
 }
 
@@ -1206,16 +1235,8 @@
     padding-left: 10px !important;
   }
 
-  .mobileHeader_modal_open {
-    transition: .3s !important;
-  }
-
-  .transition-05 {
-    transition: .3s !important;
-  }
-
-  .open-cart-modal {
-    transition: .3s !important;
+  #mobileHeader {
+    transition: 0s !important;
   }
 
   .pages_top_with_animation hr {

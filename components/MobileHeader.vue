@@ -51,7 +51,6 @@
         <div>
           <div class="favorites-modal modal">
             <vue-modaltor :close-scroll="false"
-                          :animation-panel="'fade'"
                           :visible="openFavoritesModal"
                           @hide="openFavoritesModal=false">
               <template #header>
@@ -78,7 +77,7 @@
                     :key="index">
                     <div class="row position-relative align-center" v-if="favorite.id">
                       <div class="col-12">
-                        <v-img class="favorite_product_image cursor-pointer transition-05 width-100"
+                        <v-img class="favorite_product_image width-100"
                                contain
                                :src="baseUrl + favorite.image"
                                :lazy-src="baseUrl + favorite.image">
@@ -168,7 +167,7 @@
           <li v-for="(category, index) in $store.getters['categories/data']" class="pt-5">
             <a href="javascript:void(0)"
                @click="goToPath(localePath('/products/'+ category.slug +'/all-brands/page-1'))"
-               class="mobileHeader_modal_nav_navigation_menu_link transition-05 white--text">{{ category.name }}</a>
+               class="mobileHeader_modal_nav_navigation_menu_link white--text">{{ category.name }}</a>
           </li>
         </ul>
       </nav>
