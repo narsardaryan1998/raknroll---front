@@ -100,6 +100,16 @@ export default {
     baseURL: process.env.BASE_URL
   },
 
+  generate: {
+    routes() {
+      return this.$axios.get(process.env.BASE_URL + 'api/products/all').then(res => {
+        return res.data.map(productSlug => {
+          return '/product/show/' + productSlug
+        })
+      })
+    }
+  },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     theme: {
