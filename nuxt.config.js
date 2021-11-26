@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
+import axios from 'axios'
 
 export default {
   // loading: '@/components/LoadingBar.vue',
@@ -102,7 +103,7 @@ export default {
 
   generate: {
     routes() {
-      return this.$axios.get(process.env.BASE_URL + 'api/products/all').then(res => {
+      return axios.get(process.env.BASE_URL + 'api/products/all').then(res => {
         return res.data.map(productSlug => {
           return '/product/show/' + productSlug
         })
