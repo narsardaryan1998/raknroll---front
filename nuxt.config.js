@@ -1,11 +1,11 @@
 import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
-import axios from 'axios'
 
 export default {
   // loading: '@/components/LoadingBar.vue',
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
+  ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -99,16 +99,6 @@ export default {
 
   axios: {
     baseURL: process.env.BASE_URL
-  },
-
-  generate: {
-    routes() {
-      return axios.get(process.env.BASE_URL + 'api/products/all').then(res => {
-        return res.data.map(productSlug => {
-          return '/product/show/' + productSlug
-        })
-      })
-    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
