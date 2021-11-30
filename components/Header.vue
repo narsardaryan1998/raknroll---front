@@ -163,7 +163,7 @@
                             <div class="col-md-2 favorite_product_price">
                               <span class="favorite_product_texts_description_price">{{
                                   $t('price')
-                                }}: {{ favorite.final_price }} ₴</span>
+                                }}: {{ favorite.final_price }} грн</span>
                               <br>
                             </div>
                             <div class="col-md-2 favorite_product_actions">

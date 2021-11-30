@@ -76,10 +76,10 @@
               <div class="col-sm-2 col-6 cart_product_price">
                   <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
                       $t('price')
-                    }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
+                    }}: {{ cart.final_price }} грн x {{ cart.qty }}</span>
                 <span class="cart_product_texts_description white-opacity-07" v-else>{{
                     $t('price')
-                  }}: {{ cart.final_price }} ₴</span>
+                  }}: {{ cart.final_price }} грн</span>
               </div>
               <div class="col-1 cart_product_remove">
                 <a href="javascript:void(0)"
@@ -256,7 +256,7 @@
                     {{ $t('purchases') }}:
                   </div>
                   <div>
-                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴
+                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -269,7 +269,7 @@
                   </div>
                   <div>
                     <div>
-                      + 500 ₴
+                      + 500 грн
                     </div>
                   </div>
                 </div>
@@ -284,7 +284,7 @@
                   <div class="white--text font-weight-bold">
                     {{
                       orderFormDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                    }} ₴
+                    }} грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -462,7 +462,7 @@
                     {{ $t('purchases') }}:
                   </div>
                   <div>
-                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴
+                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -490,7 +490,7 @@
                   <div class="white--text font-weight-bold">
                     {{
                       orderFormNotDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                    }} ₴
+                    }} грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>

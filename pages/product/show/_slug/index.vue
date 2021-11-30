@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-md-12 product-show_product_price">
             <span>{{ $t('price') }}:
-              <span class="white-opacity-07">{{ $store.getters['product/data'].product.final_price }} ₴ / (1 {{
+              <span class="white-opacity-07">{{ $store.getters['product/data'].product.final_price }} грн / (1 {{
                   $t('pc')
                 }})</span></span>
             <hr>
@@ -114,7 +114,7 @@
         <!--                        align="center"-->
         <!--                        class="mx-0">-->
         <!--                        <div class="grey&#45;&#45;text ml-4">-->
-        <!--                          4.5 (413) | 360 ₴-->
+        <!--                          4.5 (413) | 360 грн-->
         <!--                        </div>-->
         <!--                      </v-row>-->
         <!--                      <div class="my-4 subtitle-1">-->

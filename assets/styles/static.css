@@ -2,6 +2,19 @@ body {
   overflow-x: hidden !important;
 }
 
+/*@font-face {*/
+/*  src: url('~/assets/fonts/302-font.otf') format('otf');*/
+/*  src: local("TestRaknroll"), url('~/assets/fonts/302-font.otf') format("truetype");*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+  url('~/assets/fonts/302-font.otf') format("truetype");
+}
+
 .v-application {
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini-dark.png") repeat !important;*/
   /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/country-quilt-dark.png") repeat !important;*/

@@ -62,42 +62,42 @@
                 dark
                 class="mx-auto my-12 mt-0 products_show_product"
                 max-width="374">
-                <v-hover
-                  v-slot="{ hover }">
-                  <NuxtLink :to='localePath("/product/show/" + product.slug)'>
-                    <v-img class="card_product_image width-100"
+                <NuxtLink :to='localePath("/product/show/" + product.slug)'>
+                  <v-hover
+                    v-slot="{ hover }">
+                    <v-img class="card_product_image width-100 transition-05"
                            :class="{ 'scale-1-2': hover }"
                            :src="baseUrl + product.image"
                            :lazy-src="baseUrl + product.image"
                            contain>
                     </v-img>
-                  </NuxtLink>
-                </v-hover>
-                <v-card-title class="font-weight-bold px-2 pb-0 pt-2">{{ product.name }}</v-card-title>
-                <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                  <div class="pl-5 pt-4 text-left" v-if="product.weight && product.min_quantity">
-                    {{ $t('minimum') + ': ' + product.min_quantity }}
-                  </div>
-                  <div
-                    :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
-                    <div class="pl-3" v-if="product.weight">
-                      {{ '1 ' + $t('portion') + ' / ' + product.weight + $t('shortGram') }}
-                    </div>
-                    <div class="pl-3" v-else-if="product.min_quantity">
+                  </v-hover>
+                  <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
+                  <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
+                    <div class="pl-5 pt-4 text-left" v-if="product.weight && product.min_quantity">
                       {{ $t('minimum') + ': ' + product.min_quantity }}
                     </div>
-                    <div class="pr-3"
-                         v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
-                      {{ $t('price') + ': ' + product.final_price }} ₴ x
-                      {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                    <div
+                      :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
+                      <div class="pl-3" v-if="product.weight">
+                        {{ '1 ' + $t('portion') + ' / ' + product.weight + $t('shortGram') }}
+                      </div>
+                      <div class="pl-3" v-else-if="product.min_quantity">
+                        {{ $t('minimum') + ': ' + product.min_quantity }}
+                      </div>
+                      <div class="pr-3"
+                           v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
+                        {{ $t('price') + ': ' + product.final_price }} грн x
+                        {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                      </div>
+                      <div v-else class="pr-3">
+                        {{ $t('price') + ': ' + product.final_price }} грн
+                      </div>
                     </div>
-                    <div v-else class="pr-3">
-                      {{ $t('price') + ': ' + product.final_price }} ₴
+                    <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
                     </div>
-                  </div>
-                  <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
-                  </div>
-                </v-card-text>
+                  </v-card-text>
+                </NuxtLink>
                 <div v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)">
                   <v-card-actions class="py-0">
                     <v-bottom-navigation
@@ -116,19 +116,11 @@
                       class="width-100 red-pattern-background"
                       horizontal>
                       <v-btn class="p-0 width-100"
-                             max-width="100%"
-                             v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
-                             @click="addToFavorites(product)">
-                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('favorites') }}</span>
-                        <v-icon color="grey lighten-2">mdi-heart</v-icon>
-                      </v-btn>
-                      <v-btn class="p-0 width-100"
-                             v-else
-                             max-width="100%"
-                             @click="deleteFromFavorites(product.id)">
-                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('favorites') }}</span>
+                             @click="$router.push(localePath('/product/show/' + product.slug))"
+                             max-width="100%">
+                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
-                          color="grey lighten-2">mdi-heart-off
+                          color="grey lighten-2">mdi-text-box-search-outline
                         </v-icon>
                       </v-btn>
                     </v-bottom-navigation>
@@ -170,18 +162,12 @@
                           color="grey lighten-2">mdi-cart-off
                         </v-icon>
                       </v-btn>
-                      <v-btn class="p-0 mw-100"
-                             v-if="!$store.getters['favorites/storageData'].find(favorite => product.id === favorite.id)"
-                             @click="addToFavorites(product)">
-                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('favorites') }}</span>
-                        <v-icon color="grey lighten-2">mdi-heart</v-icon>
-                      </v-btn>
-                      <v-btn class="p-0 mw-100"
-                             v-else
-                             @click="deleteFromFavorites(product.id)">
-                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('favorites') }}</span>
+                      <v-btn class="p-0 width-100"
+                             @click="$router.push(localePath('/product/show/' + product.slug))"
+                             max-width="100%">
+                        <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
-                          color="grey lighten-2">mdi-heart-off
+                          color="grey lighten-2">mdi-text-box-search-outline
                         </v-icon>
                       </v-btn>
                     </v-bottom-navigation>

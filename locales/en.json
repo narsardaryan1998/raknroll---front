@@ -96,5 +96,6 @@
     "dontMuch": "The \"{fieldName}\" doesn't much"
   },
   "displayQuantity": "Display quantity",
-  "yourCartIsEmpty": "Your cart is empty"
+  "yourCartIsEmpty": "Your cart is empty",
+  "details": "In detail"
 }

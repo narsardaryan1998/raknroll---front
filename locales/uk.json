@@ -96,5 +96,6 @@
     "dontMuch": "\"{fieldName}\" не збігається"
   },
   "displayQuantity": "Відображення кількості",
-  "yourCartIsEmpty": "Ваш кошик порожній"
+  "yourCartIsEmpty": "Ваш кошик порожній",
+  "details": "Детально"
 }

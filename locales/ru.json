@@ -96,5 +96,6 @@
     "dontMuch": "\"{fieldName}\" не совпадает"
   },
   "displayQuantity": "Количество дисплей",
-  "yourCartIsEmpty": "Ваша корзина пуста"
+  "yourCartIsEmpty": "Ваша корзина пуста",
+  "details": "Подробно"
 }

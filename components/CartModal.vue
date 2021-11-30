@@ -38,7 +38,7 @@
       <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length" class="mb-10">
         <div class="row mr-5">
           <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
-            <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} ₴</span>
+            <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн</span>
             <hr class="cartModal_products_hr">
           </div>
         </div>
@@ -93,10 +93,10 @@
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
                         v-if="cart.qty > 1">{{
                       $t('price')
-                    }}: {{ cart.final_price }} ₴ x {{ cart.qty }}</span>
+                    }}: {{ cart.final_price }} грн x {{ cart.qty }}</span>
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
                       $t('price')
-                    }}: {{ cart.final_price }} ₴</span>
+                    }}: {{ cart.final_price }} грн</span>
                 </div>
                 <div class="col-md-1 cartModal_products_remove">
                   <v-btn
