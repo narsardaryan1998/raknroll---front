@@ -80,7 +80,7 @@
                     <div
                       :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
                       <div class="pl-3" v-if="product.weight">
-                        {{ '1 ' + $t('portion') + ' / ' + product.weight + $t('shortGram') }}
+                        {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
                       </div>
                       <div class="pl-3" v-else-if="product.min_quantity">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
@@ -497,7 +497,7 @@ export default {
     return {
       language: this.$i18n.locale,
       mobileFilterModal: false,
-      displayQuantityArray: [8, 12, 16, 20, 24],
+      displayQuantityArray: [8, 12, 16],
       baseUrl: process.env.BASE_URL
     }
   },
@@ -571,12 +571,12 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
-    addToFavorites(product) {
-      this.$store.commit('favorites/add', product);
-    },
-    deleteFromFavorites(productId) {
-      this.$store.commit('favorites/delete', productId);
-    },
+    // addToFavorites(product) {
+    //   this.$store.commit('favorites/add', product);
+    // },
+    // deleteFromFavorites(productId) {
+    //   this.$store.commit('favorites/delete', productId);
+    // },
     updateQuantity(params) {
       this.$store.commit('cart/updateQuantity', params);
     },

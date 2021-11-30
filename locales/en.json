@@ -50,7 +50,9 @@
   "minimum": "Minimum",
   "portion": "Portion",
   "gram": "gram",
-  "shortGram": "g.",
+  "liter": "liter",
+  "literShort": "l.",
+  "gramShort": "g.",
   "description": "Description",
   "addToCart": "Add to cart",
   "removeFromCart": "Remove from cart",
@@ -97,5 +99,6 @@
   },
   "displayQuantity": "Display quantity",
   "yourCartIsEmpty": "Your cart is empty",
-  "details": "In detail"
+  "details": "In detail",
+  "allDiscounts": "All discounts"
 }

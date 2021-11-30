@@ -1,7 +1,8 @@
 <template>
   <header id="mobileHeader"
           class="custom-animation-fade-to-down">
-    <div class="mobileHeader_nav d-flex justify-space-between align-sm-start align-center container container-padding products_show_products_black_background">
+    <div
+      class="mobileHeader_nav d-flex justify-space-between align-sm-start align-center container container-padding products_show_products_black_background">
       <div class="mobileHeader_logo">
         <NuxtLink :to='localePath("/")' class="mobileHeader_logo_link">
           <v-img
@@ -48,102 +49,102 @@
         </div>
       </div>
       <div class="mobileHeader_actions d-flex justify-end align-center">
-        <div>
-          <div class="favorites-modal modal">
-            <vue-modaltor :close-scroll="false"
-                          :visible="openFavoritesModal"
-                          @hide="openFavoritesModal=false">
-              <template #header>
-                <div class="d-flex justify-end">
-                  <a href="javascript:void(0)"
-                     class="close-button float-right"
-                     @click="closeFavorites">
-                    <div class="in">
-                      <div class="close-button-block"></div>
-                      <div class="close-button-block"></div>
-                    </div>
-                    <div class="out">
-                      <div class="close-button-block"></div>
-                      <div class="close-button-block"></div>
-                    </div>
-                  </a>
-                </div>
-              </template>
-              <template #body>
-                <div class="modaltor__content pa-lg-5 pa-1"
-                     v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">
-                  <div
-                    v-for="(favorite, index) in $store.getters['favorites/storageData']"
-                    :key="index">
-                    <div class="row position-relative align-center" v-if="favorite.id">
-                      <div class="col-12">
-                        <v-img class="favorite_product_image width-100"
-                               contain
-                               :src="baseUrl + favorite.image"
-                               :lazy-src="baseUrl + favorite.image">
-                        </v-img>
-                      </div>
-                      <div class="col-12 favorite_product_texts">
-                        <span class="favorite_product_texts_header">{{ favorite.name }}</span>
-                        <br>
-                        <span class="favorite_product_texts_description">{{
-                            favorite.short_description
-                          }}</span>
-                      </div>
-                      <div class="col-6 favorite_product_price">
-                              <span class="favorite_product_texts_description_price">{{
-                                  $t('price')
-                                }}: {{ favorite.final_price }} грн</span>
-                        <br>
-                      </div>
-                      <div class="col-6 favorite_product_actions d-flex justify-end">
-                        <v-btn
-                          v-if="!$store.getters['cart/data'].find(cart => favorite.id === cart.id)"
-                          @click="addToCart(favorite)"
-                          icon>
-                          <v-icon
-                            color="grey darken-3">mdi-cart
-                          </v-icon>
-                        </v-btn>
-                        <v-btn v-else
-                               @click="deleteFromCart(favorite.id)"
-                               icon>
-                          <v-icon
-                            color="grey darken-3">mdi-cart-off
-                          </v-icon>
-                        </v-btn>
-                        <v-btn
-                          @click="deleteFromFavorites(favorite.id)"
-                          icon>
-                          <v-icon color="grey darken-3">mdi-heart-off
-                          </v-icon>
-                        </v-btn>
-                      </div>
-                    </div>
-                    <v-divider class="favorite_products_hr" inset></v-divider>
-                  </div>
-                </div>
-              </template>
-            </vue-modaltor>
-          </div>
-          <v-btn
-            v-show="!menuModalIsOpened"
-            class="mr-0 mr-sm-2 ma-2 mobileHeader_actions-favorites"
-            outlined
-            small
-            @click="openFavorites"
-            fab
-            color="white">
-            <v-badge
-              bordered
-              class="font-brigada"
-              color="red darken-4"
-              :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"
-              overlap>
-              <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('favorites')"/>
-            </v-badge>
-          </v-btn>
-        </div>
+        <!--        <div>-->
+        <!--          <div class="favorites-modal modal">-->
+        <!--            <vue-modaltor :close-scroll="false"-->
+        <!--                          :visible="openFavoritesModal"-->
+        <!--                          @hide="openFavoritesModal=false">-->
+        <!--              <template #header>-->
+        <!--                <div class="d-flex justify-end">-->
+        <!--                  <a href="javascript:void(0)"-->
+        <!--                     class="close-button float-right"-->
+        <!--                     @click="closeFavorites">-->
+        <!--                    <div class="in">-->
+        <!--                      <div class="close-button-block"></div>-->
+        <!--                      <div class="close-button-block"></div>-->
+        <!--                    </div>-->
+        <!--                    <div class="out">-->
+        <!--                      <div class="close-button-block"></div>-->
+        <!--                      <div class="close-button-block"></div>-->
+        <!--                    </div>-->
+        <!--                  </a>-->
+        <!--                </div>-->
+        <!--              </template>-->
+        <!--              <template #body>-->
+        <!--                <div class="modaltor__content pa-lg-5 pa-1"-->
+        <!--                     v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">-->
+        <!--                  <div-->
+        <!--                    v-for="(favorite, index) in $store.getters['favorites/storageData']"-->
+        <!--                    :key="index">-->
+        <!--                    <div class="row position-relative align-center" v-if="favorite.id">-->
+        <!--                      <div class="col-12">-->
+        <!--                        <v-img class="favorite_product_image width-100"-->
+        <!--                               contain-->
+        <!--                               :src="baseUrl + favorite.image"-->
+        <!--                               :lazy-src="baseUrl + favorite.image">-->
+        <!--                        </v-img>-->
+        <!--                      </div>-->
+        <!--                      <div class="col-12 favorite_product_texts">-->
+        <!--                        <span class="favorite_product_texts_header">{{ favorite.name }}</span>-->
+        <!--                        <br>-->
+        <!--                        <span class="favorite_product_texts_description">{{-->
+        <!--                            favorite.short_description-->
+        <!--                          }}</span>-->
+        <!--                      </div>-->
+        <!--                      <div class="col-6 favorite_product_price">-->
+        <!--                              <span class="favorite_product_texts_description_price">{{-->
+        <!--                                  $t('price')-->
+        <!--                                }}: {{ favorite.final_price }} грн</span>-->
+        <!--                        <br>-->
+        <!--                      </div>-->
+        <!--                      <div class="col-6 favorite_product_actions d-flex justify-end">-->
+        <!--                        <v-btn-->
+        <!--                          v-if="!$store.getters['cart/data'].find(cart => favorite.id === cart.id)"-->
+        <!--                          @click="addToCart(favorite)"-->
+        <!--                          icon>-->
+        <!--                          <v-icon-->
+        <!--                            color="grey darken-3">mdi-cart-->
+        <!--                          </v-icon>-->
+        <!--                        </v-btn>-->
+        <!--                        <v-btn v-else-->
+        <!--                               @click="deleteFromCart(favorite.id)"-->
+        <!--                               icon>-->
+        <!--                          <v-icon-->
+        <!--                            color="grey darken-3">mdi-cart-off-->
+        <!--                          </v-icon>-->
+        <!--                        </v-btn>-->
+        <!--                        <v-btn-->
+        <!--                          @click="deleteFromFavorites(favorite.id)"-->
+        <!--                          icon>-->
+        <!--                          <v-icon color="grey darken-3">mdi-heart-off-->
+        <!--                          </v-icon>-->
+        <!--                        </v-btn>-->
+        <!--                      </div>-->
+        <!--                    </div>-->
+        <!--                    <v-divider class="favorite_products_hr" inset></v-divider>-->
+        <!--                  </div>-->
+        <!--                </div>-->
+        <!--              </template>-->
+        <!--            </vue-modaltor>-->
+        <!--          </div>-->
+        <!--          <v-btn-->
+        <!--            v-show="!menuModalIsOpened"-->
+        <!--            class="mr-0 mr-sm-2 ma-2 mobileHeader_actions-favorites"-->
+        <!--            outlined-->
+        <!--            small-->
+        <!--            @click="openFavorites"-->
+        <!--            fab-->
+        <!--            color="white">-->
+        <!--            <v-badge-->
+        <!--              bordered-->
+        <!--              class="font-brigada"-->
+        <!--              color="red darken-4"-->
+        <!--              :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"-->
+        <!--              overlap>-->
+        <!--              <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('favorites')"/>-->
+        <!--            </v-badge>-->
+        <!--          </v-btn>-->
+        <!--        </div>-->
         <div>
           <button class="menu"
                   ref="menuHamburgerButton"
@@ -201,54 +202,34 @@
         <div class="col-12 d-flex justify-center px-0">
           <v-hover
             v-slot="{ hover }">
-            <v-img
-              data-aos="fade-right"
-              data-aos-delay="200"
-              data-aos-duration="1000"
-              max-width="30"
-              :src="require('~/assets/images/fb-logo-red.png')"
-              :lazy-src="require('~/assets/images/fb-logo-red.png')"
-              contain>
-            </v-img>
+            <a href="https://www.facebook.com/RAKnROLL-100396829019534"
+               target="_blank">
+              <v-img
+                data-aos="fade-right"
+                data-aos-delay="200"
+                data-aos-duration="1000"
+                max-width="30"
+                :src="require('~/assets/images/fb-logo-red.png')"
+                :lazy-src="require('~/assets/images/fb-logo-red.png')"
+                contain>
+              </v-img>
+            </a>
           </v-hover>
           <v-hover
             v-slot="{ hover }">
-            <v-img
-              data-aos="fade-right"
-              data-aos-delay="400"
-              data-aos-duration="1000"
-              class="ml-3"
-              max-width="30"
-              :src="require('~/assets/images/instaram-logo-red.png')"
-              :lazy-src="require('~/assets/images/instaram-logo-red.png')"
-              contain>
-            </v-img>
-          </v-hover>
-          <v-hover
-            v-slot="{ hover }">
-            <v-img
-              data-aos="fade-right"
-              data-aos-delay="600"
-              data-aos-duration="1000"
-              class="ml-3"
-              max-width="30"
-              :src="require('~/assets/images/yt-logo-red.png')"
-              :lazy-src="require('~/assets/images/yt-logo-red.png')"
-              contain>
-            </v-img>
-          </v-hover>
-          <v-hover
-            v-slot="{ hover }">
-            <v-img
-              data-aos="fade-right"
-              data-aos-delay="800"
-              data-aos-duration="1000"
-              class="ml-3"
-              max-width="30"
-              :src="require('~/assets/images/whatsapp-logo-red.png')"
-              :lazy-src="require('~/assets/images/whatsapp-logo-red.png')"
-              contain>
-            </v-img>
+            <a href="https://instagram.com/rak._n_.roll?r=nametag"
+               target="_blank">
+              <v-img
+                data-aos="fade-right"
+                data-aos-delay="400"
+                data-aos-duration="1000"
+                class="ml-3"
+                max-width="30"
+                :src="require('~/assets/images/instaram-logo-red.png')"
+                :lazy-src="require('~/assets/images/instaram-logo-red.png')"
+                contain>
+              </v-img>
+            </a>
           </v-hover>
           <v-hover
             v-slot="{ hover }">
@@ -298,7 +279,7 @@ export default {
       language: this.language
     });
     this.getCartDataByLanguage();
-    this.$store.commit('favorites/values');
+    // this.$store.commit('favorites/values');
   },
   methods: {
     changeLanguage() {
@@ -321,21 +302,21 @@ export default {
       }
       this.$router.push({path: pushTo});
     },
-    openFavorites() {
-      document.getElementById('cartModal').classList.add("z-index-minus");
-      document.getElementsByClassName('v-main')[0].classList.add("main-blured");
-      document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
-      this.openFavoritesModal = true;
-    },
-    closeFavorites() {
-      document.getElementById('cartModal').classList.remove("z-index-minus");
-      document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
-      document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
-      this.openFavoritesModal = false;
-    },
-    deleteFromFavorites(productId) {
-      this.$store.commit('favorites/delete', productId);
-    },
+    // openFavorites() {
+    //   document.getElementById('cartModal').classList.add("z-index-minus");
+    //   document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+    //   document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
+    //   this.openFavoritesModal = true;
+    // },
+    // closeFavorites() {
+    //   document.getElementById('cartModal').classList.remove("z-index-minus");
+    //   document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+    //   document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
+    //   this.openFavoritesModal = false;
+    // },
+    // deleteFromFavorites(productId) {
+    //   this.$store.commit('favorites/delete', productId);
+    // },
     addToCart(productId) {
       this.$store.commit('cart/add', productId);
     },
@@ -388,9 +369,9 @@ export default {
   z-index: 100;
 }
 
-.mobileHeader_actions-favorites {
-  border: none;
-}
+/*.mobileHeader_actions-favorites {*/
+/*  border: none;*/
+/*}*/
 
 .mobileHeader_actions-favorites img {
   width: 27px;

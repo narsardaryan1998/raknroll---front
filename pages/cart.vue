@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-12 cart_order-section_register-order">
+      <div class="col-md-3 col-12 cart_order-section_register-order" id="cartOrderFormSection">
         <div class="row mt-3">
           <div class="col-12  cart_order-section_register-order_your-order-header">
             <span>{{ $t('information') }}</span>
@@ -689,12 +689,6 @@ export default {
       }, 1001);
 
     },
-    addToFavorites(product) {
-      this.$store.commit('favorites/add', product);
-    },
-    deleteFromFavorites(productId) {
-      this.$store.commit('favorites/delete', productId);
-    },
     async checkoutDelivery() {
       let productsLength = this.$store.getters['cart/data'].length;
       if (this.$refs.orderFormDelivery.validate() && productsLength) {
@@ -724,6 +718,8 @@ export default {
         if (this.rememberInformation) {
           localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderFormDelivery))
         }
+      } else {
+        document.getElementById('cartOrderFormSection').scrollIntoView();
       }
     },
     async checkoutNotDelivery() {
@@ -755,6 +751,8 @@ export default {
         if (this.rememberInformation) {
           localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderFormNotDelivery))
         }
+      } else {
+        document.getElementById('cartOrderFormSection').scrollIntoView();
       }
     },
   },

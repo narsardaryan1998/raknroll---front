@@ -102,100 +102,100 @@
                     </v-badge>
                   </v-btn>
                 </NuxtLink>
-                <v-btn
-                  class="ma-2 header_nav_user_part_button"
-                  outlined
-                  small
-                  @click="openFavorites"
-                  fab
-                  color="white">
-                  <v-badge
-                    bordered
-                    class="font-brigada"
-                    color="red darken-4"
-                    :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"
-                    overlap>
-                    <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('favorites')"/>
-                  </v-badge>
-                </v-btn>
-                <div class="favorites-modal modal">
-                  <vue-modaltor :close-scroll="false"
-                                :animation-panel="'fade'"
-                                :visible="openFavoritesModal"
-                                @hide="openFavoritesModal=false">
-                    <template #header>
-                      <div class="d-flex justify-end">
-                        <a href="javascript:void(0)"
-                           class="close-button float-right"
-                           @click="closeFavorites">
-                          <div class="in">
-                            <div class="close-button-block"></div>
-                            <div class="close-button-block"></div>
-                          </div>
-                          <div class="out">
-                            <div class="close-button-block"></div>
-                            <div class="close-button-block"></div>
-                          </div>
-                        </a>
-                      </div>
-                    </template>
-                    <template #body>
-                      <div class="modaltor__content pa-lg-5 pa-1"
-                           v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">
-                        <div
-                          v-for="(favorite, index) in $store.getters['favorites/storageData']"
-                          :key="index">
-                          <div class="row position-relative align-center" v-if="favorite.id">
-                            <div class="col-md-2">
-                              <v-img class="favorite_product_image cursor-pointer transition-05 width-100"
-                                     contain
-                                     :src="baseUrl + favorite.image"
-                                     :lazy-src="baseUrl + favorite.image">
-                              </v-img>
-                            </div>
-                            <div class="col-md-6 favorite_product_texts">
-                              <span class="favorite_product_texts_header">{{ favorite.name }}</span>
-                              <br>
-                              <span class="favorite_product_texts_description">{{
-                                  favorite.short_description
-                                }}</span>
-                            </div>
-                            <div class="col-md-2 favorite_product_price">
-                              <span class="favorite_product_texts_description_price">{{
-                                  $t('price')
-                                }}: {{ favorite.final_price }} грн</span>
-                              <br>
-                            </div>
-                            <div class="col-md-2 favorite_product_actions">
-                              <v-btn
-                                v-if="!$store.getters['cart/data'].find(cart => favorite.id === cart.id)"
-                                @click="addToCart(favorite)"
-                                icon>
-                                <v-icon
-                                  color="grey darken-3">mdi-cart
-                                </v-icon>
-                              </v-btn>
-                              <v-btn v-else
-                                     @click="deleteFromCart(favorite.id)"
-                                     icon>
-                                <v-icon
-                                  color="grey darken-3">mdi-cart-off
-                                </v-icon>
-                              </v-btn>
-                              <v-btn
-                                @click="deleteFromFavorites(favorite.id)"
-                                icon>
-                                <v-icon color="grey darken-3">mdi-heart-off
-                                </v-icon>
-                              </v-btn>
-                            </div>
-                          </div>
-                          <v-divider class="favorite_products_hr" inset></v-divider>
-                        </div>
-                      </div>
-                    </template>
-                  </vue-modaltor>
-                </div>
+<!--                <v-btn-->
+<!--                  class="ma-2 header_nav_user_part_button"-->
+<!--                  outlined-->
+<!--                  small-->
+<!--                  @click="openFavorites"-->
+<!--                  fab-->
+<!--                  color="white">-->
+<!--                  <v-badge-->
+<!--                    bordered-->
+<!--                    class="font-brigada"-->
+<!--                    color="red darken-4"-->
+<!--                    :content="this.$store.getters['favorites/count'] ? this.$store.getters['favorites/count'] : '0'"-->
+<!--                    overlap>-->
+<!--                    <img src="~/assets/icons/icons8-heart-health-64.png" :alt="$t('favorites')"/>-->
+<!--                  </v-badge>-->
+<!--                </v-btn>-->
+<!--                <div class="favorites-modal modal">-->
+<!--                  <vue-modaltor :close-scroll="false"-->
+<!--                                :animation-panel="'fade'"-->
+<!--                                :visible="openFavoritesModal"-->
+<!--                                @hide="openFavoritesModal=false">-->
+<!--                    <template #header>-->
+<!--                      <div class="d-flex justify-end">-->
+<!--                        <a href="javascript:void(0)"-->
+<!--                           class="close-button float-right"-->
+<!--                           @click="closeFavorites">-->
+<!--                          <div class="in">-->
+<!--                            <div class="close-button-block"></div>-->
+<!--                            <div class="close-button-block"></div>-->
+<!--                          </div>-->
+<!--                          <div class="out">-->
+<!--                            <div class="close-button-block"></div>-->
+<!--                            <div class="close-button-block"></div>-->
+<!--                          </div>-->
+<!--                        </a>-->
+<!--                      </div>-->
+<!--                    </template>-->
+<!--                    <template #body>-->
+<!--                      <div class="modaltor__content pa-lg-5 pa-1"-->
+<!--                           v-if="$store.getters['favorites/storageData'] && $store.getters['favorites/count']">-->
+<!--                        <div-->
+<!--                          v-for="(favorite, index) in $store.getters['favorites/storageData']"-->
+<!--                          :key="index">-->
+<!--                          <div class="row position-relative align-center" v-if="favorite.id">-->
+<!--                            <div class="col-md-2">-->
+<!--                              <v-img class="favorite_product_image cursor-pointer transition-05 width-100"-->
+<!--                                     contain-->
+<!--                                     :src="baseUrl + favorite.image"-->
+<!--                                     :lazy-src="baseUrl + favorite.image">-->
+<!--                              </v-img>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6 favorite_product_texts">-->
+<!--                              <span class="favorite_product_texts_header">{{ favorite.name }}</span>-->
+<!--                              <br>-->
+<!--                              <span class="favorite_product_texts_description">{{-->
+<!--                                  favorite.short_description-->
+<!--                                }}</span>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-2 favorite_product_price">-->
+<!--                              <span class="favorite_product_texts_description_price">{{-->
+<!--                                  $t('price')-->
+<!--                                }}: {{ favorite.final_price }} грн</span>-->
+<!--                              <br>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-2 favorite_product_actions">-->
+<!--                              <v-btn-->
+<!--                                v-if="!$store.getters['cart/data'].find(cart => favorite.id === cart.id)"-->
+<!--                                @click="addToCart(favorite)"-->
+<!--                                icon>-->
+<!--                                <v-icon-->
+<!--                                  color="grey darken-3">mdi-cart-->
+<!--                                </v-icon>-->
+<!--                              </v-btn>-->
+<!--                              <v-btn v-else-->
+<!--                                     @click="deleteFromCart(favorite.id)"-->
+<!--                                     icon>-->
+<!--                                <v-icon-->
+<!--                                  color="grey darken-3">mdi-cart-off-->
+<!--                                </v-icon>-->
+<!--                              </v-btn>-->
+<!--                              <v-btn-->
+<!--                                @click="deleteFromFavorites(favorite.id)"-->
+<!--                                icon>-->
+<!--                                <v-icon color="grey darken-3">mdi-heart-off-->
+<!--                                </v-icon>-->
+<!--                              </v-btn>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                          <v-divider class="favorite_products_hr" inset></v-divider>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </template>-->
+<!--                  </vue-modaltor>-->
+<!--                </div>-->
               </div>
             </div>
           </div>
@@ -220,7 +220,7 @@ export default {
       language: this.language
     });
     this.getCartDataByLanguage();
-    this.$store.commit('favorites/values');
+    // this.$store.commit('favorites/values');
   },
   methods: {
     changeLanguage() {
@@ -243,17 +243,17 @@ export default {
       }
       this.$router.push({path: pushTo});
     },
-    openFavorites() {
-      document.getElementsByClassName('v-main')[0].classList.add("main-blured");
-      this.openFavoritesModal = true;
-    },
-    closeFavorites() {
-      document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
-      this.openFavoritesModal = false;
-    },
-    deleteFromFavorites(productId) {
-      this.$store.commit('favorites/delete', productId);
-    },
+    // openFavorites() {
+    //   document.getElementsByClassName('v-main')[0].classList.add("main-blured");
+    //   this.openFavoritesModal = true;
+    // },
+    // closeFavorites() {
+    //   document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
+    //   this.openFavoritesModal = false;
+    // },
+    // deleteFromFavorites(productId) {
+    //   this.$store.commit('favorites/delete', productId);
+    // },
     addToCart(productId) {
       this.$store.commit('cart/add', productId);
     },

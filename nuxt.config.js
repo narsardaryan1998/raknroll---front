@@ -78,10 +78,10 @@ export default {
             code: 'uk',
             name: 'UK'
           },
-          {
-            code: 'en',
-            name: 'EN'
-          },
+          // {
+          //   code: 'en',
+          //   name: 'EN'
+          // },
           {
             code: 'ru',
             name: 'RU'

@@ -975,11 +975,15 @@
   }
 
   .mobileHeader_phone-and-language {
-    width: 54% !important;
+    width: 65% !important;
     flex-direction: column !important;
   }
 
-  .mobileHeader_actions, .mobileHeader_logo {
+  .mobileHeader_actions {
+    width: 15% !important;
+  }
+
+  .mobileHeader_logo {
     width: 22% !important;
   }
 

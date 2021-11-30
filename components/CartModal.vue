@@ -118,7 +118,7 @@
               large
               rounded
               @click="checkout"
-              class="width-100"
+              class="width-100 products_show_products_black_background"
               dark>
               Оформить заказ
             </v-btn>

@@ -50,7 +50,9 @@
   "minimum": "Мінімум",
   "portion": "Порція",
   "gram": "грам",
-  "shortGram": "г.",
+  "liter": "літр",
+  "literShort": "л.",
+  "gramShort": "г.",
   "description": "Опис",
   "addToCart": "Додати в кошик",
   "removeFromCart": "Видалити з кошика",
@@ -97,5 +99,6 @@
   },
   "displayQuantity": "Відображення кількості",
   "yourCartIsEmpty": "Ваш кошик порожній",
-  "details": "Детально"
+  "details": "Детально",
+  "allDiscounts": "Усі акції"
 }

@@ -8,7 +8,9 @@
               <div class="row">
                 <div class="col-md-12 d-flex justify-center">
                   <div class="text-center black-text-shadow black--text white-brush-background">
-                    <p class="py-8 px-12 footer_section_information_header footer_section_header">{{ $t('contactUs') }}</p>
+                    <p class="py-8 px-12 footer_section_information_header footer_section_header">{{
+                        $t('contactUs')
+                      }}</p>
                   </div>
                 </div>
               </div>
@@ -98,42 +100,28 @@
               <div class="col-12 d-flex justify-space-around justify-sm-start">
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img
-                    max-width="30"
-                    :src="require('~/assets/images/fb-logo-red.png')"
-                    :lazy-src="require('~/assets/images/fb-logo-red.png')"
-                    contain>
-                  </v-img>
+                  <a href="https://www.facebook.com/RAKnROLL-100396829019534"
+                     target="_blank">
+                    <v-img
+                      max-width="30"
+                      :src="require('~/assets/images/fb-logo-red.png')"
+                      :lazy-src="require('~/assets/images/fb-logo-red.png')"
+                      contain>
+                    </v-img>
+                  </a>
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img
-                    class="ml-3"
-                    max-width="30"
-                    :src="require('~/assets/images/instaram-logo-red.png')"
-                    :lazy-src="require('~/assets/images/instaram-logo-red.png')"
-                    contain>
-                  </v-img>
-                </v-hover>
-                <v-hover
-                  v-slot="{ hover }">
-                  <v-img
-                    class="ml-3"
-                    max-width="30"
-                    :src="require('~/assets/images/yt-logo-red.png')"
-                    :lazy-src="require('~/assets/images/yt-logo-red.png')"
-                    contain>
-                  </v-img>
-                </v-hover>
-                <v-hover
-                  v-slot="{ hover }">
-                  <v-img
-                    class="ml-3"
-                    max-width="30"
-                    :src="require('~/assets/images/whatsapp-logo-red.png')"
-                    :lazy-src="require('~/assets/images/whatsapp-logo-red.png')"
-                    contain>
-                  </v-img>
+                  <a href="https://instagram.com/rak._n_.roll?r=nametag"
+                     target="_blank">
+                    <v-img
+                      class="ml-3"
+                      max-width="30"
+                      :src="require('~/assets/images/instaram-logo-red.png')"
+                      :lazy-src="require('~/assets/images/instaram-logo-red.png')"
+                      contain>
+                    </v-img>
+                  </a>
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">

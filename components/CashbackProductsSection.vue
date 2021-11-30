@@ -57,7 +57,7 @@
                     <div
                       :class="product.min_quantity || product.weight ? 'pl-2 pt-4 d-flex justify-space-between' : 'pl-2 pt-4 d-flex justify-end'">
                       <div class="pl-3" v-if="product.weight">
-                        {{ '1 ' + $t('portion') + ' / ' + product.weight + $t('shortGram') }}
+                        {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
                       </div>
                       <div class="pl-3" v-else-if="product.min_quantity">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
@@ -161,6 +161,22 @@
         </div>
       </div>
     </div>
+    <div class="cashbackProductsSection_all-button d-flex justify-center"
+         data-aos="fade-up"
+         data-aos-duration="1000">
+      <div class="my-5">
+        <v-btn
+          x-large
+          @click='$router.push(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`))'
+          class="width-100 white-pattern-background black--text font-weight-bold"
+          dark>
+          {{ $t('allDiscounts') }}
+          <v-icon class="ml-3 black--text font-weight-bold">
+            mdi-check
+          </v-icon>
+        </v-btn>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -231,12 +247,12 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
-    addToFavorites(product) {
-      this.$store.commit('favorites/add', product);
-    },
-    deleteFromFavorites(productId) {
-      this.$store.commit('favorites/delete', productId);
-    },
+    // addToFavorites(product) {
+    //   this.$store.commit('favorites/add', product);
+    // },
+    // deleteFromFavorites(productId) {
+    //   this.$store.commit('favorites/delete', productId);
+    // },
     updateQuantity(params) {
       this.$store.commit('cart/updateQuantity', params);
     },

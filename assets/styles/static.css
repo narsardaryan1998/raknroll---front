@@ -27,6 +27,10 @@ body {
   line-height: normal !important;
 }
 
+/*.theme--dark.v-btn.v-btn--has-bg {*/
+/*  background: url("~/assets/images/raknroll-back-pattern21.jpg") repeat !important;*/
+/*}*/
+
 .v-application .error--text {
   color: #B71C1C !important;
   caret-color: #B71C1C !important;
