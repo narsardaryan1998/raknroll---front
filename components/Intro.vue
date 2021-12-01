@@ -3,8 +3,8 @@
     <v-img
       position="center"
       class="width-100 height-100"
-      :src="require('~/assets/images/header_background31.jpg')"
-      :lazy-src="require('~/assets/images/header_background31.jpg')"
+      :src="require('~/assets/images/топпер-на-сайт.jpg')"
+      :lazy-src="require('~/assets/images/топпер-на-сайт.jpg')"
       cover>
       <kinesis-container
         event="scroll">
