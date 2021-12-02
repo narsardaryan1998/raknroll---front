@@ -3,10 +3,11 @@
     <v-img
       position="center"
       class="width-100 height-100"
-      :src="require('~/assets/images/testbacktest (1).png')"
-      :lazy-src="require('~/assets/images/testbacktest (1).png')"
+      :src="require('~/assets/images/testbacktest (2).png')"
+      :lazy-src="require('~/assets/images/testbacktest (2).png')"
       data-aos="fade-right"
-      data-aos-duration="1500">
+      data-aos-duration="1500"
+      contain>
       <div class="d-none d-md-block">
         <kinesis-container
           event="move">
@@ -83,6 +84,7 @@
 
 <script>
 import {KinesisContainer, KinesisElement} from 'vue-kinesis'
+
 export default {
   name: "Intro",
   data() {
@@ -103,6 +105,7 @@ export default {
   margin-left: -100px;
   width: 800px;
 }
+
 .intro1_background_parallax_roll {
   position: absolute;
   top: 22vh;

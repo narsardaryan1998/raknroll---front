@@ -1056,6 +1056,10 @@
   }
 }
 
+.intro1_background .v-image__image {
+  background-size: contain !important;
+}
+
 @media screen and (max-width: 600px) {
   #cartModal {
     width: calc(100% + 50px) !important;
@@ -1063,6 +1067,10 @@
 
   #mobileFilterModal {
     width: calc(100% + 50px) !important;
+  }
+
+  .intro1_background .v-image__image {
+    background-size: contain !important;
   }
 
   .mobileHeader_actions-favorites img {
@@ -1102,7 +1110,7 @@
 
   .intro1_background_parallax_roll {
     width: 220px !important;
-    top: 30vh !important;
+    top: 20vh !important;
   }
 
   @keyframes customAnimationRoll {
