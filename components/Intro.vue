@@ -5,39 +5,76 @@
       class="width-100 height-100"
       :src="require('~/assets/images/testbacktest (1).png')"
       :lazy-src="require('~/assets/images/testbacktest (1).png')">
-      <kinesis-container
-        event="move">
-        <div class="position-relative">
-          <div class="intro1_background_parallax_crayfish white--text">
-            <kinesis-element
-              tag="div"
-              :strength="30"
-              type="depth">
-              <v-img
-                position="center"
-                class="width-100 height-100"
-                :src="require('~/assets/images/crayfish-transprent.png')"
-                :lazy-src="require('~/assets/images/crayfish-transprent.png')"
-                cover>
-              </v-img>
-            </kinesis-element>
+      <div class="d-none d-md-block">
+        <kinesis-container
+          event="move">
+          <div class="position-relative">
+            <div class="intro1_background_parallax_crayfish white--text">
+              <kinesis-element
+                tag="div"
+                :strength="30"
+                type="depth">
+                <v-img
+                  position="center"
+                  class="width-100 height-100"
+                  :src="require('~/assets/images/crayfish-transprent.png')"
+                  :lazy-src="require('~/assets/images/crayfish-transprent.png')"
+                  cover>
+                </v-img>
+              </kinesis-element>
+            </div>
+            <div class="intro1_background_parallax_roll white--text">
+              <kinesis-element
+                tag="div"
+                :strength="25"
+                type="depth">
+                <v-img
+                  position="center"
+                  class="width-100 height-100"
+                  :src="require('~/assets/images/roll.png')"
+                  :lazy-src="require('~/assets/images/roll.png')"
+                  cover>
+                </v-img>
+              </kinesis-element>
+            </div>
           </div>
-          <div class="intro1_background_parallax_roll white--text">
-            <kinesis-element
-              tag="div"
-              :strength="25"
-              type="depth">
-              <v-img
-                position="center"
-                class="width-100 height-100"
-                :src="require('~/assets/images/roll.png')"
-                :lazy-src="require('~/assets/images/roll.png')"
-                cover>
-              </v-img>
-            </kinesis-element>
+        </kinesis-container>
+      </div>
+      <div class="d-md-none d-block">
+        <kinesis-container
+          event="scroll">
+          <div class="position-relative">
+            <div class="intro1_background_parallax_crayfish white--text">
+              <kinesis-element
+                tag="div"
+                :strength="120"
+                type="depth">
+                <v-img
+                  position="center"
+                  class="width-100 height-100"
+                  :src="require('~/assets/images/crayfish-transprent.png')"
+                  :lazy-src="require('~/assets/images/crayfish-transprent.png')"
+                  cover>
+                </v-img>
+              </kinesis-element>
+            </div>
+            <div class="intro1_background_parallax_roll white--text">
+              <kinesis-element
+                tag="div"
+                :strength="180"
+                type="depth">
+                <v-img
+                  position="center"
+                  class="width-100 height-100"
+                  :src="require('~/assets/images/roll.png')"
+                  :lazy-src="require('~/assets/images/roll.png')"
+                  cover>
+                </v-img>
+              </kinesis-element>
+            </div>
           </div>
-        </div>
-      </kinesis-container>
+        </kinesis-container>
+      </div>
     </v-img>
   </div>
 </template>
