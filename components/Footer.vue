@@ -69,8 +69,8 @@
                       <li class="pl-5">
                         <NuxtLink
                           class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                          :to='localePath("/contact_us")'>
-                          {{ $t('menuLinks.contact_us') }}
+                          :to='localePath("/contact-us")'>
+                          {{ $t('menuLinks.contact-us') }}
                         </NuxtLink>
                       </li>
                     </ul>

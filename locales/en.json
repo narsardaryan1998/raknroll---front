@@ -6,7 +6,8 @@
     "products": "Products",
     "shop": "Shop",
     "reviews": "Reviews",
-    "contact_us": "Contact"
+    "contact-us": "Contact",
+    "delivery-and-payment": "Delivery and payment"
   },
   "introSubheader": {
     "first": "Fresh <span class='red--text text--darken-4'>crayfish,</span> beer, ",

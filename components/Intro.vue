@@ -4,12 +4,11 @@
       position="center"
       class="width-100 height-100"
       :src="require('~/assets/images/test-new.jpg')"
-      :lazy-src="require('~/assets/images/test-new.jpg')"
-      cover>
+      :lazy-src="require('~/assets/images/test-new.jpg')">
       <kinesis-container
         event="move">
         <div class="d-flex justify-lg-space-between">
-          <div class="intro1_header white--text">
+          <div class="intro1_background_parallax_crayfish white--text">
             <kinesis-element
               tag="div"
               :strength="30"
@@ -23,7 +22,7 @@
               </v-img>
             </kinesis-element>
           </div>
-          <div class="intro1_header1 white--text">
+          <div class="intro1_background_parallax_roll white--text">
             <kinesis-element
               tag="div"
               :strength="25"
@@ -63,37 +62,15 @@ export default {
 </script>
 
 <style scoped>
-.intro1_header {
+.intro1_background_parallax_crayfish {
   padding-top: 22vh;
   margin-left: -50px;
   width: 800px;
 }
-.intro1_header1 {
+.intro1_background_parallax_roll {
   width: 500px;
   padding-top: 22vh;
   margin-right: -50px;
-}
-
-.intro1_subheader {
-  margin-left: 52vw;
-  letter-spacing: 0.1em;
-  font-size: 50px;
-}
-
-.intro1_information1 {
-  letter-spacing: -0.01em;
-  font-size: 29px;
-  margin-left: 65vw;
-}
-
-.intro1_information2 {
-  letter-spacing: -0.01em;
-  font-size: 29px;
-  margin-left: 65vw;
-}
-
-.intro1_information_icon img {
-  width: 36px;
 }
 
 .intro1_background {

@@ -9,7 +9,6 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "Rak'N'Roll | Best beer, crayfish, sushi",
     title: 'raknroll-front',
     htmlAttrs: {
       lang: 'uk'
@@ -17,11 +16,20 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'og:type', property: 'og:type', content: 'website'},
+      {hid: 'og:image', property: 'og:image', content: '/favicon.ico'},
+      {hid: 'og:image:height', property: 'og:image:height', content: '300'},
+      {hid: 'og:image:width', property: 'og:image:width', content: '400'},
+      {hid: 'og:image:type', property: 'og:image:type', content: 'image/jpeg'},
+      {name: 'msapplication-TileColor', content: '#040404'},
+      {name: 'theme-color', content: '#040404'},
       {hid: 'description', name: 'description', content: ''},
       {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {hid: 'apple-touch-icon', rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.ico'},
+      {rel: 'icon', type: 'image/x-icon', sizes: '32x32', href: '/favicon.ico'},
+      {rel: 'icon', type: 'image/x-icon', sizes: '16x16', href: '/favicon.ico'},
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap'},
@@ -67,8 +75,13 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/dotenv',
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    '@nuxtjs/axios',
     [
-      'nuxt-i18n',
+      '@nuxtjs/i18n',
       {
         strategy: 'prefix_except_default',
         defaultLocale: 'uk',
@@ -76,7 +89,8 @@ export default {
         locales: [
           {
             code: 'uk',
-            name: 'UK'
+            name: 'UK',
+            iso: 'uk-UK'
           },
           // {
           //   code: 'en',
@@ -84,17 +98,14 @@ export default {
           // },
           {
             code: 'ru',
-            name: 'RU'
+            name: 'RU',
+            iso: 'ru-RU'
           },
         ],
-        vueI18n: i18n
+        vueI18n: i18n,
+        baseUrl: process.env.BASE_URL
       }
     ]
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/axios'
   ],
 
   axios: {

@@ -18,11 +18,11 @@
                 <p class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
                    data-aos-delay="300"
-                   data-aos-duration="1000" v-if="!category_name"> {{ $t('allOfCatalog') }}</p>
+                   data-aos-duration="1000" v-if="!category"> {{ $t('allOfCatalog') }}</p>
                 <p class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
                    data-aos-delay="300"
-                   data-aos-duration="1000" v-else> {{ category_name }}</p>
+                   data-aos-duration="1000" v-else> {{ category.name }}</p>
               </div>
             </div>
           </div>
@@ -526,9 +526,82 @@ export default {
     if (store.getters['products/data'].paginateCount < filter.page) {
       filter.page = store.getters['products/data'].paginateCount;
     }
-    let category = store.getters['products/data'].categories.find(category => category.slug === filter.category_slug);
-    const category_name = category ? category.name : '';
-    return {filter, category_name}
+    const category = store.getters['products/data'].categories.find(category => category.slug === filter.category_slug);
+    const brand = store.getters['products/data'].brands.find(brand => brand.slug === filter.brand_slug);
+    return {filter, category, brand}
+  },
+  head() {
+    let metaTitleBrand = '';
+    let metaKeysBrand = '';
+    let metaDescBrand = '';
+    let metaTitleCategory = '';
+    let metaKeysCategory = '';
+    let metaDescCategory = '';
+    if (this.category) {
+      metaTitleCategory = this.category.meta_title ? this.category.meta_title : this.category.name;
+      metaKeysCategory = this.category.meta_keys ? this.category.meta_keys : this.category.name;
+      metaDescCategory = this.category.meta_description ? this.category.meta_description : this.category.description;
+    }
+    if (this.brand) {
+      metaTitleBrand = this.brand.meta_title ? this.brand.meta_title : this.brand.name;
+      metaKeysBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
+      metaDescBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
+    }
+    if (this.category && this.brand) {
+      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
+      return {
+        title: metaTitleCategory + ' | ' + metaTitleBrand,
+        meta: [
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: metaKeysCategory + ', ' + metaKeysBrand
+          },
+          {
+            hid: 'description',
+            name: 'description',
+            content: metaDescCategory + ', ' + metaDescBrand
+          },
+          ...i18nHead.meta
+        ]
+      }
+    } else if (this.category) {
+      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
+      return {
+        title: metaTitleCategory,
+        meta: [
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: metaKeysCategory
+          },
+          {
+            hid: 'description',
+            name: 'description',
+            content: metaDescCategory
+          },
+          ...i18nHead.meta
+        ]
+      }
+    } else if (this.brand) {
+      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
+      return {
+        title: metaTitleBrand,
+        meta: [
+          {
+            hid: 'keywords',
+            name: 'keywords',
+            content: metaKeysBrand
+          },
+          {
+            hid: 'description',
+            name: 'description',
+            content: metaDescBrand
+          },
+          ...i18nHead.meta
+        ]
+      }
+    }
   },
   methods: {
     filtration(e, isPaginate = false) {

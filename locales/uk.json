@@ -6,7 +6,8 @@
     "products": "Вироби",
     "shop": "Магазин",
     "reviews": "Відгуки",
-    "contact_us": "Контакт"
+    "contact-us": "Контакт",
+    "delivery-and-payment": "Доставка та оплата"
   },
   "introSubheader": {
     "first": "Свіжі <span class='red--text text--darken-4'>раки,</span> пиво, ",
