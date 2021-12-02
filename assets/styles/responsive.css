@@ -19,6 +19,16 @@
     font-size: 19px !important;
   }
 
+  .intro1_background_parallax_crayfish {
+    padding-top: 30vh !important;
+    width: 700px !important;
+  }
+
+  .intro1_background_parallax_roll {
+    width: 450px !important;
+    top: 18vh !important;
+  }
+
   .header_nav_navigation {
     min-width: 80% !important;
   }
@@ -254,6 +264,18 @@
 
   .header_nav_navigation {
     min-width: 85% !important;
+  }
+
+  .intro1_background_parallax_crayfish {
+    padding-top: 30vh !important;
+    width: 650px !important;
+    margin-left: -70px !important;
+  }
+
+  .intro1_background_parallax_roll {
+    width: 350px !important;
+    top: 18vh !important;
+    right: -30px !important;
   }
 
   .header_nav_navigation_menu_link {
@@ -545,6 +567,18 @@
     min-width: 13% !important;
   }
 
+  .intro1_background_parallax_crayfish {
+    padding-top: 30vh !important;
+    width: 600px !important;
+    margin-left: -55px !important;
+  }
+
+  .intro1_background_parallax_roll {
+    width: 330px !important;
+    top: 18vh !important;
+    right: -25px !important;
+  }
+
   .header_logo_link {
     width: 68% !important;
   }
@@ -824,6 +858,18 @@
     text-align: center !important;
   }
 
+  .intro1_background_parallax_crayfish {
+    padding-top: 45vh !important;
+    width: 550px !important;
+    margin-left: -70px !important;
+  }
+
+  .intro1_background_parallax_roll {
+    width: 330px !important;
+    top: 18vh !important;
+    right: -35px !important;
+  }
+
   .cartModal_products_section {
     margin-bottom: 3vh !important;;
   }
@@ -968,6 +1014,18 @@
 
   .mobileHeader-language {
     width: 100% !important;
+  }
+
+  .intro1_background_parallax_crayfish {
+    padding-top: 50vh !important;
+    width: 400px !important;
+    margin-left: -100px !important;
+  }
+
+  .intro1_background_parallax_roll {
+    width: 220px !important;
+    top: 30vh !important;
+    right: -50px !important;
   }
 
   .mobileHeader_phone-and-language .v-text-field .v-select__selection--comma {

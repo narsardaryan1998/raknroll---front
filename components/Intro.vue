@@ -3,11 +3,11 @@
     <v-img
       position="center"
       class="width-100 height-100"
-      :src="require('~/assets/images/test-new.jpg')"
-      :lazy-src="require('~/assets/images/test-new.jpg')">
+      :src="require('~/assets/images/testbacktest (1).png')"
+      :lazy-src="require('~/assets/images/testbacktest (1).png')">
       <kinesis-container
         event="move">
-        <div class="d-flex justify-lg-space-between">
+        <div class="position-relative">
           <div class="intro1_background_parallax_crayfish white--text">
             <kinesis-element
               tag="div"
@@ -44,9 +44,6 @@
 
 <script>
 import {KinesisContainer, KinesisElement} from 'vue-kinesis'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
 export default {
   name: "Intro",
   data() {
@@ -64,13 +61,14 @@ export default {
 <style scoped>
 .intro1_background_parallax_crayfish {
   padding-top: 22vh;
-  margin-left: -50px;
+  margin-left: -100px;
   width: 800px;
 }
 .intro1_background_parallax_roll {
+  position: absolute;
+  top: 22vh;
   width: 500px;
-  padding-top: 22vh;
-  margin-right: -50px;
+  right: -50px;
 }
 
 .intro1_background {
