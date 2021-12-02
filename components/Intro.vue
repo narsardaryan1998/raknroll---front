@@ -4,7 +4,9 @@
       position="center"
       class="width-100 height-100"
       :src="require('~/assets/images/testbacktest (1).png')"
-      :lazy-src="require('~/assets/images/testbacktest (1).png')">
+      :lazy-src="require('~/assets/images/testbacktest (1).png')"
+      data-aos="fade-right"
+      data-aos-duration="1500">
       <div class="d-none d-md-block">
         <kinesis-container
           event="move">

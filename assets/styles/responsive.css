@@ -272,10 +272,33 @@
     margin-left: -70px !important;
   }
 
+  @keyframes customAnimationCrayfish {
+    0% {
+      transform: translateX(-650px);
+    }
+    50% {
+      transform: translateX(-650px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   .intro1_background_parallax_roll {
     width: 350px !important;
     top: 18vh !important;
-    right: -30px !important;
+  }
+
+  @keyframes customAnimationRoll {
+    0% {
+      right: -380px;
+    }
+    66% {
+      right: -380px;
+    }
+    100% {
+      right: -30px;
+    }
   }
 
   .header_nav_navigation_menu_link {
@@ -573,12 +596,34 @@
     margin-left: -55px !important;
   }
 
+  @keyframes customAnimationCrayfish {
+    0% {
+      transform: translateX(-600px);
+    }
+    50% {
+      transform: translateX(-600px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   .intro1_background_parallax_roll {
     width: 330px !important;
     top: 18vh !important;
-    right: -25px !important;
   }
 
+  @keyframes customAnimationRoll {
+    0% {
+      right: -355px;
+    }
+    66% {
+      right: -355px;
+    }
+    100% {
+      right: -25px;
+    }
+  }
   .header_logo_link {
     width: 68% !important;
   }
@@ -864,12 +909,33 @@
     margin-left: -70px !important;
   }
 
+  @keyframes customAnimationCrayfish {
+    0% {
+      transform: translateX(-550px);
+    }
+    50% {
+      transform: translateX(-550px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
   .intro1_background_parallax_roll {
     width: 330px !important;
     top: 18vh !important;
-    right: -35px !important;
   }
 
+  @keyframes customAnimationRoll {
+    0% {
+      right: -365px;
+    }
+    66% {
+      right: -365px;
+    }
+    100% {
+      right: -35px;
+    }
+  }
   .cartModal_products_section {
     margin-bottom: 3vh !important;;
   }
@@ -1022,10 +1088,33 @@
     margin-left: -100px !important;
   }
 
+  @keyframes customAnimationCrayfish {
+    0% {
+      transform: translateX(-400px);
+    }
+    50% {
+      transform: translateX(-400px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   .intro1_background_parallax_roll {
     width: 220px !important;
     top: 30vh !important;
-    right: -50px !important;
+  }
+
+  @keyframes customAnimationRoll {
+    0% {
+      right: -270px;
+    }
+    66% {
+      right: -270px;
+    }
+    100% {
+      right: -50px;
+    }
   }
 
   .mobileHeader_phone-and-language .v-text-field .v-select__selection--comma {

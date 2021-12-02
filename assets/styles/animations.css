@@ -87,3 +87,32 @@
 {
   opacity: 0;
 }
+
+@keyframes customAnimationCrayfish {
+  0% {
+    transform: translateX(-800px);
+  }
+  50% {
+    transform: translateX(-800px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.intro1_background_parallax_crayfish {
+  animation: customAnimationCrayfish 4s;
+}
+
+@keyframes customAnimationRoll {
+  0% {
+    right: -550px;
+  }
+  100% {
+    right: -50px;
+  }
+}
+
+.intro1_background_parallax_roll {
+  animation: customAnimationRoll 2.5s;
+}
