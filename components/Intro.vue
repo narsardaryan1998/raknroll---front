@@ -48,7 +48,7 @@
               <kinesis-element
                 tag="div"
                 :strength="120"
-                type="depth">
+                type="rotate">
                 <v-img
                   position="center"
                   class="width-100 height-100"
@@ -62,7 +62,7 @@
               <kinesis-element
                 tag="div"
                 :strength="180"
-                type="depth">
+                type="rotate">
                 <v-img
                   position="center"
                   class="width-100 height-100"
