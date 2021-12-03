@@ -116,3 +116,16 @@
 .intro1_background_parallax_roll {
   animation: customAnimationRoll 2.5s;
 }
+
+@keyframes testZoomSlider {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.custom-slider-zoom img {
+  animation: testZoomSlider 6s;
+}

@@ -64,11 +64,23 @@
                       </div>
                       <div class="pr-3"
                            v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
-                        {{ $t('price') + ': ' + product.final_price }} грн x
-                        {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                        <div class="d-flex flex-column">
+                          <div class="grey--text text--lighten-1">
+                            {{ $t('oldPrice') + ': ' + product.initial_price }}
+                          </div>
+                          <div>
+                            {{ $t('price') + ': ' + product.final_price }} грн x
+                            {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                          </div>
+                        </div>
                       </div>
-                      <div v-else class="pr-3">
-                        {{ $t('price') + ': ' + product.final_price }} грн
+                      <div v-else class="pr-3 d-flex flex-column">
+                        <div class="grey--text text--lighten-1">
+                          {{ $t('oldPrice') + ': ' + product.initial_price }}
+                        </div>
+                        <div>
+                          {{ $t('price') + ': ' + product.final_price }} грн
+                        </div>
                       </div>
                     </div>
                     <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}

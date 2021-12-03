@@ -43,11 +43,6 @@ export default {
         href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
       },
     ],
-    script: [
-      {
-        src: "//code-ya.jivosite.com/widget/PX8nR394WB",
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

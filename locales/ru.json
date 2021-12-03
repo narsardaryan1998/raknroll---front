@@ -101,5 +101,6 @@
   "displayQuantity": "Количество дисплей",
   "yourCartIsEmpty": "Ваша корзина пуста",
   "details": "Подробно",
-  "allDiscounts": "Все акции"
+  "allDiscounts": "Все акции",
+  "oldPrice": "Старая цена"
 }
