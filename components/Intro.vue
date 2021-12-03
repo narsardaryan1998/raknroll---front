@@ -165,7 +165,6 @@
 </template>
 
 <script>
-import {KinesisContainer, KinesisElement} from 'vue-kinesis'
 
 export default {
   name: "Intro",
@@ -177,10 +176,6 @@ export default {
   },
   mounted() {
     this.mounted = true
-  },
-  components: {
-    KinesisContainer,
-    KinesisElement,
   },
 }
 </script>
