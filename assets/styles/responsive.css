@@ -19,18 +19,28 @@
     font-size: 19px !important;
   }
 
-  .intro1_background_parallax_crayfish {
-    padding-top: 30vh !important;
-    width: 700px !important;
-  }
-
-  .intro1_background_parallax_roll {
-    width: 450px !important;
-    top: 18vh !important;
-  }
-
   .header_nav_navigation {
     min-width: 80% !important;
+  }
+
+  .intro1_text_and_logo {
+    top: 23% !important;
+  }
+
+  .intro1_logo .v-image {
+    width: 160px !important;
+  }
+
+  .intro1_text_header {
+    font-size: 46px !important;
+  }
+
+  .intro1_text_first {
+    font-size: 27px !important;
+  }
+
+  .intro1_text_second {
+    font-size: 22px !important;
   }
 
   .header_nav_navigation_menu_link {
@@ -266,39 +276,25 @@
     min-width: 85% !important;
   }
 
-  .intro1_background_parallax_crayfish {
-    padding-top: 30vh !important;
-    width: 650px !important;
-    margin-left: -70px !important;
+  .intro1_text_and_logo {
+    padding-right: 14vw !important;;
+    padding-left: 14vw !important;
   }
 
-  @keyframes customAnimationCrayfish {
-    0% {
-      transform: translateX(-650px);
-    }
-    50% {
-      transform: translateX(-650px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  .intro1_logo .v-image {
+    width: 140px !important;
   }
 
-  .intro1_background_parallax_roll {
-    width: 350px !important;
-    top: 18vh !important;
+  .intro1_text_header {
+    font-size: 42px !important;
   }
 
-  @keyframes customAnimationRoll {
-    0% {
-      right: -380px;
-    }
-    66% {
-      right: -380px;
-    }
-    100% {
-      right: -30px;
-    }
+  .intro1_text_first {
+    font-size: 26px !important;
+  }
+
+  .intro1_text_second {
+    font-size: 21px !important;
   }
 
   .header_nav_navigation_menu_link {
@@ -590,40 +586,27 @@
     min-width: 13% !important;
   }
 
-  .intro1_background_parallax_crayfish {
-    padding-top: 30vh !important;
-    width: 600px !important;
-    margin-left: -55px !important;
+  .intro1_text_and_logo {
+    padding-right: 12vw !important;;
+    padding-left: 12vw !important;
   }
 
-  @keyframes customAnimationCrayfish {
-    0% {
-      transform: translateX(-600px);
-    }
-    50% {
-      transform: translateX(-600px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  .intro1_logo .v-image {
+    width: 125px !important;
   }
 
-  .intro1_background_parallax_roll {
-    width: 330px !important;
-    top: 18vh !important;
+  .intro1_text_header {
+    font-size: 40px !important;
   }
 
-  @keyframes customAnimationRoll {
-    0% {
-      right: -355px;
-    }
-    66% {
-      right: -355px;
-    }
-    100% {
-      right: -25px;
-    }
+  .intro1_text_first {
+    font-size: 24px !important;
   }
+
+  .intro1_text_second {
+    font-size: 20px !important;
+  }
+
   .header_logo_link {
     width: 68% !important;
   }
@@ -903,39 +886,29 @@
     text-align: center !important;
   }
 
-  .intro1_background_parallax_crayfish {
-    padding-top: 45vh !important;
-    width: 550px !important;
-    margin-left: -70px !important;
+  .intro1_text_and_logo {
+    padding-right: 5vw !important;;
+    padding-left: 5vw !important;
+    top: 18% !important;
   }
 
-  @keyframes customAnimationCrayfish {
-    0% {
-      transform: translateX(-550px);
-    }
-    50% {
-      transform: translateX(-550px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .intro1_background_parallax_roll {
-    width: 330px !important;
-    top: 18vh !important;
+  .intro1_logo .v-image {
+    width: 160px !important;
   }
 
-  @keyframes customAnimationRoll {
-    0% {
-      right: -365px;
-    }
-    66% {
-      right: -365px;
-    }
-    100% {
-      right: -35px;
-    }
+  .intro1_text_header {
+    padding-top: 3vh !important;
+    font-size: 60px !important;
   }
+
+  .intro1_text_first {
+    font-size: 32px !important;
+  }
+
+  .intro1_text_second {
+    font-size: 23px !important;
+  }
+
   .cartModal_products_section {
     margin-bottom: 3vh !important;;
   }
@@ -1082,39 +1055,27 @@
     width: 100% !important;
   }
 
-  .intro1_background_parallax_crayfish {
-    padding-top: 50vh !important;
-    width: 400px !important;
-    margin-left: -100px !important;
+  .intro1_text_and_logo {
+    padding-right: 2vw !important;;
+    padding-left: 2vw !important;
+    top: 16% !important;
   }
 
-  @keyframes customAnimationCrayfish {
-    0% {
-      transform: translateX(-400px);
-    }
-    50% {
-      transform: translateX(-400px);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  .intro1_logo .v-image {
+    width: 140px !important;
   }
 
-  .intro1_background_parallax_roll {
-    width: 220px !important;
-    top: 30vh !important;
+  .intro1_text_header {
+    padding-top: 2vh !important;
+    font-size: 45px !important;
   }
 
-  @keyframes customAnimationRoll {
-    0% {
-      right: -270px;
-    }
-    66% {
-      right: -270px;
-    }
-    100% {
-      right: -50px;
-    }
+  .intro1_text_first {
+    font-size: 26px !important;
+  }
+
+  .intro1_text_second {
+    font-size: 19px !important;
   }
 
   .mobileHeader_phone-and-language .v-text-field .v-select__selection--comma {
