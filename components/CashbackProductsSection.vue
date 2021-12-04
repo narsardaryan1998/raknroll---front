@@ -37,8 +37,20 @@
               <v-card
                 elevation="12"
                 dark
-                class="mx-auto my-12 mt-0 products_show_product products_show_products_black_background rounded-lg"
+                class="mx-auto my-12 mt-0 products_show_product products_show_products_black_background rounded-lg position-relative"
                 max-width="374">
+                <div class="sale-icon-div width-100">
+                  <v-img
+                    class="sale-icon-div-image position-relative float-right"
+                    :src="require('~/assets/images/sale-icon.png')"
+                    :lazy-src="require('~/assets/images/sale-icon.png')"
+                    contain>
+                    <span
+                      class="sale-icon-div-text black--text black-text-shadow font-weight-bold">- {{
+                        product.discount
+                      }}%</span>
+                  </v-img>
+                </div>
                 <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                   <v-card-title class="font-weight-bold px-2 pb-0 pt-1 white--text">{{ product.name }}</v-card-title>
                   <v-hover
@@ -259,15 +271,28 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
-    // addToFavorites(product) {
-    //   this.$store.commit('favorites/add', product);
-    // },
-    // deleteFromFavorites(productId) {
-    //   this.$store.commit('favorites/delete', productId);
-    // },
     updateQuantity(params) {
       this.$store.commit('cart/updateQuantity', params);
     },
   }
 }
 </script>
+
+<style scoped>
+.sale-icon-div {
+  position: absolute;
+  top: -80px;
+  transform: rotate(-20deg);
+}
+
+.sale-icon-div-image {
+  width: 150px;
+}
+
+.sale-icon-div-text {
+  position: absolute;
+  font-size: 32px;
+  top: 42px;
+  right: 15px;
+}
+</style>

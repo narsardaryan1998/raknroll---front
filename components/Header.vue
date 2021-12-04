@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="d-flex custom-animation-fade-to-down">
+  <header id="header">
     <div class="container-padding container pl-0 mx-0">
       <div class="d-flex">
         <div class="header_logo">
@@ -86,6 +86,11 @@
                               :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
                     </NuxtLink>
                   </li>
+                  <li>
+                    <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
+                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`)'>{{ $t('sales') }}
+                    </NuxtLink>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -102,7 +107,6 @@ export default {
   data() {
     return {
       language: this.$i18n.locale,
-      baseUrl: process.env.BASE_URL
     }
   },
   mounted() {
@@ -123,10 +127,6 @@ export default {
         pushTo = routePath.replace("ru/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
       } else if (routePath.includes("/ru")) {
         pushTo = routePath.replace("/ru", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
-      } else if (routePath.includes("/en/")) {
-        pushTo = routePath.replace("en/", this.$i18n.locale === "uk" ? "" : this.$i18n.locale + "/")
-      } else if (routePath.includes("/en")) {
-        pushTo = routePath.replace("/en", this.$i18n.locale === "uk" ? "/" : "/" + this.$i18n.locale)
       } else {
         pushTo = this.$i18n.locale !== "uk" ? "/" + this.$i18n.locale + routePath : routePath;
       }

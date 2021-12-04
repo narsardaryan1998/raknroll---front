@@ -27,6 +27,20 @@
     top: 23% !important;
   }
 
+  .sale-icon-div {
+    top: -60px !important;
+  }
+
+  .sale-icon-div .v-image{
+    width: 130px !important;
+  }
+
+  .sale-icon-div-text {
+    font-size: 29px !important;
+    top: 35px!important;
+    right: 15px;
+  }
+
   .intro1_logo .v-image {
     width: 160px !important;
   }
@@ -51,40 +65,12 @@
     font-size: 13px !important;
   }
 
-  .favorite_product_image {
-    height: 160px !important;
-  }
-
-  .favorite_product_texts_header {
-    font-size: 28px !important;
-  }
-
   .header_nav_delivery_part .v-text-field .v-select__selection--comma {
     font-size: 15px !important;
   }
 
   .header_nav_delivery_part .v-text-field i {
     font-size: 16px !important;
-  }
-
-  .intro1_header {
-    margin-left: 49vw !important;
-    font-size: 135px !important;
-  }
-
-  .intro1_subheader {
-    margin-left: 49vw !important;
-    font-size: 39px !important;
-  }
-
-  .intro1_information1 {
-    font-size: 24px !important;
-    margin-left: 63vw !important;
-  }
-
-  .intro1_information2 {
-    font-size: 24px !important;
-    margin-left: 63vw !important;
   }
 
   .component-top-header {
@@ -148,15 +134,6 @@
     margin-top: 20vh !important;
   }
 
-  .page-header {
-    height: 225px !important;
-  }
-
-  .page-header p {
-    padding-top: 52px !important;
-    font-size: 70px !important;
-  }
-
   .products_filter {
     width: 18% !important;
   }
@@ -191,10 +168,6 @@
 
   .product-show_product_price .white-opacity-07 {
     font-size: 19px !important;
-  }
-
-  .product-show_tastier-together_header {
-    font-size: 50px !important;
   }
 
   #reviews {
@@ -256,6 +229,21 @@
 }
 
 @media screen and (max-width: 1264px) {
+  .sale-icon-div {
+    top: -70px !important;
+    transform: rotate(-10deg) !important;
+  }
+
+  .sale-icon-div .v-image{
+    width: 130px !important;
+  }
+
+  .sale-icon-div-text {
+    font-size: 29px !important;
+    top: 35px!important;
+    right: 15px;
+  }
+
   .header_logo {
     min-width: 13% !important;
   }
@@ -305,48 +293,12 @@
     font-size: 12px !important;
   }
 
-  .favorites-modal .modaltor__panel {
-    width: 68% !important;
-  }
-
-  .favorite_product_image {
-    height: 130px !important;
-  }
-
-  .favorite_product_texts_header {
-    font-size: 28px !important;
-  }
-
   .header_nav_delivery_part .v-text-field .v-select__selection--comma {
     font-size: 14px !important;
   }
 
   .header_nav_delivery_part .v-text-field i {
     font-size: 15px !important;
-  }
-
-  .intro1_header {
-    margin-left: 46vw !important;
-    font-size: 125px !important;
-  }
-
-  .intro1_subheader {
-    margin-left: 46vw !important;
-    font-size: 36px !important;
-  }
-
-  .intro1_information_icon img {
-    width: 32px !important;
-  }
-
-  .intro1_information1 {
-    font-size: 22px !important;
-    margin-left: 63vw !important;
-  }
-
-  .intro1_information2 {
-    font-size: 22px !important;
-    margin-left: 63vw !important;
   }
 
   #cartModal {
@@ -414,15 +366,6 @@
     margin-top: 22vh !important;
   }
 
-  .page-header {
-    height: 220px !important;
-  }
-
-  .page-header p {
-    padding-top: 52px !important;
-    font-size: 70px !important;
-  }
-
   .products_show {
     width: 75% !important;
   }
@@ -473,10 +416,6 @@
 
   .product-show_product_price .white-opacity-07 {
     font-size: 18px !important;
-  }
-
-  .product-show_tastier-together_header {
-    font-size: 48px !important;
   }
 
   .product-show_product_actions {
@@ -572,10 +511,6 @@
     font-size: 17px !important;
   }
 
-  .footer_section_subscribe_description {
-    font-size: 14px !important;
-  }
-
   .page_description {
     font-size: 17px !important;
   }
@@ -631,22 +566,6 @@
     font-size: 11px !important;
   }
 
-  .favorites-modal .modaltor__panel {
-    width: 75% !important;
-  }
-
-  .favorite_product_image {
-    height: 122px !important;
-  }
-
-  .favorite_product_texts_header {
-    font-size: 23px !important;
-  }
-
-  .favorite_product_texts_description_price {
-    font-size: 18px !important;
-  }
-
   .header_nav_delivery_part .v-text-field .v-select__selection--comma {
     font-size: 13px !important;
   }
@@ -655,29 +574,8 @@
     font-size: 14px !important;
   }
 
-  .intro1_header {
-    margin-left: 46vw !important;
-    font-size: 110px !important;
-    padding-top: 18vh !important;
-  }
-
-  .intro1_subheader {
-    margin-left: 46vw !important;
-    font-size: 29px !important;
-  }
-
   .pages_top_with_animation hr {
     width: 120px !important;
-  }
-
-  .intro1_information1 {
-    font-size: 19px !important;
-    margin-left: 63vw !important;
-  }
-
-  .intro1_information2 {
-    font-size: 19px !important;
-    margin-left: 63vw !important;
   }
 
   #cartModal {
@@ -747,15 +645,6 @@
 
   #products {
     margin-top: 22vh !important;
-  }
-
-  .page-header {
-    height: 200px !important;
-  }
-
-  .page-header p {
-    padding-top: 48px !important;
-    font-size: 65px !important;
   }
 
   .products_show {
@@ -862,10 +751,6 @@
   .footer_section_nav_navigation_menu_link {
     font-size: 17px !important;
   }
-
-  .footer_section_subscribe_description {
-    font-size: 14px !important;
-  }
 }
 
 @media screen and (max-width: 964px) {
@@ -923,29 +808,6 @@
 
   .mobileHeader_phone-and-language .v-text-field i {
     font-size: 16px !important;
-  }
-
-  .intro1_header {
-    margin-left: 20vw !important;
-    padding-top: 12vh !important;
-    font-size: 120px !important;
-  }
-
-  .intro1_subheader {
-    margin-left: 20vw !important;
-    padding-top: 3vh !important;
-    font-size: 39px !important;
-  }
-
-  .intro1_information1 {
-    padding-top: 3vh !important;
-    font-size: 24px !important;
-    margin-left: 45vw !important;
-  }
-
-  .intro1_information2 {
-    font-size: 24px !important;
-    margin-left: 45vw !important;
   }
 
   .component_and_page_header_section {
@@ -1015,18 +877,6 @@
   .open-cart-modal {
     transition: 0s !important;
   }
-
-  .modaltor {
-    transition: 0s !important;
-  }
-
-  .modaltor__panel {
-    transition: 0s !important;
-  }
-
-  .main-blured {
-    transition: 0s !important;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1036,11 +886,6 @@
 
   #mobileFilterModal {
     width: calc(100% + 50px) !important;
-  }
-
-  .mobileHeader_actions-favorites img {
-    width: 25px !important;
-    height: 25px !important;
   }
 
   .mobileHeader_logo_link_img {
@@ -1095,54 +940,12 @@
     width: 22% !important;
   }
 
-  .mobileHeader_actions-favorites .v-badge__badge {
-    font-size: 10px !important;
-    padding: 4px 6px;
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .mobileHeader_actions-favorites .v-text-field i {
-    font-size: 13px !important;
-  }
-
-  .mobileHeader_actions-favorites {
-    margin-right: 0 !important;
-  }
-
-  .favorites-modal .modaltor__panel {
-    width: 97% !important;
-  }
-
   #cashbackProductsSection, #catalogSection, #ourAdvantages {
     padding-top: 1vh !important;
   }
 
   .component-top-header {
     font-size: 49px !important;
-  }
-
-  .intro1_header {
-    margin-left: 6vw !important;
-    padding-top: 25vh !important;
-    font-size: 80px !important;
-  }
-
-  .intro1_subheader {
-    margin-left: 6vw !important;
-    padding-top: 3vh !important;
-    font-size: 28px !important;
-  }
-
-  .intro1_information1 {
-    padding-top: 3vh !important;
-    font-size: 20px !important;
-    margin-left: 30vw !important;
-  }
-
-  .intro1_information2 {
-    font-size: 20px !important;
-    margin-left: 30vw !important;
   }
 
   .page_description {
@@ -1211,15 +1014,6 @@
 
   #products {
     margin-top: 88px !important;
-  }
-
-  .page-header {
-    height: 180px !important;
-  }
-
-  .page-header p {
-    padding-top: 40px !important;
-    font-size: 55px !important;
   }
 
   .products_and_filter {

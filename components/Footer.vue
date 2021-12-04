@@ -183,25 +183,6 @@
 <script>
 export default {
   name: "Footer",
-  data() {
-    return {
-      subscribeFormValide: false,
-      subscribeForm: {
-        email: '',
-      },
-      emailRules: [
-        v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('emailAddress')}),
-        v => /.+@.+/.test(v) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
-      ],
-    }
-  },
-  methods: {
-    subscribe() {
-      if ((this.$refs.subscribeForm.validate())) {
-        alert('Ok')
-      }
-    }
-  }
 }
 </script>
 
@@ -212,13 +193,6 @@ footer {
 
 .footer_section_menu {
   line-height: normal;
-}
-
-.footer_first-line {
-  margin-top: 3vh;
-  width: 100%;
-  height: 2px;
-  border: none;
 }
 
 .footer_section {

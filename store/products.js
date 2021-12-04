@@ -10,17 +10,12 @@ export const mutations = {
   updateData(state, data) {
     state.data = data;
   },
-  updateRecommendedProducts(state, data) {
-    state.recommendedProducts = data;
-  },
 };
 
 export const state = () => ({
   data: [],
-  recommendedProducts: [],
 });
 
 export const getters = {
   data: state => state.data,
-  recommendedProducts: state => state.recommendedProducts,
 };

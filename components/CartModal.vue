@@ -221,7 +221,7 @@ export default {
   border: none;
 }
 
-.your-cart-is-empty{
+.your-cart-is-empty {
   font-size: 50px;
 }
 </style>

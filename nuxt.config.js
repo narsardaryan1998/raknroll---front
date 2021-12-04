@@ -2,14 +2,13 @@ import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
 
 export default {
-  // loading: '@/components/LoadingBar.vue',
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
   ssr: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'raknroll-front',
+    title: "Rak'n'Roll",
     htmlAttrs: {
       lang: 'uk'
     },
@@ -27,26 +26,17 @@ export default {
       {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
-      {hid: 'apple-touch-icon', rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.ico'},
-      {rel: 'icon', type: 'image/x-icon', sizes: '32x32', href: '/favicon.ico'},
-      {rel: 'icon', type: 'image/x-icon', sizes: '16x16', href: '/favicon.ico'},
+      {hid: 'apple-touch-icon', rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon-180.ico'},
+      {rel: 'icon', type: 'image/x-icon', sizes: '32x32', href: '/favicon-32.ico'},
+      {rel: 'icon', type: 'image/x-icon', sizes: '16x16', href: '/favicon-16.ico'},
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Russo+One&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Brygada+1918&display=swap'},
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
-      },
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
     ],
     script: [
-      {
-        src: "//code-ya.jivosite.com/widget/PX8nR394WB",
-      },
+      {src: "//code-ya.jivosite.com/widget/PX8nR394WB",},
     ]
   },
 

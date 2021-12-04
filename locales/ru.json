@@ -1,5 +1,4 @@
 {
-  "favorites": "Избранное",
   "cart": "Корзина",
   "menuLinks": {
     "home": "Главная",
@@ -102,5 +101,6 @@
   "yourCartIsEmpty": "Ваша корзина пуста",
   "details": "Подробно",
   "allDiscounts": "Все акции",
-  "oldPrice": "Старая цена"
+  "oldPrice": "Старая цена",
+  "sales": "Акции"
 }

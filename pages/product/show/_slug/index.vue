@@ -173,10 +173,6 @@ export default {
   margin-top: 18vh;
 }
 
-.product-show_product_image {
-  width: 100% !important;
-}
-
 .product-show_product_name {
   font-size: 44px;
 }
@@ -201,14 +197,6 @@ hr {
 
 .product-show_product_description .white-opacity-07 {
   font-size: 20px;
-}
-
-.product-show_tastier-together {
-  margin-top: 8vw !important;
-}
-
-.product-show_tastier-together_header {
-  font-size: 53px;
 }
 
 .product-show_tastier-together hr:first-child {

@@ -20,9 +20,7 @@
 }
 
 .cart-icon-rotate {
-  animation-name: CartIconRotateAnimation;
-  animation-duration: .6s;
-  transform: rotate(0);
+  animation: CartIconRotateAnimation .6s;
 }
 
 @keyframes cartModalBounceWhenAdd {
@@ -44,39 +42,7 @@
 }
 
 .cart-modal-bounce {
-  animation-name: cartModalBounceWhenAdd;
-  animation-duration: 1s;
-  transform: translateX(calc(100% - 50px))
-}
-
-@keyframes customAnimationFadeToUp {
-  0% {
-    transform: translateY(80px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.custom-animation-fade-to-up {
-  animation: customAnimationFadeToUp 1s;
-}
-
-@keyframes customAnimationFadeToDown {
-  0% {
-    transform: translateY(-80px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.custom-animation-fade-to-down {
-  animation: customAnimationFadeToDown 1s;
+  animation: cartModalBounceWhenAdd 1s;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -88,36 +54,7 @@
   opacity: 0;
 }
 
-@keyframes customAnimationCrayfish {
-  0% {
-    transform: translateX(-800px);
-  }
-  50% {
-    transform: translateX(-800px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.intro1_background_parallax_crayfish {
-  animation: customAnimationCrayfish 4s;
-}
-
-@keyframes customAnimationRoll {
-  0% {
-    right: -550px;
-  }
-  100% {
-    right: -50px;
-  }
-}
-
-.intro1_background_parallax_roll {
-  animation: customAnimationRoll 2.5s;
-}
-
-@keyframes testZoomSlider {
+@keyframes customSliderZoom {
   0% {
     transform: scale(1);
   }
@@ -127,5 +64,5 @@
 }
 
 .custom-slider-zoom img {
-  animation: testZoomSlider 7s;
+  animation: customSliderZoom 7s;
 }

@@ -709,7 +709,7 @@ export default {
               icon: 'success',
               title: 'Ваш заказ был успешно получен',
               showConfirmButton: false,
-              timer: 1500
+              timer: 5000
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
             this.$store.commit('cart/clear')

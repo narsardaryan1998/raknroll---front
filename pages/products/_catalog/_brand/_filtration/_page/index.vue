@@ -562,6 +562,11 @@ export default {
             name: 'description',
             content: metaDescCategory + ', ' + metaDescBrand
           },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
+          },
           ...i18nHead.meta
         ]
       }
@@ -580,6 +585,11 @@ export default {
             name: 'description',
             content: metaDescCategory
           },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
+          },
           ...i18nHead.meta
         ]
       }
@@ -597,6 +607,11 @@ export default {
             hid: 'description',
             name: 'description',
             content: metaDescBrand
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
           },
           ...i18nHead.meta
         ]
@@ -644,12 +659,6 @@ export default {
     deleteFromCart(productId) {
       this.$store.commit('cart/delete', productId);
     },
-    // addToFavorites(product) {
-    //   this.$store.commit('favorites/add', product);
-    // },
-    // deleteFromFavorites(productId) {
-    //   this.$store.commit('favorites/delete', productId);
-    // },
     updateQuantity(params) {
       this.$store.commit('cart/updateQuantity', params);
     },

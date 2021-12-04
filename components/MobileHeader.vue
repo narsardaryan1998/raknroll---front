@@ -1,6 +1,5 @@
 <template>
-  <header id="mobileHeader"
-          class="custom-animation-fade-to-down">
+  <header id="mobileHeader">
     <div
       class="mobileHeader_nav d-flex justify-space-between align-sm-start align-center container container-padding products_show_products_black_background">
       <div class="mobileHeader_logo">
@@ -178,10 +177,8 @@ export default {
   name: "ModalHeader",
   data() {
     return {
-      openFavoritesModal: false,
       menuModalIsOpened: false,
       language: this.$i18n.locale,
-      baseUrl: process.env.BASE_URL
     }
   },
   mounted() {
@@ -189,7 +186,6 @@ export default {
       language: this.language
     });
     this.getCartDataByLanguage();
-    // this.$store.commit('favorites/values');
   },
   methods: {
     changeLanguage() {
@@ -212,21 +208,6 @@ export default {
       }
       this.$router.push({path: pushTo});
     },
-    // openFavorites() {
-    //   document.getElementById('cartModal').classList.add("z-index-minus");
-    //   document.getElementsByClassName('v-main')[0].classList.add("main-blured");
-    //   document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
-    //   this.openFavoritesModal = true;
-    // },
-    // closeFavorites() {
-    //   document.getElementById('cartModal').classList.remove("z-index-minus");
-    //   document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
-    //   document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
-    //   this.openFavoritesModal = false;
-    // },
-    // deleteFromFavorites(productId) {
-    //   this.$store.commit('favorites/delete', productId);
-    // },
     addToCart(productId) {
       this.$store.commit('cart/add', productId);
     },
@@ -279,15 +260,6 @@ export default {
   z-index: 100;
 }
 
-/*.mobileHeader_actions-favorites {*/
-/*  border: none;*/
-/*}*/
-
-.mobileHeader_actions-favorites img {
-  width: 27px;
-  height: 27px;
-}
-
 .mobileHeader_phone-and-language {
   width: 50%;
 }
@@ -337,29 +309,6 @@ export default {
 
 .mobileHeader_modal_nav_navigation_page {
   color: white;
-}
-
-.favorite_product_image {
-  height: 190px;
-}
-
-.favorite_product_texts_header {
-  font-size: 30px;
-}
-
-.favorite_products_hr {
-  margin: 0 8% 0 10%;
-  border: 0.08vh solid rgba(86, 86, 86, 0.7);
-  background-color: rgba(86, 86, 86, 0.7);
-}
-
-.favorite_product_texts_description {
-  color: #565656;
-}
-
-.favorite_product_texts_description_price {
-  color: #565656;
-  font-size: 21px;
 }
 
 .nuxt-link-exact-active {
