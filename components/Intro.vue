@@ -65,10 +65,10 @@
           height="100%">
           <div class="fill-height width-100 height-100 align-center justify-center">
             <div class="width-100 height-100 custom-slider-zoom position-relative">
-              <img :src="require('~/assets/images/slider/desktop/beer.jpg')"
+              <img :src="require('~/assets/images/slider/desktop/beer1.jpg')"
                    class="d-md-block d-none width-100 height-100"
                    style="object-fit: cover;">
-              <img :src="require('~/assets/images/slider/mobile/beer.jpg')"
+              <img :src="require('~/assets/images/slider/mobile/beer1.jpg')"
                    class="d-block d-md-none width-100 height-100"
                    style="object-fit: cover;">
               <div class="intro1_text_and_logo text-center width-100">

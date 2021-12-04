@@ -2,23 +2,9 @@
   "cart": "Візок",
   "menuLinks": {
     "home": "Головна",
-    "products": "Вироби",
-    "shop": "Магазин",
     "reviews": "Відгуки",
     "contact-us": "Контакт",
     "delivery-and-payment": "Доставка та оплата"
-  },
-  "introSubheader": {
-    "first": "Свіжі <span class='red--text text--darken-4'>раки,</span> пиво, ",
-    "second": "риба і так далі,"
-  },
-  "informationPart1": {
-    "first": "Україна, Київ,",
-    "second": "Харківське шосе 17 А"
-  },
-  "informationPart12": {
-    "first": "Пн-Нд:",
-    "second": "Замовлення"
   },
   "bestseller": "Хіт продажу",
   "allOfCatalog": "Весь каталог",
@@ -38,7 +24,6 @@
   "subject": "Тема",
   "message": "Повідомлення",
   "weOnMap": "Ми на карті",
-  "sendMessage": "Надіслати повідомлення",
   "reviews": "відгуки",
   "yourOpinion": "Ваша думка",
   "sendReview": "Надіслати відгук",
@@ -48,7 +33,6 @@
   "pc": "шт",
   "weight": "Вага",
   "minimum": "Мінімум",
-  "portion": "Порція",
   "gram": "грам",
   "liter": "літр",
   "literShort": "л.",
@@ -56,8 +40,6 @@
   "description": "Опис",
   "addToCart": "Додати в кошик",
   "removeFromCart": "Видалити з кошика",
-  "linkToBrand": "Вся продукція бренду {brandName}",
-  "tastierTogether": "Разом смачніше",
   "phone": "Телефон",
   "forExample": "Наприклад:",
   "address": "Адрес",
@@ -75,7 +57,6 @@
   "takeItMyself": "Заберу сам",
   "delivery": "Доставка",
   "totalAmount": "Загальна кількість",
-  "toYourBalance": "На ваш баланс",
   "paymentMethod": "Спосіб оплати",
   "withCreditCard": "Онлайн, з кредитною карткою",
   "cash": "Готівка",
@@ -85,9 +66,7 @@
   "optionalFields": "Необов'язкові поля",
   "requiredFields": "Обов'язкові поля",
   "ourAdvantages": "Наші переваги",
-  "subscribe": "Подписывайся",
   "menu": "Меню",
-  "ourGallery": "Наша галерея",
   "more": "більше",
   "less": "менше",
   "scrollToTop": "Прокрутіть вгору",
@@ -102,5 +81,15 @@
   "details": "Детально",
   "allDiscounts": "Усі акції",
   "oldPrice": "Стара ціна",
-  "sales": "Акції"
+  "sales": "Акції",
+  "totalCost": "Кінцева ціна",
+  "checkoutOrder": "Оформити замовлення",
+  "crayfish": "Раки",
+  "beer": "Пиво",
+  "roll": "Роли",
+  "driedFish": "В'ялена риба",
+  "cider": "Сидр",
+  "beverages": "Напої",
+  "alcoholicDrinks": "Алкогольні напої",
+  "snacks": "Закуски"
 }

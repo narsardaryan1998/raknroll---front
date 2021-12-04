@@ -1,17 +1,25 @@
 <template>
   <div id="cartModal" class="transition-05">
     <div class="cartModal_button white-pattern-background justify-center">
-      <v-btn
-        @click="openCartModal"
-        class="ma-2 shoppingCartFromRightButtonBody_button m-0"
-        outlined
-        fab
-        small>
-        <v-icon
-          class="shoppingCartFromRightButtonBody_button_icon"
-          color="red darken-4">mdi-cart-variant
-        </v-icon>
-      </v-btn>
+      <v-badge
+        bordered
+        class="font-brigada"
+        color="error"
+        left
+        :content="$store.getters['cart/count'] ? $store.getters['cart/count'] : '0'"
+        overlap>
+        <v-btn
+          @click="openCartModal"
+          class="ma-2 shoppingCartFromRightButtonBody_button m-0"
+          outlined
+          fab
+          small>
+          <v-icon
+            class="shoppingCartFromRightButtonBody_button_icon"
+            color="red darken-4">mdi-cart-variant
+          </v-icon>
+        </v-btn>
+      </v-badge>
     </div>
     <div class="cartModal_products white-pattern-background">
       <div class="row">
@@ -38,8 +46,13 @@
       <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length" class="mb-10">
         <div class="row mr-5">
           <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
-            <span>Итоговая цена: {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн</span>
-            <hr class="cartModal_products_hr">
+            <span>{{ $t('totalCost') }}: <span class="font-brigada">{{
+                $store.getters['cart/cartCurrentTotalPrice']
+              }}</span> грн</span>
+            <hr class="cartModal_products_hr my-4">
+            <span @click="checkout" class="cursor-pointer black--text font-weight-bold">{{ $t('checkoutOrder') }} <v-icon
+              class="black--text">mdi-arrow-right-bold</v-icon></span>
+            <hr class="cartModal_products_hr mt-4">
           </div>
         </div>
         <div class="row">
@@ -93,10 +106,11 @@
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
                         v-if="cart.qty > 1">{{
                       $t('price')
-                    }}: {{ cart.final_price }} грн x {{ cart.qty }}</span>
+                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн x <span
+                      class="font-brigada">{{ cart.qty }}</span></span>
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
                       $t('price')
-                    }}: {{ cart.final_price }} грн</span>
+                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн</span>
                 </div>
                 <div class="col-md-1 cartModal_products_remove">
                   <v-btn
@@ -120,7 +134,7 @@
               @click="checkout"
               class="width-100 products_show_products_black_background"
               dark>
-              Оформить заказ
+              {{ $t('checkoutOrder') }}
             </v-btn>
           </div>
         </div>

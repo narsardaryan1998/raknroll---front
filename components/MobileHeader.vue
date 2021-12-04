@@ -81,12 +81,6 @@
             <ul class="list-style-none pl-0 d-flex justify-center">
               <li>
                 <a href="javascript:void(0)"
-                   @click="goToPath(localePath('/'))"
-                   class="list-style-none mobileHeader_modal_nav_navigation_page pl-0">
-                  {{ $t('menuLinks.home') }}</a>
-              </li>
-              <li>
-                <a href="javascript:void(0)"
                    @click="goToPath(localePath('/reviews'))"
                    class="list-style-none mobileHeader_modal_nav_navigation_page pl-4">
                   {{ $t('menuLinks.reviews') }}</a>

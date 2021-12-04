@@ -32,7 +32,9 @@
                   </v-img>
                 </div>
                 <div class="col-10">
-                  <span class="our-advantages-single_text_header transition-05 font-caveat">{{ advantage.header }}</span>
+                  <span class="our-advantages-single_text_header transition-05 font-caveat">{{
+                      advantage.header
+                    }}</span>
                 </div>
               </div>
               <div class="row mt-0">

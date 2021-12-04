@@ -62,6 +62,18 @@
                 dark
                 class="mx-auto my-12 mt-0 products_show_product"
                 max-width="374">
+                <div class="sale-icon-div products_sale-icon-div width-100" v-if="product.discount">
+                  <v-img
+                    class="sale-icon-div-image position-relative float-right"
+                    :src="require('~/assets/images/sale-icon-red-border.png')"
+                    :lazy-src="require('~/assets/images/sale-icon-red-border.png')"
+                    contain>
+                    <span
+                      class="sale-icon-div-text black--text black-text-shadow font-weight-bold">- {{
+                        product.discount
+                      }}%</span>
+                  </v-img>
+                </div>
                 <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                   <v-hover
                     v-slot="{ hover }">
@@ -87,11 +99,32 @@
                       </div>
                       <div class="pr-3"
                            v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
-                        {{ $t('price') + ': ' + product.final_price }} грн x
-                        {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                        <div class="d-flex flex-column" v-if="product.discount">
+                          <div class="grey--text text--lighten-1">
+                            {{ $t('oldPrice') + ': ' + product.initial_price }}
+                          </div>
+                          <div>
+                            {{ $t('price') + ': ' + product.final_price }} грн x
+                            {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                          </div>
+                        </div>
+                        <div v-else>
+                          {{ $t('price') + ': ' + product.final_price }} грн x
+                          {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                        </div>
                       </div>
-                      <div v-else class="pr-3">
-                        {{ $t('price') + ': ' + product.final_price }} грн
+                      <div v-else class="pr-3 d-flex flex-column">
+                        <div v-if="product.discount">
+                          <div class="grey--text text--lighten-1">
+                            {{ $t('oldPrice') + ': ' + product.initial_price }}
+                          </div>
+                          <div>
+                            {{ $t('price') + ': ' + product.final_price }} грн
+                          </div>
+                        </div>
+                        <div v-else>
+                          {{ $t('price') + ': ' + product.final_price }} грн
+                        </div>
                       </div>
                     </div>
                     <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
@@ -179,6 +212,7 @@
           <div class="d-flex products_show_pagination justify-end align-center">
             <div>
               <v-pagination
+                class="font-brigada"
                 color="red darken-4"
                 v-if="$store.getters['products/data'].paginateCount > 1"
                 v-model="filter.page"

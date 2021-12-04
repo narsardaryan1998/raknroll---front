@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Rak'n'Roll",
+    title: "Тестовый seo текст | Rak'n'Roll | raknroll.com.ua",
     htmlAttrs: {
       lang: 'uk'
     },
@@ -32,8 +32,14 @@ export default {
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Brygada+1918&display=swap'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
+      },
     ],
     script: [
       {src: "//code-ya.jivosite.com/widget/PX8nR394WB",},

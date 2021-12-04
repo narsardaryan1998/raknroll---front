@@ -277,22 +277,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.sale-icon-div {
-  position: absolute;
-  top: -80px;
-  transform: rotate(-20deg);
-}
-
-.sale-icon-div-image {
-  width: 150px;
-}
-
-.sale-icon-div-text {
-  position: absolute;
-  font-size: 32px;
-  top: 42px;
-  right: 15px;
-}
-</style>

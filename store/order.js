@@ -15,7 +15,7 @@ export const mutations = {
   updateData(state, data) {
     state.data = data;
   },
-  setCustomerOrderInformation(state){
+  setCustomerOrderInformation(state) {
     state.customerOrderInformation = JSON.parse(localStorage.getItem('customerOrderInformation'));
   },
 };

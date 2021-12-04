@@ -1,6 +1,7 @@
 <template>
   <div id="reviews">
-    <div class="reviews_top_section d-flex justify-space-between align-center container-padding container component_and_page_header_section">
+    <div
+      class="reviews_top_section d-flex justify-space-between align-center container-padding container component_and_page_header_section">
       <div>
         <client-only>
           <div class="component-top-header"

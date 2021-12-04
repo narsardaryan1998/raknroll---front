@@ -2,23 +2,9 @@
   "cart": "Корзина",
   "menuLinks": {
     "home": "Главная",
-    "products": "Продукты",
-    "shop": "Магазин",
     "reviews": "Отзывы",
     "contact-us": "Контакт",
     "delivery-and-payment": "Доставка и оплата"
-  },
-  "introSubheader": {
-    "first": "Свежие <span class='red--text text--darken-4'>раки,</span> пиво, ",
-    "second": "рыба и т. Д."
-  },
-  "informationPart1": {
-    "first": "Украина, Киев,",
-    "second": "Харьковское шоссе 17 А"
-  },
-  "informationPart12": {
-    "first": "Пн-Вс:",
-    "second": "Заказы"
   },
   "bestseller": "Хит Продаж",
   "allOfCatalog": "Весь каталог",
@@ -38,7 +24,6 @@
   "subject": "Тема",
   "message": "Сообщение",
   "weOnMap": "Мы на карте",
-  "sendMessage": "Отправить сообщение",
   "reviews": "отзывы",
   "yourOpinion": "Ваше мнение",
   "sendReview": "Отправить отзыв",
@@ -48,7 +33,6 @@
   "pc": "шт",
   "weight": "Вес",
   "minimum": "Минимум",
-  "portion": "Порция",
   "gram": "грам",
   "liter": "литр",
   "literShort": "л.",
@@ -56,8 +40,6 @@
   "description": "Описание",
   "addToCart": "Добавить в корзину",
   "removeFromCart": "Удалить из корзины",
-  "linkToBrand": "Вся продукция бренда {brandName}",
-  "tastierTogether": "Вместе вкуснее",
   "phone": "Телефон",
   "forExample": "Например:",
   "address": "Адрес",
@@ -75,7 +57,6 @@
   "takeItMyself": "Заберу сам",
   "delivery": "Доставка",
   "totalAmount": "Итого",
-  "toYourBalance": "На ваш баланс",
   "paymentMethod": "Способ оплаты",
   "withCreditCard": "Онлайн, с помощью кредитной карты",
   "cash": "Наличные",
@@ -85,9 +66,7 @@
   "requiredFields": "Обязательные поля",
   "checkout": "Завершить заказ",
   "ourAdvantages": "Наши преимущества",
-  "subscribe": "Подписывайся",
   "menu": "Меню",
-  "ourGallery": "Наша галерея",
   "more": "более",
   "less": "меньше",
   "scrollToTop": "Пролистать наверх",
@@ -102,5 +81,15 @@
   "details": "Подробно",
   "allDiscounts": "Все акции",
   "oldPrice": "Старая цена",
-  "sales": "Акции"
+  "sales": "Акции",
+  "totalCost": "Итоговая цена",
+  "checkoutOrder": "Оформить заказ",
+  "crayfish": "Раки",
+  "beer": "Пиво",
+  "roll": "Роллы",
+  "driedFish": "Вяленая рыба",
+  "cider": "Сидр",
+  "beverages": "Напитки",
+  "alcoholicDrinks": "Алкогольные напитки",
+  "snacks": "Закуски"
 }

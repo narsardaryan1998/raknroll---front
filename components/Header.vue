@@ -88,7 +88,8 @@
                   </li>
                   <li>
                     <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
-                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`)'>{{ $t('sales') }}
+                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`)'>
+                      {{ $t('sales') }}
                     </NuxtLink>
                   </li>
                 </ul>
@@ -186,7 +187,7 @@ export default {
 }
 
 .header_nav_navigation {
-  min-width: 70%;
+  min-width: 80%;
 }
 
 .header_nav_navigation_menu_link {

@@ -28,8 +28,8 @@
         </div>
       </div>
     </client-only>
-    <div class="row cart_order-section container-padding"
-         v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length">
+    <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length"
+         class="row cart_order-section container-padding">
       <div class="col-md-9 col-12 cart_order-section_products">
         <div>
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
@@ -37,11 +37,11 @@
               <div class="col-12 col-sm-2">
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img class="cart_product_image width-100 transition-05 cursor-pointer"
-                         contain
-                         :class="{ 'opacity-05': hover }"
+                  <v-img :class="{ 'opacity-05': hover }"
+                         :lazy-src="baseUrl + cart.image"
                          :src="baseUrl + cart.image"
-                         :lazy-src="baseUrl + cart.image">
+                         class="cart_product_image width-100 transition-05 cursor-pointer"
+                         contain>
                   </v-img>
                 </v-hover>
               </div>
@@ -54,9 +54,9 @@
                 <div class="row cart_product_counter_row">
                   <div class="col-3 cart_product_counter_row_minus d-flex justify-start">
                     <v-btn
-                      @click="updateQuantity({productId: cart.id, value: -1})"
+                      color="white"
                       icon
-                      color="white">
+                      @click="updateQuantity({productId: cart.id, value: -1})">
                       <v-icon>mdi-minus</v-icon>
                     </v-btn>
                   </div>
@@ -65,25 +65,26 @@
                   </div>
                   <div class="col-3 cart_product_counter_row_plus d-flex justify-end">
                     <v-btn
-                      @click="updateQuantity({productId: cart.id, value: 1})"
+                      color="white"
                       icon
-                      color="white">
+                      @click="updateQuantity({productId: cart.id, value: 1})">
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </div>
                 </div>
               </div>
               <div class="col-sm-2 col-6 cart_product_price">
-                  <span class="cart_product_texts_description white-opacity-07" v-if="cart.qty > 1">{{
+                  <span v-if="cart.qty > 1" class="cart_product_texts_description white--text">{{
                       $t('price')
-                    }}: {{ cart.final_price }} грн x {{ cart.qty }}</span>
-                <span class="cart_product_texts_description white-opacity-07" v-else>{{
+                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн x <span
+                      class="font-brigada">{{ cart.qty }}</span></span>
+                <span v-else class="cart_product_texts_description white--text">{{
                     $t('price')
-                  }}: {{ cart.final_price }} грн</span>
+                  }}: <span class="font-brigada">{{ cart.final_price }}</span> грн</span>
               </div>
               <div class="col-1 cart_product_remove">
-                <a href="javascript:void(0)"
-                   class="close-button"
+                <a class="close-button"
+                   href="javascript:void(0)"
                    @click="deleteFromCart(cart.id)">
                   <div class="in">
                     <div class="close-button-block"></div>
@@ -100,22 +101,29 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-12 cart_order-section_register-order" id="cartOrderFormSection">
+      <div id="cartOrderFormSection" class="col-md-3 col-12 cart_order-section_register-order">
         <div class="row mt-3">
           <div class="col-12  cart_order-section_register-order_your-order-header">
             <span>{{ $t('information') }}</span>
           </div>
         </div>
         <v-tabs
-          class="mt-3"
           v-model="tab"
           background-color="transparent"
+          class="mt-3"
           color="basil"
           grow>
-          <v-tab
-            v-for="item in orderMethods"
-            :key="item">
-            {{ item }}
+          <v-tab>
+            <v-icon class="pr-3">
+              mdi-moped
+            </v-icon>
+            {{ $t('delivery') }}
+          </v-tab>
+          <v-tab>
+            <v-icon class="pr-3">
+              mdi-store
+            </v-icon>
+            {{ $t('takeItMyself') }}
           </v-tab>
         </v-tabs>
         <v-tabs-items v-model="tab">
@@ -134,29 +142,29 @@
               <div class="row pt-3">
                 <div class="col-12  py-0">
                   <v-text-field
-                    filled
-                    type="tel"
-                    name="phone"
-                    color="white"
-                    :rules="phoneRules"
+                    v-model="orderFormDelivery.phone"
                     v-mask="'(###) ### - ## - ##'"
                     :hint="$t('forExample') + ' (096) 599 - 09 - 09'"
                     :label="$t('phone') + ' *'"
-                    v-model="orderFormDelivery.phone"
-                    required>
+                    :rules="phoneRules"
+                    color="white"
+                    filled
+                    name="phone"
+                    required
+                    type="tel">
                   </v-text-field>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12  py-0">
                   <v-text-field
+                    v-model="orderFormDelivery.address"
+                    :hint="$t('addressExample')"
+                    :label="$t('address') + ' * (' + $t('addressExample') + ')'"
+                    :rules="addressRules"
+                    color="white"
                     filled
                     name="address"
-                    color="white"
-                    :hint="$t('addressExample')"
-                    v-model="orderFormDelivery.address"
-                    :rules="addressRules"
-                    :label="$t('address') + ' * (' + $t('addressExample') + ')'"
                     required>
                   </v-text-field>
                 </div>
@@ -170,33 +178,33 @@
               <div class="row pt-3">
                 <div class="col-12  py-0">
                   <v-text-field
-                    filled
-                    name="email"
-                    color="white"
-                    :label="$t('emailAddress')"
                     v-model="orderFormDelivery.email"
-                    :rules="emailRules">
+                    :label="$t('emailAddress')"
+                    :rules="emailRules"
+                    color="white"
+                    filled
+                    name="email">
                   </v-text-field>
                 </div>
               </div>
               <div class="row">
                 <div class="col-6  py-0">
                   <v-text-field
+                    v-model="orderFormDelivery.entrance"
+                    :label="$t('entrance')"
+                    color="white"
                     filled
                     name="entrance"
-                    color="white"
-                    :label="$t('entrance')"
-                    v-model="orderFormDelivery.entrance"
                     required>
                   </v-text-field>
                 </div>
                 <div class="col-6  py-0">
                   <v-text-field
+                    v-model="orderFormDelivery.intercom"
+                    :label="$t('intercom')"
+                    color="white"
                     filled
                     name="intercom"
-                    color="white"
-                    :label="$t('intercom')"
-                    v-model="orderFormDelivery.intercom"
                     required>
                   </v-text-field>
                 </div>
@@ -204,21 +212,21 @@
               <div class="row">
                 <div class="col-6  py-0">
                   <v-text-field
+                    v-model="orderFormDelivery.floor"
+                    :label="$t('floor')"
+                    color="white"
                     filled
                     name="floor"
-                    color="white"
-                    :label="$t('floor')"
-                    v-model="orderFormDelivery.floor"
                     required>
                   </v-text-field>
                 </div>
                 <div class="col-6  py-0">
                   <v-text-field
+                    v-model="orderFormDelivery.home"
+                    :label="$t('homeApartmentOffice')"
+                    color="white"
                     filled
                     name="home"
-                    color="white"
-                    :label="$t('homeApartmentOffice')"
-                    v-model="orderFormDelivery.home"
                     required>
                   </v-text-field>
                 </div>
@@ -226,11 +234,11 @@
               <div class="row">
                 <div class="col-12  py-0">
                   <v-textarea
-                    filled
                     v-model="orderFormDelivery.additional_information"
-                    name="additional_information"
+                    :label="$t('additionalInformationAboutOrder')"
                     color="white"
-                    :label="$t('additionalInformationAboutOrder')">
+                    filled
+                    name="additional_information">
                   </v-textarea>
                 </div>
               </div>
@@ -256,7 +264,7 @@
                     {{ $t('purchases') }}:
                   </div>
                   <div>
-                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн
+                    <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -269,7 +277,7 @@
                   </div>
                   <div>
                     <div>
-                      + 500 грн
+                      <span class="font-brigada">+ 500</span> грн
                     </div>
                   </div>
                 </div>
@@ -282,9 +290,9 @@
                     {{ $t('totalAmount') }}:
                   </div>
                   <div class="white--text font-weight-bold">
-                    {{
-                      orderFormDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                    }} грн
+                    <span class="font-brigada">{{
+                        orderFormDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
+                      }}</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -300,7 +308,7 @@
                     <div class="d-flex justify-end">
                       <div></div>
                       <div>
-                        <v-radio color="white" value="cashlessPaymentTerminal" class="mt-5">
+                        <v-radio class="mt-5" color="white" value="cashlessPaymentTerminal">
                           <template v-slot:label>
                             <div class="d-flex align-center">
                               <div>
@@ -308,10 +316,10 @@
                               </div>
                               <v-img
                                 class="ml-1"
-                                max-width="30"
-                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                                contain
                                 lazy-src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
-                                contain>
+                                max-width="30"
+                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg">
                               </v-img>
                             </div>
                           </template>
@@ -324,10 +332,10 @@
                               </div>
                               <v-img
                                 class="ml-5"
-                                max-width="55"
-                                src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                                contain
                                 lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
-                                contain>
+                                max-width="55"
+                                src="https://mybalitrips.com/static/images/visa-mastercard.png">
                               </v-img>
                             </div>
                           </template>
@@ -340,10 +348,10 @@
                               </div>
                               <v-img
                                 class="ml-5"
-                                max-width="33"
-                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                                contain
                                 lazy-src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
-                                contain>
+                                max-width="33"
+                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png">
                               </v-img>
                             </div>
                           </template>
@@ -357,12 +365,12 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    class="width-100 font-weight-bold white--text"
                     color="green accent-4"
                     large
+                    light
                     rounded
-                    @click="checkoutDelivery"
-                    class="width-100 font-weight-bold white--text"
-                    light>
+                    @click="checkoutDelivery">
                     {{ $t('checkout') }}
                   </v-btn>
                 </div>
@@ -384,30 +392,30 @@
               <div class="row pt-3">
                 <div class="col-12 py-0">
                   <v-text-field
-                    filled
-                    type="tel"
-                    name="phone"
-                    color="white"
-                    :rules="phoneRules"
+                    v-model="orderFormNotDelivery.phone"
                     v-mask="'(###) ### - ## - ##'"
                     :hint="$t('forExample') + ' (096) 599 - 09 - 09'"
                     :label="$t('phone') + ' *'"
-                    v-model="orderFormNotDelivery.phone"
-                    required>
+                    :rules="phoneRules"
+                    color="white"
+                    filled
+                    name="phone"
+                    required
+                    type="tel">
                   </v-text-field>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 py-0">
                   <v-text-field
-                    filled
-                    type="text"
-                    name="name"
-                    color="white"
-                    :rules="nameRules"
-                    :label="$t('name') + ' *'"
                     v-model="orderFormNotDelivery.name"
-                    required>
+                    :label="$t('name') + ' *'"
+                    :rules="nameRules"
+                    color="white"
+                    filled
+                    name="name"
+                    required
+                    type="text">
                   </v-text-field>
                 </div>
               </div>
@@ -420,23 +428,23 @@
               <div class="row pt-3">
                 <div class="col-12 py-0">
                   <v-text-field
-                    filled
-                    name="email"
-                    color="white"
-                    :label="$t('emailAddress')"
                     v-model="orderFormNotDelivery.email"
-                    :rules="emailRules">
+                    :label="$t('emailAddress')"
+                    :rules="emailRules"
+                    color="white"
+                    filled
+                    name="email">
                   </v-text-field>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 py-0">
                   <v-textarea
-                    filled
                     v-model="orderFormNotDelivery.additional_information"
-                    name="additional_information"
+                    :label="$t('additionalInformationAboutOrder')"
                     color="white"
-                    :label="$t('additionalInformationAboutOrder')">
+                    filled
+                    name="additional_information">
                   </v-textarea>
                 </div>
               </div>
@@ -462,7 +470,9 @@
                     {{ $t('purchases') }}:
                   </div>
                   <div>
-                    {{ $store.getters['cart/cartCurrentTotalPrice'] }} грн
+                    <span class="font-brigada">
+                      {{ $store.getters['cart/cartCurrentTotalPrice'] }}
+                    </span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -488,9 +498,9 @@
                     {{ $t('totalAmount') }}:
                   </div>
                   <div class="white--text font-weight-bold">
-                    {{
-                      orderFormNotDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                    }} грн
+                    <span class="font-brigada">{{
+                        orderFormNotDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
+                      }}</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -506,7 +516,7 @@
                     <div class="d-flex justify-end">
                       <div></div>
                       <div>
-                        <v-radio color="white" value="cashlessPaymentTerminal" class="mt-5">
+                        <v-radio class="mt-5" color="white" value="cashlessPaymentTerminal">
                           <template v-slot:label>
                             <div class="d-flex align-center">
                               <div>
@@ -514,10 +524,10 @@
                               </div>
                               <v-img
                                 class="ml-1"
-                                max-width="30"
-                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                                contain
                                 lazy-src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
-                                contain>
+                                max-width="30"
+                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg">
                               </v-img>
                             </div>
                           </template>
@@ -530,10 +540,10 @@
                               </div>
                               <v-img
                                 class="ml-5"
-                                max-width="55"
-                                src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                                contain
                                 lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
-                                contain>
+                                max-width="55"
+                                src="https://mybalitrips.com/static/images/visa-mastercard.png">
                               </v-img>
                             </div>
                           </template>
@@ -546,10 +556,10 @@
                               </div>
                               <v-img
                                 class="ml-5"
-                                max-width="33"
-                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                                contain
                                 lazy-src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
-                                contain>
+                                max-width="33"
+                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png">
                               </v-img>
                             </div>
                           </template>
@@ -563,12 +573,12 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    class="width-100 font-weight-bold white--text"
                     color="green accent-4"
                     large
+                    light
                     rounded
-                    @click="checkoutNotDelivery"
-                    class="width-100 font-weight-bold white--text"
-                    light>
+                    @click="checkoutNotDelivery">
                     {{ $t('checkout') }}
                   </v-btn>
                 </div>
@@ -587,9 +597,9 @@
       <div class="row">
         <div class="col-12 col-md-3 offset-md-4">
           <v-img
-            class="width-100"
-            :src="require('~/assets/images/empty-cart.png')"
             :lazy-src="require('~/assets/images/empty-cart.png')"
+            :src="require('~/assets/images/empty-cart.png')"
+            class="width-100"
             contain>
           </v-img>
         </div>
@@ -742,7 +752,7 @@ export default {
               icon: 'success',
               title: 'Ваш заказ был успешно получен',
               showConfirmButton: false,
-              timer: 1500
+              timer: 5000
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
             this.$store.commit('cart/clear');

@@ -17,7 +17,8 @@
         <div class="row">
           <div class="col-md-12 product-show_product_price">
             <span>{{ $t('price') }}:
-              <span class="white-opacity-07">{{ $store.getters['product/data'].product.final_price }} грн / (1 {{
+              <span class="white-opacity-07">{{ $store.getters['product/data'].product.final_price }} грн / (<span
+                class="font-brigada">1</span> {{
                   $t('pc')
                 }})</span></span>
             <hr class="mt-3">
@@ -123,7 +124,7 @@ export default {
     }
   },
   head() {
-    const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+    const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
     return {
       title: this.$store.getters['product/data'].product.meta_title ? this.$store.getters['product/data'].product.meta_title : this.$store.getters['product/data'].product.name,
       meta: [

@@ -42,7 +42,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('beer') }}</span>
                 </div>
               </div>
             </v-img>
@@ -64,7 +64,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('snacks') }}</span>
                 </div>
               </div>
             </v-img>
@@ -81,12 +81,12 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/images/catalog/crayfish.jpg')"
-              :lazy-src="require('~/assets/images/catalog/crayfish.jpg')">
+              :src="require('~/assets/images/catalog/crayfish.png')"
+              :lazy-src="require('~/assets/images/catalog/crayfish.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('crayfish') }}</span>
                 </div>
               </div>
             </v-img>
@@ -109,7 +109,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('driedFish') }}</span>
                 </div>
               </div>
             </v-img>
@@ -131,7 +131,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('alcoholicDrinks') }}</span>
                 </div>
               </div>
             </v-img>
@@ -148,12 +148,12 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/images/catalog/rolls.jpg')"
-              :lazy-src="require('~/assets/images/catalog/rolls.jpg')">
+              :src="require('~/assets/images/catalog/rolls.png')"
+              :lazy-src="require('~/assets/images/catalog/rolls.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Rolls</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('roll') }}</span>
                 </div>
               </div>
             </v-img>
@@ -175,7 +175,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('beverages') }}</span>
                 </div>
               </div>
             </v-img>
@@ -197,7 +197,7 @@
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
-                  <span class="catalogSection_articles_hover_header">Pivo</span>
+                  <span class="catalogSection_articles_hover_header">{{ $t('cider') }}</span>
                 </div>
               </div>
             </v-img>
