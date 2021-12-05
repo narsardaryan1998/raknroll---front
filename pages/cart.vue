@@ -365,6 +365,7 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    :loading="checkoutDeliveryButtonLoading"
                     class="width-100 font-weight-bold white--text"
                     color="green accent-4"
                     large
@@ -573,6 +574,7 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    :loading="checkoutNotDeliveryButtonLoading"
                     class="width-100 font-weight-bold white--text"
                     color="green accent-4"
                     large
@@ -622,6 +624,8 @@ export default {
         this.$t('delivery'), this.$t('takeItMyself'),
       ],
       orderFormDeliveryValid: false,
+      checkoutNotDeliveryButtonLoading: false,
+      checkoutDeliveryButtonLoading: false,
       orderFormNotDeliveryValid: false,
       rememberInformation: true,
       orderResponse: '',
@@ -702,6 +706,7 @@ export default {
     async checkoutDelivery() {
       let productsLength = this.$store.getters['cart/data'].length;
       if (this.$refs.orderFormDelivery.validate() && productsLength) {
+        this.checkoutDeliveryButtonLoading = true;
         let products = [];
         for (let i = 0; i < productsLength; i++) {
           products.push({
@@ -722,6 +727,7 @@ export default {
               timer: 5000
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
+            this.checkoutDeliveryButtonLoading = false;
             this.$store.commit('cart/clear')
           }
         })
@@ -735,6 +741,7 @@ export default {
     async checkoutNotDelivery() {
       let productsLength = this.$store.getters['cart/data'].length;
       if (this.$refs.orderFormNotDelivery.validate() && productsLength) {
+        this.checkoutNotDeliveryButtonLoading = true;
         let products = [];
         for (let i = 0; i < productsLength; i++) {
           products.push({
@@ -755,6 +762,7 @@ export default {
               timer: 5000
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
+            this.checkoutNotDeliveryButtonLoading = false;
             this.$store.commit('cart/clear');
           }
         })

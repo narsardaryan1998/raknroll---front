@@ -1,14 +1,15 @@
 <template>
   <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+    <div id="errorPage">
+      <h1>
+        {{ pageNotFound }}
+      </h1>
+      <span class="error-message">{{ $t('pageNotFound') }}.
+        <NuxtLink
+          :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`)'>
+        {{ $t('ourCatalog') }}
+      </NuxtLink></span>
+    </div>
   </v-app>
 </template>
 
@@ -39,6 +40,15 @@ export default {
 
 <style scoped>
 h1 {
-  font-size: 20px;
+  font-size: 70px;
+}
+
+#errorPage {
+  margin-top: 20vh;
+  text-align: center;
+}
+
+.error-message {
+  font-size: 35px;
 }
 </style>

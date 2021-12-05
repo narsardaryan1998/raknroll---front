@@ -15,14 +15,14 @@
                  data-aos="fade-up"
                  data-aos-duration="1000">
               <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
-                <p class="py-8 px-sm-16 px-8"
+                <p v-if="!category"
+                   class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
-                   data-aos-delay="300"
-                   data-aos-duration="1000" v-if="!category"> {{ $t('allOfCatalog') }}</p>
-                <p class="py-8 px-sm-16 px-8"
+                   data-aos-delay="300" data-aos-duration="1000"> {{ $t('allOfCatalog') }}</p>
+                <p v-else
+                   class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
-                   data-aos-delay="300"
-                   data-aos-duration="1000" v-else> {{ category.name }}</p>
+                   data-aos-delay="300" data-aos-duration="1000"> {{ category.name }}</p>
               </div>
             </div>
           </div>
@@ -38,35 +38,35 @@
           <div class="row products_show_catalog_filter_for_mobile">
             <div class="col-12 col-sm-8 offset-sm-2">
               <v-select
-                @change="filtration"
-                filled
-                :items="$store.getters['products/data'].categories"
-                menu-props="auto"
                 v-model="filter.category_slug"
-                color="white"
+                :items="$store.getters['products/data'].categories"
                 :placeholder="$t('allOfCatalog')"
                 class="pt-0 mt-0"
+                color="white"
+                filled
                 hide-details
+                item-color="white"
                 item-text="name"
                 item-value="slug"
-                item-color="white"
-                single-line>
+                menu-props="auto"
+                single-line
+                @change="filtration">
               </v-select>
             </div>
           </div>
           <div class="row products_page_products_show margin-top-6vh">
-            <div class="py-0 col-sm-6 col-12 col-md-6 col-lg-3"
-                 v-for="(product, index) in $store.getters['products/data'].products" :key="index">
+            <div v-for="(product, index) in $store.getters['products/data'].products"
+                 :key="index" class="py-0 col-sm-6 col-12 col-md-6 col-lg-3">
               <v-card
-                elevation="12"
-                dark
                 class="mx-auto my-12 mt-0 products_show_product"
+                dark
+                elevation="12"
                 max-width="374">
-                <div class="sale-icon-div products_sale-icon-div width-100" v-if="product.discount">
+                <div v-if="product.discount" class="sale-icon-div products_sale-icon-div width-100">
                   <v-img
-                    class="sale-icon-div-image position-relative float-right"
-                    :src="require('~/assets/images/sale-icon-red-border.png')"
                     :lazy-src="require('~/assets/images/sale-icon-red-border.png')"
+                    :src="require('~/assets/images/sale-icon-red-border.png')"
+                    class="sale-icon-div-image position-relative float-right"
                     contain>
                     <span
                       class="sale-icon-div-text black--text black-text-shadow font-weight-bold">- {{
@@ -77,29 +77,30 @@
                 <NuxtLink :to='localePath("/product/show/" + product.slug)'>
                   <v-hover
                     v-slot="{ hover }">
-                    <v-img class="card_product_image width-100 transition-05"
-                           :class="{ 'scale-1-2': hover }"
-                           :src="baseUrl + product.image"
+                    <v-img :class="{ 'scale-1-2': hover }"
                            :lazy-src="baseUrl + product.image"
+                           :src="baseUrl + product.image"
+                           class="card_product_image width-100 transition-05"
                            contain>
                     </v-img>
                   </v-hover>
                   <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
                   <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                    <div class="pl-5 pt-4 text-left" v-if="product.weight && product.min_quantity">
+                    <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
                       {{ $t('minimum') + ': ' + product.min_quantity }}
                     </div>
                     <div
                       :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
-                      <div class="pl-3" v-if="product.weight">
+                      <div v-if="product.weight" class="pl-3">
                         {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
                       </div>
-                      <div class="pl-3" v-else-if="product.min_quantity">
+                      <div v-else-if="product.min_quantity" class="pl-3">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
-                      <div class="pr-3"
-                           v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
-                        <div class="d-flex flex-column" v-if="product.discount">
+                      <div
+                        v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1"
+                        class="pr-3">
+                        <div v-if="product.discount" class="d-flex flex-column">
                           <div class="grey--text text--lighten-1">
                             {{ $t('oldPrice') + ': ' + product.initial_price }}
                           </div>
@@ -149,8 +150,8 @@
                       class="width-100 red-pattern-background"
                       horizontal>
                       <v-btn class="p-0 width-100"
-                             @click="$router.push(localePath('/product/show/' + product.slug))"
-                             max-width="100%">
+                             max-width="100%"
+                             @click="$router.push(localePath('/product/show/' + product.slug))">
                         <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
                           color="grey lighten-2">mdi-text-box-search-outline
@@ -164,9 +165,9 @@
                     <div class="d-flex justify-center width-100">
                       <div class="d-flex justify-start">
                         <v-btn
-                          @click="updateQuantity({productId: product.id, value: -1})"
+                          color="grey lighten-2"
                           icon
-                          color="grey lighten-2">
+                          @click="updateQuantity({productId: product.id, value: -1})">
                           <v-icon>mdi-minus</v-icon>
                         </v-btn>
                       </div>
@@ -176,9 +177,9 @@
                       </div>
                       <div class="d-flex justify-end">
                         <v-btn
-                          @click="updateQuantity({productId: product.id, value: 1})"
+                          color="grey lighten-2"
                           icon
-                          color="grey lighten-2">
+                          @click="updateQuantity({productId: product.id, value: 1})">
                           <v-icon>mdi-plus</v-icon>
                         </v-btn>
                       </div>
@@ -196,8 +197,8 @@
                         </v-icon>
                       </v-btn>
                       <v-btn class="p-0 width-100"
-                             @click="$router.push(localePath('/product/show/' + product.slug))"
-                             max-width="100%">
+                             max-width="100%"
+                             @click="$router.push(localePath('/product/show/' + product.slug))">
                         <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
                           color="grey lighten-2">mdi-text-box-search-outline
@@ -212,12 +213,12 @@
           <div class="d-flex products_show_pagination justify-end align-center">
             <div>
               <v-pagination
-                class="font-brigada"
-                color="red darken-4"
                 v-if="$store.getters['products/data'].paginateCount > 1"
                 v-model="filter.page"
                 :length="$store.getters['products/data'].paginateCount"
                 :total-visible="7"
+                class="font-brigada"
+                color="red darken-4"
                 @input="filtration($event, true)">
               </v-pagination>
             </div>
@@ -226,46 +227,46 @@
         <div class="products_filter d-md-flex d-none flex-column">
           <div>
             <v-text-field
+              v-model="filter.search"
+              :label="$t('searchProduct')"
+              append-icon="mdi-shopping-search"
+              color="red darken-4"
               dark
               hide-details
-              v-model="filter.search"
-              color="red darken-4"
-              @keyup.enter="(e) => {e.target.blur()}"
               @blur="filtration"
-              :label="$t('searchProduct')"
-              append-icon="mdi-shopping-search">
+              @keyup.enter="(e) => {e.target.blur()}">
             </v-text-field>
           </div>
           <div class="margin-top-6vh">
             <v-select
-              :items="$store.getters['products/data'].categories"
-              menu-props="auto"
               v-model="filter.category_slug"
-              @change="filtration"
-              color="red darken-4"
+              :items="$store.getters['products/data'].categories"
               :placeholder="$t('allOfCatalog')"
               class="pt-0 mt-0"
+              color="red darken-4"
               hide-details
+              item-color="red darken-4"
               item-text="name"
               item-value="slug"
-              item-color="red darken-4"
-              single-line>
+              menu-props="auto"
+              single-line
+              @change="filtration">
             </v-select>
           </div>
           <div class="margin-top-6vh">
             <v-select
-              :items="$store.getters['products/data'].brands"
-              menu-props="auto"
-              @change="filtration"
               v-model="filter.brand_slug"
-              color="red darken-4"
+              :items="$store.getters['products/data'].brands"
               :placeholder="$t('allBrands')"
               class="pt-0 mt-0"
+              color="red darken-4"
               hide-details
+              item-color="red darken-4"
               item-text="name"
               item-value="slug"
-              item-color="red darken-4"
-              single-line>
+              menu-props="auto"
+              single-line
+              @change="filtration">
             </v-select>
           </div>
           <div class="margin-top-6vh">
@@ -277,39 +278,39 @@
             <div class="row">
               <div class="col px-4 pt-0">
                 <v-range-slider
-                  @change="filtration"
                   v-model="filter.final_price"
-                  :min="0"
-                  color="red darken-4"
                   :max="23000"
+                  :min="0"
+                  class="align-center"
+                  color="red darken-4"
                   hide-details
-                  class="align-center">
+                  @change="filtration">
                   <template v-slot:prepend>
                     <v-text-field
-                      @keyup.enter="(e) => {e.target.blur()}"
-                      @blur="filtration"
                       :value="filter.final_price[0]"
                       class="mt-0 pt-0"
+                      color="red darken-4"
                       hide-details
                       single-line
-                      color="red darken-4"
-                      type="number"
                       style="width: 60px"
-                      @change="$set(filter.final_price, 0, $event)">
+                      type="number"
+                      @blur="filtration"
+                      @change="$set(filter.final_price, 0, $event)"
+                      @keyup.enter="(e) => {e.target.blur()}">
                     </v-text-field>
                   </template>
                   <template v-slot:append>
                     <v-text-field
-                      @keyup.enter="(e) => {e.target.blur()}"
-                      @blur="filtration"
                       :value="filter.final_price[1]"
                       class="mt-0 pt-0"
+                      color="red darken-4"
                       hide-details
                       single-line
-                      color="red darken-4"
-                      type="number"
                       style="width: 60px"
-                      @change="$set(filter.final_price, 1, $event)">
+                      type="number"
+                      @blur="filtration"
+                      @change="$set(filter.final_price, 1, $event)"
+                      @keyup.enter="(e) => {e.target.blur()}">
                     </v-text-field>
                   </template>
                 </v-range-slider>
@@ -318,33 +319,33 @@
           </div>
           <div class="margin-top-6vh display-quantity-select">
             <v-select
-              :items="displayQuantityArray"
-              menu-props="auto"
               v-model="filter.display_quantity"
-              @change="filtration"
-              color="red darken-4"
+              :items="displayQuantityArray"
               class="pt-0 mt-0 text-center"
+              color="red darken-4"
               hide-details
               item-color="red darken-4"
-              single-line>
+              menu-props="auto"
+              single-line
+              @change="filtration">
             </v-select>
           </div>
           <div class="mt-5">
             <v-switch
-              @change="filtration"
               v-model="filter.recommended"
               :label="$t('recommended')"
               color="red darken-4"
-              hide-details>
+              hide-details
+              @change="filtration">
             </v-switch>
           </div>
           <div class="mt-5">
             <v-switch
-              @change="filtration"
               v-model="filter.discounted"
               :label="$t('discounted')"
               color="red darken-4"
-              hide-details>
+              hide-details
+              @change="filtration">
             </v-switch>
           </div>
         </div>
@@ -353,11 +354,11 @@
     <div id="mobileFilterModal">
       <div class="mobileFilterModal_button red-pattern-background justify-center">
         <v-btn
-          @click="openMobilFilterSection"
           class="ma-2 border-none m-0"
-          outlined
           fab
-          small>
+          outlined
+          small
+          @click="openMobilFilterSection">
           <v-icon
             class="border-none"
             color="white">mdi-shopping-search
@@ -368,8 +369,8 @@
         <div class="row">
           <div class="col-12">
             <div class="pr-2 pt-2">
-              <a href="javascript:void(0)"
-                 class="close-button float-right"
+              <a class="close-button float-right"
+                 href="javascript:void(0)"
                  @click="openMobilFilterSection">
                 <div class="in">
                   <div class="close-button-block"></div>
@@ -387,30 +388,30 @@
           <div class="row">
             <div class="col-12">
               <v-text-field
+                v-model="filter.search"
+                :label="$t('searchProduct')"
+                append-icon="mdi-shopping-search"
+                color="white"
                 dark
                 filled
-                hide-details
-                v-model="filter.search"
-                color="white"
-                :label="$t('searchProduct')"
-                append-icon="mdi-shopping-search">
+                hide-details>
               </v-text-field>
             </div>
           </div>
           <div class="row margin-top-4vh">
             <div class="col-12">
               <v-select
-                filled
-                :items="$store.getters['products/data'].brands"
-                menu-props="auto"
                 v-model="filter.brand_slug"
-                color="white"
+                :items="$store.getters['products/data'].brands"
                 :placeholder="$t('allBrands')"
                 class="pt-0 mt-0"
+                color="white"
+                filled
                 hide-details
+                item-color="white"
                 item-text="name"
                 item-value="slug"
-                item-color="white"
+                menu-props="auto"
                 single-line>
               </v-select>
             </div>
@@ -426,20 +427,20 @@
                 <div class="col px-4 pt-0">
                   <v-range-slider
                     v-model="filter.final_price"
-                    :min="0"
-                    color="white"
                     :max="23000"
-                    hide-details
-                    class="align-center">
+                    :min="0"
+                    class="align-center"
+                    color="white"
+                    hide-details>
                     <template v-slot:prepend>
                       <v-text-field
                         :value="filter.final_price[0]"
                         class="mt-0 pt-0"
+                        color="white"
                         hide-details
                         single-line
-                        color="white"
-                        type="number"
                         style="width: 60px"
+                        type="number"
                         @change="$set(filter.final_price, 0, $event)">
                       </v-text-field>
                     </template>
@@ -447,11 +448,11 @@
                       <v-text-field
                         :value="filter.final_price[1]"
                         class="mt-0 pt-0"
+                        color="white"
                         hide-details
                         single-line
-                        color="white"
-                        type="number"
                         style="width: 60px"
+                        type="number"
                         @change="$set(filter.final_price, 1, $event)">
                       </v-text-field>
                     </template>
@@ -463,15 +464,15 @@
           <div class="row margin-top-4vh">
             <div class="display-quantity-select col-12">
               <v-select
-                filled
-                :items="displayQuantityArray"
-                menu-props="auto"
                 v-model="filter.display_quantity"
-                color="white"
-                hide-details
+                :items="displayQuantityArray"
                 :label="$t('displayQuantity')"
                 class="pt-0 mt-0 text-center"
-                item-color="white">
+                color="white"
+                filled
+                hide-details
+                item-color="white"
+                menu-props="auto">
               </v-select>
             </div>
           </div>
@@ -498,10 +499,10 @@
           <div class="row margin-top-4vh">
             <div class="col-12">
               <v-btn
-                @click="mobileFilterSearch"
                 class="font-weight-bold width-100"
                 large
-                light>
+                light
+                @click="mobileFilterSearch">
                 {{ $t('searchProduct') }}
                 <v-icon class="ml-3">
                   mdi-magnify
@@ -535,7 +536,7 @@ export default {
       baseUrl: process.env.BASE_URL
     }
   },
-  async asyncData({params, store, i18n}) {
+  async asyncData({params, store, i18n, error}) {
     const filter = {
       language: i18n.locale,
       category_slug: params.catalog,
@@ -562,94 +563,41 @@ export default {
     }
     const category = store.getters['products/data'].categories.find(category => category.slug === filter.category_slug);
     const brand = store.getters['products/data'].brands.find(brand => brand.slug === filter.brand_slug);
+    if (!category || !brand) {
+      error({statusCode: 404, message: 'Post not found'})
+    }
     return {filter, category, brand}
   },
   head() {
-    let metaTitleBrand = '';
-    let metaKeysBrand = '';
-    let metaDescBrand = '';
-    let metaTitleCategory = '';
-    let metaKeysCategory = '';
-    let metaDescCategory = '';
-    if (this.category) {
-      metaTitleCategory = this.category.meta_title ? this.category.meta_title : this.category.name;
-      metaKeysCategory = this.category.meta_keys ? this.category.meta_keys : this.category.name;
-      metaDescCategory = this.category.meta_description ? this.category.meta_description : this.category.description;
-    }
-    if (this.brand) {
-      metaTitleBrand = this.brand.meta_title ? this.brand.meta_title : this.brand.name;
-      metaKeysBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
-      metaDescBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
-    }
-    if (this.category && this.brand) {
-      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
-      return {
-        title: metaTitleCategory + ' | ' + metaTitleBrand,
-        meta: [
-          {
-            hid: 'keywords',
-            name: 'keywords',
-            content: metaKeysCategory + ', ' + metaKeysBrand
-          },
-          {
-            hid: 'description',
-            name: 'description',
-            content: metaDescCategory + ', ' + metaDescBrand
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
-          },
-          ...i18nHead.meta
-        ]
-      }
-    } else if (this.category) {
-      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
-      return {
-        title: metaTitleCategory,
-        meta: [
-          {
-            hid: 'keywords',
-            name: 'keywords',
-            content: metaKeysCategory
-          },
-          {
-            hid: 'description',
-            name: 'description',
-            content: metaDescCategory
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
-          },
-          ...i18nHead.meta
-        ]
-      }
-    } else if (this.brand) {
-      const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
-      return {
-        title: metaTitleBrand,
-        meta: [
-          {
-            hid: 'keywords',
-            name: 'keywords',
-            content: metaKeysBrand
-          },
-          {
-            hid: 'description',
-            name: 'description',
-            content: metaDescBrand
-          },
-          {
-            hid: 'og:image',
-            property: 'og:image',
-            content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
-          },
-          ...i18nHead.meta
-        ]
-      }
+    let metaTitleCategory = this.category.meta_title ? this.category.meta_title : this.category.name;
+    let metaKeysCategory = this.category.meta_keys ? this.category.meta_keys : this.category.name;
+    let metaDescCategory = this.category.meta_description ? this.category.meta_description : this.category.description;
+    let metaTitleBrand = this.brand.meta_title ? this.brand.meta_title : this.brand.name;
+    let metaKeysBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
+    let metaDescBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
+
+    const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
+
+    return {
+      title: metaTitleCategory + ' | ' + metaTitleBrand,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: metaKeysCategory + ', ' + metaKeysBrand
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: metaDescCategory + ', ' + metaDescBrand
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
+        },
+        ...i18nHead.meta
+      ]
     }
   },
   methods: {

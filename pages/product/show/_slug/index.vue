@@ -2,8 +2,8 @@
   <div id="product-show">
     <div class="row product-show_product container container-padding">
       <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0">
-        <v-img :src="baseUrl + $store.getters['product/data'].product.image"
-               :lazy-src="baseUrl + $store.getters['product/data'].product.image"
+        <v-img :lazy-src="baseUrl + $store.getters['product/data'].product.image"
+               :src="baseUrl + $store.getters['product/data'].product.image"
                cover>
         </v-img>
       </div>
@@ -24,7 +24,7 @@
             <hr class="mt-3">
           </div>
         </div>
-        <div class="row" v-if="$store.getters['product/data'].product.weight">
+        <div v-if="$store.getters['product/data'].product.weight" class="row">
           <div class="col-md-12 product-show_product_price">
             <span>{{ $t('weight') }}:
               <span class="white-opacity-07">{{
@@ -40,14 +40,14 @@
             <hr>
           </div>
         </div>
-        <div class="row"
-             v-if="$store.getters['cart/data'].find(cart => $store.getters['product/data'].product.id === cart.id)">
+        <div v-if="$store.getters['cart/data'].find(cart => $store.getters['product/data'].product.id === cart.id)"
+             class="row">
           <div class="col-12 col-md-6 d-flex justify-md-start justify-center width-100">
             <div class="d-flex justify-start">
               <v-btn
-                @click="updateQuantity({productId: $store.getters['product/data'].product.id, value: -1})"
+                color="grey lighten-2"
                 icon
-                color="grey lighten-2">
+                @click="updateQuantity({productId: $store.getters['product/data'].product.id, value: -1})">
                 <v-icon>mdi-minus</v-icon>
               </v-btn>
             </div>
@@ -59,9 +59,9 @@
             </div>
             <div class="d-flex justify-end">
               <v-btn
-                @click="updateQuantity({productId: $store.getters['product/data'].product.id, value: 1})"
+                color="grey lighten-2"
                 icon
-                color="grey lighten-2">
+                @click="updateQuantity({productId: $store.getters['product/data'].product.id, value: 1})">
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </div>
@@ -71,11 +71,11 @@
           <div class="col-12">
             <v-btn
               v-if="!$store.getters['cart/data'].find(cart => $store.getters['product/data'].product.id === cart.id)"
+              color="red darken-4 red-pattern-background"
+              dark
               large
               rounded
-              color="red darken-4 red-pattern-background"
-              @click="addToCart($store.getters['product/data'].product)"
-              dark>
+              @click="addToCart($store.getters['product/data'].product)">
               {{ $t('addToCart') }}
               <v-icon
                 dark
@@ -85,10 +85,10 @@
             </v-btn>
             <v-btn
               v-else
-              large
               color="red darken-4 red-pattern-background"
-              @click="deleteFromCart($store.getters['product/data'].product.id)"
-              dark>
+              dark
+              large
+              @click="deleteFromCart($store.getters['product/data'].product.id)">
               {{ $t('removeFromCart') }}
               <v-icon
                 dark
@@ -110,11 +110,14 @@ export default {
   directives: {
     swiper: directive
   },
-  async asyncData({store, i18n, params}) {
+  async asyncData({store, i18n, params, error }) {
     await store.dispatch('product/getData', {
       slug: params.slug,
       language: i18n.locale,
     });
+    if (!store.getters['product/data'].product) {
+      error({ statusCode: 404, message: 'Post not found' })
+    }
   },
   data() {
     return {

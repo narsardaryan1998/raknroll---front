@@ -6,6 +6,14 @@
     "contact-us": "Контакт",
     "delivery-and-payment": "Доставка та оплата"
   },
+  "informationPart1": {
+    "first": "Україна, Київ,",
+    "second": "Харківське шосе 17 А"
+  },
+  "informationPart12": {
+    "first": "Пн-Нд:",
+    "second": "Замовлення"
+  },
   "bestseller": "Хіт продажу",
   "allOfCatalog": "Весь каталог",
   "ourCatalog": "Наш каталог",
@@ -91,5 +99,6 @@
   "cider": "Сидр",
   "beverages": "Напої",
   "alcoholicDrinks": "Алкогольні напої",
-  "snacks": "Закуски"
+  "snacks": "Закуски",
+  "pageNotFound": "Такой страницы не найдено"
 }

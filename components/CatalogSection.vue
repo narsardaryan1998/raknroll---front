@@ -58,6 +58,7 @@
           <NuxtLink :to='localePath("/products/zakuski/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
+              position="left"
               class="width-100 height-100 transition-05"
               :src="require('~/assets/images/catalog/snacks.jpg')"
               :lazy-src="require('~/assets/images/catalog/snacks.jpg')">
@@ -103,9 +104,9 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              position="top"
-              :src="require('~/assets/images/catalog/dried-fish.jpg')"
-              :lazy-src="require('~/assets/images/catalog/dried-fish.jpg')">
+              position="center"
+              :src="require('~/assets/images/catalog/dried-fish.png')"
+              :lazy-src="require('~/assets/images/catalog/dried-fish.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -126,8 +127,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/images/catalog/alcohol.jpg')"
-              :lazy-src="require('~/assets/images/catalog/alcohol.jpg')">
+              :src="require('~/assets/images/catalog/alcohol.png')"
+              :lazy-src="require('~/assets/images/catalog/alcohol.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -170,8 +171,8 @@
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/images/catalog/beverages.jpg')"
-              :lazy-src="require('~/assets/images/catalog/beverages.jpg')">
+              :src="require('~/assets/images/catalog/beverages.png')"
+              :lazy-src="require('~/assets/images/catalog/beverages.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
@@ -191,9 +192,10 @@
           <NuxtLink :to='localePath("/products/sidr/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
+              position="right"
               class="width-100 height-100 transition-05"
-              :src="require('~/assets/images/catalog/cider.jpg')"
-              :lazy-src="require('~/assets/images/catalog/cider.jpg')">
+              :src="require('~/assets/images/catalog/cider.png')"
+              :lazy-src="require('~/assets/images/catalog/cider.png')">
               <div class="d-table width-100 height-100">
                 <div class="catalogSection_articles_hover width-100 height-100"
                      :class="hover ? 'opacity-1-transition' : ''">
