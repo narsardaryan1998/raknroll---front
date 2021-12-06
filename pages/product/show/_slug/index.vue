@@ -74,7 +74,6 @@
               color="red darken-4 red-pattern-background"
               dark
               large
-              rounded
               @click="addToCart($store.getters['product/data'].product)">
               {{ $t('addToCart') }}
               <v-icon

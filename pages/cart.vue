@@ -132,13 +132,6 @@
               ref="orderFormDelivery"
               v-model="orderFormDeliveryValid"
               lazy-validation>
-              <div class="row mt-3">
-                <div
-                  class="col-12  pb-0 cart_order-section_register-order_your-order-subheader red--text text--darken-4">
-                  {{ $t('requiredFields') }}:
-                  <v-icon color="red darken-4">mdi-arrow-down-box</v-icon>
-                </div>
-              </div>
               <div class="row pt-3">
                 <div class="col-12  py-0">
                   <v-text-field
@@ -167,12 +160,6 @@
                     name="address"
                     required>
                   </v-text-field>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12  pb-0 cart_order-section_register-order_your-order-subheader">
-                  {{ $t('optionalFields') }}:
-                  <v-icon>mdi-arrow-down-box</v-icon>
                 </div>
               </div>
               <div class="row pt-3">
@@ -383,13 +370,6 @@
               ref="orderFormNotDelivery"
               v-model="orderFormNotDeliveryValid"
               lazy-validation>
-              <div class="row mt-3">
-                <div
-                  class="col-12  pb-0 cart_order-section_register-order_your-order-subheader red--text text--darken-4">
-                  {{ $t('requiredFields') }}:
-                  <v-icon color="red darken-4">mdi-arrow-down-box</v-icon>
-                </div>
-              </div>
               <div class="row pt-3">
                 <div class="col-12 py-0">
                   <v-text-field
@@ -418,12 +398,6 @@
                     required
                     type="text">
                   </v-text-field>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-12  pb-0 cart_order-section_register-order_your-order-subheader">
-                  {{ $t('optionalFields') }}:
-                  <v-icon>mdi-arrow-down-box</v-icon>
                 </div>
               </div>
               <div class="row pt-3">

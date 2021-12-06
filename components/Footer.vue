@@ -8,7 +8,7 @@
               <div class="row">
                 <div class="col-md-12 d-flex justify-center">
                   <div class="text-center black-text-shadow black--text white-brush-background">
-                    <p class="py-8 px-12 footer_section_information_header footer_section_header">{{
+                    <p class="py-8 px-12 footer_section_information_header footer_section_header font-caveat">{{
                         $t('contactUs')
                       }}</p>
                   </div>
@@ -151,7 +151,7 @@
           <div class="row">
             <div class="col-md-12 d-flex justify-center">
               <div class="text-center black-text-shadow black--text white-brush-background">
-                <p class="py-8 px-12 footer_section_header">{{ $t('weOnMap') }}</p>
+                <p class="py-8 px-12 footer_section_header font-caveat">{{ $t('weOnMap') }}</p>
               </div>
             </div>
           </div>

@@ -72,10 +72,6 @@
                 </div>
                 <div class="col-md-5 cartModal_products_texts">
                   <span class="cartModal_products_texts_header black--text font-weight-bold">{{ cart.name }}</span>
-                  <br>
-                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold">{{
-                      cart.short_description
-                    }}</span>
                 </div>
                 <div class="col-md-2 col-6 cartModal_products_counter">
                   <div class="row cartModal_products_counter_row">
