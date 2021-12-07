@@ -32,18 +32,12 @@ export default {
       {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
       {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Brygada+1918&display=swap'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'},
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'
-      },
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
     ],
     script: [
-      {src: "//code-ya.jivosite.com/widget/PX8nR394WB",},
+      {src: "//code-ya.jivosite.com/widget/PX8nR394WB"},
     ]
   },
 
@@ -135,7 +129,7 @@ export default {
 
   loading: {
     color: '#B71C1C',
-    height: '4px',
+    height: '5px',
     throttle: 0
   },
 }

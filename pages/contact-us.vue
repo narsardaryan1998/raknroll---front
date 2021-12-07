@@ -20,13 +20,7 @@
       <div class="page_description margin-left-10vw"
            data-aos="fade-right"
            data-aos-duration="1000"
-           data-aos-delay="800">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
-        explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
-        perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
-        mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
-        voluptatum.
-      </div>
+           data-aos-delay="800">{{ $t('contactsPageDescription') }}</div>
     </div>
     <div class="contact-us_contacts red-pattern-background row margin-top-6vh inset-shadow-10 py-10">
       <div class="col-md-8 col-lg-6 col-sm-10 offset-sm-1 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">

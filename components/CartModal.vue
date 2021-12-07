@@ -99,14 +99,8 @@
                   </div>
                 </div>
                 <div class="col-md-2 col-6 cartModal_products_price">
-                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold"
-                        v-if="cart.qty > 1">{{
-                      $t('price')
-                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн x <span
-                      class="font-brigada">{{ cart.qty }}</span></span>
-                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold" v-else>{{
-                      $t('price')
-                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн</span>
+                  <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold">{{
+                      $t('price') }}: {{ cart.final_price }}грн</span>
                 </div>
                 <div class="col-md-1 cartModal_products_remove">
                   <v-btn

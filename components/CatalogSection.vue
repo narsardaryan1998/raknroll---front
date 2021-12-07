@@ -8,20 +8,16 @@
              data-aos-duration="1000">
           <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
             <p class="py-8 px-12"
-               style="line-height: normal"
                data-aos="fade-up"
-               data-aos-duration="1000">{{ $t('ourCatalog') }}</p>
+               data-aos-duration="1000"
+               style="line-height: normal">{{ $t('ourCatalog') }}</p>
           </div>
         </div>
         <div class="page_description margin-left-10vw white--text white-text-shadow"
              data-aos="fade-up"
-             data-aos-duration="1000"
-             data-aos-delay="800">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
-          explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
-          perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
-          mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
-          voluptatum.
+             data-aos-delay="800"
+             data-aos-duration="1000">
+          {{ $t('outCatalogDescription') }}
         </div>
       </div>
     </div>
@@ -34,14 +30,14 @@
              data-aos-duration="1000">
           <NuxtLink :to='localePath("/products/pivo/all-brands/page-1")'>
             <v-img
-              class="width-100 height-100 transition-05"
               :class="hover ? ' scale-1-2' : ''"
-              :src="require('~/assets/images/catalog/beer.jpg')"
               :lazy-src="require('~/assets/images/catalog/beer.jpg')"
+              :src="require('~/assets/images/catalog/beer.jpg')"
+              class="width-100 height-100 transition-05"
               cover>
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('beer') }}</span>
                 </div>
               </div>
@@ -58,13 +54,13 @@
           <NuxtLink :to='localePath("/products/zakuski/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              position="left"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/snacks.jpg')"
               :src="require('~/assets/images/catalog/snacks.jpg')"
-              :lazy-src="require('~/assets/images/catalog/snacks.jpg')">
+              class="width-100 height-100 transition-05"
+              position="left">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('snacks') }}</span>
                 </div>
               </div>
@@ -81,12 +77,12 @@
           <NuxtLink :to='localePath("/products/raki/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/crayfish.png')"
               :src="require('~/assets/images/catalog/crayfish.png')"
-              :lazy-src="require('~/assets/images/catalog/crayfish.png')">
+              class="width-100 height-100 transition-05">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('crayfish') }}</span>
                 </div>
               </div>
@@ -103,13 +99,13 @@
           <NuxtLink :to='localePath("/products/v-yalena-riba/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              class="width-100 height-100 transition-05"
-              position="center"
+              :lazy-src="require('~/assets/images/catalog/dried-fish.png')"
               :src="require('~/assets/images/catalog/dried-fish.png')"
-              :lazy-src="require('~/assets/images/catalog/dried-fish.png')">
+              class="width-100 height-100 transition-05"
+              position="center">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('driedFish') }}</span>
                 </div>
               </div>
@@ -126,12 +122,12 @@
           <NuxtLink :to='localePath("/products/alkogolni-napoji/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/alcohol.png')"
               :src="require('~/assets/images/catalog/alcohol.png')"
-              :lazy-src="require('~/assets/images/catalog/alcohol.png')">
+              class="width-100 height-100 transition-05">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('alcoholicDrinks') }}</span>
                 </div>
               </div>
@@ -148,12 +144,12 @@
           <NuxtLink :to='localePath("/products/roli/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/rolls.png')"
               :src="require('~/assets/images/catalog/rolls.png')"
-              :lazy-src="require('~/assets/images/catalog/rolls.png')">
+              class="width-100 height-100 transition-05">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('roll') }}</span>
                 </div>
               </div>
@@ -170,12 +166,12 @@
           <NuxtLink :to='localePath("/products/napoji/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/beverages.png')"
               :src="require('~/assets/images/catalog/beverages.png')"
-              :lazy-src="require('~/assets/images/catalog/beverages.png')">
+              class="width-100 height-100 transition-05">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('beverages') }}</span>
                 </div>
               </div>
@@ -192,13 +188,13 @@
           <NuxtLink :to='localePath("/products/sidr/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
-              position="right"
-              class="width-100 height-100 transition-05"
+              :lazy-src="require('~/assets/images/catalog/cider.png')"
               :src="require('~/assets/images/catalog/cider.png')"
-              :lazy-src="require('~/assets/images/catalog/cider.png')">
+              class="width-100 height-100 transition-05"
+              position="right">
               <div class="d-table width-100 height-100">
-                <div class="catalogSection_articles_hover width-100 height-100"
-                     :class="hover ? 'opacity-1-transition' : ''">
+                <div :class="hover ? 'opacity-1-transition' : ''"
+                     class="catalogSection_articles_hover width-100 height-100">
                   <span class="catalogSection_articles_hover_header">{{ $t('cider') }}</span>
                 </div>
               </div>

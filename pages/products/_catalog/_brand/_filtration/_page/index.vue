@@ -97,25 +97,8 @@
                       <div v-else-if="product.min_quantity" class="pl-3">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
-                      <div
-                        v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1"
-                        class="pr-3">
+                      <div class="pr-3">
                         <div v-if="product.discount" class="d-flex flex-column">
-                          <div class="grey--text text--lighten-1">
-                            {{ $t('oldPrice') + ': ' + product.initial_price }}
-                          </div>
-                          <div>
-                            {{ $t('price') + ': ' + product.final_price }} грн x
-                            {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
-                          </div>
-                        </div>
-                        <div v-else>
-                          {{ $t('price') + ': ' + product.final_price }} грн x
-                          {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
-                        </div>
-                      </div>
-                      <div v-else class="pr-3 d-flex flex-column">
-                        <div v-if="product.discount">
                           <div class="grey--text text--lighten-1">
                             {{ $t('oldPrice') + ': ' + product.initial_price }}
                           </div>
@@ -269,54 +252,6 @@
               @change="filtration">
             </v-select>
           </div>
-          <div class="margin-top-6vh">
-            <div class="row">
-              <div class="col-12">
-                <span>{{ $t('price') }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col px-4 pt-0">
-                <v-range-slider
-                  v-model="filter.final_price"
-                  :max="23000"
-                  :min="0"
-                  class="align-center"
-                  color="red darken-4"
-                  hide-details
-                  @change="filtration">
-                  <template v-slot:prepend>
-                    <v-text-field
-                      :value="filter.final_price[0]"
-                      class="mt-0 pt-0"
-                      color="red darken-4"
-                      hide-details
-                      single-line
-                      style="width: 60px"
-                      type="number"
-                      @blur="filtration"
-                      @change="$set(filter.final_price, 0, $event)"
-                      @keyup.enter="(e) => {e.target.blur()}">
-                    </v-text-field>
-                  </template>
-                  <template v-slot:append>
-                    <v-text-field
-                      :value="filter.final_price[1]"
-                      class="mt-0 pt-0"
-                      color="red darken-4"
-                      hide-details
-                      single-line
-                      style="width: 60px"
-                      type="number"
-                      @blur="filtration"
-                      @change="$set(filter.final_price, 1, $event)"
-                      @keyup.enter="(e) => {e.target.blur()}">
-                    </v-text-field>
-                  </template>
-                </v-range-slider>
-              </div>
-            </div>
-          </div>
           <div class="margin-top-6vh display-quantity-select">
             <v-select
               v-model="filter.display_quantity"
@@ -417,51 +352,6 @@
             </div>
           </div>
           <div class="row margin-top-4vh">
-            <div class="col-12">
-              <div class="row">
-                <div class="col-12">
-                  <span class="white--text">{{ $t('price') }}</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col px-4 pt-0">
-                  <v-range-slider
-                    v-model="filter.final_price"
-                    :max="23000"
-                    :min="0"
-                    class="align-center"
-                    color="white"
-                    hide-details>
-                    <template v-slot:prepend>
-                      <v-text-field
-                        :value="filter.final_price[0]"
-                        class="mt-0 pt-0"
-                        color="white"
-                        hide-details
-                        single-line
-                        style="width: 60px"
-                        type="number"
-                        @change="$set(filter.final_price, 0, $event)">
-                      </v-text-field>
-                    </template>
-                    <template v-slot:append>
-                      <v-text-field
-                        :value="filter.final_price[1]"
-                        class="mt-0 pt-0"
-                        color="white"
-                        hide-details
-                        single-line
-                        style="width: 60px"
-                        type="number"
-                        @change="$set(filter.final_price, 1, $event)">
-                      </v-text-field>
-                    </template>
-                  </v-range-slider>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row margin-top-4vh">
             <div class="display-quantity-select col-12">
               <v-select
                 v-model="filter.display_quantity"
@@ -545,8 +435,7 @@ export default {
       display_quantity: 8,
       search: '',
       recommended: false,
-      discounted: false,
-      final_price: [0, 23000]
+      discounted: false
     }
     if (params.filtration) {
       params.filtration = JSON.parse(params.filtration)

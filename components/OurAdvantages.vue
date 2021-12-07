@@ -39,7 +39,7 @@
               </div>
               <div class="row mt-0">
                 <div class="col-10 offset-2 pt-0">
-                  <span class="our-advantages-single_text_description font-caveat">{{ advantage.description }} </span>
+                  <span class="our-advantages-single_text_description">{{ advantage.description }} </span>
                 </div>
               </div>
             </div>
@@ -58,36 +58,25 @@ export default {
       ourAdvantages: [
         {
           image: require('~/assets/icons/icons8-good-quality-64.png'),
-          header: 'Гарантия качества',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ex expedita facere fugiinima natus non perferendis sint temporibus totam! Consequuntur quos suscipit voluptatibus!',
-        },
-        {
-          image: require('~/assets/icons/icons8-e-commerce-64.png'),
-          header: 'Профессиональный сайт',
-          delay: 500,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse ',
+          header: this.$t('ourAdvantagesHeaders.qualityGuarantees'),
+          description:  this.$t('ourAdvantagesDescs.qualityGuarantees'),
         },
         {
           image: require('~/assets/icons/icons8-deliver-food-64.png'),
-          header: 'Быстрая доставка',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsmet, consectetur adipisicin aperiam culpa ea eius esse',
+          header: this.$t('ourAdvantagesHeaders.fastDelivery'),
+          delay: 500,
+          description: this.$t('ourAdvantagesDescs.fastDelivery'),
         },
         {
           image: require('~/assets/icons/icons8-sushi-64.png'),
-          header: 'Незабываемый вкус',
-          delay: 500,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
-        },
-        {
-          image: require('~/assets/icons/icons8-discount-64.png'),
-          header: 'Бонусна програма',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esseLorem ipsum dolor sit amet, consectolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
+          header: this.$t('ourAdvantagesHeaders.unforgettableTaste'),
+          description: this.$t('ourAdvantagesDescs.unforgettableTaste'),
         },
         {
           image: require('~/assets/icons/icons8-restaurant-menu-64.png'),
-          header: 'Обновленный ассортимент',
+          header: this.$t('ourAdvantagesHeaders.upToDateAssortment'),
           delay: 500,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse Lorem ipsum dolor sit amet, consectetur adipisicin aperiam culpa ea eius esse',
+          description: this.$t('ourAdvantagesDescs.upToDateAssortment'),
         },
       ]
     }

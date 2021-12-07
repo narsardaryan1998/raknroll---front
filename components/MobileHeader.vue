@@ -5,12 +5,12 @@
       <div class="mobileHeader_logo">
         <NuxtLink :to='localePath("/")' class="mobileHeader_logo_link">
           <v-img
-            width="70px"
-            class="mobileHeader_logo_link_img"
-            :src="require('~/assets/images/raknroll-logo.png')"
             :lazy-src="require('~/assets/images/raknroll-logo.png')"
+            :src="require('~/assets/images/raknroll-logo.png')"
             alt="RAK'N'ROLL logo"
-            contain>
+            class="mobileHeader_logo_link_img"
+            contain
+            width="70px">
           </v-img>
         </NuxtLink>
       </div>
@@ -18,43 +18,43 @@
         <div class="mobileHeader-language">
           <v-select
             v-show="!menuModalIsOpened"
-            @change="changeLanguage"
-            :items="$i18n.locales"
-            item-value="code"
-            item-text="name"
-            menu-props="auto"
             v-model="$i18n.locale"
-            color="red darken-4"
+            :items="$i18n.locales"
             class="pt-0 mt-0 without-border-select"
+            color="red darken-4"
             hide-details
             item-color="red darken-4"
+            item-text="name"
+            item-value="code"
+            menu-props="auto"
             prepend-icon="mdi-flag"
-            single-line>
+            single-line
+            @change="changeLanguage">
           </v-select>
         </div>
         <div class="mobileHeader_phone">
           <v-select
             v-show="!menuModalIsOpened"
             :items="['+38 (096) 599 - 09 - 09', '+38 (09) 599 - 09 - 09']"
-            menu-props="auto"
-            color="red darken-4"
-            value="+38 (096) 599 - 09 - 09"
-            item-color="red darken-4"
             class="pt-0 mt-0 without-border-select"
+            color="red darken-4"
             hide-details
+            item-color="red darken-4"
+            menu-props="auto"
             prepend-icon="mdi-phone"
-            single-line>
+            single-line
+            value="+38 (096) 599 - 09 - 09">
           </v-select>
         </div>
       </div>
       <div class="mobileHeader_actions d-flex justify-end align-center">
         <div>
-          <button class="menu"
-                  ref="menuHamburgerButton"
-                  @click="openMenuModal"
+          <button ref="menuHamburgerButton"
+                  aria-label="Main Menu"
+                  class="menu"
                   onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
-                  aria-label="Main Menu">
-            <svg width="35" height="35" viewBox="0 0 100 100">
+                  @click="openMenuModal">
+            <svg height="35" viewBox="0 0 100 100" width="35">
               <path class="line line1"
                     d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/>
               <path class="line line2" d="M 20,50 H 80"/>
@@ -69,9 +69,14 @@
       <nav class="d-block">
         <ul class="list-style-none mobileHeader_modal_nav_navigation_menu pl-0">
           <li v-for="(category, index) in $store.getters['categories/data']" class="pt-5">
-            <a href="javascript:void(0)"
-               @click="goToPath(localePath('/products/'+ category.slug +'/all-brands/page-1'))"
-               class="mobileHeader_modal_nav_navigation_menu_link white--text">{{ category.name }}</a>
+            <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
+               href="javascript:void(0)"
+               @click="goToPath(localePath('/products/'+ category.slug +'/all-brands/page-1'))">{{ category.name }}</a>
+          </li>
+          <li class="pt-5">
+            <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
+               href="javascript:void(0)"
+               @click='goToPath(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'> {{ $t('sales') }}</a>
           </li>
         </ul>
       </nav>
@@ -80,21 +85,21 @@
           <nav class="d-block">
             <ul class="list-style-none pl-0 d-flex justify-center">
               <li>
-                <a href="javascript:void(0)"
-                   @click="goToPath(localePath('/reviews'))"
-                   class="list-style-none mobileHeader_modal_nav_navigation_page pl-4">
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                   href="javascript:void(0)"
+                   @click="goToPath(localePath('/reviews'))">
                   {{ $t('menuLinks.reviews') }}</a>
               </li>
               <li>
-                <a href="javascript:void(0)"
-                   @click="goToPath(localePath('/delivery-and-payment'))"
-                   class="list-style-none mobileHeader_modal_nav_navigation_page pl-4">
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                   href="javascript:void(0)"
+                   @click="goToPath(localePath('/delivery-and-payment'))">
                   {{ $t('menuLinks.delivery-and-payment') }}</a>
               </li>
               <li>
-                <a href="javascript:void(0)"
-                   @click="goToPath(localePath('/contact-us'))"
-                   class="list-style-none mobileHeader_modal_nav_navigation_page pl-4">
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                   href="javascript:void(0)"
+                   @click="goToPath(localePath('/contact-us'))">
                   {{ $t('menuLinks.contact-us') }}</a>
               </li>
             </ul>
@@ -108,13 +113,13 @@
             <a href="https://www.facebook.com/RAKnROLL-100396829019534"
                target="_blank">
               <v-img
+                :lazy-src="require('~/assets/images/fb-logo-red.png')"
+                :src="require('~/assets/images/fb-logo-red.png')"
+                contain
                 data-aos="fade-right"
                 data-aos-delay="200"
                 data-aos-duration="1000"
-                max-width="30"
-                :src="require('~/assets/images/fb-logo-red.png')"
-                :lazy-src="require('~/assets/images/fb-logo-red.png')"
-                contain>
+                max-width="30">
               </v-img>
             </a>
           </v-hover>
@@ -123,41 +128,41 @@
             <a href="https://instagram.com/rak._n_.roll?r=nametag"
                target="_blank">
               <v-img
+                :lazy-src="require('~/assets/images/instaram-logo-red.png')"
+                :src="require('~/assets/images/instaram-logo-red.png')"
+                class="ml-3"
+                contain
                 data-aos="fade-right"
                 data-aos-delay="400"
                 data-aos-duration="1000"
-                class="ml-3"
-                max-width="30"
-                :src="require('~/assets/images/instaram-logo-red.png')"
-                :lazy-src="require('~/assets/images/instaram-logo-red.png')"
-                contain>
+                max-width="30">
               </v-img>
             </a>
           </v-hover>
           <v-hover
             v-slot="{ hover }">
             <v-img
+              :lazy-src="require('~/assets/images/viber-logo-red.png')"
+              :src="require('~/assets/images/viber-logo-red.png')"
+              class="ml-3"
+              contain
               data-aos="fade-right"
               data-aos-delay="1000"
               data-aos-duration="1000"
-              class="ml-3"
-              max-width="30"
-              :src="require('~/assets/images/viber-logo-red.png')"
-              :lazy-src="require('~/assets/images/viber-logo-red.png')"
-              contain>
+              max-width="30">
             </v-img>
           </v-hover>
           <v-hover
             v-slot="{ hover }">
             <v-img
+              :lazy-src="require('~/assets/images/telegram-logo-red.png')"
+              :src="require('~/assets/images/telegram-logo-red.png')"
+              class="ml-3"
+              contain
               data-aos="fade-right"
               data-aos-delay="1200"
               data-aos-duration="1000"
-              class="ml-3"
-              max-width="30"
-              :src="require('~/assets/images/telegram-logo-red.png')"
-              :lazy-src="require('~/assets/images/telegram-logo-red.png')"
-              contain>
+              max-width="30">
             </v-img>
           </v-hover>
         </div>

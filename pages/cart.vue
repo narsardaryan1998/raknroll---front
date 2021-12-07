@@ -30,7 +30,7 @@
     </client-only>
     <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length"
          class="row cart_order-section container-padding">
-      <div class="col-md-9 col-12 cart_order-section_products">
+      <div class="col-md-9 col-12 cart_order-section_products d-md-flex d-none">
         <div>
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
             <div class="row cart_order-section_single position-relative align-center">
@@ -74,13 +74,9 @@
                 </div>
               </div>
               <div class="col-sm-2 col-6 cart_product_price">
-                  <span v-if="cart.qty > 1" class="cart_product_texts_description white--text">{{
+                  <span class="cart_product_texts_description white--text">{{
                       $t('price')
-                    }}: <span class="font-brigada">{{ cart.final_price }}</span> грн x <span
-                      class="font-brigada">{{ cart.qty }}</span></span>
-                <span v-else class="cart_product_texts_description white--text">{{
-                    $t('price')
-                  }}: <span class="font-brigada">{{ cart.final_price }}</span> грн</span>
+                    }}: {{ cart.final_price }}</span>
               </div>
               <div class="col-1 cart_product_remove">
                 <a class="close-button"
@@ -697,8 +693,9 @@ export default {
               position: 'center',
               icon: 'success',
               title: 'Ваш заказ был успешно получен',
-              showConfirmButton: false,
-              timer: 5000
+              confirmButtonText: this.$t('ok'),
+              confirmButtonColor: '#060606',
+              showConfirmButton: true
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
             this.checkoutDeliveryButtonLoading = false;
@@ -732,8 +729,9 @@ export default {
               position: 'center',
               icon: 'success',
               title: 'Ваш заказ был успешно получен',
-              showConfirmButton: false,
-              timer: 5000
+              confirmButtonText: this.$t('ok'),
+              confirmButtonColor: '#060606',
+              showConfirmButton: true
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
             this.checkoutNotDeliveryButtonLoading = false;

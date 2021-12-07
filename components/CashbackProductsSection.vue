@@ -17,11 +17,7 @@
              data-aos="fade-up"
              data-aos-duration="1000"
              data-aos-delay="800">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
-          explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
-          perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
-          mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
-          voluptatum.
+          {{ $t('discountedComponentDescription') }}
         </div>
       </div>
     </div>
@@ -74,24 +70,14 @@
                       <div class="pl-3" v-else-if="product.min_quantity">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
-                      <div class="pr-3"
-                           v-if="$store.getters['cart/data'].find(cart => product.id === cart.id) && $store.getters['cart/data'].find(cart => product.id === cart.id).qty > 1">
+                      <div class="pr-3">
                         <div class="d-flex flex-column">
                           <div class="grey--text text--lighten-1">
                             {{ $t('oldPrice') + ': ' + product.initial_price }}
                           </div>
                           <div>
-                            {{ $t('price') + ': ' + product.final_price }} грн x
-                            {{ $store.getters['cart/data'].find(cart => product.id === cart.id).qty }}
+                            {{ $t('price') + ': ' + product.final_price }}
                           </div>
-                        </div>
-                      </div>
-                      <div v-else class="pr-3 d-flex flex-column">
-                        <div class="grey--text text--lighten-1">
-                          {{ $t('oldPrice') + ': ' + product.initial_price }}
-                        </div>
-                        <div>
-                          {{ $t('price') + ': ' + product.final_price }} грн
                         </div>
                       </div>
                     </div>
@@ -191,7 +177,7 @@
       <div class="my-5">
         <v-btn
           x-large
-          @click='$router.push(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`))'
+          @click='$router.push(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'
           class="width-100 white-pattern-background black--text font-weight-bold"
           dark>
           {{ $t('allDiscounts') }}

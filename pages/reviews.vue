@@ -19,13 +19,7 @@
       <div class="margin-left-10vw page_description"
            data-aos="fade-right"
            data-aos-duration="1000"
-           data-aos-delay="800">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis praesentium quibusdam tempore! Atque eum
-        explicabo, fuga magni totam unde vero! A blanditiis consequuntur cumque cupiditate doloremque fugit
-        perferendis repellat voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eum ex
-        mollitia placeat porro, quaerat! Ad, commodi dolore fugit, minima nemo nisi nostrum quam quod sit veniam vitae
-        voluptatum.
-      </div>
+           data-aos-delay="800">{{ $t('reviewsPageDescription') }}</div>
     </div>
     <div class="reviews_write_review margin-top-6vh">
       <div class="row container-padding red-pattern-background inset-shadow-10">
@@ -248,8 +242,9 @@ export default {
             position: 'center',
             icon: 'success',
             title: this.$t('reviewSuccess'),
-            showConfirmButton: false,
-            timer: 5000
+            confirmButtonText: this.$t('ok'),
+            confirmButtonColor: '#060606',
+            showConfirmButton: true
           });
         });
       }

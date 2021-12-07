@@ -88,7 +88,7 @@
                   </li>
                   <li>
                     <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
-                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true,"final_price":%5B0,23000%5D%7D/page-1`)'>
+                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'>
                       {{ $t('sales') }}
                     </NuxtLink>
                   </li>
