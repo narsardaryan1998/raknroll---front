@@ -236,22 +236,22 @@
               @change="filtration">
             </v-select>
           </div>
-          <div class="margin-top-6vh">
-            <v-select
-              v-model="filter.brand_slug"
-              :items="$store.getters['products/data'].brands"
-              :placeholder="$t('allBrands')"
-              class="pt-0 mt-0"
-              color="red darken-4"
-              hide-details
-              item-color="red darken-4"
-              item-text="name"
-              item-value="slug"
-              menu-props="auto"
-              single-line
-              @change="filtration">
-            </v-select>
-          </div>
+<!--          <div class="margin-top-6vh">-->
+<!--            <v-select-->
+<!--              v-model="filter.brand_slug"-->
+<!--              :items="$store.getters['products/data'].brands"-->
+<!--              :placeholder="$t('allBrands')"-->
+<!--              class="pt-0 mt-0"-->
+<!--              color="red darken-4"-->
+<!--              hide-details-->
+<!--              item-color="red darken-4"-->
+<!--              item-text="name"-->
+<!--              item-value="slug"-->
+<!--              menu-props="auto"-->
+<!--              single-line-->
+<!--              @change="filtration">-->
+<!--            </v-select>-->
+<!--          </div>-->
           <div class="margin-top-6vh display-quantity-select">
             <v-select
               v-model="filter.display_quantity"
@@ -333,24 +333,24 @@
               </v-text-field>
             </div>
           </div>
-          <div class="row margin-top-4vh">
-            <div class="col-12">
-              <v-select
-                v-model="filter.brand_slug"
-                :items="$store.getters['products/data'].brands"
-                :placeholder="$t('allBrands')"
-                class="pt-0 mt-0"
-                color="white"
-                filled
-                hide-details
-                item-color="white"
-                item-text="name"
-                item-value="slug"
-                menu-props="auto"
-                single-line>
-              </v-select>
-            </div>
-          </div>
+<!--          <div class="row margin-top-4vh">-->
+<!--            <div class="col-12">-->
+<!--              <v-select-->
+<!--                v-model="filter.brand_slug"-->
+<!--                :items="$store.getters['products/data'].brands"-->
+<!--                :placeholder="$t('allBrands')"-->
+<!--                class="pt-0 mt-0"-->
+<!--                color="white"-->
+<!--                filled-->
+<!--                hide-details-->
+<!--                item-color="white"-->
+<!--                item-text="name"-->
+<!--                item-value="slug"-->
+<!--                menu-props="auto"-->
+<!--                single-line>-->
+<!--              </v-select>-->
+<!--            </div>-->
+<!--          </div>-->
           <div class="row margin-top-4vh">
             <div class="display-quantity-select col-12">
               <v-select
