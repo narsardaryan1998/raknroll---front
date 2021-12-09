@@ -8,38 +8,38 @@
              data-aos-duration="1000">
           <div class="ml-4 black-text-shadow black--text white-brush-background">
             <p class="py-8 px-16"
-               style="line-height: normal"
                data-aos="fade-up"
-               data-aos-duration="1000">{{ $t('discounted') }}</p>
+               data-aos-duration="1000"
+               style="line-height: normal">{{ $t('discounted') }}</p>
           </div>
         </div>
         <div class="page_description margin-left-10vw white--text white-text-shadow"
              data-aos="fade-up"
-             data-aos-duration="1000"
-             data-aos-delay="800">
+             data-aos-delay="800"
+             data-aos-duration="1000">
           {{ $t('discountedComponentDescription') }}
         </div>
       </div>
     </div>
     <div class="cashbackProductsSection_products">
-      <div class="margin-top-6vh"
+      <div ref="cashbackProductsSectionProducts"
+           class="margin-top-6vh"
            data-aos="fade-up"
-           data-aos-duration="1000"
-           ref="cashbackProductsSectionProducts">
-        <div class="d-flex" v-swiper="swiperOption">
-          <div class="swiper-wrapper"
-               v-for="(product, index) in $store.getters['home/data'].discountedProducts" :key="product.slug">
+           data-aos-duration="1000">
+        <div v-swiper="swiperOption" class="d-flex">
+          <div v-for="(product, index) in $store.getters['home/data'].discountedProducts"
+               :key="product.slug" class="swiper-wrapper">
             <div class="swiper-slide">
               <v-card
-                elevation="12"
-                dark
                 class="mx-auto my-12 mt-0 products_show_product products_show_products_black_background rounded-lg position-relative"
+                dark
+                elevation="12"
                 max-width="374">
                 <div class="sale-icon-div width-100">
                   <v-img
-                    class="sale-icon-div-image position-relative float-right"
-                    :src="require('~/assets/images/sale-icon.png')"
                     :lazy-src="require('~/assets/images/sale-icon.png')"
+                    :src="require('~/assets/images/sale-icon.png')"
+                    class="sale-icon-div-image position-relative float-right"
                     contain>
                     <span
                       class="sale-icon-div-text black--text black-text-shadow font-weight-bold">- {{
@@ -51,23 +51,23 @@
                   <v-card-title class="font-weight-bold px-2 pb-0 pt-1 white--text">{{ product.name }}</v-card-title>
                   <v-hover
                     v-slot="{ hover }">
-                    <v-img class="card_product_image width-100 transition-05"
-                           :class="{ 'scale-1-2': hover }"
-                           :src="baseUrl + product.image"
+                    <v-img :class="{ 'scale-1-2': hover }"
                            :lazy-src="baseUrl + product.image"
+                           :src="baseUrl + product.image"
+                           class="card_product_image width-100 transition-05"
                            contain>
                     </v-img>
                   </v-hover>
                   <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                    <div class="pl-5 pt-4 text-left" v-if="product.weight && product.min_quantity">
+                    <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
                       {{ $t('minimum') + ': ' + product.min_quantity }}
                     </div>
                     <div
                       :class="product.min_quantity || product.weight ? 'pl-2 pt-4 d-flex justify-space-between' : 'pl-2 pt-4 d-flex justify-end'">
-                      <div class="pl-3" v-if="product.weight">
+                      <div v-if="product.weight" class="pl-3">
                         {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
                       </div>
-                      <div class="pl-3" v-else-if="product.min_quantity">
+                      <div v-else-if="product.min_quantity" class="pl-3">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
                       <div class="pr-3">
@@ -103,8 +103,8 @@
                       class="products_show_product width-100"
                       horizontal>
                       <v-btn class="p-0 width-100"
-                             @click="$router.push(localePath('/product/show/' + product.slug))"
-                             max-width="100%">
+                             max-width="100%"
+                             @click="$router.push(localePath('/product/show/' + product.slug))">
                         <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
                           color="grey lighten-2">mdi-text-box-search-outline
@@ -118,9 +118,9 @@
                     <div class="d-flex justify-center width-100">
                       <div class="d-flex justify-start">
                         <v-btn
-                          @click="updateQuantity({productId: product.id, value: -1})"
+                          color="white"
                           icon
-                          color="white">
+                          @click="updateQuantity({productId: product.id, value: -1})">
                           <v-icon>mdi-minus</v-icon>
                         </v-btn>
                       </div>
@@ -130,9 +130,9 @@
                       </div>
                       <div class="d-flex justify-end">
                         <v-btn
-                          @click="updateQuantity({productId: product.id, value: 1})"
+                          color="white"
                           icon
-                          color="white">
+                          @click="updateQuantity({productId: product.id, value: 1})">
                           <v-icon>mdi-plus</v-icon>
                         </v-btn>
                       </div>
@@ -150,8 +150,8 @@
                         </v-icon>
                       </v-btn>
                       <v-btn class="p-0 width-100"
-                             @click="$router.push(localePath('/product/show/' + product.slug))"
-                             max-width="100%">
+                             max-width="100%"
+                             @click="$router.push(localePath('/product/show/' + product.slug))">
                         <span class="font-weight-bold grey--text text--lighten-2">{{ $t('details') }}</span>
                         <v-icon
                           color="grey lighten-2">mdi-text-box-search-outline
@@ -165,8 +165,8 @@
           </div>
           <div class="swiper-button-next"><span class="icon-play"></span></div>
           <div class="swiper-button-prev"><span class="icon-play-flip"></span></div>
-          <div class="swiper-pagination" v-for="(item,index) in $store.getters['home/data'].discountedProducts"
-               :key="index" slot="pagination">
+          <div v-for="(item,index) in $store.getters['home/data'].discountedProducts" :key="index"
+               slot="pagination" class="swiper-pagination">
           </div>
         </div>
       </div>
@@ -176,10 +176,10 @@
          data-aos-duration="1000">
       <div class="my-5">
         <v-btn
-          x-large
-          @click='$router.push(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'
           class="width-100 white-pattern-background black--text font-weight-bold"
-          dark>
+          dark
+          x-large
+          @click='$router.push(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'>
           {{ $t('allDiscounts') }}
           <v-icon class="ml-3 black--text font-weight-bold">
             mdi-check
@@ -218,19 +218,19 @@ export default {
         },
         breakpoints: {
           1440: {
-            slidesPerView: 5,
+            slidesPerView: this.$store.getters['home/data'].discountedProducts.length >= 5 ? 5 : this.$store.getters['home/data'].discountedProducts.length,
             spaceBetween: 50
           },
           1264: {
-            slidesPerView: 4,
+            slidesPerView: this.$store.getters['home/data'].discountedProducts.length >= 4 ? 4 : this.$store.getters['home/data'].discountedProducts.length,
             spaceBetween: 40
           },
           960: {
-            slidesPerView: 3,
+            slidesPerView: this.$store.getters['home/data'].discountedProducts.length >= 3 ? 3 : this.$store.getters['home/data'].discountedProducts.length,
             spaceBetween: 30
           },
           600: {
-            slidesPerView: 2,
+            slidesPerView: this.$store.getters['home/data'].discountedProducts.length >= 2 ? 2 : this.$store.getters['home/data'].discountedProducts.length,
             spaceBetween: 20
           },
           320: {

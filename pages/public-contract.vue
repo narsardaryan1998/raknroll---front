@@ -1,6 +1,6 @@
 <template>
-  <div id="publicContact">
-    <div class="publicContact_top-section">
+  <div id="publicContract">
+    <div class="publicContract_top-section">
       <client-only>
         <div class="pages_top_with_animation d-flex align-center justify-center pt-10">
           <div class="mr-3"
@@ -29,44 +29,48 @@
         </div>
       </client-only>
     </div>
-    <div class="publicContact_content container-padding margin-top-6vh">
-      <div class="font-weight-black">
+    <div class="publicContract_content container-padding margin-top-6vh">
+      <div class="font-weight-black publicContract_subheaders">
         <span v-html="$t('publicDocumentPageContent.div1')"></span>
       </div>
       <div class="margin-top-4vh">
         <span v-html="$t('publicDocumentPageContent.div2')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div3')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div3')"></span>
         <span v-html="$t('publicDocumentPageContent.div4')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div5')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div5')"></span>
         <span v-html="$t('publicDocumentPageContent.div6')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div7')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div7')"></span>
         <span v-html="$t('publicDocumentPageContent.div8')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div9')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div9')"></span>
         <span v-html="$t('publicDocumentPageContent.div10')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div11')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div11')"></span>
         <span v-html="$t('publicDocumentPageContent.div12')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div13')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div13')"></span>
         <span v-html="$t('publicDocumentPageContent.div14')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div15')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div15')"></span>
         <span v-html="$t('publicDocumentPageContent.div16')"></span>
       </div>
       <div class="margin-top-4vh">
-        <span class="font-weight-black" v-html="$t('publicDocumentPageContent.div17')"></span>
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div17')"></span>
         <span v-html="$t('publicDocumentPageContent.div18')"></span>
+      </div>
+      <div class="margin-top-4vh">
+        <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div19')"></span>
+        <span v-html="$t('publicDocumentPageContent.div20')"></span>
       </div>
     </div>
   </div>
@@ -74,12 +78,16 @@
 
 <script>
 export default {
-  name: "publicContact"
+  name: "publicContract"
 }
 </script>
 
 <style scoped>
-#publicContact {
+#publicContract {
   margin-top: 18vh;
+}
+
+.publicContract_subheaders {
+  font-size: 18px;
 }
 </style>

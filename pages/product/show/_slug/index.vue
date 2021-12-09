@@ -1,7 +1,7 @@
 <template>
   <div id="product-show">
-    <div class="row product-show_product container container-padding">
-      <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0">
+    <div class="row product-show_product container-padding">
+      <div class="col-lg-5 col-md-6 col-12 offset-md-0">
         <v-img :lazy-src="baseUrl + $store.getters['product/data'].product.image"
                :src="baseUrl + $store.getters['product/data'].product.image"
                cover>

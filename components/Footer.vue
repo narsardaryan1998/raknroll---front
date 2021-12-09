@@ -18,7 +18,7 @@
                 <div class="col-md-12 footer_section_information_data d-flex justify-space-around justify-lg-start">
                   <div class="d-flex align-center flex-column flex-sm-row">
                     <div class="d-flex">
-                      <img src="~/assets/icons/icons8-clock-64.png" alt="Time"/>
+                      <img alt="Time" src="~/assets/icons/icons8-clock-64.png"/>
                     </div>
                     <div class="ml-3 contact-us_contacts_text d-flex flex-column">
                       <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
@@ -27,7 +27,7 @@
                   </div>
                   <div class="d-flex ml-sm-3 align-center flex-column flex-sm-row">
                     <div class="d-flex">
-                      <img src="~/assets/icons/icons8-phone-64-red.png" alt="Phone"/>
+                      <img alt="Phone" src="~/assets/icons/icons8-phone-64-red.png"/>
                     </div>
                     <div class="ml-3 contact-us_contacts_text transition-05 d-flex flex-column">
                       <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="d-flex align-center ml-sm-3 flex-column flex-sm-row">
                     <div class="d-flex">
-                      <img src="~/assets/icons/icons8-marker-641.png" alt="Location"/>
+                      <img alt="Location" src="~/assets/icons/icons8-marker-641.png"/>
                     </div>
                     <div class="ml-3 contact-us_contacts_text d-flex flex-column">
                       <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
@@ -54,22 +54,34 @@
                       class="list-style-none footer_section_nav_navigation_menu pl-0 d-flex justify-space-around justify-sm-start">
                       <li>
                         <NuxtLink
-                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                          :to='localePath("/")'>
+                          :to='localePath("/")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.home') }}
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
                         <NuxtLink
-                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                          :to='localePath("/reviews")'>
+                          :to='localePath("/reviews")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.reviews') }}
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
+                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
+                                  :to='localePath("/delivery-and-payment")'>
+                          {{ $t('menuLinks.delivery-and-payment') }}
+                        </NuxtLink>
+                      </li>
+                      <li class="pl-5">
+                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
+                                  :to='localePath("/public-contract")'>
+                          {{ $t('menuLinks.publicContract') }}
+                        </NuxtLink>
+                      </li>
+                      <li class="pl-5">
                         <NuxtLink
-                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                          :to='localePath("/contact-us")'>
+                          :to='localePath("/contact-us")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.contact-us') }}
                         </NuxtLink>
                       </li>
@@ -85,8 +97,8 @@
                     <ul
                       class="list-style-none footer_section_nav_navigation_menu pl-0 d-sm-flex justify-sm-space-between">
                       <li v-for="category in $store.getters['categories/data']">
-                        <NuxtLink class="footer_section_nav_navigation_menu_link"
-                                  :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{
+                        <NuxtLink :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'
+                                  class="footer_section_nav_navigation_menu_link">{{
                             category.name
                           }}
                         </NuxtLink>
@@ -103,10 +115,10 @@
                   <a href="https://www.facebook.com/RAKnROLL-100396829019534"
                      target="_blank">
                     <v-img
-                      max-width="30"
-                      :src="require('~/assets/images/fb-logo-red.png')"
                       :lazy-src="require('~/assets/images/fb-logo-red.png')"
-                      contain>
+                      :src="require('~/assets/images/fb-logo-red.png')"
+                      contain
+                      max-width="30">
                     </v-img>
                   </a>
                 </v-hover>
@@ -115,32 +127,32 @@
                   <a href="https://instagram.com/rak._n_.roll?r=nametag"
                      target="_blank">
                     <v-img
-                      class="ml-3"
-                      max-width="30"
-                      :src="require('~/assets/images/instaram-logo-red.png')"
                       :lazy-src="require('~/assets/images/instaram-logo-red.png')"
-                      contain>
+                      :src="require('~/assets/images/instaram-logo-red.png')"
+                      class="ml-3"
+                      contain
+                      max-width="30">
                     </v-img>
                   </a>
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    class="ml-3"
-                    max-width="30"
-                    :src="require('~/assets/images/viber-logo-red.png')"
                     :lazy-src="require('~/assets/images/viber-logo-red.png')"
-                    contain>
+                    :src="require('~/assets/images/viber-logo-red.png')"
+                    class="ml-3"
+                    contain
+                    max-width="30">
                   </v-img>
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
                   <v-img
-                    class="ml-3"
-                    max-width="30"
-                    :src="require('~/assets/images/telegram-logo-red.png')"
                     :lazy-src="require('~/assets/images/telegram-logo-red.png')"
-                    contain>
+                    :src="require('~/assets/images/telegram-logo-red.png')"
+                    class="ml-3"
+                    contain
+                    max-width="30">
                   </v-img>
                 </v-hover>
               </div>
@@ -160,9 +172,11 @@
               <div class="map-section_map-content">
                 <div class="mapouter">
                   <div class="gmap_canvas">
-                    <iframe width="100%" height="250" id="gmap_canvas"
+                    <iframe id="gmap_canvas" frameborder="0" height="250"
+                            marginheight="0"
+                            marginwidth="0" scrolling="no"
                             src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            width="100%"></iframe>
                     <a href="https://123movies-to.org"></a><br>
                   </div>
                 </div>
@@ -172,9 +186,26 @@
         </div>
       </div>
     </div>
-    <div class="row footer_copyright text-center mt-3">
-      <div class="col-md-12">
-        © Copyright 2021 | www.raknroll.com.ua | All Rights Reserved.
+    <div class="row footer_copyright container-padding text-center mt-5">
+      <div class="col-md-12 align-center d-flex justify-space-between flex-column flex-md-row">
+        <div class="d-flex align-center">
+          <div>
+            {{ $t('weAcceptPayments') }}
+          </div>
+          <div>
+            <v-img
+              class="ml-5"
+              contain
+              lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
+              max-width="55"
+              src="https://mybalitrips.com/static/images/visa-mastercard.png">
+            </v-img>
+          </div>
+        </div>
+        <div class="mt-4 mt-md-0">
+          © Copyright 2021 | www.raknroll.com.ua | {{ $t('allRightsReserved') }}.
+        </div>
+        <div></div>
       </div>
     </div>
   </footer>

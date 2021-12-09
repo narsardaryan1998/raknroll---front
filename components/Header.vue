@@ -164,18 +164,18 @@ export default {
 }
 
 .header_logo {
-  min-width: 15%;
+  min-width: 12%;
 }
 
 .header_logo_link {
   margin-left: 1vw;
-  width: 40%;
+  width: 50%;
   display: block;
   height: auto;
 }
 
 .header_nav {
-  min-width: 85%;
+  min-width: 88%;
 }
 
 .header_nav_delivery_part {
@@ -187,7 +187,7 @@ export default {
 }
 
 .header_nav_navigation {
-  min-width: 80%;
+  min-width: 90%;
 }
 
 .header_nav_navigation_menu_link {

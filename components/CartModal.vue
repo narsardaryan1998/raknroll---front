@@ -59,7 +59,7 @@
           <div class="col-12">
             <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
               <div class="row cartModal_products_section align-center">
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <v-hover
                     v-slot="{ hover }">
                     <v-img class="cursor-pointer card_product_image width-100 transition-05"
@@ -70,7 +70,7 @@
                     </v-img>
                   </v-hover>
                 </div>
-                <div class="col-md-5 cartModal_products_texts">
+                <div class="col-md-4 cartModal_products_texts">
                   <span class="cartModal_products_texts_header black--text font-weight-bold">{{ cart.name }}</span>
                 </div>
                 <div class="col-md-2 col-6 cartModal_products_counter">

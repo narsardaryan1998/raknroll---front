@@ -31,10 +31,10 @@
     <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length"
          class="row cart_order-section container-padding">
       <div class="col-md-9 col-12 cart_order-section_products d-md-flex d-none">
-        <div>
+        <div class="width-100">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
             <div class="row cart_order-section_single position-relative align-center">
-              <div class="col-12 col-sm-2">
+              <div class="col-12 col-sm-3">
                 <v-hover
                   v-slot="{ hover }">
                   <v-img :class="{ 'opacity-05': hover }"
@@ -45,7 +45,7 @@
                   </v-img>
                 </v-hover>
               </div>
-              <div class="col-12 col-sm-5 cart_product_texts">
+              <div class="col-12 col-sm-4 cart_product_texts">
                 <span class="cart_product_texts_header">{{ cart.name }}</span>
                 <br>
                 <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
