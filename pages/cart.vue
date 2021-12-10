@@ -691,6 +691,7 @@ export default {
           })
         }
         await this.$store.dispatch('order/store', {
+          language: this.$i18n.locales,
           products,
           orderForm: this[method],
         }).then(response => {
