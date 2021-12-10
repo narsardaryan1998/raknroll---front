@@ -18,6 +18,8 @@
                  data-aos="fade-up"
                  data-aos-delay="300"
                  data-aos-duration="1000"> {{ $t('cart') }}</p>
+              <div id="formForLiq" class="d-none">
+              </div>
             </div>
           </div>
         </div>
@@ -354,7 +356,7 @@
                     large
                     light
                     rounded
-                    @click="checkoutDelivery">
+                    @click="checkout('orderFormDelivery')">
                     {{ $t('checkout') }}
                   </v-btn>
                 </div>
@@ -550,7 +552,7 @@
                     large
                     light
                     rounded
-                    @click="checkoutNotDelivery">
+                    @click="checkout('orderFormNotDelivery')">
                     {{ $t('checkout') }}
                   </v-btn>
                 </div>
@@ -673,10 +675,14 @@ export default {
       }, 1001);
 
     },
-    async checkoutDelivery() {
+    async checkout(method) {
       let productsLength = this.$store.getters['cart/data'].length;
-      if (this.$refs.orderFormDelivery.validate() && productsLength) {
-        this.checkoutDeliveryButtonLoading = true;
+      if (this.$refs[method].validate() && productsLength) {
+        if (method === 'orderFormDelivery') {
+          this.checkoutDeliveryButtonLoading = true;
+        } else {
+          this.checkoutNotDeliveryButtonLoading = true;
+        }
         let products = [];
         for (let i = 0; i < productsLength; i++) {
           products.push({
@@ -686,9 +692,13 @@ export default {
         }
         await this.$store.dispatch('order/store', {
           products,
-          orderForm: this.orderFormDelivery,
+          orderForm: this[method],
         }).then(response => {
-          if (response.data.success) {
+          if (response.data.formSuccess) {
+            document.getElementById('formForLiq').innerHTML = response.data.form;
+            let htmlForm = document.querySelector('form[action="https://www.liqpay.ua/api/3/checkout"]')
+            htmlForm.submit();
+          } else if (response.data.success) {
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -698,48 +708,25 @@ export default {
               showConfirmButton: true
             });
             this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
-            this.checkoutDeliveryButtonLoading = false;
+            if (method === 'orderFormDelivery') {
+              this.checkoutDeliveryButtonLoading = false;
+            } else {
+              this.checkoutNotDeliveryButtonLoading = false;
+            }
             this.$store.commit('cart/clear')
-          }
-        })
-        if (this.rememberInformation) {
-          localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderFormDelivery))
-        }
-      } else {
-        document.getElementById('cartOrderFormSection').scrollIntoView();
-      }
-    },
-    async checkoutNotDelivery() {
-      let productsLength = this.$store.getters['cart/data'].length;
-      if (this.$refs.orderFormNotDelivery.validate() && productsLength) {
-        this.checkoutNotDeliveryButtonLoading = true;
-        let products = [];
-        for (let i = 0; i < productsLength; i++) {
-          products.push({
-            id: this.$store.getters['cart/data'][i].id,
-            qty: this.$store.getters['cart/data'][i].qty,
-          })
-        }
-        await this.$store.dispatch('order/store', {
-          products,
-          orderForm: this.orderFormNotDelivery,
-        }).then(response => {
-          if (response.data.success) {
+          } else {
             Swal.fire({
               position: 'center',
-              icon: 'success',
-              title: 'Ваш заказ был успешно получен',
+              icon: 'error',
+              title: 'Error',
               confirmButtonText: this.$t('ok'),
               confirmButtonColor: '#060606',
               showConfirmButton: true
             });
-            this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
-            this.checkoutNotDeliveryButtonLoading = false;
-            this.$store.commit('cart/clear');
           }
         })
         if (this.rememberInformation) {
-          localStorage.setItem('customerOrderInformation', JSON.stringify(this.orderFormNotDelivery))
+          localStorage.setItem('customerOrderInformation', JSON.stringify(this[method]))
         }
       } else {
         document.getElementById('cartOrderFormSection').scrollIntoView();
