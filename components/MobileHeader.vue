@@ -96,8 +96,28 @@
                    @click="goToPath(localePath('/delivery-and-payment'))">
                   {{ $t('menuLinks.delivery-and-payment') }}</a>
               </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="row mobileHeader_modal_nav_navigation_pages mt-2">
+        <div class="col-12">
+          <nav class="d-block">
+            <ul class="list-style-none pl-0 d-flex justify-center">
               <li>
                 <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                   href="javascript:void(0)"
+                   @click="goToPath(localePath('/public-contract'))">
+                  {{ $t('menuLinks.publicContract') }}</a>
+              </li>
+              <li>
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                   href="javascript:void(0)"
+                   @click="goToPath(localePath('/about-company'))">
+                  {{ $t('menuLinks.aboutCompany') }}</a>
+              </li>
+              <li>
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page px-4"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/contact-us'))">
                   {{ $t('menuLinks.contact-us') }}</a>

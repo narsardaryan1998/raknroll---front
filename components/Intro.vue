@@ -39,19 +39,19 @@
                      data-aos="fade-up"
                      data-aos-delay="1500"
                      data-aos-duration="1000">
-                  <span>Заголовок теста для слайдера 1</span>
+                  <span>{{ $t('headerSliderTexts.crayfish.header') }}</span>
                 </div>
                 <div class="intro1_text_first pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2000"
                      data-aos-duration="1000">
-                  <span>Тестовой текст для слидер 1для слидер 1 слидер 1 текст для  текст для слидер 1</span>
+                  <span>{{ $t('headerSliderTexts.crayfish.subHeader') }}</span>
                 </div>
                 <div class="intro1_text_second pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2500"
                      data-aos-duration="1000">
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, explicabo fugiat laborum maiores modi provident quasi ratione recusandae, repellat, sint totam vel voluptatum. Aspernatur doloribus eaque expedita minus nemo sapiente?</span>
+                  <span>{{ $t('headerSliderTexts.crayfish.text') }}</span>
                 </div>
               </div>
             </div>
@@ -90,19 +90,19 @@
                      data-aos="fade-up"
                      data-aos-delay="1500"
                      data-aos-duration="1000">
-                  <span>Test header for slide 1</span>
+                  <span>{{ $t('headerSliderTexts.beer.header') }}</span>
                 </div>
                 <div class="intro1_text_first pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2000"
                      data-aos-duration="1000">
-                  <span>Lorem ipsum dolor sim mant totam vel voluptatum. Aspernatur doloribus eaque expedita minus nemo sapiente?</span>
+                  <span>{{ $t('headerSliderTexts.beer.subHeader') }}</span>
                 </div>
                 <div class="intro1_text_second pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2500"
                      data-aos-duration="1000">
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, explicabo fugiat laborum maiores modi provident quasi ratione recusandae, repellat, sint totam vel voluptatum. Aspernatur doloribus eaque expedita minus nemo sapiente?</span>
+                  <span>{{ $t('headerSliderTexts.beer.text') }}</span>
                 </div>
               </div>
             </div>
@@ -141,19 +141,19 @@
                      data-aos="fade-up"
                      data-aos-delay="1500"
                      data-aos-duration="1000">
-                  <span>Test header for slide 2</span>
+                  <span>{{ $t('headerSliderTexts.roll.header') }}</span>
                 </div>
                 <div class="intro1_text_first pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2000"
                      data-aos-duration="1000">
-                  <span>Lorem ipsum dolor sim mant totams eaque expedita minus nemo sapiente?</span>
+                  <span>{{ $t('headerSliderTexts.roll.subHeader') }}</span>
                 </div>
                 <div class="intro1_text_second pt-5"
                      data-aos="fade-up"
                      data-aos-delay="2500"
                      data-aos-duration="1000">
-                  <span>Lorem ipsum dolor sit amet, conset laborum maiores modi provicusandae, repellat, sint totam vel voluptatum. Aspernatur doloribus eaque expedita minus nemo sapiente?</span>
+                  <span>{{ $t('headerSliderTexts.roll.text') }}</span>
                 </div>
               </div>
             </div>

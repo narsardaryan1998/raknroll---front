@@ -1,1 +1,363 @@
-body{overflow-x:hidden!important}.v-application{background:url(~/assets/images/raknroll-back-pattern21.jpg) repeat!important;font-family:'Source Sans Pro',sans-serif!important;line-height:normal!important}.swal2-title{font-family:'Source Sans Pro',sans-serif!important}.swal2-icon.swal2-success .swal2-success-ring{border:.25em solid #00c853!important}.swal2-icon.swal2-success [class^=swal2-success-line]{background-color:#00c853!important}.v-application .error--text{color:#b71c1c!important;caret-color:#b71c1c!important}.v-application .container{max-width:100%}.cart_order-section_register-order .v-window{background-color:transparent!important;overflow:inherit!important}::-webkit-scrollbar{width:6px!important;height:5px!important;background-color:#f5f5f5!important}::-webkit-scrollbar-thumb{background-color:#202020!important}::-webkit-scrollbar-track{box-shadow:inset 0 0 6px rgba(0,0,0,.3)!important;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3)!important;background-color:#f5f5f5!important}.v-main{-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.v-card__text{padding:0!important}.v-card__actions,.v-card__title{padding-left:0!important;padding-right:0!important}.list-style-none{list-style:none!important}.width-25{width:25%!important}.width-50{width:50%!important}.width-100{width:100%!important}.height-100{height:100%!important}.products_page_products_show .col-lg-2{flex:0 0 20%;max-width:20%}.products_show_product{background:0 0!important;border-left:1px solid grey;border-right:1px solid grey}.products_show_products_black_background{background:url(~/assets/images/raknroll-back-pattern21.jpg) repeat!important}.swiper-button-next,.swiper-button-prev{--swiper-theme-color:#385779}.swiper-pagination-bullet{background:#a0a0a0}.swiper-pagination-bullet-active{background-color:#b71c1c!important}.red-pattern-background{background:url(~/assets/images/raknroll-back-pattern1.png) repeat!important}.main-blured{-webkit-filter:blur(8px);-moz-filter:blur(8px);-o-filter:blur(8px);-ms-filter:blur(8px);filter:blur(8px);-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.v-pagination button{border-radius:0!important}.white-pattern-background{background:url(https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png) repeat!important}.white-pattern-background .show_counter_quantity{border-bottom:1px dashed #424242}.white-pattern-background .close-button-block:after,.white-pattern-background .close-button-block:before{background:#000}.red-pattern-background .component-top-header-hr{border:2px solid #000;background-color:#000;box-shadow:0 0 5px 0 #0a0a0a}.component-top-header-hr{border:2px solid #fff;background-color:#fff;box-shadow:0 0 6px 0 #fff}.red-pattern-background .swiper-pagination-bullet-active{background-color:#fff!important}.red-pattern-background .error--text{color:#fff!important;caret-color:#fff!important}.page-header .v-image__image{background-position:bottom;background-attachment:fixed;box-shadow:inset 0 0 7px 3px #0a0a0a}.background-fixed .v-image__image{background-position:bottom;background-attachment:fixed}.transition-05{transition:.5s}.opacity-05{opacity:.5;transition:.5s}.opacity-1-transition{opacity:1!important;transition:.5s}.cursor-pointer{cursor:pointer}.cursor-grab{cursor:grab}.cursor-zoom-in{cursor:zoom-in}::selection{background:#b71c1c;color:#fff}.margin-top-4vh{margin-top:4vh!important}.margin-top-6vh{margin-top:6vh!important}.padding-top-6vh{padding-top:6vh!important}.margin-bottom-10vh{margin-bottom:10vh}.cart_product_counter_row_quantity .v-text-field input{text-align:center;padding-top:0!important}.inset-shadow-10{box-shadow:inset 0 0 10px 0 #0a0a0a}.white-opacity-07{color:rgba(205,205,205,.7)!important}.cart_product_counter_row_quantity .v-input{padding-top:0!important}.show_counter_quantity{border-bottom:1px dashed #fff}#mobileFilterModal{position:fixed;right:0;top:0;z-index:10000}.mobileFilterModal_button{display:flex;align-items:center;position:fixed;margin-top:45vh;transition:.5s!important;border:none}.mobileFilterModal_fields{position:fixed;right:0;height:100vh;overflow-Y:scroll;overflow-X:hidden}#cartModal{position:fixed;right:0;z-index:10000}#cartModal .cartModal_button{display:flex;align-items:center;position:fixed;margin-top:37vh;transition:.5s!important;border:none}#cartModal .cartModal_products{position:fixed;right:0;height:100vh;overflow-Y:scroll;overflow-X:hidden}.shoppingCartFromRightButtonBody_button{border:none!important}.border-none{border:none!important}.answer-modal-text{line-height:normal}.map-section_map-content{opacity:.8}.footer_section .white-brush-background{width:fit-content!important}#cartModal .cartModal_products::-webkit-scrollbar-thumb{background-color:#b71c1c!important}.modaltor__panel::-webkit-scrollbar-thumb{background-color:#b71c1c!important}a{text-decoration:none}.position-relative{position:relative}.white-brush-background{background:url(~/assets/images/white-background-brush-for-header.png) no-repeat;background-size:100% 100%}.black-brush-background{background:url(~/assets/images/black-background-brush-for-header.png) no-repeat;background-size:100% 100%}.margin-left-10vw{margin-left:10vw}.overflow-y-hidden{overflow-y:hidden!important}.swiper-button-next,.swiper-button-prev{color:#fff!important}.z-index-minus{z-index:-1!important}.v-pagination__item--active{background:url(~/assets/images/raknroll-back-pattern1.png) repeat!important}.swiper-container{overflow:inherit!important}
+body {
+  overflow-x: hidden !important
+}
+
+.v-application {
+  background: url(~/assets/images/raknroll-back-pattern21.jpg) repeat !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  line-height: normal !important
+}
+
+.swal2-title {
+  font-family: 'Source Sans Pro', sans-serif !important
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border: .25em solid #00c853 !important
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  background-color: #00c853 !important
+}
+
+.v-application .error--text {
+  color: #b71c1c !important;
+  caret-color: #b71c1c !important
+}
+
+.v-application .container {
+  max-width: 100%
+}
+
+.cart_order-section_register-order .v-window {
+  background-color: transparent !important;
+  overflow: inherit !important
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 5px !important;
+  background-color: #f5f5f5 !important
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #202020 !important
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3) !important;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3) !important;
+  background-color: #f5f5f5 !important
+}
+
+.v-main {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease
+}
+
+.v-card__text {
+  padding: 0 !important
+}
+
+.v-card__actions, .v-card__title {
+  padding-left: 0 !important;
+  padding-right: 0 !important
+}
+
+.list-style-none {
+  list-style: none !important
+}
+
+.width-25 {
+  width: 25% !important
+}
+
+.width-50 {
+  width: 50% !important
+}
+
+.width-100 {
+  width: 100% !important
+}
+
+.height-100 {
+  height: 100% !important
+}
+
+.products_page_products_show .col-lg-2 {
+  flex: 0 0 20%;
+  max-width: 20%
+}
+
+.products_show_product {
+  background: 0 0 !important;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey
+}
+
+.products_show_products_black_background {
+  background: url(~/assets/images/raknroll-back-pattern21.jpg) repeat !important
+}
+
+.swiper-button-next, .swiper-button-prev {
+  --swiper-theme-color: #385779
+}
+
+.swiper-pagination-bullet {
+  background: #a0a0a0
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #b71c1c !important
+}
+
+.red-pattern-background {
+  background: url(~/assets/images/raknroll-back-pattern1.png) repeat !important
+}
+
+.main-blured {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -o-filter: blur(8px);
+  -ms-filter: blur(8px);
+  filter: blur(8px);
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease
+}
+
+.v-pagination button {
+  border-radius: 0 !important
+}
+
+.white-pattern-background {
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png) repeat !important
+}
+
+.white-pattern-background .show_counter_quantity {
+  border-bottom: 1px dashed #424242
+}
+
+.white-pattern-background .close-button-block:after, .white-pattern-background .close-button-block:before {
+  background: #000
+}
+
+.red-pattern-background .component-top-header-hr {
+  border: 2px solid #000;
+  background-color: #000;
+  box-shadow: 0 0 5px 0 #0a0a0a
+}
+
+.component-top-header-hr {
+  border: 2px solid #fff;
+  background-color: #fff;
+  box-shadow: 0 0 6px 0 #fff
+}
+
+.red-pattern-background .swiper-pagination-bullet-active {
+  background-color: #fff !important
+}
+
+.red-pattern-background .error--text {
+  color: #fff !important;
+  caret-color: #fff !important
+}
+
+.page-header .v-image__image {
+  background-position: bottom;
+  background-attachment: fixed;
+  box-shadow: inset 0 0 7px 3px #0a0a0a
+}
+
+.background-fixed .v-image__image {
+  background-position: bottom;
+  background-attachment: fixed
+}
+
+.transition-05 {
+  transition: .5s
+}
+
+.opacity-05 {
+  opacity: .5;
+  transition: .5s
+}
+
+.opacity-1-transition {
+  opacity: 1 !important;
+  transition: .5s
+}
+
+.cursor-pointer {
+  cursor: pointer
+}
+
+.cursor-grab {
+  cursor: grab
+}
+
+.cursor-zoom-in {
+  cursor: zoom-in
+}
+
+::selection {
+  background: #b71c1c;
+  color: #fff
+}
+
+.margin-top-4vh {
+  margin-top: 4vh !important
+}
+
+.margin-top-6vh {
+  margin-top: 6vh !important
+}
+
+.padding-top-6vh {
+  padding-top: 6vh !important
+}
+
+.margin-bottom-10vh {
+  margin-bottom: 10vh
+}
+
+.cart_product_counter_row_quantity .v-text-field input {
+  text-align: center;
+  padding-top: 0 !important
+}
+
+.inset-shadow-10 {
+  box-shadow: inset 0 0 10px 0 #0a0a0a
+}
+
+.white-opacity-07 {
+  color: rgba(205, 205, 205, .7) !important
+}
+
+.cart_product_counter_row_quantity .v-input {
+  padding-top: 0 !important
+}
+
+.show_counter_quantity {
+  border-bottom: 1px dashed #fff
+}
+
+#mobileFilterModal {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000
+}
+
+.mobileFilterModal_button {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-top: 45vh;
+  transition: .5s !important;
+  border: none
+}
+
+.mobileFilterModal_fields {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  overflow-Y: scroll;
+  overflow-X: hidden
+}
+
+#cartModal {
+  position: fixed;
+  right: 0;
+  z-index: 10000
+}
+
+#cartModal .cartModal_button {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-top: 37vh;
+  transition: .5s !important;
+  border: none
+}
+
+#cartModal .cartModal_products {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  overflow-Y: scroll;
+  overflow-X: hidden
+}
+
+.shoppingCartFromRightButtonBody_button {
+  border: none !important
+}
+
+.border-none {
+  border: none !important
+}
+
+.answer-modal-text {
+  line-height: normal
+}
+
+.map-section_map-content {
+  opacity: .8
+}
+
+.footer_section .white-brush-background {
+  width: fit-content !important
+}
+
+#cartModal .cartModal_products::-webkit-scrollbar-thumb {
+  background-color: #b71c1c !important
+}
+
+.modaltor__panel::-webkit-scrollbar-thumb {
+  background-color: #b71c1c !important
+}
+
+a {
+  text-decoration: none
+}
+
+.position-relative {
+  position: relative
+}
+
+.white-brush-background {
+  background: url(~/assets/images/white-background-brush-for-header.png) no-repeat;
+  background-size: 100% 100%
+}
+
+.black-brush-background {
+  background: url(~/assets/images/black-background-brush-for-header.png) no-repeat;
+  background-size: 100% 100%
+}
+
+.margin-left-10vw {
+  margin-left: 10vw
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden !important
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #fff !important
+}
+
+.z-index-minus {
+  z-index: -1 !important
+}
+
+.v-pagination__item--active {
+  background: url(~/assets/images/raknroll-back-pattern1.png) repeat !important
+}
+
+.swiper-container {
+  overflow: inherit !important
+}

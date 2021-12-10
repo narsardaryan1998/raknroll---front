@@ -38,6 +38,18 @@
                   </li>
                   <li class="pl-5">
                     <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
+                              :to='localePath("/public-contract")'>
+                      {{ $t('menuLinks.publicContract') }}
+                    </NuxtLink>
+                  </li>
+                  <li class="pl-5">
+                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
+                              :to='localePath("/about-company")'>
+                      {{ $t('menuLinks.aboutCompany') }}
+                    </NuxtLink>
+                  </li>
+                  <li class="pl-5">
+                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
                               :to='localePath("/contact-us")'>
                       {{ $t('menuLinks.contact-us') }}
                     </NuxtLink>

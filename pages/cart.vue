@@ -36,7 +36,7 @@
         <div class="width-100">
           <div v-for="(cart, index) in $store.getters['cart/data']" :key="index">
             <div class="row cart_order-section_single position-relative align-center">
-              <div class="col-12 col-sm-3">
+              <div class="col-12 col-sm-2">
                 <v-hover
                   v-slot="{ hover }">
                   <v-img :class="{ 'opacity-05': hover }"
@@ -47,7 +47,7 @@
                   </v-img>
                 </v-hover>
               </div>
-              <div class="col-12 col-sm-4 cart_product_texts">
+              <div class="col-12 col-sm-5 cart_product_texts">
                 <span class="cart_product_texts_header">{{ cart.name }}</span>
                 <br>
                 <span class="cart_product_texts_description white-opacity-07">{{ cart.short_description }}</span>
@@ -699,6 +699,7 @@ export default {
             document.getElementById('formForLiq').innerHTML = response.data.form;
             let htmlForm = document.querySelector('form[action="https://www.liqpay.ua/api/3/checkout"]')
             htmlForm.submit();
+            this.$store.commit('cart/clear')
           } else if (response.data.success) {
             Swal.fire({
               position: 'center',

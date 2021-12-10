@@ -79,6 +79,12 @@
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
+                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
+                                  :to='localePath("/about-company")'>
+                          {{ $t('menuLinks.aboutCompany') }}
+                        </NuxtLink>
+                      </li>
+                      <li class="pl-5">
                         <NuxtLink
                           :to='localePath("/contact-us")'
                           class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">

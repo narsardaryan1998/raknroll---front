@@ -29,8 +29,31 @@
         </div>
       </client-only>
     </div>
-    <div class="deliveryAndPayment_content">
-      {{ $t('menuLinks.delivery-and-payment') }}
+    <div class="deliveryAndPayment_content container-padding margin-top-6vh">
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="1400"
+           data-aos-duration="1000">
+        <span v-html="$t('deliveryAndPaymentPageContent.div1')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="1100"
+           data-aos-duration="1000">
+        <span v-html="$t('deliveryAndPaymentPageContent.div2')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="800"
+           data-aos-duration="1000">
+        <span v-html="$t('deliveryAndPaymentPageContent.div3')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="500"
+           data-aos-duration="1000">
+        <span v-html="$t('deliveryAndPaymentPageContent.div4')"></span>
+      </div>
     </div>
   </div>
 </template>
