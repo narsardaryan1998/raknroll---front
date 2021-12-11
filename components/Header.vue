@@ -5,11 +5,11 @@
         <div class="header_logo">
           <NuxtLink :to='localePath("/")' class="header_logo_link">
             <v-img
-              position="left"
-              :src="require('~/assets/images/raknroll-logo.png')"
               :lazy-src="require('~/assets/images/raknroll-logo.png')"
+              :src="require('~/assets/images/raknroll-logo.png')"
               alt="RAK'N'ROLL logo"
-              contain>
+              contain
+              position="left">
             </v-img>
           </NuxtLink>
         </div>
@@ -19,38 +19,38 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/")'>
+                    <NuxtLink :to='localePath("/")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.home') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/reviews")'>
+                    <NuxtLink :to='localePath("/reviews")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.reviews') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/delivery-and-payment")'>
+                    <NuxtLink :to='localePath("/delivery-and-payment")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.delivery-and-payment') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/public-contract")'>
+                    <NuxtLink :to='localePath("/public-contract")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.publicContract') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/about-company")'>
+                    <NuxtLink :to='localePath("/about-company")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.aboutCompany') }}
                     </NuxtLink>
                   </li>
                   <li class="pl-5">
-                    <NuxtLink class="header_nav_navigation_menu_pages_link white--text transition-05"
-                              :to='localePath("/contact-us")'>
+                    <NuxtLink :to='localePath("/contact-us")'
+                              class="header_nav_navigation_menu_pages_link white--text transition-05">
                       {{ $t('menuLinks.contact-us') }}
                     </NuxtLink>
                   </li>
@@ -58,33 +58,44 @@
               </nav>
             </div>
             <div class="header_nav_delivery_part d-flex align-center justify-space-between">
-              <div class="header_nav_delivery_part_language">
-                <v-select
-                  @change="changeLanguage"
-                  :items="$i18n.locales"
-                  item-value="code"
-                  item-text="name"
-                  menu-props="auto"
-                  v-model="$i18n.locale"
-                  color="red darken-4"
-                  class="pt-0 mt-0 without-border-select"
-                  hide-details
-                  item-color="red darken-4"
-                  prepend-icon="mdi-flag"
-                  single-line>
-                </v-select>
+              <div class="header_nav_delivery_part_language d-flex align-center">
+                <div>
+                  <v-img
+                    class="mt-2"
+                    :lazy-src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
+                    :src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
+                    contain
+                    position="center"
+                    width="20">
+                  </v-img>
+                </div>
+                <div class="pl-3">
+                  <v-select
+                    v-model="$i18n.locale"
+                    :items="$i18n.locales"
+                    class="pt-0 mt-0 without-border-select"
+                    color="red darken-4"
+                    hide-details
+                    item-color="red darken-4"
+                    item-text="name"
+                    item-value="code"
+                    menu-props="auto"
+                    single-line
+                    @change="changeLanguage">
+                  </v-select>
+                </div>
               </div>
               <div class="header_nav_delivery_part_call">
                 <v-select
                   :items="['+38 (096) 599 - 09 - 09', '+38 (09) 599 - 09 - 09']"
-                  menu-props="auto"
-                  color="red darken-4"
-                  value="+38 (096) 599 - 09 - 09"
-                  item-color="red darken-4"
                   class="pt-0 mt-0 without-border-select"
+                  color="red darken-4"
                   hide-details
+                  item-color="red darken-4"
+                  menu-props="auto"
                   prepend-icon="mdi-phone"
-                  single-line>
+                  single-line
+                  value="+38 (096) 599 - 09 - 09">
                 </v-select>
               </div>
             </div>
@@ -94,13 +105,14 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li v-for="category in $store.getters['categories/data']">
-                    <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
-                              :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'>{{ category.name }}
+                    <NuxtLink :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'
+                              class="header_nav_navigation_menu_link transition-05 white--text">{{ category.name }}
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink class="header_nav_navigation_menu_link transition-05 white--text"
-                              :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'>
+                    <NuxtLink
+                      :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'
+                      class="header_nav_navigation_menu_link transition-05 white--text">
                       {{ $t('sales') }}
                     </NuxtLink>
                   </li>

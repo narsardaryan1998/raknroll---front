@@ -15,22 +15,33 @@
         </NuxtLink>
       </div>
       <div class="mobileHeader_phone-and-language d-flex justify-space-around">
-        <div class="mobileHeader-language">
-          <v-select
-            v-show="!menuModalIsOpened"
-            v-model="$i18n.locale"
-            :items="$i18n.locales"
-            class="pt-0 mt-0 without-border-select"
-            color="red darken-4"
-            hide-details
-            item-color="red darken-4"
-            item-text="name"
-            item-value="code"
-            menu-props="auto"
-            prepend-icon="mdi-flag"
-            single-line
-            @change="changeLanguage">
-          </v-select>
+        <div class="mobileHeader-language d-flex">
+          <div>
+            <v-img
+              :lazy-src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
+              :src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
+              class="mt-2"
+              contain
+              position="center"
+              width="20">
+            </v-img>
+          </div>
+          <div class="pl-2">
+            <v-select
+              v-show="!menuModalIsOpened"
+              v-model="$i18n.locale"
+              :items="$i18n.locales"
+              class="pt-0 mt-0 without-border-select"
+              color="red darken-4"
+              hide-details
+              item-color="red darken-4"
+              item-text="name"
+              item-value="code"
+              menu-props="auto"
+              single-line
+              @change="changeLanguage">
+            </v-select>
+          </div>
         </div>
         <div class="mobileHeader_phone">
           <v-select
@@ -76,7 +87,8 @@
           <li class="pt-5">
             <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
                href="javascript:void(0)"
-               @click='goToPath(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'> {{ $t('sales') }}</a>
+               @click='goToPath(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'>
+              {{ $t('sales') }}</a>
           </li>
         </ul>
       </nav>
