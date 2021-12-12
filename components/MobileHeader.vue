@@ -18,6 +18,7 @@
         <div class="mobileHeader-language d-flex">
           <div>
             <v-img
+              v-if="!menuModalIsOpened"
               :lazy-src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
               :src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
               class="mt-2"

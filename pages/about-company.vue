@@ -30,6 +30,41 @@
       </client-only>
     </div>
     <div class="aboutCompany_content container-padding margin-top-6vh">
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div1')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="150"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div2')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="200"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div3')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="250"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div4')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="350"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div5')"></span>
+      </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="450"
+           data-aos-duration="1000">
+        <span v-html="$t('aboutCompanyPageContent.div6')"></span>
+      </div>
     </div>
   </div>
 </template>

@@ -17,7 +17,7 @@
               <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
                 <p class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
-                   data-aos-delay="300" data-aos-duration="1000"> {{ $t('publicDocumentPageContent.header') }}</p>
+                   data-aos-delay="300" data-aos-duration="1000">{{ $t('publicDocumentPageContent.header') }}</p>
               </div>
             </div>
           </div>

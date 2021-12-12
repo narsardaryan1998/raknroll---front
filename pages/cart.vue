@@ -347,6 +347,95 @@
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
+              <div class="row">
+                <div class="col-12">
+                  <v-dialog
+                    v-model="publicContractDialog"
+                    light
+                    width="600px">
+                    <template v-slot:activator="{ on, attrs }">
+                      <span>
+                        {{ $t('iAcceptContract.part1') }}
+                      </span>
+                      <span>
+                        {{ $t('iAcceptContract.part3') }}
+                      </span>
+                      <span
+                        class="red--text text--darken-4 font-weight-bold"
+                        v-bind="attrs"
+                        v-on="on">
+                        {{ $t('iAcceptContract.part2') }}
+                      </span>
+                    </template>
+                    <v-card>
+                      <v-card-title class="d-flex justify-center px-4">
+                        <p class="text-h5">{{ $t('publicDocumentPageContent.header') }}</p>
+                      </v-card-title>
+                      <v-card-text class="px-4 black--text">
+                        <div class="font-weight-black publicContract_subheaders">
+                          <span v-html="$t('publicDocumentPageContent.div1')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                          <span v-html="$t('publicDocumentPageContent.div2')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div3')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div4')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div5')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div6')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div7')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div8')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div9')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div10')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div11')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div12')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div13')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div14')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div15')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div16')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div17')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div18')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div19')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div20')"></span>
+                        </div>
+                      </v-card-text>
+                      <v-card-actions class="d-flex justify-center">
+                        <v-btn
+                          color="red darken-4"
+                          text
+                          @click="publicContractDialog = false">
+                          {{ $t('iAccept') }}
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </div>
+              </div>
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
@@ -543,6 +632,95 @@
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
+              <div class="row">
+                <div class="col-12">
+                  <v-dialog
+                    v-model="publicContractDialog"
+                    light
+                    width="600px">
+                    <template v-slot:activator="{ on, attrs }">
+                      <span>
+                        {{ $t('iAcceptContract.part1') }}
+                      </span>
+                      <span>
+                        {{ $t('iAcceptContract.part3') }}
+                      </span>
+                      <span
+                        class="red--text text--darken-4 font-weight-bold"
+                        v-bind="attrs"
+                        v-on="on">
+                        {{ $t('iAcceptContract.part2') }}
+                      </span>
+                    </template>
+                    <v-card>
+                      <v-card-title class="d-flex justify-center px-4">
+                        <p class="text-h5">{{ $t('publicDocumentPageContent.header') }}</p>
+                      </v-card-title>
+                      <v-card-text class="px-4 black--text">
+                        <div class="font-weight-black publicContract_subheaders">
+                          <span v-html="$t('publicDocumentPageContent.div1')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                          <span v-html="$t('publicDocumentPageContent.div2')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div3')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div4')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div5')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div6')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div7')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div8')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div9')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div10')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div11')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div12')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div13')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div14')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div15')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div16')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div17')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div18')"></span>
+                        </div>
+                        <div class="margin-top-4vh">
+                            <span class="font-weight-black publicContract_subheaders"
+                                  v-html="$t('publicDocumentPageContent.div19')"></span>
+                          <span v-html="$t('publicDocumentPageContent.div20')"></span>
+                        </div>
+                      </v-card-text>
+                      <v-card-actions class="d-flex justify-center">
+                        <v-btn
+                          color="red darken-4"
+                          text
+                          @click="publicContractDialog = false">
+                          {{ $t('iAccept') }}
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </div>
+              </div>
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
@@ -599,6 +777,7 @@ export default {
       checkoutNotDeliveryButtonLoading: false,
       checkoutDeliveryButtonLoading: false,
       orderFormNotDeliveryValid: false,
+      publicContractDialog: false,
       rememberInformation: true,
       orderResponse: '',
       orderFormDelivery: {
