@@ -61,9 +61,9 @@
               <div class="header_nav_delivery_part_language d-flex align-center">
                 <div>
                   <v-img
-                    class="mt-2"
                     :lazy-src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
                     :src="require('~/assets/images/flags/' + $i18n.locale + '.png')"
+                    class="mt-2"
                     contain
                     position="center"
                     width="20">
@@ -87,21 +87,21 @@
               </div>
               <div class="header_nav_delivery_part_call">
                 <v-select
-                  @change="call($event)"
                   :items="[{number: '+38 (096) 599 - 09 - 09', key: 'phone1'}, {number: '+38 (093) 599 - 09 - 09', key: 'phone2'}]"
-                  item-text="number"
-                  item-value="key"
+                  :placeholder="$t('callUs') + ' :)'"
                   class="pt-0 mt-0 without-border-select"
                   color="red darken-4"
                   hide-details
                   item-color="red darken-4"
+                  item-text="number"
+                  item-value="key"
                   menu-props="auto"
                   prepend-icon="mdi-phone"
                   single-line
-                  value="+38 (096) 599 - 09 - 09">
+                  @change="call($event)">
                 </v-select>
-                <a href="tel:380965990909" ref="phone1"></a>
-                <a href="tel:380935990909" ref="phone2"></a>
+                <a ref="phone1" href="tel:380965990909"></a>
+                <a ref="phone2" href="tel:380935990909"></a>
               </div>
             </div>
           </div>

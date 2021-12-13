@@ -27,7 +27,7 @@
               width="20">
             </v-img>
           </div>
-          <div class="pl-2">
+          <div class="pl-3">
             <v-select
               v-show="!menuModalIsOpened"
               v-model="$i18n.locale"
@@ -51,15 +51,14 @@
             :items="[{number: '+38 (096) 599 - 09 - 09', key: 'phone1'}, {number: '+38 (093) 599 - 09 - 09', key: 'phone2'}]"
             item-text="number"
             item-value="key"
-            placeholder="Звоните нам :)"
+            :placeholder="$t('callUs') + ' :)'"
             class="pt-0 mt-0 without-border-select"
             color="red darken-4"
             hide-details
             item-color="red darken-4"
             menu-props="auto"
             prepend-icon="mdi-phone"
-            single-line
-            value="+38 (096) 599 - 09 - 09">
+            single-line>
           </v-select>
           <a href="tel:380965990909" ref="phone1"></a>
           <a href="tel:380935990909" ref="phone2"></a>
