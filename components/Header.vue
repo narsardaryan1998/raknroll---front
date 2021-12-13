@@ -87,7 +87,10 @@
               </div>
               <div class="header_nav_delivery_part_call">
                 <v-select
-                  :items="['+38 (096) 599 - 09 - 09', '+38 (09) 599 - 09 - 09']"
+                  @change="call($event)"
+                  :items="[{number: '+38 (096) 599 - 09 - 09', key: 'phone1'}, {number: '+38 (093) 599 - 09 - 09', key: 'phone2'}]"
+                  item-text="number"
+                  item-value="key"
                   class="pt-0 mt-0 without-border-select"
                   color="red darken-4"
                   hide-details
@@ -97,6 +100,8 @@
                   single-line
                   value="+38 (096) 599 - 09 - 09">
                 </v-select>
+                <a href="tel:380965990909" ref="phone1"></a>
+                <a href="tel:380935990909" ref="phone2"></a>
               </div>
             </div>
           </div>
@@ -175,6 +180,9 @@ export default {
           productIds
         });
       }
+    },
+    call(e) {
+      this.$refs[e].click();
     }
   },
 }

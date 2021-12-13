@@ -47,7 +47,11 @@
         <div class="mobileHeader_phone">
           <v-select
             v-show="!menuModalIsOpened"
-            :items="['+38 (096) 599 - 09 - 09', '+38 (09) 599 - 09 - 09']"
+            @change="call($event)"
+            :items="[{number: '+38 (096) 599 - 09 - 09', key: 'phone1'}, {number: '+38 (093) 599 - 09 - 09', key: 'phone2'}]"
+            item-text="number"
+            item-value="key"
+            placeholder="Звоните нам :)"
             class="pt-0 mt-0 without-border-select"
             color="red darken-4"
             hide-details
@@ -57,6 +61,8 @@
             single-line
             value="+38 (096) 599 - 09 - 09">
           </v-select>
+          <a href="tel:380965990909" ref="phone1"></a>
+          <a href="tel:380935990909" ref="phone2"></a>
         </div>
       </div>
       <div class="mobileHeader_actions d-flex justify-end align-center">
@@ -279,6 +285,9 @@ export default {
     goToPath(path) {
       this.$router.push(path);
       this.$refs.menuHamburgerButton.click();
+    },
+    call(e) {
+      this.$refs[e].click();
     }
   },
 }
