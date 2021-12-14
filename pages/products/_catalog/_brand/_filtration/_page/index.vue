@@ -103,7 +103,7 @@
                             {{ $t('oldPrice') + ': ' + product.initial_price }}
                           </div>
                           <div>
-                            {{ $t('price') + ': ' + product.final_price }} грн
+                            {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
                           </div>
                         </div>
                         <div v-else>

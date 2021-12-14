@@ -9,18 +9,19 @@
                data-aos-duration="1000">
             <div class="ml-4 black-text-shadow black--text white-brush-background font-caveat">
               <p class="py-8 px-16"
-                 style="line-height: normal"
                  data-aos="fade-right"
                  data-aos-delay="300"
-                 data-aos-duration="1000">{{ $t('contactUs') }}</p>
+                 data-aos-duration="1000"
+                 style="line-height: normal">{{ $t('contactUs') }}</p>
             </div>
           </div>
         </client-only>
       </div>
       <div class="page_description margin-left-10vw"
            data-aos="fade-right"
-           data-aos-duration="1000"
-           data-aos-delay="800">{{ $t('contactsPageDescription') }}</div>
+           data-aos-delay="800"
+           data-aos-duration="1000">{{ $t('contactsPageDescription') }}
+      </div>
     </div>
     <div class="contact-us_contacts red-pattern-background row margin-top-6vh inset-shadow-10 py-10">
       <div class="col-md-8 col-lg-6 col-sm-10 offset-sm-1 offset-md-2 offset-lg-3 col-12 contact-us_contacts_data">
@@ -41,7 +42,7 @@
                  data-aos-delay="300"
                  data-aos-duration="1000">
               <div>
-                <img src="~/assets/icons/icons8-phone-64 (1).png" alt="Phone"/>
+                <img alt="Phone" src="~/assets/icons/icons8-phone-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text transition-05">
                 <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
@@ -68,7 +69,7 @@
                    data-aos-delay="800"
                    data-aos-duration="1000">
                 <div>
-                  <img src="~/assets/icons/icons8-clock-64 (1).png" alt="Time"/>
+                  <img alt="Time" src="~/assets/icons/icons8-clock-64 (1).png"/>
                 </div>
                 <div class="ml-3 contact-us_contacts_text">
                   <a href="javascript:void(0)">{{ $t('informationPart12.first') }} 10:00-22:00</a>
@@ -97,7 +98,7 @@
                  data-aos-delay="500"
                  data-aos-duration="1000">
               <div>
-                <img src="~/assets/icons/icons8-viber-64 (1).png" alt="Viber"/>
+                <img alt="Viber" src="~/assets/icons/icons8-viber-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text">
                 <a href="viber://chat?number=%2B380965990909">Viber</a>
@@ -108,7 +109,7 @@
                  data-aos-delay="500"
                  data-aos-duration="1000">
               <div>
-                <img src="~/assets/icons/icons8-whatsapp-64 (1).png" alt="WhatsApp"/>
+                <img alt="WhatsApp" src="~/assets/icons/icons8-whatsapp-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text">
                 <a href="https://api.whatsapp.com/send?phone=380965990909">WhatsApp</a>
@@ -133,7 +134,7 @@
                    data-aos-delay="500"
                    data-aos-duration="1000">
                 <div>
-                  <img src="~/assets/icons/icons8-mail-64 (1).png" alt="eMail"/>
+                  <img alt="eMail" src="~/assets/icons/icons8-mail-64 (1).png"/>
                 </div>
                 <div class="ml-3 contact-us_contacts_text">
                   <a href="javascript:void(0)">support@raknroll.com.ua</a>
@@ -160,7 +161,7 @@
                  data-aos-delay="500"
                  data-aos-duration="1000">
               <div>
-                <img src="~/assets/icons/icons8-user-location-64 (1).png" alt="Location"/>
+                <img alt="Location" src="~/assets/icons/icons8-user-location-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text">
                 <a href="javascript:void(0)">{{ $t('informationPart1.first') }}</a>
@@ -204,9 +205,11 @@
              data-aos="fade-up"
              data-aos-duration="1000">
           <div class="gmap_canvas">
-            <iframe width="100%" height="479" id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe id="gmap_canvas" frameborder="0" height="479"
+                    marginheight="0"
+                    marginwidth="0" scrolling="no"
+                    src="https://maps.google.com/maps?q=%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0,%20%D0%9A%D0%B8%D1%97%D0%B2,%20%D0%A5%D0%B0%D1%80%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B5%20%D1%88%D0%BE%D1%81%D0%B5%2017%20%D0%90&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    width="100%"></iframe>
             <a href="https://123movies-to.org"></a><br>
           </div>
         </div>

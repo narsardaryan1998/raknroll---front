@@ -302,9 +302,9 @@
                               <v-img
                                 class="ml-1"
                                 contain
-                                lazy-src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                                :lazy-src="require('~/assets/images/terminal.png')"
                                 max-width="30"
-                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg">
+                                :src="require('~/assets/images/terminal.png')">
                               </v-img>
                             </div>
                           </template>
@@ -318,9 +318,9 @@
                               <v-img
                                 class="ml-5"
                                 contain
-                                lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
                                 max-width="55"
-                                src="https://mybalitrips.com/static/images/visa-mastercard.png">
+                                :src="require('~/assets/images/visa-mastercard.png')">
                               </v-img>
                             </div>
                           </template>
@@ -334,9 +334,9 @@
                               <v-img
                                 class="ml-5"
                                 contain
-                                lazy-src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                                :lazy-src="require('~/assets/images/cash.png')"
                                 max-width="33"
-                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png">
+                                :src="require('~/assets/images/cash.png')">
                               </v-img>
                             </div>
                           </template>
@@ -587,9 +587,9 @@
                               <v-img
                                 class="ml-1"
                                 contain
-                                lazy-src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg"
+                                :lazy-src="require('~/assets/images/terminal.png')"
                                 max-width="30"
-                                src="https://icon-library.com/images/pos-terminal-icon/pos-terminal-icon-10.jpg">
+                                :src="require('~/assets/images/terminal.png')">
                               </v-img>
                             </div>
                           </template>
@@ -603,9 +603,9 @@
                               <v-img
                                 class="ml-5"
                                 contain
-                                lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
+                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
                                 max-width="55"
-                                src="https://mybalitrips.com/static/images/visa-mastercard.png">
+                                :src="require('~/assets/images/visa-mastercard.png')">
                               </v-img>
                             </div>
                           </template>
@@ -619,9 +619,9 @@
                               <v-img
                                 class="ml-5"
                                 contain
-                                lazy-src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png"
+                                :lazy-src="require('~/assets/images/cash.png')"
                                 max-width="33"
-                                src="https://cdn-icons-png.flaticon.com/512/2331/2331941.png">
+                                :src="require('~/assets/images/cash.png')">
                               </v-img>
                             </div>
                           </template>

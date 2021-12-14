@@ -72,6 +72,9 @@
         <span class="font-weight-black publicContract_subheaders" v-html="$t('publicDocumentPageContent.div19')"></span>
         <span v-html="$t('publicDocumentPageContent.div20')"></span>
       </div>
+      <div class="margin-top-4vh">
+        <span v-html="$t('publicDocumentPageContent.div21')"></span>
+      </div>
     </div>
   </div>
 </template>

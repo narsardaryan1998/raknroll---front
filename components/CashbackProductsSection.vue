@@ -76,7 +76,7 @@
                             {{ $t('oldPrice') + ': ' + product.initial_price }}
                           </div>
                           <div>
-                            {{ $t('price') + ': ' + product.final_price }}
+                            {{ $t('priceWithDiscount') + ': ' + product.final_price }}
                           </div>
                         </div>
                       </div>

@@ -181,7 +181,7 @@
                     <iframe id="gmap_canvas" frameborder="0" height="250"
                             marginheight="0"
                             marginwidth="0" scrolling="no"
-                            src="https://maps.google.com/maps?q=%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2017%20%D0%90,%20%D0%9A%D0%B8%D0%B5%D0%B2&t=k&z=15&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0,%20%D0%9A%D0%B8%D1%97%D0%B2,%20%D0%A5%D0%B0%D1%80%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B5%20%D1%88%D0%BE%D1%81%D0%B5%2017%20%D0%90&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             width="100%"></iframe>
                     <a href="https://123movies-to.org"></a><br>
                   </div>
@@ -202,9 +202,9 @@
             <v-img
               class="ml-5"
               contain
-              lazy-src="https://mybalitrips.com/static/images/visa-mastercard.png"
+              :lazy-src="require('~/assets/images/visa-mastercard.png')"
               max-width="55"
-              src="https://mybalitrips.com/static/images/visa-mastercard.png">
+              :src="require('~/assets/images/visa-mastercard.png')">
             </v-img>
           </div>
         </div>
