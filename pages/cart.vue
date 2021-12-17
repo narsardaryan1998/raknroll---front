@@ -457,7 +457,7 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
-                    v-if="$moment(new Date).format('H:mm:ss') > '21:20:00' || $moment(new Date).format('H:mm:ss') < '10:00:00'"
+                    v-if="false"
                     class="width-100 font-weight-bold white--text red-pattern-background"
                     color="red darken-4"
                     large
