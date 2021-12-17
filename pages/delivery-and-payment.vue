@@ -54,6 +54,12 @@
            data-aos-duration="1000">
         <span v-html="$t('deliveryAndPaymentPageContent.div4')"></span>
       </div>
+      <div class="margin-top-4vh"
+           data-aos="fade-right"
+           data-aos-delay="300"
+           data-aos-duration="1000">
+        <span v-html="$t('deliveryAndPaymentPageContent.div5')"></span>
+      </div>
     </div>
   </div>
 </template>

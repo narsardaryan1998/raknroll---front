@@ -36,10 +36,10 @@
       <div class="products_and_filter d-flex justify-space-between container-padding container">
         <div class="products_show">
           <v-dialog
-            light
-            style="z-index: 1000000"
             v-model="unavailableDialog"
-            max-width="800">
+            light
+            max-width="800"
+            style="z-index: 1000000">
             <v-card class="unavailable-category white-pattern-background">
               <v-card-title class="text-h4 d-flex justify-center px-3 black-text">
                 <div>
@@ -56,7 +56,7 @@
                   <div class="col-12">
                     <div class="d-flex align-center">
                       <div>
-                        <img class="unavailable-category-img" alt="Phone" src="~/assets/icons/icons8-phone-64-red.png"/>
+                        <img alt="Phone" class="unavailable-category-img" src="~/assets/icons/icons8-phone-64-red.png"/>
                       </div>
                       <div class="pl-3">
                         <a class="grey--text text--darken-4" href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
@@ -69,7 +69,7 @@
                         <img class="unavailable-category-img" src="~/assets/icons/icons8-marker-641.png"/>
                       </div>
                       <div class="pl-3">
-                        <a href="javascript:void(0)" class="grey--text text--darken-4">{{
+                        <a class="grey--text text--darken-4" href="javascript:void(0)">{{
                             $t('informationPart1.first') + ' ' + $t('informationPart1.second')
                           }}</a>
                       </div>
@@ -80,8 +80,8 @@
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn
-                  color="red darken-4"
                   class="font-weight-bold mr-5"
+                  color="red darken-4"
                   text
                   @click="unavailableDialog = false">
                   {{ $t('ok') }}

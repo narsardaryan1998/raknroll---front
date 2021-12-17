@@ -70,6 +70,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/moment',
     '@nuxtjs/axios',
     [
       '@nuxtjs/i18n',
@@ -99,6 +100,10 @@ export default {
     ]
   ],
 
+  moment: {
+    locales: ['ru'],
+    defaultTimezone: 'EET'
+  },
   axios: {
     baseURL: process.env.BASE_URL
   },

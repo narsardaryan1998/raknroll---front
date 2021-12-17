@@ -25,6 +25,7 @@
     "vuex": "latest"
   },
   "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.12.1",
     "axios": "^0.24.0",
     "sweetalert2": "^10.13.0",

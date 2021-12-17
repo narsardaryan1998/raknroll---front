@@ -254,7 +254,7 @@
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
-              <div class="row">
+              <div class="row" v-if="$store.getters['cart/cartCurrentTotalPrice'] >= 200">
                 <div
                   class="col-12  d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
                   <div>
@@ -262,7 +262,8 @@
                   </div>
                   <div>
                     <div>
-                      <span class="font-brigada">{{ $t('free') }}</span>
+                      <span class="font-brigada" v-if="$store.getters['cart/cartCurrentTotalPrice'] >= 500">{{ $t('free') }}</span>
+                      <span class="font-brigada" v-else>100 грн</span>
                     </div>
                   </div>
                 </div>
@@ -275,22 +276,29 @@
                     {{ $t('totalAmount') }}:
                   </div>
                   <div class="white--text font-weight-bold">
-                    <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
+                    <span class="font-brigada" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200">{{ $store.getters['cart/cartCurrentTotalPrice'] }} грн</span>
+                    <span class="font-brigada" v-else-if="$store.getters['cart/cartCurrentTotalPrice'] >= 200 && $store.getters['cart/cartCurrentTotalPrice'] < 500">{{ $store.getters['cart/cartCurrentTotalPrice'] + 100 }} грн</span>
+                    <span class="font-brigada" v-else>{{ $store.getters['cart/cartCurrentTotalPrice'] }} грн</span>
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
-              <div class="row" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
+              <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200" class="row">
                 <div
                   class="col-12 d-flex font-weight-bold justify-space-between cart_order-section_register-order_your-order-costs red--text text--darken-4">
                   <div>
                     {{ $t('minOrder') }}:
                   </div>
                   <div>
-                    <span class="font-brigada">500</span> грн
+                    <span class="font-brigada">200</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <span v-html="$t('deliveryAndPaymentPageContent.div1')"></span>
+                </div>
               </div>
               <div class="row mt-5">
                 <div class="col-12  cart_order-section_register-order_your-order_payment-methods white-opacity-07">
@@ -310,11 +318,11 @@
                                 {{ $t('cashlessPaymentTerminal') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/terminal.png')"
+                                :src="require('~/assets/images/terminal.png')"
                                 class="ml-1"
                                 contain
-                                :lazy-src="require('~/assets/images/terminal.png')"
-                                max-width="30"
-                                :src="require('~/assets/images/terminal.png')">
+                                max-width="30">
                               </v-img>
                             </div>
                           </template>
@@ -326,11 +334,11 @@
                                 {{ $t('withCreditCard') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
+                                :src="require('~/assets/images/visa-mastercard.png')"
                                 class="ml-3"
                                 contain
-                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
-                                max-width="55"
-                                :src="require('~/assets/images/visa-mastercard.png')">
+                                max-width="55">
                               </v-img>
                             </div>
                           </template>
@@ -342,11 +350,11 @@
                                 {{ $t('cash') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/cash.png')"
+                                :src="require('~/assets/images/cash.png')"
                                 class="ml-3"
                                 contain
-                                :lazy-src="require('~/assets/images/cash.png')"
-                                max-width="33"
-                                :src="require('~/assets/images/cash.png')">
+                                max-width="33">
                               </v-img>
                             </div>
                           </template>
@@ -449,13 +457,22 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
-                    v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500"
+                    v-if="$moment(new Date).format('H:mm:ss') > '23:20:00' || $moment(new Date).format('H:mm:ss') < '10:00:00'"
                     class="width-100 font-weight-bold white--text red-pattern-background"
                     color="red darken-4"
                     large
                     light
                     rounded>
-                    {{ $t('minOrder') }}: 500 грн
+                    {{ $t('orderTime.part1') }} <br class="make-2-line"> {{ $t('orderTime.part2') }}
+                  </v-btn>
+                  <v-btn
+                    v-else-if="$store.getters['cart/cartCurrentTotalPrice'] < 200"
+                    class="width-100 font-weight-bold white--text red-pattern-background"
+                    color="red darken-4"
+                    large
+                    light
+                    rounded>
+                    {{ $t('minOrder') }}: 200 грн
                   </v-btn>
                   <v-btn
                     v-else
@@ -566,19 +583,19 @@
                     {{ $t('totalAmount') }}:
                   </div>
                   <div class="white--text font-weight-bold">
-                    <span class="font-brigada">{{$store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
+                    <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
-              <div class="row" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
+              <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200" class="row">
                 <div
                   class="col-12 d-flex font-weight-bold justify-space-between cart_order-section_register-order_your-order-costs red--text text--darken-4">
                   <div>
                     {{ $t('minOrder') }}:
                   </div>
                   <div>
-                    <span class="font-brigada">500</span> грн
+                    <span class="font-brigada">200</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -601,11 +618,11 @@
                                 {{ $t('cashlessPaymentTerminal') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/terminal.png')"
+                                :src="require('~/assets/images/terminal.png')"
                                 class="ml-1"
                                 contain
-                                :lazy-src="require('~/assets/images/terminal.png')"
-                                max-width="30"
-                                :src="require('~/assets/images/terminal.png')">
+                                max-width="30">
                               </v-img>
                             </div>
                           </template>
@@ -617,11 +634,11 @@
                                 {{ $t('withCreditCard') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
+                                :src="require('~/assets/images/visa-mastercard.png')"
                                 class="ml-3"
                                 contain
-                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
-                                max-width="55"
-                                :src="require('~/assets/images/visa-mastercard.png')">
+                                max-width="55">
                               </v-img>
                             </div>
                           </template>
@@ -633,11 +650,11 @@
                                 {{ $t('cash') }}
                               </div>
                               <v-img
+                                :lazy-src="require('~/assets/images/cash.png')"
+                                :src="require('~/assets/images/cash.png')"
                                 class="ml-5"
                                 contain
-                                :lazy-src="require('~/assets/images/cash.png')"
-                                max-width="33"
-                                :src="require('~/assets/images/cash.png')">
+                                max-width="33">
                               </v-img>
                             </div>
                           </template>
@@ -740,13 +757,22 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
-                    v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500"
+                    v-if="$moment(new Date).format('H:mm:ss') > '23:20:00' || $moment(new Date).format('H:mm:ss') < '10:00:00'"
                     class="width-100 font-weight-bold white--text red-pattern-background"
                     color="red darken-4"
                     large
                     light
                     rounded>
-                    {{ $t('minOrder') }}: 500 грн
+                    {{ $t('orderTime.part1') }} <br class="make-2-line"> {{ $t('orderTime.part2') }}
+                  </v-btn>
+                  <v-btn
+                    v-else-if="$store.getters['cart/cartCurrentTotalPrice'] < 200"
+                    class="width-100 font-weight-bold white--text red-pattern-background"
+                    color="red darken-4"
+                    large
+                    light
+                    rounded>
+                    {{ $t('minOrder') }}: 200 грн
                   </v-btn>
                   <v-btn
                     v-else
@@ -1000,5 +1026,9 @@ export default {
 
 .your-cart-is-empty {
   font-size: 60px;
+}
+
+.make-2-line {
+  display: none;
 }
 </style>

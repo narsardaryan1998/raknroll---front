@@ -46,18 +46,21 @@
       <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length" class="mb-10">
         <div class="row mr-5">
           <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
-            <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
-              <span class="red--text text--darken-4 font-weight-bold">{{ $t('minOrder') }}: <span class="font-brigada">{{
-                  500
-                }}</span> грн</span>
+            <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200">
+              <span class="red--text text--darken-4 font-weight-bold">{{ $t('minOrder') }}: <span class="font-brigada">200
+              </span> грн</span>
+            </div>
+            <div v-if="$store.getters['cart/cartCurrentTotalPrice'] >= 200">
+              <span class="font-weight-bold" v-if="$store.getters['cart/cartCurrentTotalPrice'] >= 500">{{ $t('delivery') }}: {{ $t('free') }}</span>
+              <span class="font-weight-bold" v-else>{{ $t('delivery') }}: 100 грн</span>
             </div>
             <div>
-              <span class="font-weight-bold">{{ $t('delivery') }}: {{ $t('free') }}</span>
+              <span class="font-weight-bold" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200">{{ $t('totalCost') }}: <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] }}</span> грн</span>
+              <span class="font-weight-bold" v-else-if="$store.getters['cart/cartCurrentTotalPrice'] >= 200 && $store.getters['cart/cartCurrentTotalPrice'] < 500">{{ $t('totalCost') }}: <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] + 100 }}</span> грн</span>
+              <span class="font-weight-bold" v-else>{{ $t('totalCost') }}: <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice']  }}</span> грн</span>
             </div>
-            <div>
-              <span class="font-weight-bold">{{ $t('totalCost') }}: <span class="font-brigada">{{
-                  $store.getters['cart/cartCurrentTotalPrice']
-                }}</span> грн</span>
+            <div class="mt-4">
+              <span class="font-weight-bold" v-html="$t('deliveryAndPaymentPageContent.div1')"></span>
             </div>
             <hr class="cartModal_products_hr my-4">
             <span @click="checkout" class="cursor-pointer black--text font-weight-bold">{{ $t('checkoutOrder') }} <v-icon
