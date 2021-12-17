@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Тестовый seo текст | Rak'n'Roll | raknroll.com.ua",
+    title: "Доставка роллов киев | Суши бесплатная доставка | Rak'n'Roll | raknroll.com.ua",
     htmlAttrs: {
       lang: 'uk'
     },
@@ -35,9 +35,6 @@ export default {
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
-    ],
-    script: [
-      {src: "//code-ya.jivosite.com/widget/PX8nR394WB"},
     ]
   },
 

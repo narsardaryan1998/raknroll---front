@@ -137,7 +137,7 @@
                   <img alt="eMail" src="~/assets/icons/icons8-mail-64 (1).png"/>
                 </div>
                 <div class="ml-3 contact-us_contacts_text">
-                  <a href="javascript:void(0)">support@raknroll.com.ua</a>
+                  <a href="javascript:void(0)">raknroll0909@gmail.com</a>
                 </div>
               </div>
             </div>

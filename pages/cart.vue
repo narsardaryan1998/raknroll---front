@@ -258,11 +258,11 @@
                 <div
                   class="col-12  d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
                   <div>
-                    {{ $t('shipping') }}:
+                    {{ $t('delivery') }}:
                   </div>
                   <div>
                     <div>
-                      <span class="font-brigada">+ 500</span> грн
+                      <span class="font-brigada">{{ $t('free') }}</span>
                     </div>
                   </div>
                 </div>
@@ -275,9 +275,19 @@
                     {{ $t('totalAmount') }}:
                   </div>
                   <div class="white--text font-weight-bold">
-                    <span class="font-brigada">{{
-                        orderFormDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                      }}</span> грн
+                    <span class="font-brigada">{{ $store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
+                  </div>
+                </div>
+                <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
+              </div>
+              <div class="row" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
+                <div
+                  class="col-12 d-flex font-weight-bold justify-space-between cart_order-section_register-order_your-order-costs red--text text--darken-4">
+                  <div>
+                    {{ $t('minOrder') }}:
+                  </div>
+                  <div>
+                    <span class="font-brigada">500</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -316,7 +326,7 @@
                                 {{ $t('withCreditCard') }}
                               </div>
                               <v-img
-                                class="ml-5"
+                                class="ml-3"
                                 contain
                                 :lazy-src="require('~/assets/images/visa-mastercard.png')"
                                 max-width="55"
@@ -332,7 +342,7 @@
                                 {{ $t('cash') }}
                               </div>
                               <v-img
-                                class="ml-5"
+                                class="ml-3"
                                 contain
                                 :lazy-src="require('~/assets/images/cash.png')"
                                 max-width="33"
@@ -439,6 +449,16 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500"
+                    class="width-100 font-weight-bold white--text red-pattern-background"
+                    color="red darken-4"
+                    large
+                    light
+                    rounded>
+                    {{ $t('minOrder') }}: 500 грн
+                  </v-btn>
+                  <v-btn
+                    v-else
                     :loading="checkoutDeliveryButtonLoading"
                     class="width-100 font-weight-bold white--text"
                     color="green accent-4"
@@ -543,26 +563,22 @@
                 <div
                   class="col-12  d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
                   <div>
-                    {{ $t('shipping') }}:
+                    {{ $t('totalAmount') }}:
                   </div>
-                  <div>
-                    <div>
-                      -
-                    </div>
+                  <div class="white--text font-weight-bold">
+                    <span class="font-brigada">{{$store.getters['cart/cartCurrentTotalPrice'] }}</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
-              <div class="row">
+              <div class="row" v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
                 <div
-                  class="col-12  d-flex justify-space-between cart_order-section_register-order_your-order-costs white-opacity-07">
+                  class="col-12 d-flex font-weight-bold justify-space-between cart_order-section_register-order_your-order-costs red--text text--darken-4">
                   <div>
-                    {{ $t('totalAmount') }}:
+                    {{ $t('minOrder') }}:
                   </div>
-                  <div class="white--text font-weight-bold">
-                    <span class="font-brigada">{{
-                        orderFormNotDelivery.isDelivery ? $store.getters['cart/cartCurrentTotalPrice'] + 500 : $store.getters['cart/cartCurrentTotalPrice']
-                      }}</span> грн
+                  <div>
+                    <span class="font-brigada">500</span> грн
                   </div>
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
@@ -601,7 +617,7 @@
                                 {{ $t('withCreditCard') }}
                               </div>
                               <v-img
-                                class="ml-5"
+                                class="ml-3"
                                 contain
                                 :lazy-src="require('~/assets/images/visa-mastercard.png')"
                                 max-width="55"
@@ -724,6 +740,16 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
+                    v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500"
+                    class="width-100 font-weight-bold white--text red-pattern-background"
+                    color="red darken-4"
+                    large
+                    light
+                    rounded>
+                    {{ $t('minOrder') }}: 500 грн
+                  </v-btn>
+                  <v-btn
+                    v-else
                     :loading="checkoutNotDeliveryButtonLoading"
                     class="width-100 font-weight-bold white--text"
                     color="green accent-4"

@@ -18,7 +18,7 @@
                 <p v-if="!category"
                    class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
-                   data-aos-delay="300" data-aos-duration="1000"> {{ $t('allOfCatalog') }}</p>
+                   data-aos-delay="300" data-aos-duration="1000"> {{ $t('allOfCatalog') }} </p>
                 <p v-else
                    class="py-8 px-sm-16 px-8"
                    data-aos="fade-up"
@@ -35,6 +35,60 @@
       </client-only>
       <div class="products_and_filter d-flex justify-space-between container-padding container">
         <div class="products_show">
+          <v-dialog
+            light
+            style="z-index: 1000000"
+            v-model="unavailableDialog"
+            max-width="800">
+            <v-card class="unavailable-category white-pattern-background">
+              <v-card-title class="text-h4 d-flex justify-center px-3 black-text">
+                <div>
+                  {{ $t('unavailable') }} :(
+                </div>
+              </v-card-title>
+              <v-card-text class="grey--text text--darken-4 subtitle-md-1 text-md-h6 px-5 font-weight-bold">
+                <div class="row">
+                  <div class="col-12">
+                    {{ $t('unavailableCategoryDescription') }}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="d-flex align-center">
+                      <div>
+                        <img class="unavailable-category-img" alt="Phone" src="~/assets/icons/icons8-phone-64-red.png"/>
+                      </div>
+                      <div class="pl-3">
+                        <a class="grey--text text--darken-4" href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
+                        <br>
+                        <a class="grey--text text--darken-4" href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
+                      </div>
+                    </div>
+                    <div class="d-flex align-center mt-4 mt-md-0">
+                      <div>
+                        <img class="unavailable-category-img" src="~/assets/icons/icons8-marker-641.png"/>
+                      </div>
+                      <div class="pl-3">
+                        <a href="javascript:void(0)" class="grey--text text--darken-4">{{
+                            $t('informationPart1.first') + ' ' + $t('informationPart1.second')
+                          }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="red darken-4"
+                  class="font-weight-bold mr-5"
+                  text
+                  @click="unavailableDialog = false">
+                  {{ $t('ok') }}
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
           <div class="row products_show_catalog_filter_for_mobile">
             <div class="col-12 col-sm-8 offset-sm-2">
               <v-select
@@ -236,22 +290,22 @@
               @change="filtration">
             </v-select>
           </div>
-<!--          <div class="margin-top-6vh">-->
-<!--            <v-select-->
-<!--              v-model="filter.brand_slug"-->
-<!--              :items="$store.getters['products/data'].brands"-->
-<!--              :placeholder="$t('allBrands')"-->
-<!--              class="pt-0 mt-0"-->
-<!--              color="red darken-4"-->
-<!--              hide-details-->
-<!--              item-color="red darken-4"-->
-<!--              item-text="name"-->
-<!--              item-value="slug"-->
-<!--              menu-props="auto"-->
-<!--              single-line-->
-<!--              @change="filtration">-->
-<!--            </v-select>-->
-<!--          </div>-->
+          <!--          <div class="margin-top-6vh">-->
+          <!--            <v-select-->
+          <!--              v-model="filter.brand_slug"-->
+          <!--              :items="$store.getters['products/data'].brands"-->
+          <!--              :placeholder="$t('allBrands')"-->
+          <!--              class="pt-0 mt-0"-->
+          <!--              color="red darken-4"-->
+          <!--              hide-details-->
+          <!--              item-color="red darken-4"-->
+          <!--              item-text="name"-->
+          <!--              item-value="slug"-->
+          <!--              menu-props="auto"-->
+          <!--              single-line-->
+          <!--              @change="filtration">-->
+          <!--            </v-select>-->
+          <!--          </div>-->
           <div class="margin-top-6vh display-quantity-select">
             <v-select
               v-model="filter.display_quantity"
@@ -333,24 +387,24 @@
               </v-text-field>
             </div>
           </div>
-<!--          <div class="row margin-top-4vh">-->
-<!--            <div class="col-12">-->
-<!--              <v-select-->
-<!--                v-model="filter.brand_slug"-->
-<!--                :items="$store.getters['products/data'].brands"-->
-<!--                :placeholder="$t('allBrands')"-->
-<!--                class="pt-0 mt-0"-->
-<!--                color="white"-->
-<!--                filled-->
-<!--                hide-details-->
-<!--                item-color="white"-->
-<!--                item-text="name"-->
-<!--                item-value="slug"-->
-<!--                menu-props="auto"-->
-<!--                single-line>-->
-<!--              </v-select>-->
-<!--            </div>-->
-<!--          </div>-->
+          <!--          <div class="row margin-top-4vh">-->
+          <!--            <div class="col-12">-->
+          <!--              <v-select-->
+          <!--                v-model="filter.brand_slug"-->
+          <!--                :items="$store.getters['products/data'].brands"-->
+          <!--                :placeholder="$t('allBrands')"-->
+          <!--                class="pt-0 mt-0"-->
+          <!--                color="white"-->
+          <!--                filled-->
+          <!--                hide-details-->
+          <!--                item-color="white"-->
+          <!--                item-text="name"-->
+          <!--                item-value="slug"-->
+          <!--                menu-props="auto"-->
+          <!--                single-line>-->
+          <!--              </v-select>-->
+          <!--            </div>-->
+          <!--          </div>-->
           <div class="row margin-top-4vh">
             <div class="display-quantity-select col-12">
               <v-select
@@ -422,6 +476,7 @@ export default {
     return {
       language: this.$i18n.locale,
       mobileFilterModal: false,
+      unavailableDialog: false,
       displayQuantityArray: [8, 12, 16],
       baseUrl: process.env.BASE_URL
     }
@@ -455,6 +510,8 @@ export default {
     if (!category || !brand) {
       error({statusCode: 404, message: 'Post not found'})
     }
+
+
     return {filter, category, brand}
   },
   head() {
@@ -487,6 +544,11 @@ export default {
         },
         ...i18nHead.meta
       ]
+    }
+  },
+  mounted() {
+    if (this.filter.category_slug !== 'all-catalog' && this.filter.category_slug !== 'roli') {
+      this.unavailableDialog = true;
     }
   },
   methods: {
@@ -571,5 +633,9 @@ export default {
 
 .products_show {
   width: 80%;
+}
+
+.unavailable-category-img {
+  width: 40px;
 }
 </style>

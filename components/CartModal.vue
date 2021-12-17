@@ -46,9 +46,19 @@
       <div v-if="$store.getters['cart/data'] && $store.getters['cart/data'].length" class="mb-10">
         <div class="row mr-5">
           <div class="col-12 cartModal_products_totals grey--text text--darken-3 text-right">
-            <span>{{ $t('totalCost') }}: <span class="font-brigada">{{
-                $store.getters['cart/cartCurrentTotalPrice']
-              }}</span> грн</span>
+            <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 500">
+              <span class="red--text text--darken-4 font-weight-bold">{{ $t('minOrder') }}: <span class="font-brigada">{{
+                  500
+                }}</span> грн</span>
+            </div>
+            <div>
+              <span class="font-weight-bold">{{ $t('delivery') }}: {{ $t('free') }}</span>
+            </div>
+            <div>
+              <span class="font-weight-bold">{{ $t('totalCost') }}: <span class="font-brigada">{{
+                  $store.getters['cart/cartCurrentTotalPrice']
+                }}</span> грн</span>
+            </div>
             <hr class="cartModal_products_hr my-4">
             <span @click="checkout" class="cursor-pointer black--text font-weight-bold">{{ $t('checkoutOrder') }} <v-icon
               class="black--text">mdi-arrow-right-bold</v-icon></span>
@@ -100,7 +110,8 @@
                 </div>
                 <div class="col-md-2 col-6 cartModal_products_price">
                   <span class="cartModal_products_texts_description grey--text text--darken-3 font-weight-bold">{{
-                      $t('price') }}: {{ cart.final_price }}грн</span>
+                      $t('price')
+                    }}: {{ cart.final_price }}грн</span>
                 </div>
                 <div class="col-md-1 cartModal_products_remove">
                   <v-btn
