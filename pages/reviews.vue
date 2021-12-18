@@ -18,8 +18,9 @@
       </div>
       <div class="margin-left-10vw page_description"
            data-aos="fade-right"
-           data-aos-duration="1000"
-           data-aos-delay="800">{{ $t('reviewsPageDescription') }}</div>
+           data-aos-delay="800"
+           data-aos-duration="1000">{{ $t('reviewsPageDescription') }}
+      </div>
     </div>
     <div class="reviews_write_review margin-top-6vh">
       <div class="row container-padding red-pattern-background inset-shadow-10">
@@ -33,12 +34,12 @@
                 <div
                   class="d-inline-flex black-brush-background"
                   data-aos="fade-right"
-                  data-aos-duration="1000"
-                  data-aos-delay="1100">
+                  data-aos-delay="1100"
+                  data-aos-duration="1000">
                   <p class="reviews_write_review_section_text white--text white-text-shadow font-caveat py-8 px-16"
                      data-aos="fade-right"
-                     data-aos-duration="1000"
-                     data-aos-delay="500">{{ $t('writeYourReview') }}</p>
+                     data-aos-delay="500"
+                     data-aos-duration="1000">{{ $t('writeYourReview') }}</p>
                 </div>
               </div>
             </div>
@@ -54,14 +55,14 @@
                    data-aos="fade-right"
                    data-aos-duration="1000">
                 <v-text-field
-                  filled
-                  :rules="nameRules"
-                  counter="50"
-                  name="name"
-                  dark
-                  color="white"
                   v-model="reviewForm.name"
                   :label="$t('name')"
+                  :rules="nameRules"
+                  color="white"
+                  counter="50"
+                  dark
+                  filled
+                  name="name"
                   required>
                 </v-text-field>
               </div>
@@ -70,14 +71,14 @@
                    data-aos-delay="500"
                    data-aos-duration="1000">
                 <v-text-field
-                  filled
-                  :rules="emailRules"
-                  counter="50"
-                  name="email"
                   v-model="reviewForm.email"
                   :label="$t('emailAddress')"
-                  dark
+                  :rules="emailRules"
                   color="white"
+                  counter="50"
+                  dark
+                  filled
+                  name="email"
                   required>
                 </v-text-field>
               </div>
@@ -87,14 +88,14 @@
                    data-aos="fade-right"
                    data-aos-duration="1000">
                 <v-textarea
-                  filled
-                  :rules="textRules"
-                  :counter="1000"
-                  name="text"
                   v-model="reviewForm.text"
+                  :counter="1000"
                   :label="$t('yourOpinion')"
-                  dark
+                  :rules="textRules"
                   color="white"
+                  dark
+                  filled
+                  name="text"
                   required>
                 </v-textarea>
               </div>
@@ -105,10 +106,10 @@
                    data-aos-duration="1000">
                 <v-btn
                   class="font-weight-bold"
-                  @click="sendReview"
                   large
+                  light
                   rounded
-                  light>
+                  @click="sendReview">
                   {{ $t('sendReview') }}
                 </v-btn>
               </div>
@@ -118,22 +119,22 @@
       </div>
       <div class="reviews_all_testimonials margin-top-6vh container-padding">
         <div class="row">
-          <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="5"
-               class="width-100">
-            <div class="col-md-8 col-sm-10 offset-sm-1 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
-                 v-for="(review, index) in $store.getters['reviews/data'].reviews" :key="index"
+          <div v-infinite-scroll="loadMore" class="width-100" infinite-scroll-disabled="busy"
+               infinite-scroll-distance="5">
+            <div v-for="(review, index) in $store.getters['reviews/data'].reviews"
+                 :key="index" class="col-md-8 col-sm-10 offset-sm-1 col-lg-7 col-12 offset-md-2 offset-lg-2 mb-5"
                  data-aos="fade-right"
                  data-aos-duration="1000">
               <v-card
-                light
                 class="white-pattern-background"
-                elevation="12">
+                elevation="12"
+                light>
                 <div class="row">
                   <div class="col-md-2 col-3 reviews_all_testimonials_card_customer-avatar offset-cart-left-2">
-                    <v-avatar width="70%" height="auto">
+                    <v-avatar height="auto" width="70%">
                       <v-img
-                        :src="require('~/assets/icons/user.png')"
-                        :lazy-src="require('~/assets/icons/user.png')">
+                        :lazy-src="require('~/assets/icons/user.png')"
+                        :src="require('~/assets/icons/user.png')">
                       </v-img>
                     </v-avatar>
                   </div>
@@ -231,6 +232,11 @@ export default {
         v => !!v || this.$t('validationText.fieldRequired', {fieldName: this.$t('emailAddress')}),
         v => /.+@.+/.test(v) || this.$t('validationText.mustBeValid', {fieldName: this.$t('emailAddress')}),
       ],
+    }
+  },
+  head() {
+    return {
+      title: this.$t('seo.title.reviews')
     }
   },
   methods: {

@@ -71,7 +71,12 @@
 
 <script>
 export default {
-  name: "about-company"
+  name: "about-company",
+  head() {
+    return {
+      title: this.$t('seo.title.aboutCompany')
+    }
+  },
 }
 </script>
 

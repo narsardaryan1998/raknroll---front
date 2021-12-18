@@ -66,7 +66,12 @@
 
 <script>
 export default {
-  name: "delivery-and-payment"
+  name: "delivery-and-payment",
+  head() {
+    return {
+      title: this.$t('seo.title.deliveryAndPayment')
+    }
+  },
 }
 </script>
 

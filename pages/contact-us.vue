@@ -221,6 +221,11 @@
 <script>
 export default {
   name: "ContactUs",
+  head() {
+    return {
+      title: this.$t('seo.title.contactUs')
+    }
+  },
 }
 </script>
 

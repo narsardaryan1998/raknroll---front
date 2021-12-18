@@ -24,6 +24,6 @@ export default {
     OurAdvantages,
     CatalogSection,
     CashbackProductsSection,
-  },
+  }
 }
 </script>

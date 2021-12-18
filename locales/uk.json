@@ -192,5 +192,18 @@
   "orderTime": {
     "part1": "Приймаємо замовлення з ",
     "part2": "10:00 до 21:20 :("
+  },
+  "seo": {
+    "title": {
+      "main": "Доставка суші Київ. | Суші безкоштовна доставка. | Rak'n'Roll | www.raknroll.com.ua",
+      "reviews": "Відгуки про raknroll. | Відгуки людей про raknroll.. | Rak'n'Roll | www.raknroll.com.ua",
+      "deliveryAndPayment": "Доставка та оплата в raknroll. | Rak'n'Roll | www.raknroll.com.ua",
+      "aboutCompany": "Компанія raknroll. Про нас. | Rak'n'Roll | www.raknroll.com.ua",
+      "contactUs": "Контакти raknroll. Контакт з raknroll. | Rak'n'Roll | www.raknroll.com.ua",
+      "cart": "Кошик raknroll. Ваш кошик. | Rak'n'Roll | www.raknroll.com.ua"
+    },
+    "description": {
+      "main": "Магазин Rak’N’Roll – надійний партнер для Вашого драйву, гарного настрою та запланованого застілля. Ми пропонуємо широкий асортимент продуктів: від раків та ролів до пива, алкогольних напоїв, снеків тощо."
+    }
   }
 }

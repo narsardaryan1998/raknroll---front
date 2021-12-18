@@ -327,22 +327,22 @@
                             </div>
                           </template>
                         </v-radio>
-                        <v-radio color="white" value="creditCard">
-                          <template v-slot:label>
-                            <div class="d-flex align-center">
-                              <div>
-                                {{ $t('withCreditCard') }}
-                              </div>
-                              <v-img
-                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
-                                :src="require('~/assets/images/visa-mastercard.png')"
-                                class="ml-3"
-                                contain
-                                max-width="55">
-                              </v-img>
-                            </div>
-                          </template>
-                        </v-radio>
+<!--                        <v-radio color="white" value="creditCard">-->
+<!--                          <template v-slot:label>-->
+<!--                            <div class="d-flex align-center">-->
+<!--                              <div>-->
+<!--                                {{ $t('withCreditCard') }}-->
+<!--                              </div>-->
+<!--                              <v-img-->
+<!--                                :lazy-src="require('~/assets/images/visa-mastercard.png')"-->
+<!--                                :src="require('~/assets/images/visa-mastercard.png')"-->
+<!--                                class="ml-3"-->
+<!--                                contain-->
+<!--                                max-width="55">-->
+<!--                              </v-img>-->
+<!--                            </div>-->
+<!--                          </template>-->
+<!--                        </v-radio>-->
                         <v-radio color="white" value="cash">
                           <template v-slot:label>
                             <div class="d-flex align-center">
@@ -457,7 +457,7 @@
               <div class="row mt-5 pt-1">
                 <div class="col-12 ">
                   <v-btn
-                    v-if="false"
+                    v-if="$moment(new Date).format('H:mm:ss') > '21:20:00' || $moment(new Date).format('H:mm:ss') < '10:00:00'"
                     class="width-100 font-weight-bold white--text red-pattern-background"
                     color="red darken-4"
                     large
@@ -627,22 +627,22 @@
                             </div>
                           </template>
                         </v-radio>
-                        <v-radio color="white" value="creditCard">
-                          <template v-slot:label>
-                            <div class="d-flex align-center">
-                              <div>
-                                {{ $t('withCreditCard') }}
-                              </div>
-                              <v-img
-                                :lazy-src="require('~/assets/images/visa-mastercard.png')"
-                                :src="require('~/assets/images/visa-mastercard.png')"
-                                class="ml-3"
-                                contain
-                                max-width="55">
-                              </v-img>
-                            </div>
-                          </template>
-                        </v-radio>
+<!--                        <v-radio color="white" value="creditCard">-->
+<!--                          <template v-slot:label>-->
+<!--                            <div class="d-flex align-center">-->
+<!--                              <div>-->
+<!--                                {{ $t('withCreditCard') }}-->
+<!--                              </div>-->
+<!--                              <v-img-->
+<!--                                :lazy-src="require('~/assets/images/visa-mastercard.png')"-->
+<!--                                :src="require('~/assets/images/visa-mastercard.png')"-->
+<!--                                class="ml-3"-->
+<!--                                contain-->
+<!--                                max-width="55">-->
+<!--                              </v-img>-->
+<!--                            </div>-->
+<!--                          </template>-->
+<!--                        </v-radio>-->
                         <v-radio color="white" value="cash">
                           <template v-slot:label>
                             <div class="d-flex align-center">
@@ -879,6 +879,12 @@ export default {
 
   mounted() {
     this.$store.commit('order/setCustomerOrderInformation');
+  },
+
+  head() {
+    return {
+      title: this.$t('seo.title.cart')
+    }
   },
 
   computed: {

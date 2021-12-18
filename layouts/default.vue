@@ -44,6 +44,21 @@ export default {
     Footer,
     CartModal,
     Loading1,
-  }
+  },
+  head() {
+    const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
+
+    return {
+      title: this.$t('seo.title.main'),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('seo.description.main')
+        },
+        ...i18nHead.meta
+      ]
+    }
+  },
 }
 </script>
