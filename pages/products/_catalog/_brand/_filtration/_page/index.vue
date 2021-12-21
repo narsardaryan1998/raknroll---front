@@ -110,9 +110,9 @@
           </div>
           <div class="row products_page_products_show margin-top-6vh">
             <div v-for="(product, index) in $store.getters['products/data'].products"
-                 :key="index" class="py-0 col-sm-6 col-12 col-md-6 col-lg-3">
+                 :key="index" class="py-0 col-sm-6 col-12 col-md-6 col-lg-3 mb-12">
               <v-card
-                class="mx-auto my-12 mt-0 products_show_product"
+                class="mx-auto mt-0 justify-space-between products_show_product d-flex flex-column height-100"
                 dark
                 elevation="12"
                 max-width="374">
@@ -128,47 +128,49 @@
                       }}%</span>
                   </v-img>
                 </div>
-                <NuxtLink :to='localePath("/product/show/" + product.slug)'>
-                  <v-hover
-                    v-slot="{ hover }">
-                    <v-img :class="{ 'scale-1-2': hover }"
-                           :lazy-src="baseUrl + product.image"
-                           :src="baseUrl + product.image"
-                           class="card_product_image width-100 transition-05"
-                           contain>
-                    </v-img>
-                  </v-hover>
-                  <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
-                  <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                    <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
-                      {{ $t('minimum') + ': ' + product.min_quantity }}
-                    </div>
-                    <div
-                      :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
-                      <div v-if="product.weight" class="pl-3">
-                        {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
-                      </div>
-                      <div v-else-if="product.min_quantity" class="pl-3">
+                <div>
+                  <NuxtLink :to='localePath("/product/show/" + product.slug)'>
+                    <v-hover
+                      v-slot="{ hover }">
+                      <v-img :class="{ 'scale-1-2': hover }"
+                             :lazy-src="baseUrl + product.image"
+                             :src="baseUrl + product.image"
+                             class="card_product_image width-100 transition-05"
+                             contain>
+                      </v-img>
+                    </v-hover>
+                    <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
+                    <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
+                      <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
-                      <div class="pr-3">
-                        <div v-if="product.discount" class="d-flex flex-column">
-                          <div class="grey--text text--lighten-1">
-                            {{ $t('oldPrice') + ': ' + product.initial_price }} грн
-                          </div>
-                          <div>
-                            {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
-                          </div>
+                      <div
+                        :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
+                        <div v-if="product.weight" class="pl-3">
+                          {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
                         </div>
-                        <div v-else>
-                          {{ $t('price') + ': ' + product.final_price }} грн
+                        <div v-else-if="product.min_quantity" class="pl-3">
+                          {{ $t('minimum') + ': ' + product.min_quantity }}
+                        </div>
+                        <div class="pr-3">
+                          <div v-if="product.discount" class="d-flex flex-column">
+                            <div class="grey--text text--lighten-1">
+                              {{ $t('oldPrice') + ': ' + product.initial_price }} грн
+                            </div>
+                            <div>
+                              {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
+                            </div>
+                          </div>
+                          <div v-else>
+                            {{ $t('price') + ': ' + product.final_price }} грн
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
-                    </div>
-                  </v-card-text>
-                </NuxtLink>
+                      <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
+                      </div>
+                    </v-card-text>
+                  </NuxtLink>
+                </div>
                 <div v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)">
                   <v-card-actions class="py-0">
                     <v-bottom-navigation
@@ -278,6 +280,7 @@
             <v-select
               v-model="filter.category_slug"
               :items="$store.getters['products/data'].categories"
+              :label="$t('category')"
               :placeholder="$t('allOfCatalog')"
               class="pt-0 mt-0"
               color="red darken-4"
@@ -286,7 +289,6 @@
               item-text="name"
               item-value="slug"
               menu-props="auto"
-              single-line
               @change="filtration">
             </v-select>
           </div>
@@ -306,16 +308,16 @@
           <!--              @change="filtration">-->
           <!--            </v-select>-->
           <!--          </div>-->
-          <div class="margin-top-6vh display-quantity-select">
+          <div class="margin-top-6vh">
             <v-select
               v-model="filter.display_quantity"
               :items="displayQuantityArray"
+              :label="$t('displayQuantity')"
               class="pt-0 mt-0 text-center"
               color="red darken-4"
               hide-details
               item-color="red darken-4"
               menu-props="auto"
-              single-line
               @change="filtration">
             </v-select>
           </div>
