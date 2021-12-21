@@ -73,10 +73,10 @@
                       <div class="pr-3">
                         <div class="d-flex flex-column">
                           <div class="grey--text text--lighten-1">
-                            {{ $t('oldPrice') + ': ' + product.initial_price }}
+                            {{ $t('oldPrice') + ': ' + product.initial_price }} грн
                           </div>
                           <div>
-                            {{ $t('priceWithDiscount') + ': ' + product.final_price }}
+                            {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
                           </div>
                         </div>
                       </div>

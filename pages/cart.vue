@@ -588,18 +588,6 @@
                 </div>
                 <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
               </div>
-              <div v-if="$store.getters['cart/cartCurrentTotalPrice'] < 200" class="row">
-                <div
-                  class="col-12 d-flex font-weight-bold justify-space-between cart_order-section_register-order_your-order-costs red--text text--darken-4">
-                  <div>
-                    {{ $t('minOrder') }}:
-                  </div>
-                  <div>
-                    <span class="font-brigada">200</span> грн
-                  </div>
-                </div>
-                <v-divider class="cart_order-section_register-order_your-order_hr" inset></v-divider>
-              </div>
               <div class="row mt-5">
                 <div class="col-12  cart_order-section_register-order_your-order_payment-methods white-opacity-07">
                   <v-radio-group v-model="orderFormNotDelivery.paymentMethod" class="justify-center">
@@ -764,15 +752,6 @@
                     light
                     rounded>
                     {{ $t('orderTime.part1') }} <br class="make-2-line"> {{ $t('orderTime.part2') }}
-                  </v-btn>
-                  <v-btn
-                    v-else-if="$store.getters['cart/cartCurrentTotalPrice'] < 200"
-                    class="width-100 font-weight-bold white--text red-pattern-background"
-                    color="red darken-4"
-                    large
-                    light
-                    rounded>
-                    {{ $t('minOrder') }}: 200 грн
                   </v-btn>
                   <v-btn
                     v-else
