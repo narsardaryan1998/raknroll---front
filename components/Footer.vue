@@ -67,20 +67,23 @@
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
-                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                                  :to='localePath("/delivery-and-payment")'>
+                        <NuxtLink
+                          :to='localePath("/delivery-and-payment")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.delivery-and-payment') }}
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
-                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                                  :to='localePath("/public-contract")'>
+                        <NuxtLink
+                          :to='localePath("/public-contract")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.publicContract') }}
                         </NuxtLink>
                       </li>
                       <li class="pl-5">
-                        <NuxtLink class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between"
-                                  :to='localePath("/about-company")'>
+                        <NuxtLink
+                          :to='localePath("/about-company")'
+                          class="list-style-none footer_section_nav_navigation_menu_link pl-0 d-flex justify-space-between">
                           {{ $t('menuLinks.aboutCompany') }}
                         </NuxtLink>
                       </li>
@@ -143,23 +146,27 @@
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img
-                    :lazy-src="require('~/assets/images/viber-logo-red.png')"
-                    :src="require('~/assets/images/viber-logo-red.png')"
-                    class="ml-3"
-                    contain
-                    max-width="30">
-                  </v-img>
+                  <a href="viber://chat?number=%2B380965990909" target="_blank">
+                    <v-img
+                      :lazy-src="require('~/assets/images/viber-logo-red.png')"
+                      :src="require('~/assets/images/viber-logo-red.png')"
+                      class="ml-3"
+                      contain
+                      max-width="30">
+                    </v-img>
+                  </a>
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
-                  <v-img
-                    :lazy-src="require('~/assets/images/telegram-logo-red.png')"
-                    :src="require('~/assets/images/telegram-logo-red.png')"
-                    class="ml-3"
-                    contain
-                    max-width="30">
-                  </v-img>
+                  <a href="https://telegram.me/Raknroll2021" target="_blank">
+                    <v-img
+                      :lazy-src="require('~/assets/images/telegram-logo-red.png')"
+                      :src="require('~/assets/images/telegram-logo-red.png')"
+                      class="ml-3"
+                      contain
+                      max-width="30">
+                    </v-img>
+                  </a>
                 </v-hover>
               </div>
             </div>
@@ -200,11 +207,11 @@
           </div>
           <div>
             <v-img
+              :lazy-src="require('~/assets/images/visa-mastercard.png')"
+              :src="require('~/assets/images/visa-mastercard.png')"
               class="ml-5"
               contain
-              :lazy-src="require('~/assets/images/visa-mastercard.png')"
-              max-width="55"
-              :src="require('~/assets/images/visa-mastercard.png')">
+              max-width="55">
             </v-img>
           </div>
         </div>

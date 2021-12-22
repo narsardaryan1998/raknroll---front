@@ -101,7 +101,7 @@
                 <img alt="Viber" src="~/assets/icons/icons8-viber-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text">
-                <a href="viber://chat?number=%2B380965990909">Viber</a>
+                <a href="viber://chat?number=%2B380965990909" target="_blank">Viber</a>
               </div>
             </div>
             <div class="d-flex mt-1"
@@ -109,10 +109,10 @@
                  data-aos-delay="500"
                  data-aos-duration="1000">
               <div>
-                <img alt="WhatsApp" src="~/assets/icons/icons8-whatsapp-64 (1).png"/>
+                <img alt="WhatsApp" src="~/assets/images/icons8-telegram-app-64.png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text">
-                <a href="https://api.whatsapp.com/send?phone=380965990909">WhatsApp</a>
+                <a href="https://telegram.me/Raknroll2021" target="_blank">Telegram</a>
               </div>
             </div>
           </div>

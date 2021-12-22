@@ -47,21 +47,21 @@
         <div class="mobileHeader_phone">
           <v-select
             v-show="!menuModalIsOpened"
-            @change="call($event)"
             :items="[{number: '+38 (096) 599 - 09 - 09', key: 'phone1'}, {number: '+38 (093) 599 - 09 - 09', key: 'phone2'}]"
-            item-text="number"
-            item-value="key"
             :placeholder="$t('callUs') + ' :)'"
             class="pt-0 mt-0 without-border-select"
             color="red darken-4"
             hide-details
             item-color="red darken-4"
+            item-text="number"
+            item-value="key"
             menu-props="auto"
             prepend-icon="mdi-phone"
-            single-line>
+            single-line
+            @change="call($event)">
           </v-select>
-          <a href="tel:380965990909" ref="phone1"></a>
-          <a href="tel:380935990909" ref="phone2"></a>
+          <a ref="phone1" href="tel:380965990909"></a>
+          <a ref="phone2" href="tel:380935990909"></a>
         </div>
       </div>
       <div class="mobileHeader_actions d-flex justify-end align-center">
@@ -179,29 +179,33 @@
           </v-hover>
           <v-hover
             v-slot="{ hover }">
-            <v-img
-              :lazy-src="require('~/assets/images/viber-logo-red.png')"
-              :src="require('~/assets/images/viber-logo-red.png')"
-              class="ml-3"
-              contain
-              data-aos="fade-right"
-              data-aos-delay="1000"
-              data-aos-duration="1000"
-              max-width="30">
-            </v-img>
+            <a href="viber://chat?number=%2B380965990909" target="_blank">
+              <v-img
+                :lazy-src="require('~/assets/images/viber-logo-red.png')"
+                :src="require('~/assets/images/viber-logo-red.png')"
+                class="ml-3"
+                contain
+                data-aos="fade-right"
+                data-aos-delay="1000"
+                data-aos-duration="1000"
+                max-width="30">
+              </v-img>
+            </a>
           </v-hover>
           <v-hover
             v-slot="{ hover }">
-            <v-img
-              :lazy-src="require('~/assets/images/telegram-logo-red.png')"
-              :src="require('~/assets/images/telegram-logo-red.png')"
-              class="ml-3"
-              contain
-              data-aos="fade-right"
-              data-aos-delay="1200"
-              data-aos-duration="1000"
-              max-width="30">
-            </v-img>
+            <a href="https://telegram.me/Raknroll2021" target="_blank">
+              <v-img
+                :lazy-src="require('~/assets/images/telegram-logo-red.png')"
+                :src="require('~/assets/images/telegram-logo-red.png')"
+                class="ml-3"
+                contain
+                data-aos="fade-right"
+                data-aos-delay="1200"
+                data-aos-duration="1000"
+                max-width="30">
+              </v-img>
+            </a>
           </v-hover>
         </div>
       </div>
@@ -323,7 +327,8 @@ export default {
 }
 
 .mobileHeader_modal {
-  padding-top: 10vh;
+  overflow-y: scroll;
+  padding-top: 94px;
   width: 100%;
   height: 100%;
   background-color: rgb(0 0 0 / 24%);
