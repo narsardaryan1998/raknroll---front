@@ -16,6 +16,8 @@ export default {
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'og:type', property: 'og:type', content: 'website'},
+      {hid: 'og:site_name', property: 'og:site_name', content: 'raknroll.com.ua'},
+      {hid: 'og:url', property: 'og:url', content: process.env.BASE_URL},
       {hid: 'og:image', property: 'og:image', content: process.env.BASE_URL + 'images/raknroll-logo.png'},
       {hid: 'og:image:height', property: 'og:image:height', content: '300'},
       {hid: 'og:image:width', property: 'og:image:width', content: '400'},

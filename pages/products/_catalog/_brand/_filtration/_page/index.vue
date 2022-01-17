@@ -534,11 +534,11 @@ export default {
           name: 'keywords',
           content: metaKeysCategory + ', ' + metaKeysBrand
         },
-        {
-          hid: 'description',
-          name: 'description',
-          content: metaDescCategory + ', ' + metaDescBrand
-        },
+        // {
+        //   hid: 'description',
+        //   name: 'description',
+        //   content: metaDescCategory + ', ' + metaDescBrand
+        // },
         {
           hid: 'og:image',
           property: 'og:image',

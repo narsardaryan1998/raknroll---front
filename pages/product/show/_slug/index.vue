@@ -109,13 +109,13 @@ export default {
   directives: {
     swiper: directive
   },
-  async asyncData({store, i18n, params, error }) {
+  async asyncData({store, i18n, params, error}) {
     await store.dispatch('product/getData', {
       slug: params.slug,
       language: i18n.locale,
     });
     if (!store.getters['product/data'].product) {
-      error({ statusCode: 404, message: 'Post not found' })
+      error({statusCode: 404, message: 'Post not found'})
     }
   },
   data() {
@@ -135,15 +135,25 @@ export default {
           name: 'keywords',
           content: this.$store.getters['product/data'].product.meta_keys ? this.$store.getters['product/data'].product.meta_keys : this.$store.getters['product/data'].product.name
         },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.$store.getters['product/data'].product.meta_description ? this.$store.getters['product/data'].product.meta_description : this.$store.getters['product/data'].product.description
-        },
+        // {
+        //   hid: 'description',
+        //   name: 'description',
+        //   content: this.$store.getters['product/data'].product.meta_description ? this.$store.getters['product/data'].product.meta_description : this.$store.getters['product/data'].product.description
+        // },
         {
           hid: 'og:image',
           property: 'og:image',
           content: this.baseUrl + this.$store.getters['product/data'].product.image
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$store.getters['product/data'].product.name
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: this.baseUrl.substring(0, this.baseUrl.length - 1) + this.$nuxt.$route.path
         },
         ...i18nHead.meta
       ]
