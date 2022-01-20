@@ -925,7 +925,7 @@ export default {
               confirmButtonColor: '#060606',
               showConfirmButton: true
             });
-            this.$router.push({path: this.localePath("/products/all-catalog/all-brands/page-1")})
+            this.$router.push({path: this.localePath("/products/all-catalog/all-subcategories/all-brands/page-1")})
             if (method === 'orderFormDelivery') {
               this.checkoutDeliveryButtonLoading = false;
             } else {

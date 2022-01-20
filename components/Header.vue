@@ -109,14 +109,26 @@
             <div class="header_nav_navigation pt-5">
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
-                  <li v-for="category in $store.getters['categories/data']">
-                    <NuxtLink :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'
+                  <li v-for="category in $store.getters['categories/data']" class="position-relative">
+                    <NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'
+                              v-if="!category.subcategories.length"
                               class="header_nav_navigation_menu_link transition-05 white--text">{{ category.name }}
                     </NuxtLink>
+                    <a href='javascript:void(0)'
+                       v-if="category.subcategories.length"
+                       class="header_nav_navigation_menu_link transition-05 white--text">{{ category.name }}
+                      <v-icon class="submenu-icon">mdi-menu-down</v-icon>
+                    </a>
+                    <ul
+                      class="header_nav_navigation_menu_submenu pl-0 py-2 products_show_products_black_background list-style-none"
+                      aria-label="submenu" v-if="category.subcategories.length">
+                      <li><NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'>-{{ $t('all') }}</NuxtLink></li>
+                      <li v-for="subcategory in category.subcategories"><NuxtLink :to='localePath("/products/"+ category.slug +"/" + subcategory.slug + "/all-brands/page-1")'>-{{ subcategory.name }}</NuxtLink></li>
+                    </ul>
                   </li>
                   <li>
                     <NuxtLink
-                      :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'
+                      :to='localePath(`/products/all-catalog/all-subcategories/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'
                       class="header_nav_navigation_menu_link transition-05 white--text">
                       {{ $t('sales') }}
                     </NuxtLink>
@@ -241,5 +253,50 @@ export default {
 .header_nav_navigation_menu_pages_link:hover {
   color: #B71C1C !important;
   transition: .5s;
+}
+
+.header_nav_navigation_menu_submenu {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 200px;
+  position: absolute;
+  margin-top: 2px;
+  transition: .8s !important;
+  left: 0;
+  margin-left: 15px;
+  display: none;
+  text-align: left;
+  box-shadow: 0 0 15px white;
+}
+
+.header_nav_navigation_menu li:hover > ul,
+.header_nav_navigation_menu li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  transition: .8s !important;
+}
+
+.header_nav_navigation_menu li:hover .submenu-icon {
+  transform: rotate(180deg) !important;
+  transition: .5s !important;
+}
+
+.header_nav_navigation_menu li ul li {
+  padding: 6px 25px 6px 12px;
+  font-size: 18px;
+  width: 100%;
+}
+
+.header_nav_navigation_menu li ul li a {
+  color: #dcdcdc;
+  display: block;
+  transition: .5s !important;
+}
+
+.header_nav_navigation_menu li ul li:hover a {
+  color: #B71C1C;
+  transition: .5s !important;
+  margin-left: 4px;
 }
 </style>

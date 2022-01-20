@@ -292,22 +292,22 @@
               @change="filtration">
             </v-select>
           </div>
-          <!--          <div class="margin-top-6vh">-->
-          <!--            <v-select-->
-          <!--              v-model="filter.brand_slug"-->
-          <!--              :items="$store.getters['products/data'].brands"-->
-          <!--              :placeholder="$t('allBrands')"-->
-          <!--              class="pt-0 mt-0"-->
-          <!--              color="red darken-4"-->
-          <!--              hide-details-->
-          <!--              item-color="red darken-4"-->
-          <!--              item-text="name"-->
-          <!--              item-value="slug"-->
-          <!--              menu-props="auto"-->
-          <!--              single-line-->
-          <!--              @change="filtration">-->
-          <!--            </v-select>-->
-          <!--          </div>-->
+          <div class="margin-top-6vh">
+            <v-select
+              v-model="filter.brand_slug"
+              :items="$store.getters['products/data'].brands"
+              :placeholder="$t('allBrands')"
+              class="pt-0 mt-0"
+              :label="$t('brand')"
+              color="red darken-4"
+              hide-details
+              item-color="red darken-4"
+              item-text="name"
+              item-value="slug"
+              menu-props="auto"
+              @change="filtration">
+            </v-select>
+          </div>
           <div class="margin-top-6vh">
             <v-select
               v-model="filter.display_quantity"
@@ -389,24 +389,24 @@
               </v-text-field>
             </div>
           </div>
-          <!--          <div class="row margin-top-4vh">-->
-          <!--            <div class="col-12">-->
-          <!--              <v-select-->
-          <!--                v-model="filter.brand_slug"-->
-          <!--                :items="$store.getters['products/data'].brands"-->
-          <!--                :placeholder="$t('allBrands')"-->
-          <!--                class="pt-0 mt-0"-->
-          <!--                color="white"-->
-          <!--                filled-->
-          <!--                hide-details-->
-          <!--                item-color="white"-->
-          <!--                item-text="name"-->
-          <!--                item-value="slug"-->
-          <!--                menu-props="auto"-->
-          <!--                single-line>-->
-          <!--              </v-select>-->
-          <!--            </div>-->
-          <!--          </div>-->
+          <div class="row margin-top-4vh">
+            <div class="col-12">
+              <v-select
+                v-model="filter.brand_slug"
+                :items="$store.getters['products/data'].brands"
+                :placeholder="$t('allBrands')"
+                class="pt-0 mt-0"
+                color="white"
+                filled
+                hide-details
+                item-color="white"
+                item-text="name"
+                item-value="slug"
+                menu-props="auto"
+                :label="$t('brand')">
+              </v-select>
+            </div>
+          </div>
           <div class="row margin-top-4vh">
             <div class="display-quantity-select col-12">
               <v-select
@@ -472,7 +472,7 @@ export default {
     if (!checkPageNumber) {
       return false;
     }
-    return !!(params.catalog && params.brand);
+    return !!(params.catalog && params.brand && params.subcategory);
   },
   data() {
     return {
@@ -487,6 +487,7 @@ export default {
     const filter = {
       language: i18n.locale,
       category_slug: params.catalog,
+      subcategory_slug: params.subcategory,
       brand_slug: params.brand,
       page: 1,
       display_quantity: 8,
@@ -502,6 +503,7 @@ export default {
     }
     filter.page = parseInt(params.page.replace('page-', ''))
     filter.category_slug = params.catalog;
+    filter.subcategory_slug = params.subcategory;
     filter.brand_slug = params.brand;
     await store.dispatch('products/getData', filter);
     if (store.getters['products/data'].paginateCount < filter.page) {
@@ -548,11 +550,11 @@ export default {
       ]
     }
   },
-  mounted() {
-    if (this.filter.category_slug !== 'all-catalog' && this.filter.category_slug !== 'roli') {
-      this.unavailableDialog = true;
-    }
-  },
+  // mounted() {
+  //   // if (this.filter.category_slug !== 'all-catalog' && this.filter.category_slug !== 'roli') {
+  //   //   this.unavailableDialog = true;
+  //   // }
+  // },
   methods: {
     filtration(e, isPaginate = false) {
       if (!isPaginate) {
@@ -560,6 +562,7 @@ export default {
       }
       let pathName = $nuxt.$route.name;
       let params = {
+        subcategory: this.filter.subcategory_slug,
         catalog: this.filter.category_slug,
         brand: this.filter.brand_slug,
         page: 'page-' + this.filter.page

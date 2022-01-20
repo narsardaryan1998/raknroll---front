@@ -6,7 +6,7 @@
       </h1>
       <span class="error-message">{{ $t('pageNotFound') }}.
         <NuxtLink
-          :to='localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'>
+          :to='localePath(`/products/all-catalog/all-subcategories/all-brands/page-1`)'>
         {{ $t('ourCatalog') }}
       </NuxtLink></span>
     </div>

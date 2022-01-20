@@ -88,12 +88,12 @@
           <li v-for="(category, index) in $store.getters['categories/data']" class="pt-5">
             <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
                href="javascript:void(0)"
-               @click="goToPath(localePath('/products/'+ category.slug +'/all-brands/page-1'))">{{ category.name }}</a>
+               @click="goToPath(localePath('/products/'+ category.slug +'/all-subcategories/all-brands/page-1'))">{{ category.name }}</a>
           </li>
           <li class="pt-5">
             <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
                href="javascript:void(0)"
-               @click='goToPath(localePath(`/products/all-catalog/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'>
+               @click='goToPath(localePath(`/products/all-catalog/all-subcategories/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'>
               {{ $t('sales') }}</a>
           </li>
         </ul>

@@ -106,7 +106,7 @@
                     <ul
                       class="list-style-none footer_section_nav_navigation_menu pl-0 d-sm-flex justify-sm-space-between">
                       <li v-for="category in $store.getters['categories/data']">
-                        <NuxtLink :to='localePath("/products/"+ category.slug +"/all-brands/page-1")'
+                        <NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'
                                   class="footer_section_nav_navigation_menu_link">{{
                             category.name
                           }}
