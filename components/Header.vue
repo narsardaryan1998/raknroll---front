@@ -260,7 +260,7 @@ export default {
   opacity: 0;
   min-width: 200px;
   position: absolute;
-  margin-top: 2px;
+  margin-top: 1px;
   transition: .8s !important;
   left: 0;
   margin-left: 15px;

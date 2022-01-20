@@ -294,6 +294,22 @@
           </div>
           <div class="margin-top-6vh">
             <v-select
+              v-model="filter.subcategory_slug"
+              :items="subcategories"
+              :label="$t('subcategory')"
+              :placeholder="$t('allSubcategories')"
+              class="pt-0 mt-0"
+              color="red darken-4"
+              hide-details
+              item-color="red darken-4"
+              item-text="name"
+              item-value="slug"
+              menu-props="auto"
+              @change="filtration">
+            </v-select>
+          </div>
+          <div class="margin-top-6vh">
+            <v-select
               v-model="filter.brand_slug"
               :items="$store.getters['products/data'].brands"
               :placeholder="$t('allBrands')"
@@ -514,7 +530,25 @@ export default {
     if (!category || !brand) {
       error({statusCode: 404, message: 'Post not found'})
     }
+    if (category) {
+      let initialSubcategories = [...category.subcategories];
+      if (filter.subcategory_slug !== 'all-subcategories') {
+        if (!initialSubcategories.length) {
+          error({statusCode: 404, message: 'Post not found'})
+        }
+        let checkSubcategory = initialSubcategories.find(subcategory => subcategory.slug === filter.subcategory_slug);
+        if (!checkSubcategory) {
+          error({statusCode: 404, message: 'Post not found'})
+        }
+      }
+      initialSubcategories.unshift({
+        slug: 'all-subcategories',
+        name: i18n.t('allSubcategories')
+      })
+      const subcategories = initialSubcategories;
 
+      return {filter, category, brand, subcategories}
+    }
 
     return {filter, category, brand}
   },
@@ -568,7 +602,7 @@ export default {
         page: 'page-' + this.filter.page
       };
       for (const [key, value] of Object.entries(this.filter)) {
-        if (key !== 'brand_slug' && key !== 'category_slug' && key !== 'page' && key !== 'language') {
+        if (key !== 'brand_slug' && key !== 'category_slug' && key !== 'subcategory_slug' && key !== 'page' && key !== 'language') {
           if (value) {
             if (!params.filtration) {
               this.$set(params, 'filtration', {[key]: value});
