@@ -58,33 +58,33 @@
                            contain>
                     </v-img>
                   </v-hover>
-                  <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                    <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
+                </NuxtLink>
+                <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
+                  <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
+                    {{ $t('minimum') + ': ' + product.min_quantity }}
+                  </div>
+                  <div
+                    :class="product.min_quantity || product.weight ? 'pl-2 pt-4 d-flex justify-space-between' : 'pl-2 pt-4 d-flex justify-end'">
+                    <div v-if="product.weight" class="pl-3">
+                      {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
+                    </div>
+                    <div v-else-if="product.min_quantity" class="pl-3">
                       {{ $t('minimum') + ': ' + product.min_quantity }}
                     </div>
-                    <div
-                      :class="product.min_quantity || product.weight ? 'pl-2 pt-4 d-flex justify-space-between' : 'pl-2 pt-4 d-flex justify-end'">
-                      <div v-if="product.weight" class="pl-3">
-                        {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
-                      </div>
-                      <div v-else-if="product.min_quantity" class="pl-3">
-                        {{ $t('minimum') + ': ' + product.min_quantity }}
-                      </div>
-                      <div class="pr-3">
-                        <div class="d-flex flex-column">
-                          <div class="grey--text text--lighten-1">
-                            {{ $t('oldPrice') + ': ' + product.initial_price }} грн
-                          </div>
-                          <div>
-                            {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
-                          </div>
+                    <div class="pr-3">
+                      <div class="d-flex flex-column">
+                        <div class="grey--text text--lighten-1">
+                          {{ $t('oldPrice') + ': ' + product.initial_price }} грн
+                        </div>
+                        <div>
+                          {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
                         </div>
                       </div>
                     </div>
-                    <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
-                    </div>
-                  </v-card-text>
-                </NuxtLink>
+                  </div>
+                  <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
+                  </div>
+                </v-card-text>
                 <div v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)">
                   <v-card-actions class="py-0">
                     <v-bottom-navigation

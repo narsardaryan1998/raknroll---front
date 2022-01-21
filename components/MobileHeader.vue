@@ -82,34 +82,121 @@
         </div>
       </div>
     </div>
-    <div class="mobileHeader_modal text-center">
-      <nav class="d-block">
-        <ul class="list-style-none mobileHeader_modal_nav_navigation_menu pl-0">
-          <li v-for="(category, index) in $store.getters['categories/data']" class="pt-5">
-            <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
-               href="javascript:void(0)"
-               @click="goToPath(localePath('/products/'+ category.slug +'/all-subcategories/all-brands/page-1'))">{{ category.name }}</a>
-          </li>
-          <li class="pt-5">
-            <a class="mobileHeader_modal_nav_navigation_menu_link white--text"
-               href="javascript:void(0)"
+    <div class="mobileHeader_modal" ref="mobileHeaderModal">
+      <v-list class="transparent p-0 pr-0" dark shaped>
+        <v-list-item-group
+          v-model="selectedItem"
+          color="primary">
+          <div v-for="(category, index) in $store.getters['categories/data']" class="mobileHeader_modal_list_border">
+            <a href="javascript:void(0)"
+               @click="goToPath(localePath('/products/'+ category.slug +'/all-subcategories/all-brands/page-1'))"
+               v-if="!category.subcategories.length">
+              <v-list-item>
+                <v-list-item-icon
+                  class="mr-3">
+                  <v-icon
+                    color="grey lighten-3"
+                    medium
+                    dark>
+                    mdi-view-dashboard
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title
+                    color="grey lighten-3 pl-2">{{ category.name }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </a>
+            <v-list-group color="white" v-else-if="category.subcategories.length">
+              <template v-slot:activator class="vzgoo">
+                <v-list-item-icon
+                  class="mr-3">
+                  <v-icon
+                    color="grey lighten-3"
+                    medium
+                    dark>
+                    mdi-cart
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title>{{
+                      category.name
+                    }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </template>
+              <a href="javascript:void(0)"
+                 @click="goToPath(localePath('/products/'+ category.slug +'/all-subcategories/all-brands/page-1'))">
+                <v-list-item>
+                  <v-list-item-icon
+                    class="mr-3">
+                    <v-icon
+                      color="grey lighten-3"
+                      small
+                      dark>
+                      mdi-subdirectory-arrow-right
+                    </v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title
+                    color="grey lighten-3">{{ $t('all') }}
+                  </v-list-item-title>
+                </v-list-item>
+              </a>
+              <a href="javascript:void(0)" v-for="subcategory in category.subcategories"
+                 @click="goToPath(localePath('/products/'+ category.slug +'/' + subcategory.slug + '/all-brands/page-1'))">
+                <v-list-item>
+                  <v-list-item-icon
+                    class="mr-3">
+                    <v-icon
+                      color="grey lighten-3"
+                      small
+                      dark>
+                      mdi-subdirectory-arrow-right
+                    </v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-title
+                    color="grey lighten-3">{{ subcategory.name }}
+                  </v-list-item-title>
+                </v-list-item>
+              </a>
+            </v-list-group>
+          </div>
+          <div class="mobileHeader_modal_list_border">
+            <a href="javascript:void(0)"
                @click='goToPath(localePath(`/products/all-catalog/all-subcategories/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`))'>
-              {{ $t('sales') }}</a>
-          </li>
-        </ul>
-      </nav>
+              <v-list-item>
+                <v-list-item-icon
+                  class="mr-3">
+                  <v-icon
+                    color="grey lighten-3"
+                    medium
+                    dark>
+                    mdi-view-dashboard
+                  </v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title
+                    color="grey lighten-3 pl-2">{{ $t('sales') }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </a>
+          </div>
+        </v-list-item-group>
+      </v-list>
       <div class="row mobileHeader_modal_nav_navigation_pages mt-8">
         <div class="col-12">
           <nav class="d-block">
             <ul class="list-style-none pl-0 d-flex justify-center">
               <li>
-                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4 black-text-shadow"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/reviews'))">
                   {{ $t('menuLinks.reviews') }}</a>
               </li>
               <li>
-                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4 black-text-shadow"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/delivery-and-payment'))">
                   {{ $t('menuLinks.delivery-and-payment') }}</a>
@@ -123,19 +210,19 @@
           <nav class="d-block">
             <ul class="list-style-none pl-0 d-flex justify-center">
               <li>
-                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4 black-text-shadow"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/public-contract'))">
                   {{ $t('menuLinks.publicContract') }}</a>
               </li>
               <li>
-                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4"
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page pl-4 black-text-shadow"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/about-company'))">
                   {{ $t('menuLinks.aboutCompany') }}</a>
               </li>
               <li>
-                <a class="list-style-none mobileHeader_modal_nav_navigation_page px-4"
+                <a class="list-style-none mobileHeader_modal_nav_navigation_page px-4 black-text-shadow"
                    href="javascript:void(0)"
                    @click="goToPath(localePath('/contact-us'))">
                   {{ $t('menuLinks.contact-us') }}</a>
@@ -220,6 +307,7 @@ export default {
     return {
       menuModalIsOpened: false,
       language: this.$i18n.locale,
+      selectedItem: null
     }
   },
   mounted() {
@@ -272,14 +360,14 @@ export default {
       if (!this.menuModalIsOpened) {
         this.menuModalIsOpened = true;
         document.getElementById('cartModal').classList.add("z-index-minus");
-        document.getElementsByClassName('mobileHeader_modal')[0].classList.add('mobileHeader_modal_open');
+        this.$refs.mobileHeaderModal.classList.add('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.add("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.add("main-blured");
         document.getElementsByTagName('footer')[0].classList.add("main-blured");
       } else {
         this.menuModalIsOpened = false;
         document.getElementById('cartModal').classList.remove("z-index-minus");
-        document.getElementsByClassName('mobileHeader_modal')[0].classList.remove('mobileHeader_modal_open');
+        this.$refs.mobileHeaderModal.classList.remove('mobileHeader_modal_open');
         document.getElementsByTagName('html')[0].classList.remove("overflow-y-hidden");
         document.getElementsByClassName('v-main')[0].classList.remove("main-blured");
         document.getElementsByTagName('footer')[0].classList.remove("main-blured");

@@ -122,8 +122,21 @@
                     <ul
                       class="header_nav_navigation_menu_submenu pl-0 py-2 products_show_products_black_background list-style-none"
                       aria-label="submenu" v-if="category.subcategories.length">
-                      <li><NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'>-{{ $t('all') }}</NuxtLink></li>
-                      <li v-for="subcategory in category.subcategories"><NuxtLink :to='localePath("/products/"+ category.slug +"/" + subcategory.slug + "/all-brands/page-1")'>-{{ subcategory.name }}</NuxtLink></li>
+                      <li><NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'>
+                        <v-icon
+                        color="grey lighten-3"
+                        small
+                        dark>
+                        mdi-subdirectory-arrow-right
+                      </v-icon> {{ $t('all') }}</NuxtLink></li>
+                      <li v-for="subcategory in category.subcategories"><NuxtLink :to='localePath("/products/"+ category.slug +"/" + subcategory.slug + "/all-brands/page-1")'>
+                        <v-icon
+                          color="grey lighten-3"
+                          small
+                          dark>
+                          mdi-subdirectory-arrow-right
+                        </v-icon> {{ subcategory.name }}
+                      </NuxtLink></li>
                     </ul>
                   </li>
                   <li>

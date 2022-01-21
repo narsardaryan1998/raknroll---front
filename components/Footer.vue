@@ -99,24 +99,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 footer_section_menu">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <nav class="d-block">
-                    <ul
-                      class="list-style-none footer_section_nav_navigation_menu pl-0 d-sm-flex justify-sm-space-between">
-                      <li v-for="category in $store.getters['categories/data']">
-                        <NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'
-                                  class="footer_section_nav_navigation_menu_link">{{
-                            category.name
-                          }}
-                        </NuxtLink>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
             <div class="row footer_socialite mt-3 ml-0">
               <div class="col-12 d-flex justify-space-around justify-sm-start">
                 <v-hover

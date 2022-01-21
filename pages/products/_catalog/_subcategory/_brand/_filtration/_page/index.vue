@@ -94,6 +94,7 @@
               <v-select
                 v-model="filter.category_slug"
                 :items="$store.getters['products/data'].categories"
+                :label="$t('category')"
                 :placeholder="$t('allOfCatalog')"
                 class="pt-0 mt-0"
                 color="white"
@@ -103,12 +104,30 @@
                 item-text="name"
                 item-value="slug"
                 menu-props="auto"
-                single-line
                 @change="filtration">
               </v-select>
             </div>
           </div>
-          <div class="row products_page_products_show margin-top-6vh">
+          <div class="row products_show_catalog_filter_for_mobile" v-if="subcategories && subcategories.length > 1">
+            <div class="col-12 col-sm-8 offset-sm-2">
+              <v-select
+                v-model="filter.subcategory_slug"
+                :items="subcategories"
+                :label="$t('subcategory')"
+                :placeholder="$t('allSubcategories')"
+                class="pt-0 mt-0"
+                color="white"
+                filled
+                hide-details
+                item-color="white"
+                item-text="name"
+                item-value="slug"
+                menu-props="auto"
+                @change="filtration">
+              </v-select>
+            </div>
+          </div>
+          <div class="row products_page_products_show margin-top-8vh">
             <div v-for="(product, index) in $store.getters['products/data'].products"
                  :key="index" class="py-0 col-sm-6 col-12 col-md-6 col-lg-3 mb-12">
               <v-card
@@ -139,37 +158,37 @@
                              contain>
                       </v-img>
                     </v-hover>
-                    <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
-                    <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
-                      <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
+                  </NuxtLink>
+                  <v-card-title class="font-weight-bold px-2 pb-0 pt-2 white--text">{{ product.name }}</v-card-title>
+                  <v-card-text class="grey--text text--lighten-4 font-weight-bold text-center font-brigada">
+                    <div v-if="product.weight && product.min_quantity" class="pl-5 pt-4 text-left">
+                      {{ $t('minimum') + ': ' + product.min_quantity }}
+                    </div>
+                    <div
+                      :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
+                      <div v-if="product.weight" class="pl-3">
+                        {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
+                      </div>
+                      <div v-else-if="product.min_quantity" class="pl-3">
                         {{ $t('minimum') + ': ' + product.min_quantity }}
                       </div>
-                      <div
-                        :class="product.min_quantity || product.weight ? 'pl-2 pt-2 d-flex justify-space-between' : 'pl-2 pt-2 d-flex justify-end'">
-                        <div v-if="product.weight" class="pl-3">
-                          {{ $t('weight') + ': ' + product.weight + $t(product.unit + 'Short') }}
-                        </div>
-                        <div v-else-if="product.min_quantity" class="pl-3">
-                          {{ $t('minimum') + ': ' + product.min_quantity }}
-                        </div>
-                        <div class="pr-3">
-                          <div v-if="product.discount" class="d-flex flex-column">
-                            <div class="grey--text text--lighten-1">
-                              {{ $t('oldPrice') + ': ' + product.initial_price }} грн
-                            </div>
-                            <div>
-                              {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
-                            </div>
+                      <div class="pr-3">
+                        <div v-if="product.discount" class="d-flex flex-column">
+                          <div class="grey--text text--lighten-1">
+                            {{ $t('oldPrice') + ': ' + product.initial_price }} грн
                           </div>
-                          <div v-else>
-                            {{ $t('price') + ': ' + product.final_price }} грн
+                          <div>
+                            {{ $t('priceWithDiscount') + ': ' + product.final_price }} грн
                           </div>
                         </div>
+                        <div v-else>
+                          {{ $t('price') + ': ' + product.final_price }} грн
+                        </div>
                       </div>
-                      <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
-                      </div>
-                    </v-card-text>
-                  </NuxtLink>
+                    </div>
+                    <div class="my-4 grey--text text--lighten-1">{{ product.short_description }}
+                    </div>
+                  </v-card-text>
                 </div>
                 <div v-if="!$store.getters['cart/data'].find(cart => product.id === cart.id)">
                   <v-card-actions class="py-0">
@@ -249,13 +268,26 @@
               </v-card>
             </div>
           </div>
-          <div class="d-flex products_show_pagination justify-end align-center">
+          <div class="d-sm-flex d-none products_show_pagination justify-end align-center">
             <div>
               <v-pagination
                 v-if="$store.getters['products/data'].paginateCount > 1"
                 v-model="filter.page"
                 :length="$store.getters['products/data'].paginateCount"
                 :total-visible="7"
+                class="font-brigada"
+                color="red darken-4"
+                @input="filtration($event, true)">
+              </v-pagination>
+            </div>
+          </div>
+          <div class="d-flex d-sm-none products_show_pagination justify-center align-center">
+            <div>
+              <v-pagination
+                v-if="$store.getters['products/data'].paginateCount > 1"
+                v-model="filter.page"
+                :length="$store.getters['products/data'].paginateCount"
+                :total-visible="5"
                 class="font-brigada"
                 color="red darken-4"
                 @input="filtration($event, true)">
@@ -292,7 +324,7 @@
               @change="filtration">
             </v-select>
           </div>
-          <div class="margin-top-6vh">
+          <div class="margin-top-6vh" v-if="subcategories && subcategories.length > 1">
             <v-select
               v-model="filter.subcategory_slug"
               :items="subcategories"
@@ -584,11 +616,11 @@ export default {
       ]
     }
   },
-  // mounted() {
-  //   // if (this.filter.category_slug !== 'all-catalog' && this.filter.category_slug !== 'roli') {
-  //   //   this.unavailableDialog = true;
-  //   // }
-  // },
+  mounted() {
+    if (!this.$store.getters['products/data'].products.length) {
+      this.unavailableDialog = true;
+    }
+  },
   methods: {
     filtration(e, isPaginate = false) {
       if (!isPaginate) {
