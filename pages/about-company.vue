@@ -81,7 +81,5 @@ export default {
 </script>
 
 <style scoped>
-#aboutCompany {
-  margin-top: 18vh;
-}
+#aboutCompany{margin-top:18vh}
 </style>

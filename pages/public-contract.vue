@@ -86,11 +86,5 @@ export default {
 </script>
 
 <style scoped>
-#publicContract {
-  margin-top: 18vh;
-}
-
-.publicContract_subheaders {
-  font-size: 18px;
-}
+#publicContract{margin-top:18vh}.publicContract_subheaders{font-size:18px}
 </style>

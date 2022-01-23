@@ -110,6 +110,14 @@
               <nav class="d-block">
                 <ul class="list-style-none header_nav_navigation_menu d-flex justify-space-between snip1143 pl-0">
                   <li v-for="category in $store.getters['categories/data']" class="position-relative">
+                    <v-img
+                      v-if="category.icon"
+                      class="d-inline-block"
+                      max-width="30"
+                      max-height="30"
+                      :lazy-src="require('~/assets/images/catalogIcons/' + category.icon + '.png')"
+                      :src="require('~/assets/images/catalogIcons/' + category.icon + '.png')">
+                    </v-img>
                     <NuxtLink :to='localePath("/products/"+ category.slug +"/all-subcategories/all-brands/page-1")'
                               v-if="!category.subcategories.length"
                               class="header_nav_navigation_menu_link transition-05 white--text">{{ category.name }}
@@ -140,6 +148,13 @@
                     </ul>
                   </li>
                   <li>
+                    <v-img
+                      class="d-inline-block"
+                      max-width="25"
+                      max-height="25"
+                      :lazy-src="require('~/assets/images/catalogIcons/sales.png')"
+                      :src="require('~/assets/images/catalogIcons/sales.png')">
+                    </v-img>
                     <NuxtLink
                       :to='localePath(`/products/all-catalog/all-subcategories/all-brands/%7B"display_quantity":8,"discounted":true%7D/page-1`)'
                       class="header_nav_navigation_menu_link transition-05 white--text">
@@ -214,102 +229,5 @@ export default {
 </script>
 
 <style scoped>
-#header {
-  position: absolute;
-  width: 100%;
-  z-index: 100;
-}
-
-.header_logo {
-  min-width: 12%;
-}
-
-.header_logo_link {
-  margin-left: 1vw;
-  width: 50%;
-  display: block;
-  height: auto;
-}
-
-.header_nav {
-  min-width: 88%;
-}
-
-.header_nav_delivery_part {
-  width: 25%;
-}
-
-.header_nav_delivery_part_language {
-  width: 40%;
-}
-
-.header_nav_navigation {
-  min-width: 90%;
-}
-
-.header_nav_navigation_menu_link {
-  font-size: 22px;
-  line-height: 1;
-}
-
-.header_nav_navigation_menu_link:hover {
-  color: #B71C1C !important;
-  transition: .5s;
-}
-
-.header_nav_navigation_menu_pages_link {
-  font-size: 14px;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.header_nav_navigation_menu_pages_link:hover {
-  color: #B71C1C !important;
-  transition: .5s;
-}
-
-.header_nav_navigation_menu_submenu {
-  visibility: hidden;
-  opacity: 0;
-  min-width: 200px;
-  position: absolute;
-  margin-top: 1px;
-  transition: .8s !important;
-  left: 0;
-  margin-left: 15px;
-  display: none;
-  text-align: left;
-  box-shadow: 0 0 15px white;
-}
-
-.header_nav_navigation_menu li:hover > ul,
-.header_nav_navigation_menu li ul:hover {
-  visibility: visible;
-  opacity: 1;
-  display: block;
-  transition: .8s !important;
-}
-
-.header_nav_navigation_menu li:hover .submenu-icon {
-  transform: rotate(180deg) !important;
-  transition: .5s !important;
-}
-
-.header_nav_navigation_menu li ul li {
-  padding: 6px 25px 6px 12px;
-  font-size: 18px;
-  width: 100%;
-}
-
-.header_nav_navigation_menu li ul li a {
-  color: #dcdcdc;
-  display: block;
-  transition: .5s !important;
-}
-
-.header_nav_navigation_menu li ul li:hover a {
-  color: #B71C1C;
-  transition: .5s !important;
-  margin-left: 4px;
-}
+#header{position:absolute;width:100%;z-index:100}.header_logo{min-width:12%}.header_logo_link{margin-left:1vw;width:50%;display:block;height:auto}.header_nav{min-width:88%}.header_nav_delivery_part{width:25%}.header_nav_delivery_part_language{width:40%}.header_nav_navigation{min-width:90%}.header_nav_navigation_menu_link{font-size:22px;line-height:1}.header_nav_navigation_menu_link:hover{color:#b71c1c!important;transition:.5s}.header_nav_navigation_menu_pages_link{font-size:14px;line-height:1;text-transform:uppercase}.header_nav_navigation_menu_pages_link:hover{color:#b71c1c!important;transition:.5s}.header_nav_navigation_menu_submenu{visibility:hidden;opacity:0;min-width:200px;position:absolute;margin-top:1px;transition:.8s!important;left:0;margin-left:15px;display:none;text-align:left;box-shadow:0 0 15px #fff}.header_nav_navigation_menu li ul:hover,.header_nav_navigation_menu li:hover>ul{visibility:visible;opacity:1;display:block;transition:.8s!important}.header_nav_navigation_menu li:hover .submenu-icon{transform:rotate(180deg)!important;transition:.5s!important}.header_nav_navigation_menu li ul li{padding:6px 25px 6px 12px;font-size:18px;width:100%}.header_nav_navigation_menu li ul li a{color:#dcdcdc;display:block;transition:.5s!important}.header_nav_navigation_menu li ul li:hover a{color:#b71c1c;transition:.5s!important;margin-left:4px}
 </style>

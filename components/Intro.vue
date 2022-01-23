@@ -181,26 +181,5 @@ export default {
 </script>
 
 <style scoped>
-.intro1_background {
-  height: 100vh;
-}
-
-.intro1_text_and_logo {
-  padding-right: 20vw;
-  padding-left: 20vw;
-  position: absolute;
-  top: 20%;
-}
-
-.intro1_text_header {
-  font-size: 50px;
-}
-
-.intro1_text_first {
-  font-size: 30px;
-}
-
-.intro1_text_second {
-  font-size: 24px;
-}
+.intro1_background{height:100vh}.intro1_text_and_logo{padding-right:20vw;padding-left:20vw;position:absolute;top:20%}.intro1_text_header{font-size:50px}.intro1_text_first{font-size:30px}.intro1_text_second{font-size:24px}
 </style>

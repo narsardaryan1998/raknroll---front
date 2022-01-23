@@ -76,7 +76,5 @@ export default {
 </script>
 
 <style scoped>
-#deliveryAndPayment {
-  margin-top: 18vh;
-}
+#deliveryAndPayment{margin-top:18vh}
 </style>

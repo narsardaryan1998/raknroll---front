@@ -230,46 +230,5 @@ export default {
 </script>
 
 <style scoped>
-#contact-us {
-  margin-top: 18vh;
-}
-
-.contact-us_contacts_data_subheader hr {
-  width: 80px;
-  border: 0.04vw solid rgba(205, 205, 205, 0.7);
-  background-color: rgba(205, 205, 205, 0.7);
-}
-
-.contact-us_contacts_data img {
-  width: 40px;
-}
-
-.contact-us_contacts_data_subheader {
-  font-size: 37px;
-}
-
-.contact-us_contacts_text a {
-  color: #FAFAFA !important;
-  font-size: 18px;
-  transition: .5s;
-}
-
-.contact-us_contacts_text a:hover {
-  padding-left: 5px;
-  transition: .5s;
-}
-
-.gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  height: 479px;
-  width: 100%;
-}
-
-.mapouter {
-  position: relative;
-  text-align: right;
-  height: 479px;
-  width: 100%;
-}
+#contact-us{margin-top:18vh}.contact-us_contacts_data_subheader hr{width:80px;border:.04vw solid rgba(205,205,205,.7);background-color:rgba(205,205,205,.7)}.contact-us_contacts_data img{width:40px}.contact-us_contacts_data_subheader{font-size:37px}.contact-us_contacts_text a{color:#fafafa!important;font-size:18px;transition:.5s}.contact-us_contacts_text a:hover{padding-left:5px;transition:.5s}.gmap_canvas{overflow:hidden;background:0 0!important;height:479px;width:100%}.mapouter{position:relative;text-align:right;height:479px;width:100%}
 </style>

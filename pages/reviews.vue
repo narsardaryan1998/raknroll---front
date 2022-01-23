@@ -272,23 +272,5 @@ export default {
 </script>
 
 <style scoped>
-#reviews {
-  margin-top: 18vh;
-}
-
-.reviews_write_review_section_text {
-  font-size: 51px;
-}
-
-.reviews_all_testimonials_card_customer-name {
-  font-size: 40px;
-}
-
-.reviews_all_testimonials_card_review {
-  font-size: 16px;
-}
-
-.reviews_write_review {
-  padding-bottom: 6vh;
-}
+#reviews{margin-top:18vh}.reviews_write_review_section_text{font-size:51px}.reviews_all_testimonials_card_customer-name{font-size:40px}.reviews_all_testimonials_card_review{font-size:16px}.reviews_write_review{padding-bottom:6vh}
 </style>

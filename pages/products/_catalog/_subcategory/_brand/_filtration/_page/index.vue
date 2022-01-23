@@ -694,19 +694,5 @@ export default {
 </script>
 
 <style scoped>
-#products {
-  margin-top: 18vh;
-}
-
-.products_filter {
-  width: 15%;
-}
-
-.products_show {
-  width: 80%;
-}
-
-.unavailable-category-img {
-  width: 40px;
-}
+#products{margin-top:18vh}.products_filter{width:15%}.products_show{width:80%}.unavailable-category-img{width:40px}
 </style>

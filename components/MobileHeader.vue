@@ -94,12 +94,13 @@
               <v-list-item>
                 <v-list-item-icon
                   class="mr-3">
-                  <v-icon
-                    color="grey lighten-3"
-                    medium
-                    dark>
-                    mdi-view-dashboard
-                  </v-icon>
+                  <v-img
+                    v-if="category.icon"
+                    max-width="25"
+                    max-height="25"
+                    :lazy-src="require('~/assets/images/catalogIcons/' + category.icon + '.png')"
+                    :src="require('~/assets/images/catalogIcons/' + category.icon + '.png')">
+                  </v-img>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title
@@ -112,12 +113,13 @@
               <template v-slot:activator class="vzgoo">
                 <v-list-item-icon
                   class="mr-3">
-                  <v-icon
-                    color="grey lighten-3"
-                    medium
-                    dark>
-                    mdi-cart
-                  </v-icon>
+                  <v-img
+                    v-if="category.icon"
+                    max-width="25"
+                    max-height="25"
+                    :lazy-src="require('~/assets/images/catalogIcons/' + category.icon + '.png')"
+                    :src="require('~/assets/images/catalogIcons/' + category.icon + '.png')">
+                  </v-img>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title>{{
@@ -168,12 +170,12 @@
               <v-list-item>
                 <v-list-item-icon
                   class="mr-3">
-                  <v-icon
-                    color="grey lighten-3"
-                    medium
-                    dark>
-                    mdi-view-dashboard
-                  </v-icon>
+                  <v-img
+                    max-width="25"
+                    max-height="25"
+                    :lazy-src="require('~/assets/images/catalogIcons/sales.png')"
+                    :src="require('~/assets/images/catalogIcons/sales.png')">
+                  </v-img>
                 </v-list-item-icon>
                 <v-list-item-content>
                   <v-list-item-title
@@ -310,12 +312,6 @@ export default {
       selectedItem: null
     }
   },
-  mounted() {
-    this.$store.dispatch('categories/getData', {
-      language: this.language
-    });
-    this.getCartDataByLanguage();
-  },
   methods: {
     changeLanguage() {
       this.$store.dispatch('categories/getData', {
@@ -385,66 +381,5 @@ export default {
 </script>
 
 <style scoped>
-#mobileHeader {
-  top: 0;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-}
-
-.mobileHeader_phone-and-language {
-  width: 50%;
-}
-
-.mobileHeader_actions, .mobileHeader_logo {
-  width: 25%;
-}
-
-.mobileHeader_phone {
-  width: 70%;
-}
-
-.mobileHeader-language {
-  width: 30%;
-}
-
-.mobileHeader_nav {
-  z-index: 1000000;
-  position: fixed;
-  top: 0;
-}
-
-.mobileHeader_modal {
-  overflow-y: scroll;
-  padding-top: 94px;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 24%);
-  position: fixed;
-  top: 0;
-  z-index: 10000;
-  transform: translateX(100%);
-  transition: .5s;
-}
-
-.mobileHeader_modal_open {
-  transform: translateX(0%);
-  transition: .5s;
-}
-
-.mobileHeader_modal_nav_navigation_menu li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.mobileHeader_modal_nav_navigation_menu_link {
-  font-size: 20px;
-}
-
-.mobileHeader_modal_nav_navigation_page {
-  color: white;
-}
-
-.nuxt-link-exact-active {
-  color: #B71C1C !important;
-}
+#mobileHeader{top:0;position:fixed;width:100%;z-index:100}.mobileHeader_phone-and-language{width:50%}.mobileHeader_actions,.mobileHeader_logo{width:25%}.mobileHeader_phone{width:70%}.mobileHeader-language{width:30%}.mobileHeader_nav{z-index:1000000;position:fixed;top:0}.mobileHeader_modal{overflow-y:scroll;overflow-x:hidden;padding-top:94px;width:100%;height:100%;background-color:rgb(0 0 0 / 24%);position:fixed;top:0;z-index:10000;transform:translateX(100%);transition:.5s}.mobileHeader_modal_open{transform:translateX(0);transition:.5s}.mobileHeader_modal_nav_navigation_menu li{border-bottom:1px solid rgba(255,255,255,.12)}.mobileHeader_modal_nav_navigation_menu_link{font-size:20px}.mobileHeader_modal_nav_navigation_page{color:#fff}.nuxt-link-exact-active{color:#b71c1c!important}
 </style>

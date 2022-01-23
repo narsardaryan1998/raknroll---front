@@ -18,19 +18,5 @@ export default {
 </script>
 
 <style scoped>
-.loading-bg-overlay {
-  position: absolute;
-  background: black;
-  width: 100%;
-  height: 100%;
-  z-index: 99999999999999;
-}
-
-.loader {
-  z-index: 99999999999999;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+.loading-bg-overlay{position:absolute;background:#000;width:100%;height:100%;z-index:99999999999999}.loader{z-index:99999999999999;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}
 </style>

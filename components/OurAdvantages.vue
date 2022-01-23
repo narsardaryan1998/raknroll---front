@@ -85,35 +85,5 @@ export default {
 </script>
 
 <style scoped>
-.ourAdvantages-section {
-  height: 850px;
-  background-image: url("~/assets/images/intro2_background1.png");
-  background-position: right;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.our-advantages-single_text_header {
-  font-size: 39px;
-  line-height: normal;
-}
-
-.our-advantages-single_text_header:hover {
-  color: #B71C1C;
-  transition: .5s;
-}
-
-.our-advantages-single_text_description {
-  font-size: 19px;
-}
-
-.our-advantages-single_image {
-  width: 85%;
-}
-
-.our-advantages-single_image:hover {
-  width: 85%;
-  transform: rotate(-20deg);
-  transition: .5s;
-}
+.ourAdvantages-section{height:850px;background-image:url("~/assets/images/intro2_background1.png");background-position:right;background-size:contain;background-repeat:no-repeat}.our-advantages-single_text_header{font-size:39px;line-height:normal}.our-advantages-single_text_header:hover{color:#b71c1c;transition:.5s}.our-advantages-single_text_description{font-size:19px}.our-advantages-single_image{width:85%}.our-advantages-single_image:hover{width:85%;transform:rotate(-20deg);transition:.5s}
 </style>

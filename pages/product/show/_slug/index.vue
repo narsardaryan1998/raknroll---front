@@ -182,37 +182,5 @@ export default {
 </script>
 
 <style>
-#product-show {
-  margin-top: 18vh;
-}
-
-.product-show_product_name {
-  font-size: 44px;
-}
-
-.product-show_product_price {
-  font-size: 24px;
-}
-
-hr {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-}
-
-.product-show_product_price .white-opacity-07 {
-  font-size: 20px;
-}
-
-.product-show_product_description {
-  font-size: 31px;
-}
-
-.product-show_product_description .white-opacity-07 {
-  font-size: 20px;
-}
-
-.product-show_tastier-together hr:first-child {
-  width: 65%;
-}
+#product-show{margin-top:18vh}.product-show_product_name{font-size:44px}.product-show_product_price{font-size:24px}hr{height:1px;background-color:rgba(255,255,255,.5);border:none}.product-show_product_price .white-opacity-07{font-size:20px}.product-show_product_description{font-size:31px}.product-show_product_description .white-opacity-07{font-size:20px}.product-show_tastier-together hr:first-child{width:65%}
 </style>

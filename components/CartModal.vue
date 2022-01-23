@@ -206,40 +206,5 @@ export default {
 </script>
 
 <style scoped>
-.cartModal_products_header {
-  font-size: 60px;
-  padding-left: 1.5vw;
-  margin-top: 0.5vw;
-}
-
-.cartModal_products_texts_header {
-  font-size: 25px;
-}
-
-.cartModal_products_totals {
-  font-size: 20px;
-}
-
-.cartModal_products_remove {
-  position: absolute;
-  top: 5px;
-  right: 0;
-}
-
-.cartModal_products_section {
-  position: relative;
-  padding-left: 0.3vw;
-}
-
-.cartModal_products_hr {
-  width: 85%;
-  margin: 0 8% 0 8%;
-  height: 1px;
-  background-color: #424242;
-  border: none;
-}
-
-.your-cart-is-empty {
-  font-size: 50px;
-}
+.cartModal_products_header{font-size:60px;padding-left:1.5vw;margin-top:.5vw}.cartModal_products_texts_header{font-size:25px}.cartModal_products_totals{font-size:20px}.cartModal_products_remove{position:absolute;top:5px;right:0}.cartModal_products_section{position:relative;padding-left:.3vw}.cartModal_products_hr{width:85%;margin:0 8% 0 8%;height:1px;background-color:#424242;border:none}.your-cart-is-empty{font-size:50px}
 </style>
