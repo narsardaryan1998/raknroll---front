@@ -96,7 +96,7 @@
              data-aos="fade-up"
              data-aos-delay="1100"
              data-aos-duration="1000">
-          <NuxtLink :to='localePath("/products/v-yalena-riba/all-subcategories/all-brands/page-1")'>
+          <NuxtLink :to='localePath("/products/zakuski/rybnye/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               :lazy-src="require('~/assets/images/catalog/dried-fish.png')"
@@ -119,7 +119,7 @@
              data-aos="fade-up"
              data-aos-delay="400"
              data-aos-duration="1000">
-          <NuxtLink :to='localePath("/products/alkogolni-napoji/all-subcategories/all-brands/page-1")'>
+          <NuxtLink :to='localePath("/products/napitki-2/vino-2/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               :lazy-src="require('~/assets/images/catalog/alcohol.png')"
@@ -163,7 +163,7 @@
              data-aos="fade-up"
              data-aos-delay="800"
              data-aos-duration="1000">
-          <NuxtLink :to='localePath("/products/napoji/all-subcategories/all-brands/page-1")'>
+          <NuxtLink :to='localePath("/products/napitki-2/all-subcategories/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               :lazy-src="require('~/assets/images/catalog/beverages.png')"
@@ -185,7 +185,7 @@
              data-aos="fade-up"
              data-aos-delay="300"
              data-aos-duration="1000">
-          <NuxtLink :to='localePath("/products/sidr/all-subcategories/all-brands/page-1")'>
+          <NuxtLink :to='localePath("/products/razlivnye-napitki/sidr-2/all-brands/page-1")'>
             <v-img
               :class="hover ? ' scale-1-2' : ''"
               :lazy-src="require('~/assets/images/catalog/cider.png')"
