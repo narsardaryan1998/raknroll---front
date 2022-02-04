@@ -45,9 +45,9 @@
                 <img alt="Phone" src="~/assets/icons/icons8-phone-64 (1).png"/>
               </div>
               <div class="ml-3 contact-us_contacts_text transition-05">
-                <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
+                <a href="tel:+380965990909">+38 (096) 599 - 09 - 09</a>
                 <br>
-                <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
+                <a href="tel:+380935990909">+38 (093) 599 - 09 - 09</a>
               </div>
             </div>
           </div>
