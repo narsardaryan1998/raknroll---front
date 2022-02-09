@@ -60,8 +60,8 @@
             single-line
             @change="call($event)">
           </v-select>
-          <a ref="phone1" href="tel:380965990909"></a>
-          <a ref="phone2" href="tel:380935990909"></a>
+          <a ref="phone1" href="tel:+380965990909"></a>
+          <a ref="phone2" href="tel:+380935990909"></a>
         </div>
       </div>
       <div class="mobileHeader_actions d-flex justify-end align-center">

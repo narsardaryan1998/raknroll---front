@@ -100,8 +100,8 @@
                   single-line
                   @change="call($event)">
                 </v-select>
-                <a ref="phone1" href="tel:380965990909"></a>
-                <a ref="phone2" href="tel:380935990909"></a>
+                <a ref="phone1" href="tel:+380965990909"></a>
+                <a ref="phone2" href="tel:+380935990909"></a>
               </div>
             </div>
           </div>
@@ -113,8 +113,8 @@
                     <v-img
                       v-if="category.icon"
                       class="d-inline-block"
-                      max-width="30"
-                      max-height="30"
+                      max-width="25"
+                      max-height="25"
                       :lazy-src="require('~/assets/images/catalogIcons/' + category.icon + '.png')"
                       :src="require('~/assets/images/catalogIcons/' + category.icon + '.png')">
                     </v-img>

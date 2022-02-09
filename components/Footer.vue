@@ -30,8 +30,8 @@
                       <img alt="Phone" src="~/assets/icons/icons8-phone-64-red.png"/>
                     </div>
                     <div class="ml-3 contact-us_contacts_text transition-05 d-flex flex-column">
-                      <a href="tel:380965990909">+38 (096) 599 - 09 - 09</a>
-                      <a href="tel:380935990909">+38 (093) 599 - 09 - 09</a>
+                      <a href="tel:+380965990909">+38 (096) 599 - 09 - 09</a>
+                      <a href="tel:+380935990909">+38 (093) 599 - 09 - 09</a>
                     </div>
                   </div>
                   <div class="d-flex align-center ml-sm-3 flex-column flex-sm-row">
