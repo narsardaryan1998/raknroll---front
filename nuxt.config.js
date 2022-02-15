@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 import i18n from './config/i18n'
+const axios = require('axios')
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -74,6 +75,7 @@ export default {
   modules: [
     '@nuxtjs/moment',
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
     [
       '@nuxtjs/i18n',
       {
@@ -101,6 +103,27 @@ export default {
       }
     ]
   ],
+
+  sitemap: {
+    xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    hostname: 'https://www.raknroll.com.ua/',
+    path: '/sitemap.xml',
+    gzip: true,
+    exclude: [
+      '/cart',
+    ],
+    cacheTime: 1000 * 60 * 15,
+    i18n: true,
+    // nuxt-i18n notation (advanced)
+    i18n: {
+      locales: ['uk', 'ru'],
+      routesNameSeparator: '___'
+    },
+    routes: async () => {
+      const { data } = await axios.get('http://raknroll.ua/api/products/slugs')
+      return data.map((slug) => `/product/show/${slug}`)
+    }
+  },
 
   moment: {
     locales: ['ru'],
