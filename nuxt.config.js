@@ -106,7 +106,7 @@ export default {
 
   sitemap: {
     xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    hostname: 'https://www.raknroll.com.ua/',
+    hostname: 'https://api.raknroll.com.ua/',
     path: '/sitemap.xml',
     gzip: true,
     exclude: [
