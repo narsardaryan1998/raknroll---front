@@ -113,8 +113,6 @@ export default {
       '/cart',
     ],
     cacheTime: 1000 * 60 * 15,
-    i18n: true,
-    // nuxt-i18n notation (advanced)
     i18n: {
       locales: ['uk', 'ru'],
       routesNameSeparator: '___'
