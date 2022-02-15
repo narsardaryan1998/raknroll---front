@@ -120,7 +120,7 @@ export default {
       routesNameSeparator: '___'
     },
     routes: async () => {
-      const { data } = await axios.get('http://raknroll.ua/api/products/slugs')
+      const { data } = await axios.get('https://api.raknroll.com.ua/api/products/slugs')
       return data.map((slug) => `/product/show/${slug}`)
     }
   },
