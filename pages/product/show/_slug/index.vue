@@ -156,6 +156,12 @@ export default {
           content: this.baseUrl.substring(0, this.baseUrl.length - 1) + this.$nuxt.$route.path
         },
         ...i18nHead.meta
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
       ]
     }
   },

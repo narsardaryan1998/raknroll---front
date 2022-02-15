@@ -67,9 +67,20 @@
 <script>
 export default {
   name: "delivery-and-payment",
+  data(){
+    return {
+      baseUrl: process.env.BASE_URL
+    }
+  },
   head() {
     return {
-      title: this.$t('seo.title.deliveryAndPayment')
+      title: this.$t('seo.title.deliveryAndPayment'),
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
     }
   },
 }

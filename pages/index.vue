@@ -14,10 +14,25 @@ import CashbackProductsSection from '~/components/CashbackProductsSection'
 
 export default {
   name: 'home',
+  data(){
+    return {
+      baseUrl: process.env.BASE_URL
+    }
+  },
   async asyncData({store, i18n}) {
     await store.dispatch('home/getData', {
       language: i18n.locale
     });
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
+    }
   },
   components: {
     Intro,

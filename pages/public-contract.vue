@@ -81,10 +81,31 @@
 
 <script>
 export default {
-  name: "publicContract"
+  name: "publicContract",
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    }
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
+    }
+  },
 }
 </script>
 
 <style scoped>
-#publicContract{margin-top:18vh}.publicContract_subheaders{font-size:18px}
+#publicContract {
+  margin-top: 18vh
+}
+
+.publicContract_subheaders {
+  font-size: 18px
+}
 </style>

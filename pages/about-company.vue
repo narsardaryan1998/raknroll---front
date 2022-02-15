@@ -72,9 +72,20 @@
 <script>
 export default {
   name: "about-company",
+  data(){
+    return {
+      baseUrl: process.env.BASE_URL
+    }
+  },
   head() {
     return {
-      title: this.$t('seo.title.aboutCompany')
+      title: this.$t('seo.title.aboutCompany'),
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
     }
   },
 }

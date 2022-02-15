@@ -196,6 +196,7 @@ export default {
     return {
       valid: false,
       busy: false,
+      baseUrl: process.env.BASE_URL,
       reviewForm: {
         name: '',
         email: '',
@@ -236,7 +237,13 @@ export default {
   },
   head() {
     return {
-      title: this.$t('seo.title.reviews')
+      title: this.$t('seo.title.reviews'),
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
     }
   },
   methods: {

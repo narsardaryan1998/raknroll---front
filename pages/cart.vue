@@ -862,7 +862,13 @@ export default {
 
   head() {
     return {
-      title: this.$t('seo.title.cart')
+      title: this.$t('seo.title.cart'),
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
+      ]
     }
   },
 

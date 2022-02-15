@@ -613,6 +613,12 @@ export default {
           content: this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico'
         },
         ...i18nHead.meta
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+        }
       ]
     }
   },

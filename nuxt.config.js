@@ -76,6 +76,7 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
     [
       '@nuxtjs/i18n',
       {
@@ -121,6 +122,11 @@ export default {
       const { data } = await axios.get('https://api.raknroll.com.ua/api/products/slugs')
       return data.map((slug) => `/product/show/${slug}`)
     }
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: '/'
   },
 
   moment: {

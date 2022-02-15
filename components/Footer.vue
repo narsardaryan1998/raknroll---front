@@ -104,6 +104,7 @@
                 <v-hover
                   v-slot="{ hover }">
                   <a href="https://www.facebook.com/RAKnROLL-100396829019534"
+                     rel="nofollow"
                      target="_blank">
                     <v-img
                       :lazy-src="require('~/assets/images/fb-logo-red.png')"
@@ -116,6 +117,7 @@
                 <v-hover
                   v-slot="{ hover }">
                   <a href="https://instagram.com/rak._n_.roll?r=nametag"
+                     rel="nofollow"
                      target="_blank">
                     <v-img
                       :lazy-src="require('~/assets/images/instaram-logo-red.png')"
@@ -128,7 +130,8 @@
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
-                  <a href="viber://chat?number=%2B380965990909" target="_blank">
+                  <a href="viber://chat?number=%2B380965990909" target="_blank"
+                     rel="nofollow">
                     <v-img
                       :lazy-src="require('~/assets/images/viber-logo-red.png')"
                       :src="require('~/assets/images/viber-logo-red.png')"
@@ -140,7 +143,8 @@
                 </v-hover>
                 <v-hover
                   v-slot="{ hover }">
-                  <a href="https://telegram.me/Raknroll2021" target="_blank">
+                  <a href="https://telegram.me/Raknroll2021" target="_blank"
+                     rel="nofollow">
                     <v-img
                       :lazy-src="require('~/assets/images/telegram-logo-red.png')"
                       :src="require('~/assets/images/telegram-logo-red.png')"
