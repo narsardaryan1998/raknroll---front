@@ -21,7 +21,7 @@ export default {
     }
   },
   async asyncData({$axios}) {
-    const ip = await $axios.$get('http://icanhazip.com')
+    const ip = await $axios.$get('https://api.raknroll.com.ua/api/home')
     return { ip }
   },
   head() {
