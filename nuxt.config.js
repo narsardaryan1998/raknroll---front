@@ -77,7 +77,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    '@nuxtjs/proxy',
     [
       '@nuxtjs/i18n',
       {
@@ -135,11 +134,7 @@ export default {
     defaultTimezone: 'EET'
   },
   axios: {
-    proxy: true
-  },
-
-  proxy: {
-    '/api/': 'https://api.raknroll.com.ua/'
+    baseURL: process.env.BASE_URL
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
