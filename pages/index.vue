@@ -1,6 +1,7 @@
 <template>
   <div>
     <Intro></Intro>
+    <h1>{{ aaa }}</h1>
     <CashbackProductsSection></CashbackProductsSection>
     <CatalogSection></CatalogSection>
     <OurAdvantages></OurAdvantages>
@@ -19,10 +20,13 @@ export default {
       baseUrl: process.env.BASE_URL
     }
   },
-  async asyncData({store, i18n}) {
-    await store.dispatch('home/getData', {
-      language: i18n.locale
-    });
+  async asyncData() {
+    const aaa = 99999999999999;
+
+      return {aaa}
+    // await store.dispatch('home/getData', {
+    //   language: i18n.locale
+    // });
   },
   head() {
     return {
