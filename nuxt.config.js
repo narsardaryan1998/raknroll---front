@@ -77,6 +77,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
+    '@nuxtjs/proxy',
     [
       '@nuxtjs/i18n',
       {
