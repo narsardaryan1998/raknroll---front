@@ -134,7 +134,11 @@ export default {
     defaultTimezone: 'EET'
   },
   axios: {
-    baseURL: process.env.BASE_URL
+    proxy: true
+  },
+
+  proxy: {
+    '/api/': 'https://api.raknroll.com.ua/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
