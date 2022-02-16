@@ -1,6 +1,6 @@
 export const actions = {
   getData({commit}, params) {
-    return this.$axios.get('/api/review', {params}).then(response => {
+    return this.$axios.get('http://www.api.raknroll.com.ua/api/review', {params}).then(response => {
       commit('updateData', response.data);
     })
   },
