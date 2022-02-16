@@ -21,7 +21,7 @@ export default {
     }
   },
   async asyncData({$axios}) {
-    const ip = await $axios.$get('https://api.raknroll.com.ua/api/home')
+    const ip = await $axios.$get('https://api.shashlikyan.ua/uk/catalog/cart-recommended/kyiv')
     return { ip }
   },
   head() {
