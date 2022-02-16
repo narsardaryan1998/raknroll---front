@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ ip }}
     <Intro></Intro>
     <CashbackProductsSection></CashbackProductsSection>
     <CatalogSection></CatalogSection>
@@ -20,9 +19,10 @@ export default {
       baseUrl: process.env.BASE_URL
     }
   },
-  async asyncData({$axios}) {
-    const ip = await $axios.$get('http://api.raknroll.com.ua/api/products/slugs')
-    return { ip }
+  async asyncData({store, i18n}) {
+    await store.dispatch('home/getData', {
+      language: i18n.locale
+    });
   },
   head() {
     return {
