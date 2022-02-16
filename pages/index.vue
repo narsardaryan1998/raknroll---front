@@ -19,7 +19,7 @@ export default {
       baseUrl: process.env.BASE_URL
     }
   },
-  async asyncData({store, i18n}) {
+  async fetch({store, i18n}) {
     await store.dispatch('home/getData', {
       language: i18n.locale
     });
