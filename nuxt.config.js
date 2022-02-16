@@ -6,7 +6,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
   ssr: true,
-
+  server: {
+    host: '0.0.0.0', // default: localhost,
+    timing: false
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Доставка роллов киев | Суши бесплатная доставка | Rak'n'Roll | raknroll.com.ua",
