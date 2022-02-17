@@ -39,7 +39,13 @@ export default {
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap'},
       {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fleur+De+Leah&family=Lobster&family=Tangerine&display=swap" rel="stylesheet'},
-    ]
+    ],
+    script: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-SYMEMPS7YP",
+        async: true
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

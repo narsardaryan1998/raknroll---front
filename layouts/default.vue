@@ -41,6 +41,11 @@ export default {
     }
   },
   mounted() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SYMEMPS7YP');
     window.scrollTo(0, 0);
     AOS.init({
       once: true,// whether animation should happen only once - while scrolling down
