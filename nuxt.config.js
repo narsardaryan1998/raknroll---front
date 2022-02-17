@@ -42,7 +42,7 @@ export default {
     ],
     script: [
       {
-        src: "https://www.googletagmanager.com/gtag/js?id=G-SYMEMPS7YP",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-78KZMHS9EK",
         async: true
       },
     ],
@@ -114,7 +114,7 @@ export default {
 
   sitemap: {
     xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    hostname: 'https://api.raknroll.com.ua/',
+    hostname: 'http://api.raknroll.com.ua/',
     path: '/sitemap.xml',
     gzip: true,
     exclude: [
@@ -126,7 +126,7 @@ export default {
       routesNameSeparator: '___'
     },
     routes: async () => {
-      const { data } = await axios.get('https://api.raknroll.com.ua/api/products/slugs')
+      const { data } = await axios.get('http://api.raknroll.com.ua/api/products/slugs')
       return data.map((slug) => `/product/show/${slug}`)
     }
   },

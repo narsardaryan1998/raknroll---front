@@ -45,7 +45,8 @@ export default {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-SYMEMPS7YP');
+    gtag('config', 'G-78KZMHS9EK');
+    
     window.scrollTo(0, 0);
     AOS.init({
       once: true,// whether animation should happen only once - while scrolling down
