@@ -26,7 +26,8 @@ export default {
       {name: 'msapplication-TileColor', content: '#040404'},
       {name: 'theme-color', content: '#040404'},
       {hid: 'description', name: 'description', content: ''},
-      {name: 'format-detection', content: 'telephone=no'}
+      {name: 'format-detection', content: 'telephone=no'},
+      {'http-equiv': 'Content-Security-Policy', content: 'upgrade-insecure-requests'}
     ],
     link: [
       {hid: 'apple-touch-icon', rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon-180.ico'},
