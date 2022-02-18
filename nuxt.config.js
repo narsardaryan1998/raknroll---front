@@ -18,7 +18,7 @@ export default {
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'og:type', property: 'og:type', content: 'website'},
       {hid: 'og:site_name', property: 'og:site_name', content: 'raknroll.com.ua'},
-      {hid: 'og:url', property: 'og:url', content: process.env.BASE_URL},
+      {hid: 'og:url', property: 'og:url', content: process.env.frontBaseUrlHttps},
       {hid: 'og:image', property: 'og:image', content: process.env.BASE_URL + 'images/raknroll-logo.png'},
       {hid: 'og:image:height', property: 'og:image:height', content: '300'},
       {hid: 'og:image:width', property: 'og:image:width', content: '400'},
@@ -114,7 +114,7 @@ export default {
 
   sitemap: {
     xmlNs: 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    hostname: 'http://api.raknroll.com.ua/',
+    hostname: process.env.FRONT_BASE_URL_HTTPS,
     path: '/sitemap.xml',
     gzip: true,
     exclude: [
@@ -126,15 +126,25 @@ export default {
       routesNameSeparator: '___'
     },
     routes: async () => {
-      const { data } = await axios.get('http://api.raknroll.com.ua/api/products/slugs')
+      const { data } = await axios.get(process.env.BASE_URL + 'api/products/slugs')
       return data.map((slug) => `/product/show/${slug}`)
     }
   },
 
-  robots: {
-    UserAgent: '*',
-    Disallow: '/'
-  },
+  robots: [
+    {
+      UserAgent: 'Googlebot',
+      Allow: '/',
+    },
+    {
+      UserAgent: '*',
+      Allow: '/',
+    },
+    {
+      Host: process.env.FRONT_BASE_URL_HTTPS,
+      Sitemap: process.env.FRONT_BASE_URL_HTTPS + 'sitemap.xml',
+    }
+  ],
 
   moment: {
     locales: ['ru'],

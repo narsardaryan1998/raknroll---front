@@ -223,7 +223,7 @@ export default {
   name: "ContactUs",
   data(){
     return {
-      baseUrl: process.env.BASE_URL
+      frontBaseUrlHttps: process.env.FRONT_BASE_URL_HTTPS,
     }
   },
   head() {
@@ -232,7 +232,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+          href: this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path
         }
       ]
     }

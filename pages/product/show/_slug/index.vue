@@ -121,6 +121,7 @@ export default {
   data() {
     return {
       baseUrl: process.env.BASE_URL,
+      frontBaseUrlHttps: process.env.FRONT_BASE_URL_HTTPS,
       slug: this.$route.params.slug,
       language: this.$i18n.locale,
     }
@@ -153,14 +154,14 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: this.baseUrl.substring(0, this.baseUrl.length - 1) + this.$nuxt.$route.path
+          content: this.frontBaseUrlHttps.substring(0, this.frontBaseUrlHttps.length - 1) + this.$nuxt.$route.path
         },
         ...i18nHead.meta
       ],
       link: [
         {
           rel: 'canonical',
-          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+          href: this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path
         }
       ]
     }

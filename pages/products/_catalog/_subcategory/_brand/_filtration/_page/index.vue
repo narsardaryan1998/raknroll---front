@@ -528,7 +528,8 @@ export default {
       mobileFilterModal: false,
       unavailableDialog: false,
       displayQuantityArray: [8, 12, 16],
-      baseUrl: process.env.BASE_URL
+      baseUrl: process.env.BASE_URL,
+      frontBaseUrlHttps: process.env.FRONT_BASE_URL_HTTPS,
     }
   },
   async asyncData({params, store, i18n, error}) {
@@ -588,25 +589,22 @@ export default {
     let metaTitleCategory = this.category.meta_title ? this.category.meta_title : this.category.name;
     let metaKeysCategory = this.category.meta_keys ? this.category.meta_keys : this.category.name;
     let metaDescCategory = this.category.meta_description ? this.category.meta_description : this.category.description;
-    let metaTitleBrand = this.brand.meta_title ? this.brand.meta_title : this.brand.name;
-    let metaKeysBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
-    let metaDescBrand = this.brand.meta_keys ? this.brand.meta_keys : this.brand.name;
 
     const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
 
     return {
-      title: metaTitleCategory + ' | ' + metaTitleBrand,
+      title: metaTitleCategory,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: metaKeysCategory + ', ' + metaKeysBrand
+          content: metaKeysCategory
         },
-        // {
-        //   hid: 'description',
-        //   name: 'description',
-        //   content: metaDescCategory + ', ' + metaDescBrand
-        // },
+        {
+          hid: 'description',
+          name: 'description',
+          content: metaDescCategory
+        },
         {
           hid: 'og:image',
           property: 'og:image',
@@ -617,7 +615,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path
+          href: this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path
         }
       ]
     }

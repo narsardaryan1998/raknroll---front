@@ -36,17 +36,18 @@ export default {
   data() {
     return {
       loading: true,
-      baseUrl: process.env.BASE_URL,
+      frontBaseUrlHttps: process.env.FRONT_BASE_URL_HTTPS,
       showScrollToTopButton: false
     }
   },
   mounted() {
+    document.documentElement.setAttribute('lang', this.$i18n.locale)
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-78KZMHS9EK');
-    
+
     window.scrollTo(0, 0);
     AOS.init({
       once: true,// whether animation should happen only once - while scrolling down
@@ -96,7 +97,7 @@ export default {
       link: [
         {
           rel: 'alternate',
-          href: this.baseUrl.slice(0, -1) + this.$nuxt.$route.path,
+          href: this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path,
           hreflang: this.$i18n.locale,
         }
       ]
