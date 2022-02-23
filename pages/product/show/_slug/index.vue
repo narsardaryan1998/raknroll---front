@@ -126,6 +126,33 @@ export default {
       language: this.$i18n.locale,
     }
   },
+  jsonld() {
+    return {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": this.$store.getters['product/data'].product.name,
+      "image": this.$store.getters['product/data'].product.image,
+      "description": this.$store.getters['product/data'].product.description,
+      "brand": {
+        "@type": "Brand",
+        "name": this.$store.getters['product/data'].product.brand ? this.$store.getters['product/data'].product.brand.name : "Rak'n'Roll"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path,
+        "priceCurrency": "UAH",
+        "price": this.$store.getters['product/data'].product.final_price
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "5"
+      }
+
+    };
+  },
   head() {
     const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
     return {

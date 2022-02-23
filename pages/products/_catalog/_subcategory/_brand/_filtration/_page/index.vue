@@ -563,6 +563,14 @@ export default {
     if (!category || !brand) {
       error({statusCode: 404, message: 'Post not found'})
     }
+    var lowest = Number.POSITIVE_INFINITY;
+    var highest = Number.NEGATIVE_INFINITY;
+    var tmp;
+    for (var i = store.getters['products/data'].products.length - 1; i >= 0; i--) {
+      tmp = store.getters['products/data'].products[i].final_price;
+      if (tmp < lowest) lowest = tmp;
+      if (tmp > highest) highest = tmp;
+    }
     if (category) {
       let initialSubcategories = [...category.subcategories];
       if (filter.subcategory_slug !== 'all-subcategories') {
@@ -579,11 +587,38 @@ export default {
         name: i18n.t('allSubcategories')
       })
       const subcategories = initialSubcategories;
-
-      return {filter, category, brand, subcategories}
+      return {filter, category, brand, subcategories, highest, lowest}
     }
 
-    return {filter, category, brand}
+    return {filter, category, brand, highest, lowest}
+  },
+  jsonld() {
+    return {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": this.category.name,
+      "image": this.$store.getters['products/data'].products.length ? this.baseUrl + this.$store.getters['products/data'].products[0].image : '/favicon.ico',
+      "description": this.category.meta_description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Rak'n'Roll"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": this.frontBaseUrlHttps.slice(0, -1) + this.$nuxt.$route.path,
+        "priceCurrency": "UAH",
+        "lowPrice": this.lowest.toString(),
+        "highPrice": this.highest.toString()
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "5"
+      }
+
+    };
   },
   head() {
     let metaTitleCategory = this.category.meta_title ? this.category.meta_title : this.category.name;
@@ -698,5 +733,19 @@ export default {
 </script>
 
 <style scoped>
-#products{margin-top:18vh}.products_filter{width:15%}.products_show{width:80%}.unavailable-category-img{width:40px}
+#products {
+  margin-top: 18vh
+}
+
+.products_filter {
+  width: 15%
+}
+
+.products_show {
+  width: 80%
+}
+
+.unavailable-category-img {
+  width: 40px
+}
 </style>

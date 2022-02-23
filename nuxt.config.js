@@ -65,6 +65,7 @@ export default {
     {src: '~/plugins/vue-awesome-swiper', mode: 'client'},
     {src: '~/plugins/v-mask'},
     {src: '~/plugins/vue-infinite-scroll.js', ssr: false},
+    {src: '~/plugins/jsonld'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

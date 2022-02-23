@@ -43,7 +43,11 @@ export default {
   mounted() {
     document.documentElement.setAttribute('lang', this.$i18n.locale)
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'G-78KZMHS9EK');
@@ -80,6 +84,37 @@ export default {
     Footer,
     CartModal,
     Loading1,
+  },
+  jsonld() {
+    return [
+      {
+        "@context": "http://www.schema.org",
+        "@type": "WebSite",
+        "name": "Rak'n'Roll",
+        "url": this.frontBaseUrlHttps
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Rak'n'Roll",
+        "url": this.frontBaseUrlHttps,
+        "logo": this.frontBaseUrlHttps + "_nuxt/img/raknroll-logo.e8b9583.png",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+38 (096) 599 - 09 - 09",
+          "contactType": "sales",
+          "areaServed": "UA",
+          "availableLanguage": ["Russian", "Ukrainian"]
+        }, {
+          "@type": "ContactPoint",
+          "telephone": "+38 (093) 599 - 09 - 09",
+          "contactType": "sales",
+          "areaServed": "UA",
+          "availableLanguage": ["Ukrainian", "Russian"]
+        }]
+      }
+
+    ];
   },
   head() {
     const i18nHead = this.$nuxtI18nHead({addSeoAttributes: true})
